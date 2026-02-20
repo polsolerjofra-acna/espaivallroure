@@ -1,0 +1,699 @@
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="ca" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espai Vall-Roure | Lloguer de Parcel·les d'Hort Ecològic</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f2fbf5',
+                            100: '#e1f6e8',
+                            200: '#c4ebd4',
+                            300: '#96d9b4',
+                            400: '#60bf8d',
+                            500: '#3ba36e',
+                            600: '#2b8356',
+                            700: '#246946',
+                            800: '#1f5339',
+                            900: '#1a4430',
+                            950: '#0d2419',
+                        },
+                        earth: {
+                            50: '#faf8f5',
+                            100: '#f0ebe1',
+                            200: '#e1d5c1',
+                            300: '#cfbc9c',
+                            400: '#bca176',
+                            500: '#ae8a5b',
+                            600: '#9d734e',
+                            700: '#835c43',
+                            800: '#6a4b39',
+                            900: '#563e31',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(13, 36, 25, 0.75), rgba(13, 36, 25, 0.65)), url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .blob-shape {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        }
+    </style>
+</head>
+<body class="font-sans text-stone-800 bg-earth-50 antialiased selection:bg-brand-200 selection:text-brand-900">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm border-b border-earth-100" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-2 group cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="bg-brand-100 p-2 rounded-lg group-hover:bg-brand-200 transition">
+                        <i data-lucide="sprout" class="text-brand-700 h-6 w-6"></i>
+                    </div>
+                    <span class="font-serif font-bold text-2xl text-brand-950 tracking-tight">Vall-Roure</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-8 items-center">
+                    <a href="#taller" class="text-stone-600 hover:text-brand-600 font-semibold transition">El Taller</a>
+                    <a href="#beneficis" class="text-stone-600 hover:text-brand-600 font-semibold transition">Instal·lacions</a>
+                    <a href="#preus" class="text-stone-600 hover:text-brand-600 font-semibold transition">Preus</a>
+                    <a href="#serveis" class="text-stone-600 hover:text-brand-600 font-semibold transition">Serveis Extres</a>
+                    <a href="#normes" class="text-stone-600 hover:text-brand-600 font-semibold transition">Comunitat</a>
+                </div>
+                <div class="hidden lg:block">
+                    <a href="#contacte" class="bg-brand-700 text-white px-7 py-2.5 rounded-xl font-bold hover:bg-brand-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center gap-2">
+                        Reserva ara <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-stone-600 hover:text-brand-600 focus:outline-none p-2 rounded-lg bg-earth-100">
+                        <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="lg:hidden hidden bg-white border-b border-earth-100 absolute w-full left-0 shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#taller" class="block px-4 py-3 rounded-lg text-stone-600 hover:bg-brand-50 hover:text-brand-700 font-semibold transition">El Taller</a>
+                <a href="#beneficis" class="block px-4 py-3 rounded-lg text-stone-600 hover:bg-brand-50 hover:text-brand-700 font-semibold transition">Instal·lacions</a>
+                <a href="#preus" class="block px-4 py-3 rounded-lg text-stone-600 hover:bg-brand-50 hover:text-brand-700 font-semibold transition">Preus</a>
+                <a href="#serveis" class="block px-4 py-3 rounded-lg text-stone-600 hover:bg-brand-50 hover:text-brand-700 font-semibold transition">Serveis Extres</a>
+                <a href="#normes" class="block px-4 py-3 rounded-lg text-stone-600 hover:bg-brand-50 hover:text-brand-700 font-semibold transition">Comunitat</a>
+                <a href="#contacte" class="block w-full text-center mt-4 bg-brand-700 text-white px-6 py-3 rounded-xl font-bold hover:bg-brand-800 transition shadow-md">
+                    Reserva ara
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center pt-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white mb-8">
+                <span class="flex h-2 w-2 rounded-full bg-green-400"></span>
+                <span class="text-sm font-semibold tracking-wide uppercase">Noves parcel·les disponibles</span>
+            </div>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white font-bold leading-tight mb-6 drop-shadow-2xl">
+                Torna a les arrels.
+            </h1>
+            <p class="text-xl md:text-2xl text-earth-100 mb-10 max-w-3xl mx-auto font-light drop-shadow-lg leading-relaxed">
+                Lloguer de parcel·les d'hort ecològic de <span class="font-bold text-white">25m² i 50m²</span>. 
+                Gaudeix de la teva pròpia terra, totalment equipada i segura, en una comunitat que respecta l'entorn.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-5">
+                <a href="#preus" class="bg-brand-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-brand-600 transition shadow-xl flex items-center justify-center gap-2 border border-brand-400">
+                    Veure tarifes
+                </a>
+                <a href="#taller" class="bg-white text-brand-950 px-8 py-4 rounded-xl font-bold text-lg hover:bg-earth-50 transition shadow-xl flex items-center justify-center gap-2">
+                    Començar de zero <i data-lucide="seedling" class="w-5 h-5 text-brand-600"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Decoració inferior Hero -->
+        <div class="absolute bottom-0 w-full">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="w-full h-auto text-earth-50 fill-current">
+                <path d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Taller (Lead Magnet) -->
+    <section id="taller" class="py-20 bg-earth-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-[2.5rem] p-8 md:p-14 shadow-2xl border border-earth-200 relative overflow-hidden">
+                <!-- Fons abstracte -->
+                <div class="absolute top-0 right-0 w-96 h-96 bg-brand-50 rounded-full blur-3xl -mr-20 -mt-20 opacity-60"></div>
+                
+                <div class="grid lg:grid-cols-2 gap-12 items-center relative z-10">
+                    <div>
+                        <span class="inline-block px-4 py-1.5 bg-earth-200 text-earth-800 font-bold rounded-lg text-sm tracking-wide uppercase mb-4">Especial Principiants</span>
+                        <h2 class="font-serif text-3xl md:text-5xl font-bold text-brand-950 mb-6 leading-tight">
+                            Comença el teu hort des de zero
+                        </h2>
+                        <p class="text-lg text-stone-600 mb-8 leading-relaxed">
+                            No has tocat mai la terra? Cap problema! Amb la teva parcel·la, t'oferim un <strong>taller pràctic de 2-3 hores</strong> enfocat a les tasques del "dia 1". Ens embrutarem les mans per deixar-ho tot llest.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center shrink-0">
+                                    <i data-lucide="ruler" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-stone-800 text-lg">1. Planificació de l'espai</h4>
+                                    <p class="text-stone-500 text-sm">Com dividir els metres per aprofitar l'espai sense atapeir les plantes.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center shrink-0">
+                                    <i data-lucide="shovel" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-stone-800 text-lg">2. Preparació de la terra</h4>
+                                    <p class="text-stone-500 text-sm">Com treballar la terra i integrar fems perquè agafi força.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center shrink-0">
+                                    <i data-lucide="droplet" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-stone-800 text-lg">3. El sistema de reg</h4>
+                                    <p class="text-stone-500 text-sm">Conceptes bàsics per muntar el reg per goteig i tub d'exudació.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center shrink-0">
+                                    <i data-lucide="flower-2" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-stone-800 text-lg">4. L'art de plantar</h4>
+                                    <p class="text-stone-500 text-sm">Com col·locar el primer planter (tomàquets, enciams) sense fer malbé les arrels.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative mt-8 lg:mt-0">
+                        <img src="https://images.unsplash.com/photo-1592424001807-64b18c6ccdb4?auto=format&fit=crop&q=80&w=800" alt="Mans plantant un enciam" class="rounded-[2rem] shadow-xl w-full object-cover h-[400px] sm:h-[500px]">
+                        <div class="absolute -bottom-6 -left-4 sm:-bottom-8 sm:-left-8 bg-white p-4 sm:p-6 rounded-2xl shadow-xl max-w-[250px] sm:max-w-xs border border-earth-100">
+                            <p class="font-bold text-brand-800 mb-1">Aprenentatge pràctic</p>
+                            <p class="text-xs sm:text-sm text-stone-500">Garanteix l'èxit de la teva primera collita des del primer dia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instal·lacions i Beneficis -->
+    <section id="beneficis" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-3xl md:text-5xl font-bold text-brand-950 mb-6">Instal·lacions llestes per cultivar</h2>
+                <p class="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">La teva quota d'alta és una inversió en tranquil·litat. Nosaltres posem tota la infraestructura perquè tu només posis la llavor.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-earth-50 rounded-3xl p-8 border border-earth-100 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-14 h-14 bg-brand-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-brand-200">
+                        <i data-lucide="shield" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl mb-3 text-stone-800">Doble Seguretat</h3>
+                    <p class="text-stone-600 leading-relaxed">Tot el recinte disposa de vallat elèctric i vallat galvanitzat per protegir els teus cultius de la fauna salvatge.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-earth-50 rounded-3xl p-8 border border-earth-100 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-14 h-14 bg-brand-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-brand-200">
+                        <i data-lucide="droplets" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl mb-3 text-stone-800">Aigua a la parcel·la</h3>
+                    <p class="text-stone-600 leading-relaxed">Xarxa de tubs instal·lada amb font propera perquè no hagis de carregar pes. Aigua garantida pel teu cultiu.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-earth-50 rounded-3xl p-8 border border-earth-100 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-14 h-14 bg-brand-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-brand-200">
+                        <i data-lucide="wrench" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl mb-3 text-stone-800">Caseta i Eines</h3>
+                    <p class="text-stone-600 leading-relaxed">No cal que compris material. Disposem d'una caseta amb regadores, aixades, rasclets i tot allò necessari, d'ús compartit.</p>
+                </div>
+                <!-- Card 4 (Comunitat) -->
+                <div class="bg-earth-50 rounded-3xl p-8 border border-earth-100 lg:col-span-3 flex flex-col md:flex-row items-center gap-8 justify-between">
+                    <div class="md:w-2/3">
+                        <h3 class="font-bold text-2xl mb-3 text-stone-800 flex items-center gap-2">
+                            <i data-lucide="tent-tree" class="text-brand-600"></i> Molt més que un hort
+                        </h3>
+                        <p class="text-stone-600 leading-relaxed">
+                            L'Espai Vall-Roure és un espai viu. Comptem amb <strong>Zona de pícnic i Espai infantil</strong>. Properament, a més, incorporarem <em>Residència canina</em> i <em>Granja escola</em> per fer-ho el lloc perfecte per a tota la família.
+                        </p>
+                    </div>
+                    <div class="md:w-1/3 w-full">
+                        <a href="#contacte" class="w-full block text-center bg-white border-2 border-brand-200 text-brand-700 font-bold py-4 rounded-xl hover:bg-brand-50 transition">
+                            Vull venir a veure-ho
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans i Preus -->
+    <section id="preus" class="py-24 bg-brand-950 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-3xl md:text-5xl font-bold mb-6">Tria el teu espai de terra</h2>
+                <p class="text-lg text-brand-100 max-w-2xl mx-auto">Tots els contractes tenen una durada inicial d'1 any prorrogable. La quota d'alta és un pagament únic que cobreix l'adequació del terreny i les infraestructures.</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-center gap-8 max-w-5xl mx-auto">
+                
+                <!-- Plan 25m2 -->
+                <div class="flex-1 bg-white/5 backdrop-blur-lg rounded-[2rem] border border-white/10 p-1 lg:p-2">
+                    <div class="bg-stone-900 rounded-[1.8rem] p-8 h-full flex flex-col">
+                        <h3 class="font-serif text-2xl font-bold text-white mb-2">Hort Petit</h3>
+                        <p class="text-brand-200 mb-6 pb-6 border-b border-stone-700">Parcel·la de 25m², ideal per començar i autoconsum de 1-2 persones.</p>
+                        
+                        <!-- Opcions de pagament 25m2 -->
+                        <div class="space-y-3 mb-8">
+                            <div class="bg-stone-800/80 p-4 rounded-xl border border-stone-700 flex justify-between items-center">
+                                <div>
+                                    <div class="font-bold text-white">Mes a mes</div>
+                                    <div class="text-stone-400 text-xs">+ 50€ matrícula</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-xl font-bold text-white">25€<span class="text-sm text-stone-400 font-normal">/mes</span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-stone-800/80 p-4 rounded-xl border border-stone-700 flex justify-between items-center">
+                                <div>
+                                    <div class="font-bold text-white">Semestral</div>
+                                    <div class="text-stone-400 text-xs">+ 25€ matrícula</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-xl font-bold text-white">160€<span class="text-sm text-stone-400 font-normal">/sem.</span></div>
+                                </div>
+                            </div>
+
+                            <div class="bg-brand-900/30 p-4 rounded-xl border border-brand-500/50 relative overflow-hidden">
+                                <div class="absolute top-0 right-0 bg-brand-500 text-[10px] font-bold px-2 py-1 rounded-bl-lg text-white uppercase tracking-wider">Millor opció</div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <div class="font-bold text-white">Anual</div>
+                                    <div class="text-xl font-bold text-brand-400">300€<span class="text-sm text-brand-200/50 font-normal">/any</span></div>
+                                </div>
+                                <div class="text-stone-400 text-xs">Únic pagament (o 200€ T1 + 100€ T2)</div>
+                                <div class="text-brand-400 text-xs font-semibold mt-1">Sense matrícula d'alta!</div>
+                            </div>
+                        </div>
+                        
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
+                                <span class="text-stone-300">Ús exclusiu de 25m² de terra</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
+                                <span class="text-stone-300">Dret a ús de la caseta i eines</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
+                                <span class="text-stone-300">Aigua a peu de parcel·la</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
+                                <span class="text-stone-300">Accés a zona de pícnic i infantil</span>
+                            </li>
+                        </ul>
+                        
+                        <a href="#contacte" class="block w-full py-4 px-6 bg-stone-800 text-white font-bold text-center rounded-xl hover:bg-stone-700 transition duration-300 border border-stone-600 mt-auto">
+                            Seleccionar 25m²
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Plan 50m2 -->
+                <div class="flex-1 bg-gradient-to-b from-brand-400 to-brand-600 rounded-[2rem] p-1 shadow-2xl shadow-brand-900/50 transform md:-translate-y-4 relative mt-8 md:mt-0">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-white text-brand-800 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg whitespace-nowrap">
+                        Més Popular
+                    </div>
+                    <div class="bg-brand-800 rounded-[1.8rem] p-8 h-full flex flex-col">
+                        <h3 class="font-serif text-2xl font-bold text-white mb-2">Hort Familiar</h3>
+                        <p class="text-brand-100 mb-6 pb-6 border-b border-brand-700">Parcel·la de 50m², l'espai perfecte per alimentar tota la família.</p>
+                        
+                        <!-- Opcions de pagament 50m2 -->
+                        <div class="space-y-3 mb-8">
+                            <div class="bg-brand-900/40 p-4 rounded-xl border border-brand-700/50 flex justify-between items-center">
+                                <div>
+                                    <div class="font-bold text-white">Mes a mes</div>
+                                    <div class="text-brand-200 text-xs">+ 100€ matrícula</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-xl font-bold text-white">50€<span class="text-sm text-brand-200 font-normal">/mes</span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-brand-900/40 p-4 rounded-xl border border-brand-700/50 flex justify-between items-center">
+                                <div>
+                                    <div class="font-bold text-white">Semestral</div>
+                                    <div class="text-brand-200 text-xs">+ 50€ matrícula</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-xl font-bold text-white">320€<span class="text-sm text-brand-200 font-normal">/sem.</span></div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white/10 p-4 rounded-xl border border-white/30 relative overflow-hidden">
+                                <div class="absolute top-0 right-0 bg-white text-[10px] font-bold px-2 py-1 rounded-bl-lg text-brand-900 uppercase tracking-wider">Millor opció</div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <div class="font-bold text-white">Anual</div>
+                                    <div class="text-xl font-bold text-white">600€<span class="text-sm text-white/70 font-normal">/any</span></div>
+                                </div>
+                                <div class="text-brand-100 text-xs">Únic pagament (o 400€ T1 + 200€ T2)</div>
+                                <div class="text-white text-xs font-semibold mt-1">Sense matrícula d'alta!</div>
+                            </div>
+                        </div>
+                        
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-400 shrink-0 mt-0.5"></i>
+                                <span class="text-white font-medium">Doble d'espai per a màxima producció</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-400 shrink-0 mt-0.5"></i>
+                                <span class="text-brand-50">Dret a ús de la caseta i eines</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-400 shrink-0 mt-0.5"></i>
+                                <span class="text-brand-50">Aigua a peu de parcel·la</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-400 shrink-0 mt-0.5"></i>
+                                <span class="text-brand-50">Accés a zona de pícnic i infantil</span>
+                            </li>
+                        </ul>
+                        
+                        <a href="#contacte" class="block w-full py-4 px-6 bg-white text-brand-900 font-bold text-center rounded-xl hover:bg-earth-50 transition duration-300 shadow-lg mt-auto">
+                            Seleccionar 50m²
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Serveis Extres -->
+    <section id="serveis" class="py-24 bg-earth-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-brand-600 font-bold uppercase tracking-wider text-sm">Opcional</span>
+                <h2 class="font-serif text-3xl md:text-5xl font-bold text-brand-950 mt-2 mb-4">Serveis a mida</h2>
+                <p class="text-lg text-stone-600 max-w-2xl mx-auto">Personalitza la teva experiència. Oferim serveis addicionals per fer-te la vida més fàcil quan tinguis pics de feina o necessitis suport extra.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-earth-100 hover:shadow-md transition flex flex-col">
+                    <div class="text-4xl mb-4">🚜</div>
+                    <h4 class="font-bold text-stone-800 text-lg mb-2">Motocultor</h4>
+                    <p class="text-stone-500 text-sm flex-grow">Manteniment i preparació de la terra mecànica.</p>
+                    <div class="mt-4 pt-4 border-t border-earth-100 font-bold text-brand-700">30€ / passada</div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-earth-100 hover:shadow-md transition flex flex-col">
+                    <div class="text-4xl mb-4">💧</div>
+                    <h4 class="font-bold text-stone-800 text-lg mb-2">Reg automatitzat</h4>
+                    <p class="text-stone-500 text-sm flex-grow">Instal·lació de reg per goteig/exudació i temporitzador.</p>
+                    <div class="mt-4 pt-4 border-t border-earth-100 font-bold text-brand-700">30€ / mes</div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-earth-100 hover:shadow-md transition flex flex-col">
+                    <div class="text-4xl mb-4">🆘</div>
+                    <h4 class="font-bold text-stone-800 text-lg mb-2">Reg d'emergència</h4>
+                    <p class="text-stone-500 text-sm flex-grow">Has de marxar? Et reguem la parcel·la de forma manual.</p>
+                    <div class="mt-4 pt-4 border-t border-earth-100 font-bold text-brand-700">5€ / regada</div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-earth-100 hover:shadow-md transition flex flex-col">
+                    <div class="text-4xl mb-4">💩</div>
+                    <h4 class="font-bold text-stone-800 text-lg mb-2">Aportació de Fems</h4>
+                    <p class="text-stone-500 text-sm flex-grow">Adob natural per nodrir i preparar la terra abans de plantar.</p>
+                    <div class="mt-4 pt-4 border-t border-earth-100 font-bold text-brand-700">5€ / carretonada</div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-earth-100 hover:shadow-md transition flex flex-col relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-earth-200 text-xs font-bold px-3 py-1 rounded-bl-lg text-earth-800">Especial</div>
+                    <div class="text-4xl mb-4">🐔</div>
+                    <h4 class="font-bold text-stone-800 text-lg mb-2">El Galliner</h4>
+                    <p class="text-stone-500 text-sm flex-grow">Apadrina o compra. Compra: 30€. Manteniment 1 gallina: 15€/m. A partir de 2: 10€/gallina/mes.</p>
+                    <div class="mt-4 pt-4 border-t border-earth-100 font-bold text-brand-700">Des de 10€ / mes</div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-earth-100 hover:shadow-md transition flex flex-col">
+                    <div class="text-4xl mb-4">🍎</div>
+                    <h4 class="font-bold text-stone-800 text-lg mb-2">Altres Serveis</h4>
+                    <ul class="text-stone-500 text-sm flex-grow space-y-1">
+                        <li>• Venda de planter</li>
+                        <li>• Apadrina un fruiter</li>
+                        <li>• Venda de producció extra / cosmètica</li>
+                        <li>• Tallers extres avançats</li>
+                    </ul>
+                    <div class="mt-4 pt-4 border-t border-earth-100 font-bold text-brand-700">Consultar tarifes</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Reglament i Ideari -->
+    <section id="normes" class="py-24 bg-white border-t border-earth-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-16 items-start">
+                
+                <div class="lg:w-1/3 lg:sticky lg:top-32">
+                    <i data-lucide="book-open-check" class="w-12 h-12 text-brand-600 mb-6"></i>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-950 mb-6">Reglament de Convivència</h2>
+                    <p class="text-stone-600 mb-6 leading-relaxed">
+                        Per garantir que l'Espai Vall-Roure sigui un lloc agradable, net i sostenible per a tothom, el nostre contracte inclou l'acceptació d'unes normes bàsiques d'agricultura 100% ecològica.
+                    </p>
+                    <a href="#contacte" class="text-brand-700 font-bold hover:text-brand-900 flex items-center gap-2">
+                        Accepto el repte <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <div class="lg:w-2/3 grid sm:grid-cols-2 gap-6">
+                    <div class="bg-earth-50 p-6 rounded-2xl border border-earth-100">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="users" class="text-brand-600"></i>
+                            <h4 class="font-bold text-stone-800 text-lg">Respecte Veïnal</h4>
+                        </div>
+                        <p class="text-stone-600 text-sm leading-relaxed">Està totalment prohibit agafar hortalisses, eines o materials d'una altra parcel·la sense el permís exprés de la persona titular.</p>
+                    </div>
+
+                    <div class="bg-earth-50 p-6 rounded-2xl border border-earth-100">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="shovel" class="text-brand-600"></i>
+                            <h4 class="font-bold text-stone-800 text-lg">Eines compartides</h4>
+                        </div>
+                        <p class="text-stone-600 text-sm leading-relaxed">Les eines de la caseta són de totes. Un cop utilitzades, és obligatori netejar-les de terra i retornar-les al seu lloc adequat.</p>
+                    </div>
+
+                    <div class="bg-earth-50 p-6 rounded-2xl border border-earth-100">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="droplet" class="text-brand-600"></i>
+                            <h4 class="font-bold text-stone-800 text-lg">Gestió de l'aigua</h4>
+                        </div>
+                        <p class="text-stone-600 text-sm leading-relaxed">L'aigua és un bé escàs. Cal fer-ne un ús responsable, prioritzant el reg eficient i assegurant-se de tancar sempre bé la font i les claus de pas.</p>
+                    </div>
+
+                    <div class="bg-earth-50 p-6 rounded-2xl border border-earth-100">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="trash-2" class="text-brand-600"></i>
+                            <h4 class="font-bold text-stone-800 text-lg">Residus i Neteja</h4>
+                        </div>
+                        <p class="text-stone-600 text-sm leading-relaxed">Les restes vegetals van al compostatge. Qualsevol plàstic o brossa no orgànica se l'ha d'endur cadascú a casa. Prohibit acaparar objectes a la parcel·la.</p>
+                    </div>
+
+                    <div class="bg-earth-50 p-6 rounded-2xl border border-earth-100 sm:col-span-2">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="dog" class="text-brand-600"></i>
+                            <h4 class="font-bold text-stone-800 text-lg">Mascotes i Animals</h4>
+                        </div>
+                        <p class="text-stone-600 text-sm leading-relaxed">Fins que tinguem la residència canina instal·lada, els gossos que accedeixin al recinte hauran d'estar lligats o estrictament controlats per no fer malbé els cultius de les altres parcel·les.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulari de Contacte -->
+    <section id="contacte" class="py-24 bg-brand-900 relative">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white rounded-[2.5rem] shadow-2xl p-6 sm:p-8 md:p-14">
+                <div class="text-center mb-10">
+                    <span class="bg-brand-100 text-brand-700 px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wide">Sol·licita la teva parcel·la</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-950 mt-4 mb-3">T'esperem a Vall-Roure</h2>
+                    <p class="text-stone-500">Omple el formulari indicant què necessites. Ens posarem en contacte amb tu ràpidament per formalitzar el contracte i donar-te la benvinguda.</p>
+                </div>
+
+                <form action="#" method="POST" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="nom" class="block text-sm font-bold text-stone-700 mb-2">Nom i Cognoms</label>
+                            <input type="text" id="nom" name="nom" class="w-full px-5 py-4 rounded-xl border border-earth-200 focus:ring-4 focus:ring-brand-100 focus:border-brand-500 outline-none transition bg-earth-50" placeholder="El teu nom" required>
+                        </div>
+                        <div>
+                            <label for="telefon" class="block text-sm font-bold text-stone-700 mb-2">Telèfon de contacte</label>
+                            <input type="tel" id="telefon" name="telefon" class="w-full px-5 py-4 rounded-xl border border-earth-200 focus:ring-4 focus:ring-brand-100 focus:border-brand-500 outline-none transition bg-earth-50" placeholder="Ex: 600 000 000" required>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-bold text-stone-700 mb-2">Correu electrònic</label>
+                        <input type="email" id="email" name="email" class="w-full px-5 py-4 rounded-xl border border-earth-200 focus:ring-4 focus:ring-brand-100 focus:border-brand-500 outline-none transition bg-earth-50" placeholder="el.teu@email.com" required>
+                    </div>
+
+                    <div>
+                        <label for="interes" class="block text-sm font-bold text-stone-700 mb-2">Què t'interessa contractar?</label>
+                        <select id="interes" name="interes" class="w-full px-5 py-4 rounded-xl border border-earth-200 focus:ring-4 focus:ring-brand-100 focus:border-brand-500 outline-none transition bg-earth-50 text-stone-700 font-medium appearance-none">
+                            <option value="info">Només vull més informació</option>
+                            <option value="25m2">Vull llogar Hort Petit (25m²)</option>
+                            <option value="50m2">Vull llogar Hort Familiar (50m²)</option>
+                            <option value="taller">M'interessa el Taller d'Iniciació</option>
+                            <option value="extres">Informació sobre Galliner o altres extres</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="missatge" class="block text-sm font-bold text-stone-700 mb-2">Comentaris (opcional)</label>
+                        <textarea id="missatge" name="missatge" rows="3" class="w-full px-5 py-4 rounded-xl border border-earth-200 focus:ring-4 focus:ring-brand-100 focus:border-brand-500 outline-none transition bg-earth-50" placeholder="Tens algun dubte específic sobre l'alta, l'aigua, eines... ?"></textarea>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-4 bg-earth-50 rounded-xl border border-earth-100">
+                        <div class="pt-0.5">
+                            <input type="checkbox" id="privacitat" required class="w-5 h-5 text-brand-600 border-earth-300 rounded focus:ring-brand-500">
+                        </div>
+                        <label for="privacitat" class="text-sm text-stone-600 leading-relaxed">
+                            He llegit les bases i entenc que el contracte de lloguer implica el compliment estricte del <strong class="text-stone-800">Reglament de Convivència</strong> (agricultura ecològica, ús d'eines i gestió de residus) de l'Espai Vall-Roure.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand-700 text-white font-bold text-lg py-5 rounded-xl shadow-xl shadow-brand-200 hover:bg-brand-800 transition transform hover:-translate-y-1">
+                        Enviar Sol·licitud
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-950 text-brand-100 py-16 border-t border-brand-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 text-center md:text-left">
+            <div class="md:col-span-2">
+                <div class="flex items-center justify-center md:justify-start gap-2 mb-6 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="bg-brand-800 p-2 rounded-lg">
+                        <i data-lucide="sprout" class="text-brand-300 h-6 w-6"></i>
+                    </div>
+                    <span class="font-serif font-bold text-2xl text-white tracking-tight">Vall-Roure</span>
+                </div>
+                <p class="text-sm text-brand-200 max-w-sm mx-auto md:mx-0 leading-relaxed">Lloguer de parcel·les d'hort ecològic de 25m² i 50m². Tornem a les arrels amb una agricultura neta, respectuosa i en comunitat.</p>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-bold mb-6 tracking-wide">Navegació</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="#taller" class="hover:text-white transition flex items-center gap-2 justify-center md:justify-start"><i data-lucide="chevron-right" class="w-3 h-3"></i> Taller Inicial</a></li>
+                    <li><a href="#beneficis" class="hover:text-white transition flex items-center gap-2 justify-center md:justify-start"><i data-lucide="chevron-right" class="w-3 h-3"></i> Instal·lacions</a></li>
+                    <li><a href="#preus" class="hover:text-white transition flex items-center gap-2 justify-center md:justify-start"><i data-lucide="chevron-right" class="w-3 h-3"></i> Plans i Preus</a></li>
+                    <li><a href="#normes" class="hover:text-white transition flex items-center gap-2 justify-center md:justify-start"><i data-lucide="chevron-right" class="w-3 h-3"></i> Normativa</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-bold mb-6 tracking-wide">Contacte</h4>
+                <ul class="space-y-4 text-sm">
+                    <li class="flex items-center justify-center md:justify-start gap-3">
+                        <i data-lucide="mail" class="w-4 h-4 text-brand-400"></i>
+                        <span>hola@espaivallroure.cat</span>
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start gap-3">
+                        <i data-lucide="phone" class="w-4 h-4 text-brand-400"></i>
+                        <span>+34 600 000 000</span>
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start gap-3">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-brand-400"></i>
+                        <span>L'Espai Vall-Roure</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-brand-800 text-sm text-center flex flex-col md:flex-row justify-between items-center gap-4 text-brand-300">
+            <div>&copy; 2026 Espai Vall-Roure. Tots els drets reservats.</div>
+            <div class="flex gap-4">
+                <a href="#" class="hover:text-white transition">Avís Legal</a>
+                <a href="#" class="hover:text-white transition">Política de Privacitat</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons & Interactivity -->
+    <script>
+        // Inicialitzar icones
+        lucide.createIcons();
+        
+        // Efecte Navbar en fer scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-md', 'bg-white/95');
+                nav.classList.remove('bg-white/80', 'border-transparent');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.add('border-earth-100');
+            }
+        });
+
+        // Lògica del menú per a mòbils
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.setAttribute('data-lucide', 'menu');
+            } else {
+                menuIcon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons(); // Re-renderitzar icona (de hamburguesa a creu i viceversa)
+        });
+
+        // Tancar el menú mòbil en fer clic a un enllaç
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+    </script>
+</body>
+</html>
