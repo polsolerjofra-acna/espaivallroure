@@ -222,219 +222,152 @@
                         </div>
                     </div>
 
-                    <!-- View: Finances -->
-                    <div id="view-finances" class="flex-1 w-full hidden overflow-y-auto pb-10">
-                        <div class="flex justify-between items-center mb-6">
-                            <h2 class="text-2xl font-bold text-stone-800">Llibre Major i Resultats</h2>
-                            <div class="text-sm text-stone-500">Balanç actual d'aquest mes</div>
-                        </div>
-
-                        <!-- KPI Cards Top -->
-                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-                            <div
-                                class="bg-white rounded-xl shadow-sm border border-emerald-100 p-5 pl-6 border-l-4 border-l-emerald-500 relative overflow-hidden">
-                                <i data-lucide="leaf"
-                                    class="absolute -right-4 -bottom-4 w-24 h-24 text-emerald-50 opacity-50 transform rotate-12"></i>
-                                <span
-                                    class="text-xs font-bold text-emerald-600 uppercase tracking-widest block mb-1">Lloguers
-                                    Fixos</span>
-                                <span class="text-3xl font-black text-stone-800 relative z-10"
-                                    id="finance-fixed">0€</span>
-                            </div>
-                            <div
-                                class="bg-white rounded-xl shadow-sm border border-blue-100 p-5 pl-6 border-l-4 border-l-blue-500 relative overflow-hidden">
-                                <i data-lucide="shopping-bag"
-                                    class="absolute -right-4 -bottom-4 w-24 h-24 text-blue-50 opacity-50 transform -rotate-12"></i>
-                                <span
-                                    class="text-xs font-bold text-blue-600 uppercase tracking-widest block mb-1">Serveis
-                                    Extres</span>
-                                <span class="text-3xl font-black text-stone-800 relative z-10"
-                                    id="finance-extras">0€</span>
-                                <button onclick="addExtra()"
-                                    class="absolute top-4 right-4 text-blue-400 hover:text-blue-600 bg-blue-50 p-1.5 rounded-lg z-20 transition"
-                                    title="Afegir extra">
-                                    <i data-lucide="plus" class="w-4 h-4"></i>
-                                </button>
-                            </div>
-                            <div
-                                class="bg-white rounded-xl shadow-sm border border-red-100 p-5 pl-6 border-l-4 border-l-red-500 relative overflow-hidden">
-                                <i data-lucide="trending-down"
-                                    class="absolute -right-4 -bottom-4 w-24 h-24 text-red-50 opacity-50 transform rotate-12"></i>
-                                <span
-                                    class="text-xs font-bold text-red-600 uppercase tracking-widest block mb-1">Despeses</span>
-                                <span class="text-3xl font-black text-stone-800 relative z-10"
-                                    id="finance-expenses">0€</span>
-                                <button onclick="editExpenses()"
-                                    class="absolute top-4 right-4 text-red-400 hover:text-red-600 bg-red-50 p-1.5 rounded-lg z-20 transition"
-                                    title="Modificar despeses">
-                                    <i data-lucide="edit-3" class="w-4 h-4"></i>
-                                </button>
-                            </div>
-                            <div
-                                class="bg-slate-900 rounded-xl shadow-md border border-slate-800 p-5 pl-6 relative overflow-hidden">
-                                <i data-lucide="circle-dollar-sign"
-                                    class="absolute -right-4 -bottom-4 w-24 h-24 text-slate-800 opacity-50 transform rotate-12"></i>
-                                <span
-                                    class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-1">Benefici
-                                    Net</span>
-                                <span class="text-4xl font-black text-white relative z-10" id="finance-net">0€</span>
-                            </div>
-                        </div>
-
-                        <!-- Main Accounting List -->
-                        <div class="bg-white rounded-xl shadow-sm border border-stone-200 overflow-hidden">
-                            <div
-                                class="px-6 py-4 bg-stone-50 border-b border-stone-200 flex justify-between items-center">
-                                <h3 class="font-bold text-stone-800">Detall de Transaccions d'Aquest Mes</h3>
-                            </div>
-                            <table class="w-full text-left text-sm text-stone-600">
-                                <thead class="text-stone-400 uppercase text-[10px] bg-white border-b border-stone-100">
-                                    <tr>
-                                        <th class="px-6 py-3 font-bold">Concepte i Origen</th>
-                                        <th class="px-6 py-3 font-bold">Tipus d'Ingrés/Despesa</th>
-                                        <th class="px-6 py-3 font-bold text-right">Import</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="finance-tbody" class="divide-y divide-stone-50">
-                                    <!-- JS generate rows -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="flex justify-between items-center mb-4 bg-stone-100 p-1">
-                        <h2 class="text-xl font-bold text-stone-800">Llista d'Espera</h2>
-                        <button onclick="addWaitlist()"
-                            class="text-emerald-700 bg-emerald-100 hover:bg-emerald-200 px-3 py-1 rounded-lg text-sm font-bold flex gap-1 items-center transition"><i
-                                data-lucide="plus" class="w-4 h-4"></i> Nou</button>
-                    </div>
-                    <div id="waitlist-container" class="space-y-3">
-                        <!-- Generat per JS -->
-                    </div>
-                </div>
-            </div>
-    </div>
-    </div>
-    </div>
-    </div>
-
-    <!-- View: Finances -->
-    <div id="view-finances" class="flex-1 w-full hidden overflow-y-auto pb-10">
-        <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
-            <!-- Col 1: Ingressos -->
-            <div class="space-y-6">
-                <div class="bg-white rounded-xl shadow-sm border border-emerald-200 overflow-hidden">
-                    <div class="bg-emerald-50 px-4 py-3 border-b border-emerald-100 flex justify-between items-center">
-                        <h3 class="font-bold text-emerald-900">Ingressos Fixos (Quotes d'Hortolans)</h3>
-                        <span class="font-bold text-emerald-700 text-lg" id="finances-kpi-revenue">0€</span>
-                    </div>
-                    <div class="p-4 text-sm text-stone-600 bg-stone-50/50">
-                        Aquest import es calcula automàticament des del mapa interactiu sumant el valor base de totes
-                        les parcel·les ocupades i els sistemes de reg actius.
-                    </div>
-                </div>
-
-                <div
-                    class="bg-white rounded-xl shadow-sm border border-blue-200 overflow-hidden flex flex-col h-[400px]">
-                    <div
-                        class="bg-blue-50 px-4 py-3 border-b border-blue-100 flex justify-between items-center shrink-0">
-                        <h3 class="font-bold text-blue-900">Ingressos Extres (Botiga o Puntuals)</h3>
-                        <span class="font-bold text-blue-700 text-lg" id="finances-kpi-extras">0€</span>
-                    </div>
-                    <div class="p-3 border-b border-stone-100 bg-stone-50 flex gap-2 shrink-0">
-                        <input type="text" id="extra-desc" placeholder="Concepte (ex: Lloguer Motocultor)"
-                            class="flex-1 border border-stone-200 rounded px-2 py-1 text-sm outline-none focus:border-blue-500 bg-white">
-                        <input type="number" id="extra-amount" placeholder="€"
-                            class="w-20 border border-stone-200 rounded px-2 py-1 text-sm outline-none focus:border-blue-500 bg-white">
-                        <button onclick="saveExtraItem()"
-                            class="bg-blue-600 text-white px-3 py-1 rounded text-sm font-bold hover:bg-blue-700 transition">Afegir</button>
-                    </div>
-                    <ul id="extras-list" class="divide-y divide-stone-100 text-sm overflow-y-auto flex-1 p-2">
-                        <!-- Generat per JS -->
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Col 2: Despeses -->
-            <div>
-                <div
-                    class="bg-white rounded-xl shadow-sm border border-red-200 overflow-hidden flex flex-col h-full min-h-[500px]">
-                    <div class="bg-red-50 px-4 py-3 border-b border-red-100 flex justify-between items-center shrink-0">
-                        <h3 class="font-bold text-red-900">Llibre de Despeses Manuals</h3>
-                        <span class="font-bold text-red-700 text-lg" id="finances-kpi-expenses">0€</span>
-                    </div>
-                    <div class="p-3 border-b border-stone-100 bg-stone-50 flex gap-2 shrink-0">
-                        <input type="text" id="expense-desc" placeholder="Concepte (ex: Aigua, Assegurança...)"
-                            class="flex-1 border border-stone-200 rounded px-2 py-1 text-sm outline-none focus:border-red-500 bg-white">
-                        <input type="number" id="expense-amount" placeholder="€"
-                            class="w-20 border border-stone-200 rounded px-2 py-1 text-sm outline-none focus:border-red-500 bg-white">
-                        <button onclick="saveExpenseItem()"
-                            class="bg-red-600 text-white px-3 py-1 rounded text-sm font-bold hover:bg-red-700 transition">Afegir</button>
-                    </div>
-                    <ul id="expenses-list" class="divide-y divide-stone-100 text-sm overflow-y-auto flex-1 p-2">
-                        <!-- Generat per JS -->
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-    <!-- View: Tasques -->
-    <div id="view-tasques" class="flex-1 w-full hidden overflow-y-auto pb-10">
-        <div class="flex justify-between items-center mb-6">
-            <h2 class="text-2xl font-bold text-stone-800">Registre d'Incidències i Tasques</h2>
-            <div class="text-sm text-emerald-600 font-bold flex items-center gap-1"><i data-lucide="cloud-lightning"
-                    class="w-4 h-4"></i> Sync en el núvol</div>
-        </div>
-
-        <div class="bg-white rounded-xl shadow-sm border border-stone-200 p-6 max-w-2xl relative overflow-hidden">
-            <i data-lucide="clipboard-list"
-                class="absolute -right-4 -bottom-4 w-40 h-40 text-stone-50 transform rotate-12"></i>
-            <p class="text-stone-600 mb-6 text-sm relative z-10">Emplena les dades per anotar una incidència de la
-                finca, tasca pendent o avís. En prémer "Guardar i Enviar", es comunicarà instantàniament amb l'Excel.
-            </p>
-
-            <form id="tasques-form" onsubmit="enviarTasca(event)" class="space-y-4 relative z-10">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Col 2: Llista d'Espera -->
                     <div>
-                        <label class="block text-xs font-bold text-stone-600 mb-1">Tipus d'Anotació</label>
-                        <select id="t-tipus" required
-                            class="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:border-stone-500 outline-none">
-                            <option value="Incidència Finca">Incidència Finca / Manteniment</option>
-                            <option value="Incidència Client">Incidència d'un Hortolà</option>
-                            <option value="Tasca Pendent">Tasca Pendent a realitzar</option>
-                            <option value="Material">Falta Material / Compra urgent</option>
-                        </select>
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-xl font-bold text-stone-800">Llista d'Espera</h2>
+                            <button onclick="addWaitlist()"
+                                class="text-emerald-700 bg-emerald-100 hover:bg-emerald-200 px-3 py-1 rounded-lg text-sm font-bold flex gap-1 items-center transition">
+                                <i data-lucide="plus" class="w-4 h-4"></i> Nou
+                            </button>
+                        </div>
+                        <div id="waitlist-container" class="space-y-3">
+                            <!-- Generat per JS -->
+                        </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- View: Finances -->
+            <div id="view-finances" class="flex-1 w-full hidden overflow-y-auto pb-10">
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+                    <!-- Col 1: Ingressos -->
+                    <div class="space-y-6">
+                        <div class="bg-white rounded-xl shadow-sm border border-emerald-200 overflow-hidden">
+                            <div
+                                class="bg-emerald-50 px-4 py-3 border-b border-emerald-100 flex justify-between items-center">
+                                <h3 class="font-bold text-emerald-900">Ingressos Fixos (Quotes d'Hortolans)</h3>
+                                <span class="font-bold text-emerald-700 text-lg" id="finances-kpi-revenue">0€</span>
+                            </div>
+                            <div class="p-4 text-sm text-stone-600 bg-stone-50/50">
+                                Aquest import es calcula automàticament des del mapa interactiu sumant el valor base de
+                                totes
+                                les parcel·les ocupades i els sistemes de reg actius.
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-white rounded-xl shadow-sm border border-blue-200 overflow-hidden flex flex-col h-[400px]">
+                            <div
+                                class="bg-blue-50 px-4 py-3 border-b border-blue-100 flex justify-between items-center shrink-0">
+                                <h3 class="font-bold text-blue-900">Ingressos Extres (Botiga o Puntuals)</h3>
+                                <span class="font-bold text-blue-700 text-lg" id="finances-kpi-extras">0€</span>
+                            </div>
+                            <div class="p-3 border-b border-stone-100 bg-stone-50 flex gap-2 shrink-0">
+                                <input type="text" id="extra-desc" placeholder="Concepte (ex: Lloguer Motocultor)"
+                                    class="flex-1 border border-stone-200 rounded px-2 py-1 text-sm outline-none focus:border-blue-500 bg-white">
+                                <input type="number" id="extra-amount" placeholder="€"
+                                    class="w-20 border border-stone-200 rounded px-2 py-1 text-sm outline-none focus:border-blue-500 bg-white">
+                                <button onclick="saveExtraItem()"
+                                    class="bg-blue-600 text-white px-3 py-1 rounded text-sm font-bold hover:bg-blue-700 transition">Afegir</button>
+                            </div>
+                            <ul id="extras-list" class="divide-y divide-stone-100 text-sm overflow-y-auto flex-1 p-2">
+                                <!-- Generat per JS -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Col 2: Despeses -->
                     <div>
-                        <label class="block text-xs font-bold text-stone-600 mb-1">Google App Script Webhook URL</label>
-                        <input type="text" id="t-webhook" placeholder="Opcional. https://script.google.com/macros/s/..."
-                            class="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:border-stone-500 outline-none font-mono tracking-tighter text-[10px] bg-stone-50 text-stone-500">
+                        <div
+                            class="bg-white rounded-xl shadow-sm border border-red-200 overflow-hidden flex flex-col h-full min-h-[500px]">
+                            <div
+                                class="bg-red-50 px-4 py-3 border-b border-red-100 flex justify-between items-center shrink-0">
+                                <h3 class="font-bold text-red-900">Llibre de Despeses Manuals</h3>
+                                <span class="font-bold text-red-700 text-lg" id="finances-kpi-expenses">0€</span>
+                            </div>
+                            <div class="p-3 border-b border-stone-100 bg-stone-50 flex gap-2 shrink-0">
+                                <input type="text" id="expense-desc" placeholder="Concepte (ex: Aigua, Assegurança...)"
+                                    class="flex-1 border border-stone-200 rounded px-2 py-1 text-sm outline-none focus:border-red-500 bg-white">
+                                <input type="number" id="expense-amount" placeholder="€"
+                                    class="w-20 border border-stone-200 rounded px-2 py-1 text-sm outline-none focus:border-red-500 bg-white">
+                                <button onclick="saveExpenseItem()"
+                                    class="bg-red-600 text-white px-3 py-1 rounded text-sm font-bold hover:bg-red-700 transition">Afegir</button>
+                            </div>
+                            <ul id="expenses-list" class="divide-y divide-stone-100 text-sm overflow-y-auto flex-1 p-2">
+                                <!-- Generat per JS -->
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <label class="block text-xs font-bold text-stone-600 mb-1">Assumpte</label>
-                    <input type="text" id="t-assumpte" required placeholder="Ex: Fuga d'aigua, Tanca esquerdada..."
-                        class="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:border-stone-500 outline-none">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-stone-600 mb-1">Descripció detallada de qui, què i
-                        com</label>
-                    <textarea id="t-desc" rows="5" required placeholder="Escriu els detalls..."
-                        class="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:border-stone-500 outline-none resize-none"></textarea>
+            </div>
+
+            <!-- View: Tasques -->
+            <div id="view-tasques" class="flex-1 w-full hidden overflow-y-auto pb-10">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-stone-800">Registre d'Incidències i Tasques</h2>
                 </div>
 
-                <div class="mt-6 pt-6 border-t border-stone-100 flex gap-4 items-center">
-                    <button type="submit" id="btn-submit-tasca"
-                        class="bg-stone-800 text-white font-bold py-2.5 px-6 rounded-lg hover:bg-stone-700 transition flex items-center gap-2">
-                        <i data-lucide="send" class="w-4 h-4"></i> Guardar i Enviar a l'Excel
-                    </button>
-                    <span id="tasca-status" class="text-sm font-bold opacity-0 transition"></span>
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                    <!-- Col 1: Formulari -->
+                    <div class="bg-white rounded-xl shadow-sm border border-stone-200 p-6 relative overflow-hidden">
+                        <i data-lucide="clipboard-list"
+                            class="absolute -right-4 -bottom-4 w-32 h-32 text-stone-50 transform rotate-12"></i>
+                        <h3 class="font-bold text-stone-800 mb-1 text-lg">Nova Anotació</h3>
+                        <p class="text-stone-500 mb-5 text-sm">Registra una incidència, tasca o avís de la finca.</p>
+                        <form id="tasques-form" onsubmit="enviarTasca(event)" class="space-y-4 relative z-10">
+                            <div>
+                                <label class="block text-xs font-bold text-stone-600 mb-1">Tipus d'Anotació</label>
+                                <select id="t-tipus" required
+                                    class="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:border-stone-500 outline-none bg-white">
+                                    <option value="Incidència Finca">🔧 Incidència Finca / Manteniment</option>
+                                    <option value="Incidència Client">👤 Incidència d'un Hortolà</option>
+                                    <option value="Tasca Pendent">📋 Tasca Pendent a realitzar</option>
+                                    <option value="Material">📦 Falta Material / Compra urgent</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-stone-600 mb-1">Assumpte</label>
+                                <input type="text" id="t-assumpte" required
+                                    placeholder="Ex: Fuga d'aigua, Tanca esquerdada..."
+                                    class="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:border-stone-500 outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-stone-600 mb-1">Descripció detallada</label>
+                                <textarea id="t-desc" rows="4" required
+                                    placeholder="Escriu els detalls de qui, què i com..."
+                                    class="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:border-stone-500 outline-none resize-none"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-stone-400 mb-1">Webhook Google Sheets
+                                    (opcional)</label>
+                                <input type="text" id="t-webhook" placeholder="https://script.google.com/macros/s/..."
+                                    class="w-full border border-stone-100 rounded-lg px-3 py-2 text-sm outline-none font-mono text-[10px] bg-stone-50 text-stone-400">
+                            </div>
+                            <div class="pt-4 border-t border-stone-100 flex gap-4 items-center">
+                                <button type="submit" id="btn-submit-tasca"
+                                    class="bg-stone-800 text-white font-bold py-2.5 px-6 rounded-lg hover:bg-stone-700 transition flex items-center gap-2">
+                                    <i data-lucide="send" class="w-4 h-4"></i> Guardar i Enviar
+                                </button>
+                                <span id="tasca-status" class="text-sm font-bold opacity-0 transition"></span>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Col 2: Historial Local -->
+                    <div class="bg-white rounded-xl shadow-sm border border-stone-200 flex flex-col overflow-hidden">
+                        <div class="px-5 py-4 border-b border-stone-100 flex justify-between items-center bg-stone-50">
+                            <h3 class="font-bold text-stone-800">Historial Local</h3>
+                            <button onclick="clearIncidencies()"
+                                class="text-xs text-red-400 hover:text-red-600 transition">Esborrar tot</button>
+                        </div>
+                        <ul id="incidencies-log" class="divide-y divide-stone-50 overflow-y-auto flex-1 max-h-[480px]">
+                            <!-- Generat per JS -->
+                        </ul>
+                    </div>
                 </div>
-            </form>
-        </div>
-    </div>
-    </main>
+            </div>
+        </main>
     </div>
 
     <style>
@@ -531,6 +464,8 @@
             let totalSurface = 0;
             let totalRegs = 0;
             let activePlots = 0;
+            const extrasRevenue = extraItems.reduce((sum, i) => sum + (Number(i.amount) || 0), 0);
+            const expenses = expenseItems.reduce((sum, i) => sum + (Number(i.amount) || 0), 0);
 
             plotsState.forEach(p => {
                 let plotRevenue = 0;
@@ -1114,7 +1049,72 @@
             }
         }
 
-        renderLedgers(); // Crida inicial per printar les taules blaves i vermelles del tercer menú
+        // ===== LEDGERS (finances tab lists) =====
+        function renderLedgers() {
+            const extrasList = document.getElementById('extras-list');
+            const expensesList = document.getElementById('expenses-list');
+            if (extrasList) {
+                extrasList.innerHTML = '';
+                if (extraItems.length === 0) {
+                    extrasList.innerHTML = '<li class="p-4 text-stone-400 italic text-center">Cap ingrés extra registrat.</li>';
+                } else {
+                    extraItems.forEach(item => {
+                        extrasList.innerHTML += `<li class="flex justify-between items-center px-3 py-2 hover:bg-stone-50 rounded group"><span class="text-stone-700">${item.desc} <span class="text-stone-400 text-[10px]">${item.date || ''}</span></span><div class="flex items-center gap-2"><span class="font-bold text-blue-600">+${item.amount}€</span><button onclick="removeExtra(${item.id})" class="text-red-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition"><i data-lucide="trash-2" class="w-3 h-3"></i></button></div></li>`;
+                    });
+                }
+            }
+            if (expensesList) {
+                expensesList.innerHTML = '';
+                if (expenseItems.length === 0) {
+                    expensesList.innerHTML = '<li class="p-4 text-stone-400 italic text-center">Cap despesa registrada.</li>';
+                } else {
+                    expenseItems.forEach(item => {
+                        expensesList.innerHTML += `<li class="flex justify-between items-center px-3 py-2 hover:bg-stone-50 rounded group"><span class="text-stone-700">${item.desc} <span class="text-stone-400 text-[10px]">${item.date || ''}</span></span><div class="flex items-center gap-2"><span class="font-bold text-red-600">-${item.amount}€</span><button onclick="removeExpenseItem(${item.id})" class="text-red-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition"><i data-lucide="trash-2" class="w-3 h-3"></i></button></div></li>`;
+                    });
+                }
+            }
+            lucide.createIcons();
+        }
+
+        function saveExtraItem() {
+            const desc = document.getElementById('extra-desc').value.trim();
+            const amount = parseFloat(document.getElementById('extra-amount').value);
+            if (!desc || isNaN(amount) || amount <= 0) return;
+            extraItems.push({ id: Date.now(), desc, amount, date: new Date().toLocaleDateString('ca-ES') });
+            localStorage.setItem('vallroure_admin_extraItems', JSON.stringify(extraItems));
+            document.getElementById('extra-desc').value = '';
+            document.getElementById('extra-amount').value = '';
+            calculateKpis();
+            renderLedgers();
+        }
+
+        function saveExpenseItem() {
+            const desc = document.getElementById('expense-desc').value.trim();
+            const amount = parseFloat(document.getElementById('expense-amount').value);
+            if (!desc || isNaN(amount) || amount <= 0) return;
+            expenseItems.push({ id: Date.now(), desc, amount, date: new Date().toLocaleDateString('ca-ES') });
+            localStorage.setItem('vallroure_admin_expenseItems', JSON.stringify(expenseItems));
+            document.getElementById('expense-desc').value = '';
+            document.getElementById('expense-amount').value = '';
+            calculateKpis();
+            renderLedgers();
+        }
+
+        function removeExtra(id) {
+            extraItems = extraItems.filter(i => i.id !== id);
+            localStorage.setItem('vallroure_admin_extraItems', JSON.stringify(extraItems));
+            calculateKpis();
+            renderLedgers();
+        }
+
+        function removeExpenseItem(id) {
+            expenseItems = expenseItems.filter(i => i.id !== id);
+            localStorage.setItem('vallroure_admin_expenseItems', JSON.stringify(expenseItems));
+            calculateKpis();
+            renderLedgers();
+        }
+
+        renderLedgers();
     </script>
 
     <!-- Modals -->
@@ -1254,37 +1254,36 @@
                         class="bg-slate-200 text-slate-700 font-bold py-2 px-6 rounded hover:bg-slate-300 transition flex gap-2 items-center">
                         <i data-lucide="printer" class="w-4 h-4"></i> Imprimir Fitxa
                     </button>
+                </div>
+            </div><!-- /contract content -->
+            <button onclick="closeContractView()"
+                class="mt-6 w-full text-center text-sm font-bold text-slate-400 hover:text-slate-600 py-2">Tancar</button>
+        </div><!-- /modal inner -->
+    </div><!-- /view-contract-modal -->
 
+    <script>
+        // Lògica de Login Administrador
+        const adminOverlay = document.getElementById('admin-login-overlay');
+        const adminForm = document.getElementById('admin-login-form');
+        const adminError = document.getElementById('admin-error-msg');
 
+        if (sessionStorage.getItem('admin_logged') === 'true') {
+            adminOverlay.style.display = 'none';
+        }
 
-
-                    <script>
-                        // Lògica de Login Administrador
-                        const adminOverlay = document.getElementById('admin-login-overlay');
-                        const adminForm = document.getElementById('admin-login-form');
-                        const adminError = document.getElementById('admin-error-msg');
-
-                        // Comprovar si ja està autenticat
-                        if (sessionStorage.getItem('admin_logged') === 'true') {
-                            adminOverlay.style.display = 'none';
-                        }
-
-                        adminForm.addEventListener('submit', (e) => {
-                            e.preventDefault();
-                            const pass = document.getElementById('admin-password').value.trim().toLowerCase();
-                            // Demostració: Acceptem 'admin' i 'marta' (propietària actual a la web)
-                            if (pass === 'admin' || pass === 'marta') {
-                                sessionStorage.setItem('admin_logged', 'true');
-                                adminOverlay.style.opacity = '0';
-                                setTimeout(() => {
-                                    adminOverlay.style.display = 'none';
-                                }, 300);
-                            } else {
-                                adminError.classList.remove('hidden');
-                                document.getElementById('admin-password').value = '';
-                            }
-                        });
-                    </script>
+        adminForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const pass = document.getElementById('admin-password').value.trim().toLowerCase();
+            if (pass === 'admin' || pass === 'marta') {
+                sessionStorage.setItem('admin_logged', 'true');
+                adminOverlay.style.opacity = '0';
+                setTimeout(() => { adminOverlay.style.display = 'none'; }, 300);
+            } else {
+                adminError.classList.remove('hidden');
+                document.getElementById('admin-password').value = '';
+            }
+        });
+    </script>
 </body>
 
 </html>
