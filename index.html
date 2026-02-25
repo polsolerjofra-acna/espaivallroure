@@ -1315,8 +1315,8 @@
         }
 
         // Logic For Infographic Modal
-        const infoModal = document.getElementById('infographic-modal');
         function openInfographicModal() {
+            const infoModal = document.getElementById('infographic-modal');
             infoModal.style.display = 'flex';
             infoModal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
@@ -1325,6 +1325,7 @@
         }
 
         function closeInfographicModal() {
+            const infoModal = document.getElementById('infographic-modal');
             infoModal.style.display = 'none';
             infoModal.classList.add('hidden');
             document.body.style.overflow = 'auto';
