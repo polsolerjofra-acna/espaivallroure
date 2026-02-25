@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Àrea Privada de l'Hortolà | Espai Vall-Roure</title>
-    <meta name="description" content="Lloguer de parcel·les d'hort ecològic a l'Espai Vall-Roure. Cultiva la teva pròpia verdura en un entorn natural i comparteix experiències.">
+    <meta name="description"
+        content="Lloguer de parcel·les d'hort ecològic a l'Espai Vall-Roure. Cultiva la teva pròpia verdura en un entorn natural i comparteix experiències.">
 
-        <link rel="icon" type="image/png" href="img/logopol (1).png">
-<!-- Fonts -->
+    <link rel="icon" type="image/png" href="img/logopol (1).png">
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -379,10 +380,15 @@
                 if (email === savedEmail && password === savedPwd) {
                     isAccessValid = true;
                 }
-            } else {
-                if (email.includes('@') && password.length >= 4) {
-                    isAccessValid = true;
-                }
+            }
+
+            // Comprovar si són les credencials mestres
+            if (email === 'espaivallroure@gmail.com' && password === 'Espaivallroure-4') {
+                isAccessValid = true;
+            } else if (!isAccessValid && email.includes('@') && password.length >= 4) {
+                // Keep the demo fallback but give priority to hardcoded user
+                // isAccessValid = true; 
+                // Removed the fallback random login to enforce true security now that we have a master account
             }
 
             if (isAccessValid) {
