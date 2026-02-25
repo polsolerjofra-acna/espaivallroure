@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espai Vall-Roure | Botiga de Serveis per Hortolans</title>
+        <link rel="icon" type="image/png" href="img/logopol (1).png">
+<script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .pattern-bg {
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-stone-800 pattern-bg antialiased min-h-screen">
+    <!-- Botó Retorn al Menú -->
+    <a href="infografies"
+        class="fixed top-4 left-4 z-[9999] flex items-center gap-2 bg-white/90 hover:bg-white text-slate-800 font-bold px-4 py-2 rounded-full shadow-lg backdrop-blur-sm transition border border-slate-200 text-sm hover:scale-105">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        <span class="hidden sm:inline">Tornar a l'Àrea Privada</span>
+    </a>
+
+    <!-- Header -->
+    <header
+        class="bg-gradient-to-br from-indigo-600 to-purple-800 text-white py-16 px-6 shadow-lg relative overflow-hidden">
+        <div class="max-w-5xl mx-auto relative z-10 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 font-serif">Botiga de Serveis a Mida</h1>
+            <p class="text-xl text-indigo-100 max-w-2xl mx-auto font-light">Contracta suport exclusiu i fems per la teva
+                parcel·la.</p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div
+                class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 hover:shadow-md transition flex flex-col">
+                <div class="text-4xl mb-4">🚜</div>
+                <h4 class="font-bold text-stone-800 text-lg mb-2">Motocultor</h4>
+                <p class="text-stone-500 text-sm flex-grow">Manteniment i preparació de la terra mecànica.</p>
+                <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between">
+                    <span class="font-bold text-indigo-700">30€ / passada</span>
+                    <button onclick="addToCart('Motocultor', '30€', event)"
+                        class="px-4 py-2 bg-indigo-50 text-indigo-700 text-sm font-bold rounded-lg hover:bg-indigo-100 transition">Afegir</button>
+                </div>
+            </div>
+
+            <div
+                class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 hover:shadow-md transition flex flex-col">
+                <div class="text-4xl mb-4">💧</div>
+                <h4 class="font-bold text-stone-800 text-lg mb-2">Reg automatitzat</h4>
+                <p class="text-stone-500 text-sm flex-grow">Instal·lació de reg per goteig/exudació i temporitzador.</p>
+                <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between">
+                    <span class="font-bold text-indigo-700">30€ / mes</span>
+                    <button onclick="addToCart('Reg automatitzat', '30€', event)"
+                        class="px-4 py-2 bg-indigo-50 text-indigo-700 text-sm font-bold rounded-lg hover:bg-indigo-100 transition">Afegir</button>
+                </div>
+            </div>
+
+            <div
+                class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 hover:shadow-md transition flex flex-col">
+                <div class="text-4xl mb-4">🆘</div>
+                <h4 class="font-bold text-stone-800 text-lg mb-2">Reg d'emergència</h4>
+                <p class="text-stone-500 text-sm flex-grow">Has de marxar? Et reguem la parcel·la de forma manual.</p>
+                <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between">
+                    <span class="font-bold text-indigo-700">5€ / regada</span>
+                    <button onclick="addToCart('Reg d\'emergència', '5€', event)"
+                        class="px-4 py-2 bg-indigo-50 text-indigo-700 text-sm font-bold rounded-lg hover:bg-indigo-100 transition">Afegir</button>
+                </div>
+            </div>
+
+            <div
+                class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 hover:shadow-md transition flex flex-col">
+                <div class="text-4xl mb-4">💩</div>
+                <h4 class="font-bold text-stone-800 text-lg mb-2">Aportació de Fems</h4>
+                <p class="text-stone-500 text-sm flex-grow">Adob natural per nodrir i preparar la terra abans de
+                    plantar.</p>
+                <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between">
+                    <span class="font-bold text-indigo-700">5€ / carretonada</span>
+                    <button onclick="addToCart('Aportació de Fems', '5€', event)"
+                        class="px-4 py-2 bg-indigo-50 text-indigo-700 text-sm font-bold rounded-lg hover:bg-indigo-100 transition">Afegir</button>
+                </div>
+            </div>
+
+            <div
+                class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 hover:shadow-md transition flex flex-col relative overflow-hidden">
+                <div class="text-4xl mb-4">🌱</div>
+                <h4 class="font-bold text-stone-800 text-lg mb-2">Venda de planter</h4>
+                <p class="text-stone-500 text-sm flex-grow">T'oferim planter de temporada ecològic directament a l'hort.
+                </p>
+                <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between gap-2">
+                    <span class="font-bold text-indigo-700 text-sm leading-tight">Canviant segons temporada</span>
+                    <button onclick="addToCart('Venda de planter', 'A consultar', event)"
+                        class="px-4 py-2 bg-indigo-50 text-indigo-700 text-sm font-bold rounded-lg hover:bg-indigo-100 transition whitespace-nowrap">Demanar
+                        preu</button>
+                </div>
+            </div>
+
+            <div
+                class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 hover:shadow-md transition flex flex-col relative overflow-hidden">
+                <div class="text-4xl mb-4">📦</div>
+                <h4 class="font-bold text-stone-800 text-lg mb-2">Kit de planter</h4>
+                <p class="text-stone-500 text-sm flex-grow">Inclou terra amb adob ecològic, llavors i el lloguer de la
+                    safata.</p>
+                <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between gap-2">
+                    <span class="font-bold text-indigo-700 text-sm leading-tight">A consultar</span>
+                    <button onclick="addToCart('Kit de planter', 'A consultar', event)"
+                        class="px-4 py-2 bg-indigo-50 text-indigo-700 text-sm font-bold rounded-lg hover:bg-indigo-100 transition whitespace-nowrap">Demanar
+                        preu</button>
+                </div>
+            </div>
+
+            <div
+                class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 hover:shadow-md transition flex flex-col relative overflow-hidden border-indigo-200">
+                <div
+                    class="absolute top-0 right-0 bg-green-100 text-xs font-bold px-3 py-1 rounded-bl-lg text-green-800">
+                    Especial</div>
+                <div class="text-4xl mb-4">🌳</div>
+                <h4 class="font-bold text-stone-800 text-lg mb-2">Apadrina un arbre fruiter</h4>
+                <p class="text-stone-500 text-sm flex-grow">Acompanya el creixement d'un fruiter des de zero i emporta't
+                    la collita.</p>
+                <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between gap-2">
+                    <span class="font-bold text-indigo-700 text-sm leading-tight">Únic: A consultar</span>
+                    <button onclick="addToCart('Apadrinament Arbre', 'A consultar', event)"
+                        class="px-4 py-2 bg-indigo-50 text-indigo-700 text-sm font-bold rounded-lg hover:bg-indigo-100 transition whitespace-nowrap">Apadrinar</button>
+                </div>
+            </div>
+
+            <div
+                class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 hover:shadow-md transition flex flex-col">
+                <div class="text-4xl mb-4">🍎</div>
+                <h4 class="font-bold text-stone-800 text-lg mb-2">Altres materials i serveis</h4>
+                <ul class="text-stone-500 text-sm flex-grow space-y-1">
+                    <li>• Pack de 10 tutors per a plantes</li>
+                    <li>• Venda de producció extra / cosmètica</li>
+                    <li>• Tallers extres avançats</li>
+                </ul>
+                <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between">
+                    <span class="font-bold text-indigo-700">Demanar informació</span>
+                    <button onclick="addToCart('Altres Exclusius Hortolà', 'A consultar', event)"
+                        class="px-4 py-2 bg-indigo-50 text-indigo-700 text-sm font-bold rounded-lg hover:bg-indigo-100 transition">Contactar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Cart Button -->
+    <div id="cart-float" class="fixed bottom-6 right-6 z-50 hidden">
+        <button onclick="openServeiCheckout()"
+            class="bg-indigo-600 text-white p-4 rounded-full shadow-2xl hover:bg-indigo-700 transition transform hover:-translate-y-1 relative focus:ring-4 ring-indigo-300">
+            <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+            <span id="cart-badge"
+                class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full border-2 border-white">0</span>
+        </button>
+    </div>
+
+    <!-- Checkout Modal Serveis (Cistella) -->
+    <div id="checkout-modal" class="fixed inset-0 z-[100] hidden bg-black/60 backdrop-blur-sm px-4"
+        style="display: none; align-items: center; justify-content: center;">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full overflow-hidden transform transition-all max-h-[90vh] flex flex-col"
+            onclick="event.stopPropagation()">
+            <!-- Header -->
+            <div class="bg-indigo-50 p-6 flex justify-between items-start border-b border-indigo-100 relative shrink-0">
+                <div>
+                    <h3 class="font-bold text-stone-800 text-xl md:text-2xl font-serif">La teva Comanda</h3>
+                    <p class="text-sm text-indigo-700 font-semibold">Resum dels Serveis</p>
+                </div>
+                <button onclick="closeServeiCheckout()"
+                    class="text-stone-400 hover:text-stone-600 bg-white rounded-full p-2 shadow-sm border border-stone-100 transition absolute right-6 top-6">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Body Form -->
+            <div class="p-6 overflow-y-auto grow">
+                <form id="checkout-form" class="space-y-5" action="https://formspree.io/f/xbjnrvnq" method="POST">
+
+                    <div id="cart-items-list" class="space-y-3 mb-6">
+                        <!-- Els items de la cistella s'afegeixen aquí -->
+                    </div>
+
+                    <!-- Campos ocultos para enviar items por email -->
+                    <input type="hidden" name="Comanda_Detall" id="comanda-detall-input" value="">
+
+                    <div class="bg-stone-50 p-4 rounded-xl border border-stone-200 mt-6 relative" id="payment-fields">
+                        <label class="block text-sm font-bold text-stone-700 mb-3 flex flex-col items-start gap-2">
+                            <span
+                                class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-md font-bold w-max">Mètode:
+                                Transferència / Bizum</span>
+                            No cal pagar en línia
+                        </label>
+                        <p class="text-xs text-stone-500 leading-relaxed mb-4">Un cop enviada aquesta reserva, se
+                            t'assignarà el servei i et demanem que facis una transferència bancària o Bizum a l'IBAN
+                            <strong>ES00 0000 0000 0000 0000</strong> i concepte "Reserva [El Teu Nom]".</p>
+
+                        <div class="relative mb-3">
+                            <i data-lucide="user" class="w-5 h-5 absolute left-3 top-3 text-stone-400"></i>
+                            <input type="text" name="Nom" placeholder="El teu nom o parcel·la" required
+                                class="w-full pl-10 pr-4 py-2 mt-1 text-sm rounded-xl border border-stone-200 focus:border-indigo-500 outline-none transition">
+                        </div>
+                    </div>
+
+                    <div class="pt-4 flex justify-between items-center text-lg mt-2 border-t border-stone-200"
+                        id="total-container">
+                        <span class="text-stone-600">Total reserva:</span>
+                        <span class="font-bold text-indigo-800 text-3xl" id="modal-service-price">0€</span>
+                    </div>
+
+                    <button type="submit" id="btn-pagar"
+                        class="w-full bg-indigo-600 text-white font-bold py-4 rounded-xl hover:bg-indigo-700 transition shadow-lg flex justify-center items-center gap-2 mt-4">
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                        Confirmar Comanda
+                    </button>
+
+                    <div id="payment-success"
+                        class="hidden bg-indigo-50 text-indigo-900 p-5 rounded-xl border border-indigo-200 text-center font-semibold mt-4 shadow-sm animate-pulse">
+                        <i data-lucide="check-circle-2" class="w-12 h-12 mx-auto mb-3 text-indigo-500"></i>
+                        <p class="text-lg mb-1">Comanda enviada!</p>
+                        <p class="text-sm text-indigo-700 font-normal">Hem rebut la teva comanda. Fes l'ingrés quan
+                            abans millor per garantir els serveis.</p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Serveis Checkout Privat -->
+    <script>
+        lucide.createIcons();
+        const modal = document.getElementById('checkout-modal');
+        let cartItems = JSON.parse(localStorage.getItem('private_cart') || '[]');
+        updateCartUI();
+
+        function addToCart(name, price, event) {
+            if (event) event.preventDefault();
+
+            let priceNum = 0;
+            if (price !== 'A consultar') {
+                priceNum = parseFloat(price.replace('€', '').trim());
+            }
+
+            cartItems.push({
+                id: Date.now(),
+                name: name,
+                price: price,
+                priceNum: priceNum,
+                date: new Date().toISOString().split('T')[0]
+            });
+
+            localStorage.setItem('private_cart', JSON.stringify(cartItems));
+            updateCartUI();
+
+            // Notificació tipus "toast"
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-24 right-6 bg-indigo-800 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center gap-3 z-[150] animate-bounce';
+            toast.innerHTML = '<i data-lucide="check-circle-2" class="w-5 h-5 text-indigo-300"></i> Afegit a la comanda';
+            document.body.appendChild(toast);
+            lucide.createIcons();
+
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        function openServeiCheckout() {
+            updateCartUI();
+            modal.style.display = 'flex';
+            setTimeout(() => { modal.classList.remove('hidden'); }, 10);
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+
+        function updateCartUI() {
+            const cartList = document.getElementById('cart-items-list');
+            const totalElement = document.getElementById('modal-service-price');
+            const btnPagar = document.getElementById('btn-pagar');
+            const paymentFields = document.getElementById('payment-fields');
+
+            cartList.innerHTML = '';
+            let total = 0;
+            let needsPayment = false;
+            let hasConsultar = false;
+            let formDetailsString = "";
+
+            cartItems.forEach(item => {
+                if (item.priceNum > 0) {
+                    total += item.priceNum;
+                    needsPayment = true;
+                } else {
+                    hasConsultar = true;
+                }
+
+                formDetailsString += `- ${item.name} (${item.price}) per al dia ${item.date}\n`;
+
+                const minDate = new Date().toISOString().split('T')[0];
+
+                cartList.innerHTML += `
+                    <div class="bg-white border border-stone-200 p-4 rounded-xl relative shadow-sm">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 class="font-bold text-stone-800 text-sm">${item.name}</h4>
+                            <span class="font-bold text-indigo-700 bg-indigo-50 px-2 py-1 rounded text-xs">${item.price}</span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold text-stone-500 mb-1 block">📅 Data preferida:</label>
+                            <input type="date" value="${item.date}" min="${minDate}" onchange="updateItemDate(${item.id}, this.value)" class="w-full px-3 py-2 text-sm rounded-lg border border-stone-200 outline-none focus:border-indigo-500 transition focus:ring-2 focus:ring-indigo-100">
+                        </div>
+                        <button type="button" onclick="removeFromCart(${item.id})" class="absolute -top-2 -right-2 bg-red-100 text-red-600 rounded-full p-1.5 shadow hover:bg-red-200 transition" title="Eliminar element">
+                            <i data-lucide="x" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `;
+            });
+
+            document.getElementById('comanda-detall-input').value = formDetailsString;
+
+            totalElement.textContent = total > 0 ? total + '€' : 'A consultar/Sense fix';
+
+            if (cartItems.length === 0) {
+                cartList.innerHTML = '<div class="text-center py-6 border-2 border-dashed border-stone-200 rounded-xl"><p class="text-sm text-stone-500 mb-2">Comanda buida.</p><button type="button" onclick="closeServeiCheckout()" class="text-indigo-600 text-sm font-bold hover:underline">Tancar</button></div>';
+                document.getElementById('total-container').style.display = 'none';
+                btnPagar.style.display = 'none';
+                paymentFields.style.display = 'none';
+            } else {
+                document.getElementById('total-container').style.display = 'flex';
+                btnPagar.style.display = 'flex';
+                paymentFields.style.display = 'block';
+            }
+
+            // Show/Hide Cart Badge
+            const badge = document.getElementById('cart-badge');
+            if (badge) {
+                badge.textContent = cartItems.length;
+                document.getElementById('cart-float').classList.toggle('hidden', cartItems.length === 0);
+            }
+
+            lucide.createIcons();
+        }
+
+        function updateItemDate(id, newDate) {
+            const item = cartItems.find(i => i.id === id);
+            if (item) {
+                item.date = newDate;
+                localStorage.setItem('private_cart', JSON.stringify(cartItems));
+                updateCartUI();
+            }
+        }
+
+        function removeFromCart(id) {
+            cartItems = cartItems.filter(i => i.id !== id);
+            localStorage.setItem('private_cart', JSON.stringify(cartItems));
+            updateCartUI();
+        }
+
+        function closeServeiCheckout() {
+            modal.style.display = 'none';
+            modal.classList.add('hidden');
+            document.getElementById('payment-success').classList.add('hidden');
+            if (cartItems.length > 0) {
+                document.getElementById('btn-pagar').classList.remove('hidden');
+            }
+            document.body.style.overflow = 'auto';
+        }
+
+        // Intercept form to make it visible we did it
+        const checkoutForm = document.getElementById('checkout-form');
+        checkoutForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            // Show sending status
+            const btn = document.getElementById('btn-pagar');
+            const originalBtn = btn.innerHTML;
+            btn.innerHTML = 'Processant reserva... <i class="animate-spin w-4 h-4 rounded-full border-2 border-white border-t-transparent ml-2 inline-block"></i>';
+            btn.disabled = true;
+
+            try {
+                // Fetch to Formspree
+                let data = new FormData(checkoutForm);
+                await fetch(checkoutForm.action, {
+                    method: checkoutForm.method,
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                // Clear
+                cartItems = [];
+                localStorage.setItem('private_cart', '[]');
+                updateCartUI();
+
+                btn.style.display = 'none';
+                document.getElementById('payment-success').classList.remove('hidden');
+            } catch (err) {
+                alert("Error intentant enviar la reserva. Torna a intentar-ho.");
+                btn.innerHTML = originalBtn;
+                btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+
+</html>

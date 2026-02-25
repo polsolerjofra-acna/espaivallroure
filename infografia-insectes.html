@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografia: Insectes i Aromàtiques a l'Hort</title>
+        <link rel="icon" type="image/png" href="img/logopol (1).png">
+<script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .blob-shape {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        }
+    </style>
+</head>
+
+<body class="text-slate-800 pb-12">
+    <!-- Botó Retorn al Menú -->
+    <a href="infografies"
+        class="fixed top-4 left-4 z-[9999] flex items-center gap-2 bg-white/90 hover:bg-white text-slate-800 font-bold px-4 py-2 rounded-full shadow-lg backdrop-blur-sm transition border border-slate-200 text-sm hover:scale-105">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        <span class="hidden sm:inline">Tornar a l'Àrea Privada</span>
+    </a>
+
+    <!-- Header / Títol -->
+    <header
+        class="bg-gradient-to-br from-amber-600 to-orange-800 text-white py-16 px-6 shadow-lg relative overflow-hidden">
+        <div class="absolute -top-10 -right-10 text-white/10 opacity-20 transform rotate-12 w-72 h-72">
+            <i data-lucide="flower-2" class="w-full h-full"></i>
+        </div>
+        <div class="max-w-5xl mx-auto relative z-10 text-center">
+            <div class="flex justify-center mb-4">
+                <div class="bg-white/20 p-4 rounded-full backdrop-blur-sm">
+                    <i data-lucide="bug" class="w-12 h-12 text-amber-100"></i>
+                </div>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Fauna i Aromàtiques aliades</h1>
+            <p class="text-xl text-amber-100 max-w-2xl mx-auto font-light">
+                Descobreix quins insectes són els teus enemics, quins són els teus aliats, i com les plantes aromàtiques
+                et poden ajudar a mantenir l'equilibri.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 mt-12 space-y-16">
+
+        <!-- Secció 1: Plagues (Insectes Negatius) -->
+        <section>
+            <div class="flex items-center gap-3 mb-8 border-b-2 border-red-100 pb-4">
+                <div class="bg-red-100 p-2 rounded-lg text-red-600">
+                    <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-800">Plagues Comunes (Els Enemics)</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Pugó -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-red-500 hover:shadow-md transition-shadow relative overflow-hidden">
+                    <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center mb-4 text-red-500">
+                        <i data-lucide="bug" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Pugó</h3>
+                    <p class="text-sm text-slate-600 mb-3">Xuclen la saba de brots tendres i afebleixen la planta.
+                        Segreguen melassa que atrau formigues i fongs (negreta).</p>
+                    <div class="text-xs font-semibold text-red-700 bg-red-50 inline-block px-2 py-1 rounded">Molt ràpida
+                        reproducció</div>
+                </div>
+
+                <!-- Mosca Blanca -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-red-400 hover:shadow-md transition-shadow relative overflow-hidden">
+                    <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center mb-4 text-red-400">
+                        <i data-lucide="cloud-fog" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Mosca Blanca</h3>
+                    <p class="text-sm text-slate-600 mb-3">S'amaguen a l'envés de les fulles. Transmeten virus i taquen
+                        els fruits. Molt comunes en tomàquets.</p>
+                    <div class="text-xs font-semibold text-red-700 bg-red-50 inline-block px-2 py-1 rounded">Surt volant
+                        al tocar la fulla</div>
+                </div>
+
+                <!-- Erugues -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-orange-500 hover:shadow-md transition-shadow relative overflow-hidden">
+                    <div
+                        class="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center mb-4 text-orange-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6-4c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Erugues (Tuta)</h3>
+                    <p class="text-sm text-slate-600 mb-3">Devoren fulles fent forats. La <i>Tuta absoluta</i> fa
+                        galeries a l'interior de les fulles i fruits del tomàquet.</p>
+                    <div class="text-xs font-semibold text-orange-700 bg-orange-50 inline-block px-2 py-1 rounded">
+                        Deixen excrements negres</div>
+                </div>
+
+                <!-- Aranya Roja -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-rose-600 hover:shadow-md transition-shadow relative overflow-hidden">
+                    <div class="w-12 h-12 bg-rose-50 rounded-full flex items-center justify-center mb-4 text-rose-600">
+                        <i data-lucide="target" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Aranya Roja</h3>
+                    <p class="text-sm text-slate-600 mb-3">Àcars minúsculs. Deixen les fulles amb taquetes grogues i
+                        teixeixen finíssimes teranyines en ambients molt secs.</p>
+                    <div class="text-xs font-semibold text-rose-700 bg-rose-50 inline-block px-2 py-1 rounded">
+                        Afavorides per la calor i sequedat</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secció 2: Insectes Positius (Beneficiosos) -->
+        <section>
+            <div class="flex items-center gap-3 mb-8 border-b-2 border-blue-100 pb-4">
+                <div class="bg-blue-100 p-2 rounded-lg text-blue-600">
+                    <i data-lucide="shield-check" class="w-6 h-6"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-800">Fauna Auxiliar (Els Aliats)</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Marieta -->
+                <div
+                    class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex items-start gap-4 hover:bg-slate-50 transition-colors">
+                    <div
+                        class="w-16 h-16 bg-red-100 blob-shape flex-shrink-0 flex items-center justify-center relative overflow-hidden">
+                        <div class="w-8 h-8 bg-red-500 rounded-full absolute"></div>
+                        <div class="w-2 h-2 bg-black rounded-full absolute top-4 left-4"></div>
+                        <div class="w-2 h-2 bg-black rounded-full absolute bottom-4 right-4"></div>
+                        <div class="w-2 h-2 bg-black rounded-full absolute top-6 right-3"></div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-slate-800">Marieta (Coccinèl·lids)</h4>
+                        <p class="text-sm text-slate-600 mt-1">Depredadores insaciables. Tant l'adult com la seva larva
+                            (que sembla un petit cocodril negre i taronja) poden devorar fins a <b>100 pugons al
+                                dia</b>.</p>
+                        <div
+                            class="mt-3 inline-flex items-center gap-1 text-xs text-blue-700 bg-blue-50 px-2 py-1 rounded-full">
+                            <i data-lucide="utensils" class="w-3 h-3"></i> Menja: Pugons i Àcars
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Crisopa -->
+                <div
+                    class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex items-start gap-4 hover:bg-slate-50 transition-colors">
+                    <div
+                        class="w-16 h-16 bg-lime-100 blob-shape flex-shrink-0 flex items-center justify-center text-lime-600">
+                        <i data-lucide="feather" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-slate-800">Crisopa (Lleó dels pugons)</h4>
+                        <p class="text-sm text-slate-600 mt-1">Insectes verds amb ales transparents. Les seves larves
+                            són conegudes com "lleons de pugons" per la seva ferocitat devorant plagues.</p>
+                        <div
+                            class="mt-3 inline-flex items-center gap-1 text-xs text-blue-700 bg-blue-50 px-2 py-1 rounded-full">
+                            <i data-lucide="utensils" class="w-3 h-3"></i> Menja: Pugons, Mosca blanca i Erugues petites
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sírfids -->
+                <div
+                    class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex items-start gap-4 hover:bg-slate-50 transition-colors">
+                    <div
+                        class="w-16 h-16 bg-yellow-100 blob-shape flex-shrink-0 flex items-center justify-center text-yellow-600">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M4 7l2 1M4 7l2-1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l2-1m-2 1l2 1m-2-1v-2.5M18 18l-2-1m2 1l-2 1m2-1v-2.5">
+                            </path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-slate-800">Sírfids (Mosques de les flors)</h4>
+                        <p class="text-sm text-slate-600 mt-1">Semblen vespes o abelles petites (per espantar
+                            depredadors), però són mosques inofensives. Són grans pol·linitzadors i les seves larves
+                            mengen pugó.</p>
+                        <div class="mt-3 flex gap-2 flex-wrap">
+                            <span
+                                class="inline-flex items-center gap-1 text-xs text-emerald-700 bg-emerald-50 px-2 py-1 rounded-full"><i
+                                    data-lucide="flower" class="w-3 h-3"></i> Pol·linitzador</span>
+                            <span
+                                class="inline-flex items-center gap-1 text-xs text-blue-700 bg-blue-50 px-2 py-1 rounded-full"><i
+                                    data-lucide="utensils" class="w-3 h-3"></i> Menja: Pugons</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Abelles i Borinots -->
+                <div
+                    class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex items-start gap-4 hover:bg-slate-50 transition-colors">
+                    <div
+                        class="w-16 h-16 bg-amber-100 blob-shape flex-shrink-0 flex items-center justify-center relative">
+                        <div class="w-8 h-6 bg-amber-400 rounded-full flex overflow-hidden">
+                            <div class="w-2 h-full bg-black ml-2"></div>
+                            <div class="w-2 h-full bg-black ml-2"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-slate-800">Abelles i Borinots</h4>
+                        <p class="text-sm text-slate-600 mt-1">Imprescindibles. Sense ells, no hi hauria tomàquets,
+                            carbassons, melons ni pebrots, ja que s'encarreguen de fecundar les flors per fer el fruit.
+                        </p>
+                        <div
+                            class="mt-3 inline-flex items-center gap-1 text-xs text-emerald-700 bg-emerald-50 px-2 py-1 rounded-full">
+                            <i data-lucide="flower" class="w-3 h-3"></i> Funcions: Pol·linitzadors exclusius
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secció 3: Aromàtiques Aliades -->
+        <section class="bg-purple-50 rounded-3xl p-8 border border-purple-100 shadow-inner">
+            <div class="text-center mb-10">
+                <i data-lucide="leaf" class="w-12 h-12 text-purple-600 mx-auto mb-3"></i>
+                <h2 class="text-3xl font-bold text-purple-900">Plantes Aromàtiques i Florals (L'Escut)</h2>
+                <p class="text-purple-700 mt-2">Intercala aquestes plantes entre els teus cultius per protegir-los i
+                    atreure vida útil.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Calèndula -->
+                <div class="bg-white rounded-xl shadow-sm p-6 relative">
+                    <div
+                        class="absolute top-0 right-0 w-12 h-12 bg-orange-100 rounded-bl-3xl flex items-center justify-center text-orange-500">
+                        <i data-lucide="flower-2" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-slate-800 mb-1">Calèndula</h3>
+                    <p class="text-sm text-slate-500 mb-4">La flor "tot terreny" de l'hort.</p>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-2">
+                            <i data-lucide="plus-circle" class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"></i>
+                            <p class="text-sm text-slate-700"><span class="font-semibold text-emerald-600">Atrau:</span>
+                                Sírfids, Marietes i Abelles.</p>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <i data-lucide="crosshair" class="w-5 h-5 text-amber-500 shrink-0 mt-0.5"></i>
+                            <p class="text-sm text-slate-700"><span class="font-semibold text-amber-600">Parany:</span>
+                                Atrau el pugó cap a ella mateixa, allunyant-lo de la resta de cultius.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alfàbrega -->
+                <div class="bg-white rounded-xl shadow-sm p-6 relative">
+                    <div
+                        class="absolute top-0 right-0 w-12 h-12 bg-green-100 rounded-bl-3xl flex items-center justify-center text-green-600">
+                        <i data-lucide="leaf" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-slate-800 mb-1">Alfàbrega</h3>
+                    <p class="text-sm text-slate-500 mb-4">La millor amiga del tomàquet.</p>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-2">
+                            <i data-lucide="minus-circle" class="w-5 h-5 text-rose-500 shrink-0 mt-0.5"></i>
+                            <p class="text-sm text-slate-700"><span
+                                    class="font-semibold text-rose-600">Repel·leix:</span> Mosca blanca, pugons i
+                                mosquits gràcies al seu fort aroma.</p>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <i data-lucide="plus-circle" class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"></i>
+                            <p class="text-sm text-slate-700"><span class="font-semibold text-emerald-600">Atrau:</span>
+                                Si es deixa florir, és un imant per a pol·linitzadors.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Caputxina -->
+                <div class="bg-white rounded-xl shadow-sm p-6 relative">
+                    <div
+                        class="absolute top-0 right-0 w-12 h-12 bg-red-100 rounded-bl-3xl flex items-center justify-center text-red-500">
+                        <i data-lucide="sun" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-slate-800 mb-1">Caputxina</h3>
+                    <p class="text-sm text-slate-500 mb-4">Planta escut o "cultiu trampa".</p>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-2">
+                            <i data-lucide="minus-circle" class="w-5 h-5 text-rose-500 shrink-0 mt-0.5"></i>
+                            <p class="text-sm text-slate-700"><span
+                                    class="font-semibold text-rose-600">Repel·leix:</span> Mosca blanca, formigues i
+                                xinxes.</p>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <i data-lucide="crosshair" class="w-5 h-5 text-amber-500 shrink-0 mt-0.5"></i>
+                            <p class="text-sm text-slate-700"><span class="font-semibold text-amber-600">Parany:</span>
+                                És irresistible per al pugó negre. Es sacrifica per salvar les faves i mongetes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lavanda -->
+                <div class="bg-white rounded-xl shadow-sm p-6 relative">
+                    <div
+                        class="absolute top-0 right-0 w-12 h-12 bg-purple-100 rounded-bl-3xl flex items-center justify-center text-purple-500">
+                        <i data-lucide="flower" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-slate-800 mb-1">Lavanda</h3>
+                    <p class="text-sm text-slate-500 mb-4">La reina de la pol·linització.</p>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-2">
+                            <i data-lucide="plus-circle" class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"></i>
+                            <p class="text-sm text-slate-700"><span class="font-semibold text-emerald-600">Atrau:</span>
+                                És una de les plantes que més abelles i borinots atrau de tot l'hort.</p>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <i data-lucide="minus-circle" class="w-5 h-5 text-rose-500 shrink-0 mt-0.5"></i>
+                            <p class="text-sm text-slate-700"><span
+                                    class="font-semibold text-rose-600">Repel·leix:</span> Formigues i puces. Posa-la
+                                als marges de l'hort.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Romaní -->
+                <div class="bg-white rounded-xl shadow-sm p-6 relative">
+                    <div
+                        class="absolute top-0 right-0 w-12 h-12 bg-teal-100 rounded-bl-3xl flex items-center justify-center text-teal-600">
+                        <i data-lucide="droplets" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-slate-800 mb-1">Romaní</h3>
+                    <p class="text-sm text-slate-500 mb-4">Arbust protector de llarga durada.</p>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-2">
+                            <i data-lucide="minus-circle" class="w-5 h-5 text-rose-500 shrink-0 mt-0.5"></i>
+                            <p class="text-sm text-slate-700"><span
+                                    class="font-semibold text-rose-600">Repel·leix:</span> La papallona de la col
+                                (eruga) i la mosca de la pastanaga.</p>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <i data-lucide="plus-circle" class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"></i>
+                            <p class="text-sm text-slate-700"><span class="font-semibold text-emerald-600">Atrau:</span>
+                                La seva floració primerenca alimenta els pol·linitzadors a l'hivern/primavera.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menta -->
+                <div class="bg-white rounded-xl shadow-sm p-6 relative">
+                    <div
+                        class="absolute top-0 right-0 w-12 h-12 bg-emerald-100 rounded-bl-3xl flex items-center justify-center text-emerald-600">
+                        <i data-lucide="wind" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-slate-800 mb-1">Menta</h3>
+                    <p class="text-sm text-slate-500 mb-4">Molt potent, millor plantar-la en test.</p>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-2">
+                            <i data-lucide="minus-circle" class="w-5 h-5 text-rose-500 shrink-0 mt-0.5"></i>
+                            <p class="text-sm text-slate-700"><span
+                                    class="font-semibold text-rose-600">Repel·leix:</span> Pugons, formigues, rates i
+                                certes erugues gràcies al mentol.</p>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 text-amber-500 shrink-0 mt-0.5"></i>
+                            <p class="text-sm text-slate-700"><span class="font-semibold text-amber-600">Atenció:</span>
+                                És molt invasiva. Planta-la a prop de cols i tomàquets, però sempre dins d'un test.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center mt-12 text-sm text-slate-500">
+        <p>Infografia interactiva sobre fauna i flora de l'hort - <i data-lucide="bug"
+                class="w-4 h-4 inline-block text-amber-500"></i> Creat amb propòsits educatius.</p>
+    </footer>
+
+    <script>
+        // Inicialitzar les icones de Lucide
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

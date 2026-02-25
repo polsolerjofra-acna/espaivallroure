@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ca" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horticultura Ecològica | Espai Vall-Roure</title>
+        <link rel="icon" type="image/png" href="img/logopol (1).png">
+<!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    colors: {
+                        brand: { 50: '#f2fbf5', 100: '#e1f6e8', 500: '#3ba36e', 700: '#246946', 900: '#1a4430', 950: '#0d2419' },
+                        earth: { 50: '#faf8f5', 100: '#f0ebe1', 200: '#e1d5c1', 500: '#ae8a5b', 800: '#6a4b39' },
+                        eco: {
+                            50: '#f2fbf5',
+                            100: '#e1f6e8',
+                            200: '#c4ebd4',
+                            300: '#96d9b4',
+                            400: '#60bf8d',
+                            500: '#3ba46d',
+                            600: '#2b8355',
+                            700: '#246946',
+                            800: '#1f5339',
+                            900: '#1a4430',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide setup -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .pattern-bg {
+            background-color: #faf8f5;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2v-2h-2v-2h2v-2h-2v-2h2V8h-2V6h2V4h-2V2h2V0h16v2h-2v2h2v2h-2v2h2v2h-2v2h2v2h-2v2h2v2h-2v2h2v2H20zm0 19.5h-2v-2h2v-2h-2v-2h2v-2h-2v-2h2v-2h-2v-2h2v-2h-2v-2h2v-2h-2V20h2v2h2v-2h2v2h-2v2h2v2h-2v2h2v2h-2v2h2v2h-2v2h2v2h-2v2h2v2h-2v2H20v-2z' fill='%236b4c30' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="font-sans text-stone-800 pattern-bg antialiased min-h-screen pb-12">
+
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white shadow-sm border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center">
+            <a href="infografies"
+                class="flex items-center gap-2 text-green-700 hover:text-green-900 font-bold transition">
+                <i data-lucide="arrow-left" class="h-5 w-5"></i> Tornar a l'Àrea Privada
+            </a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header
+        class="bg-eco-700 text-white py-16 px-4 shadow-lg relative overflow-hidden mt-20 max-w-5xl mx-auto rounded-b-[2rem] border-x border-b border-eco-800">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <svg class="absolute top-4 left-10 w-24 h-24" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                    d="M12 2L12 22M12 2C8 2 4 6 4 10C4 14 8 18 12 18M12 2C16 2 20 6 20 10C20 14 16 18 12 18M12 10L4 10M12 10L20 10"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <svg class="absolute bottom-4 right-10 w-32 h-32" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 21C12 21 4 15 4 9C4 4.5 7.5 1 12 1C16.5 1 20 4.5 20 9C20 15 12 21 12 21Z"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="flex justify-center mb-4">
+                <i data-lucide="sprout" class="w-16 h-16 text-eco-200"></i>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight font-serif">Horticultura Ecològica</h1>
+            <p class="text-xl md:text-2xl text-eco-100 max-w-2xl mx-auto font-medium">
+                Guia visual de productes naturals, adobs i pràctiques respectuoses per a un hort ple de vida i lliure de
+                tòxics.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 mt-12 space-y-16">
+
+        <!-- Section 1: Fitosanitaris Naturals -->
+        <section>
+            <div class="flex items-center gap-3 mb-8 border-b-2 border-eco-200 pb-2">
+                <div class="bg-eco-100 p-2 rounded-lg text-eco-600">
+                    <i data-lucide="bug" class="w-8 h-8"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-eco-800 font-serif">Fitosanitaris i Tractaments Naturals</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm card-hover relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-16 h-16 bg-blue-50 rounded-bl-full flex items-start justify-end p-3">
+                        <i data-lucide="droplet" class="w-6 h-6 text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-800 mb-2">Sabó Potàssic</h3>
+                    <p class="text-eco-600 font-semibold text-sm mb-3">Insecticida de contacte</p>
+                    <p class="text-stone-600 mb-4">Reblaneix l'exosquelet dels insectes d'escut tou. És biodegradable i
+                        actua netejant la fulla de melasses.</p>
+                    <div class="bg-stone-50 p-3 rounded-lg text-sm border border-stone-100">
+                        <strong class="text-stone-800">Eficaç contra:</strong> Pugó, mosca blanca, cotxinilla, aranya
+                        vermella.
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm card-hover relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-16 h-16 bg-yellow-50 rounded-bl-full flex items-start justify-end p-3">
+                        <i data-lucide="sun" class="w-6 h-6 text-yellow-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-800 mb-2">Oli de Neem</h3>
+                    <p class="text-eco-600 font-semibold text-sm mb-3">Insecticida i repel·lent sistèmic</p>
+                    <p class="text-stone-600 mb-4">S'extreu de l'arbre del Neem. Altera el cicle vital dels insectes
+                        impedint que s'alimentin i es reprodueixin.</p>
+                    <div class="bg-stone-50 p-3 rounded-lg text-sm border border-stone-100">
+                        <strong class="text-stone-800">Eficaç contra:</strong> Erugues, trips, minadors, escarabat de la
+                        patata. <br><span class="text-xs text-stone-500">*Combinar amb sabó potàssic per millorar-ne
+                            l'adherència.</span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm card-hover relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-16 h-16 bg-green-50 rounded-bl-full flex items-start justify-end p-3">
+                        <i data-lucide="leaf" class="w-6 h-6 text-green-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-800 mb-2">Extractes i Purins Vegitals</h3>
+                    <p class="text-eco-600 font-semibold text-sm mb-3">Fungicides i bioestimulants</p>
+                    <p class="text-stone-600 mb-4">Maceracions de plantes que enforteixen els cultius i prevenen
+                        malalties per fongs.</p>
+                    <div class="bg-stone-50 p-3 rounded-lg text-sm border border-stone-100">
+                        <ul class="space-y-1 list-disc list-inside">
+                            <li><strong class="text-stone-800">Ortiga:</strong> Ric en nitrogen, repel·leix pugó i
+                                àcars.</li>
+                            <li><strong class="text-stone-800">Cua de cavall:</strong> Ric en sílice, excel·lent
+                                preventiu contra l'oïdi i el míldiu.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                    class="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm card-hover relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-16 h-16 bg-stone-50 rounded-bl-full flex items-start justify-end p-3">
+                        <i data-lucide="mountain" class="w-6 h-6 text-stone-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-800 mb-2">Terra de Diatomees</h3>
+                    <p class="text-eco-600 font-semibold text-sm mb-3">Insecticida mecànic i fertilitzant</p>
+                    <p class="text-stone-600 mb-4">Algues fossilitzades triturades. Actua assecant i perforant la capa
+                        exterior dels insectes. Aporta silici al sòl.</p>
+                    <div class="bg-stone-50 p-3 rounded-lg text-sm border border-stone-100">
+                        <strong class="text-stone-800">Eficaç contra:</strong> Formigues, cargols, llimacs i plagues de
+                        terra. S'aplica espolvorejant (en sec).
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Fertilitzants i Nutrició -->
+        <section>
+            <div class="flex items-center gap-3 mb-8 border-b-2 border-earth-500 pb-2">
+                <div class="bg-earth-100 p-2 rounded-lg text-earth-800">
+                    <i data-lucide="shovel" class="w-8 h-8"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-earth-800 font-serif">Fertilitzants Naturals</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Humus -->
+                <div class="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm card-hover">
+                    <div class="w-12 h-12 bg-earth-500 text-white rounded-full flex items-center justify-center mb-4">
+                        <i data-lucide="worm" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-earth-800 mb-2">Humus de Cuc (Vermicompost)</h3>
+                    <p class="text-sm text-stone-700 mb-3">L'"or negre" de l'hort. Són excrements de cuc vermell
+                        californià després de digerir matèria orgànica.</p>
+                    <ul class="text-sm text-stone-600 space-y-1 list-disc list-inside">
+                        <li>Alta càrrega microbiana.</li>
+                        <li>No crema les arrels (es pot usar en planters).</li>
+                        <li>Millora l'estructura del sòl.</li>
+                    </ul>
+                </div>
+
+                <!-- Compost / Fems -->
+                <div class="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm card-hover">
+                    <div class="w-12 h-12 bg-earth-800 text-white rounded-full flex items-center justify-center mb-4">
+                        <i data-lucide="recycle" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-earth-800 mb-2">Compost i Fems</h3>
+                    <p class="text-sm text-stone-700 mb-3">Matèria orgànica descomposta. Els fems (cavall, ovella,
+                        gallinassa) sempre han d'estar ben madurs i fermentats.</p>
+                    <ul class="text-sm text-stone-600 space-y-1 list-disc list-inside">
+                        <li>Aporta macronutrients (N-P-K).</li>
+                        <li>Reté la humitat.</li>
+                        <li>Dona esponjositat a terres argiloses.</li>
+                    </ul>
+                </div>
+
+                <!-- Cendra -->
+                <div class="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm card-hover">
+                    <div class="w-12 h-12 bg-stone-500 text-white rounded-full flex items-center justify-center mb-4">
+                        <i data-lucide="flame" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-earth-800 mb-2">Cendra de Fusta</h3>
+                    <p class="text-sm text-stone-700 mb-3">Residu de fusta natural cremada (sense pintures ni
+                        vernissos).</p>
+                    <ul class="text-sm text-stone-600 space-y-1 list-disc list-inside">
+                        <li>Molt rica en Potassi (K) i Calci (Ca).</li>
+                        <li>Ideal per cultius de fruit (tomàquet, pebrot).</li>
+                        <li><em>Atenció:</em> Puja el pH del sòl. Usar amb moderació.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Adobs en Verd -->
+        <section class="bg-eco-50 rounded-3xl p-6 md:p-10 border border-eco-200 shadow-sm relative overflow-hidden">
+            <!-- Decorative background elements -->
+            <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none">
+                <i data-lucide="trees" class="w-48 h-48 text-eco-600 -mb-6 -mr-6"></i>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-8 items-start relative z-10">
+                <div class="md:w-1/3">
+                    <h2 class="text-3xl font-bold text-eco-800 mb-4 font-serif">Adobs en Verd</h2>
+                    <p class="text-stone-700 mb-4">Consisteix a sembrar determinades plantes, no per a ser collides,
+                        sinó per ser tallades i enterrades (o deixades en superfície com a encoixinat) abans que
+                        floreixin o granin.</p>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-eco-100">
+                        <h4 class="font-bold text-eco-700 mb-2 flex items-center gap-2">
+                            <i data-lucide="check-circle-2" class="w-5 h-5"></i> Per què fer-ho?
+                        </h4>
+                        <ul class="text-sm text-stone-600 space-y-2">
+                            <li class="flex gap-2"><i data-lucide="dot" class="shrink-0 w-4 h-4 text-eco-600 mt-1"></i>
+                                Protegeix el sòl de l'erosió a l'hivern/estiu.</li>
+                            <li class="flex gap-2"><i data-lucide="dot" class="shrink-0 w-4 h-4 text-eco-600 mt-1"></i>
+                                Aporta biomassa i matèria orgànica fresca.</li>
+                            <li class="flex gap-2"><i data-lucide="dot" class="shrink-0 w-4 h-4 text-eco-600 mt-1"></i>
+                                Les arrels descompacten capes profundes.</li>
+                            <li class="flex gap-2"><i data-lucide="dot" class="shrink-0 w-4 h-4 text-eco-600 mt-1"></i>
+                                Atreu pol·linitzadors si es deixa florir un 10%.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                    <div class="bg-white rounded-xl p-5 shadow-sm border-l-4 border-l-green-500">
+                        <h3 class="font-bold text-lg mb-1 text-stone-800">Lleguminoses</h3>
+                        <p class="text-xs text-eco-600 mb-2 font-bold uppercase tracking-wider">Veça, fava, pèsol
+                            farratger, trèvol</p>
+                        <p class="text-sm text-stone-600">En simbiosi amb bacteris del sòl (Rhizobium), capturen el
+                            <strong>nitrogen de l'aire</strong> i el fixen a les arrels. En segar-les, aquest nitrogen
+                            queda disponible pel següent cultiu.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-5 shadow-sm border-l-4 border-l-yellow-500">
+                        <h3 class="font-bold text-lg mb-1 text-stone-800">Gramínies</h3>
+                        <p class="text-xs text-yellow-600 mb-2 font-bold uppercase tracking-wider">Civada, sègol,
+                            raigràs</p>
+                        <p class="text-sm text-stone-600">Creixen molt ràpid i generen gran quantitat de
+                            <strong>biomassa i carboni</strong>. El seu sistema d'arrels fasciculades millora
+                            dràsticament l'estructura física del sòl.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-5 shadow-sm border-l-4 border-l-purple-500 sm:col-span-2">
+                        <h3 class="font-bold text-lg mb-1 text-stone-800">Crucíferes (Brassicàcies)</h3>
+                        <p class="text-xs text-purple-600 mb-2 font-bold uppercase tracking-wider">Mostassa blanca, rave
+                            farratger</p>
+                        <p class="text-sm text-stone-600">Exceŀlent per descompactar gràcies a la seva arrel pivotant
+                            profunda. A més, alliberen compostos (glucosinolats) que actuen com a <strong>desinfectant
+                                natural del sòl (biofumigació)</strong> contra fongs i nematodes patògens.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Pràctiques i Prevenció -->
+        <section>
+            <div class="flex items-center gap-3 mb-8 border-b-2 border-stone-200 pb-2">
+                <div class="bg-stone-100 p-2 rounded-lg text-stone-600 border border-stone-200">
+                    <i data-lucide="shield-check" class="w-8 h-8"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-stone-800 font-serif">Bones Pràctiques i Prevenció</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Encoixinat -->
+                <div
+                    class="flex gap-4 items-start p-6 bg-white shadow-sm border border-stone-200 rounded-2xl hover:border-eco-300 transition-colors">
+                    <div class="bg-eco-100 text-eco-600 p-3 rounded-full flex-shrink-0">
+                        <i data-lucide="layers" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-stone-800 mb-1">Encoixinat o Mulching</h3>
+                        <p class="text-stone-600 text-sm">Cobrir el sòl amb palla, restes de poda triturada o fulles
+                            seques. Evita l'evaporació de l'aigua, frena la sortida d'herbes adventícies i fomenta la
+                            vida microscòpica a la capa superficial.</p>
+                    </div>
+                </div>
+
+                <!-- Rotació -->
+                <div
+                    class="flex gap-4 items-start p-6 bg-white shadow-sm border border-stone-200 rounded-2xl hover:border-blue-300 transition-colors">
+                    <div class="bg-blue-100 text-blue-600 p-3 rounded-full flex-shrink-0">
+                        <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-stone-800 mb-1">Rotació de Cultius</h3>
+                        <p class="text-stone-600 text-sm">No plantar la mateixa família botànica (ex: Solanàcies com el
+                            tomàquet) al mateix lloc durant 3-4 anys. Evita l'esgotament de nutrients específics i
+                            trenca el cicle de les plagues i fongs residents al sòl.</p>
+                    </div>
+                </div>
+
+                <!-- Associació -->
+                <div
+                    class="flex gap-4 items-start p-6 bg-white shadow-sm border border-stone-200 rounded-2xl hover:border-pink-300 transition-colors">
+                    <div class="bg-pink-100 text-pink-600 p-3 rounded-full flex-shrink-0">
+                        <i data-lucide="flower-2" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-stone-800 mb-1">Associació Favorable</h3>
+                        <p class="text-stone-600 text-sm">Plantar juntes espècies que s'ajuden mútuament. Exemples
+                            clàssics: Tomàquet + Alfàbrega (repel·leix mosca blanca), o l'associació Precolombina (Blat
+                            de moro, Mongeta i Carbassa).</p>
+                    </div>
+                </div>
+
+                <!-- Biodiversitat -->
+                <div
+                    class="flex gap-4 items-start p-6 bg-white shadow-sm border border-stone-200 rounded-2xl hover:border-amber-300 transition-colors">
+                    <div class="bg-amber-100 text-amber-600 p-3 rounded-full flex-shrink-0">
+                        <i data-lucide="bird" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-stone-800 mb-1">Foment de la Biodiversitat</h3>
+                        <p class="text-stone-600 text-sm">Introduir flors aromàtiques (calèndula, espígol, romaní) als
+                            marges de l'hort. Instal·lar "hotels d'insectes" per atraure fauna auxiliar (marietes,
+                            crisopes, abelles colitàries).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-950 py-12 text-center mt-16 text-sm">
+        <div class="max-w-4xl mx-auto px-4">
+            <p class="text-brand-100"><strong>L'horticultura ecològica</strong> no només busca substituir els productes
+                químics per naturals, sinó entendre l'hort com un ecosistema viu, on el sòl és la base de la salut de
+                les plantes.</p>
+            <p class="mt-4 flex items-center justify-center gap-2 text-brand-300 font-bold">
+                <i data-lucide="heart" class="w-4 h-4 text-brand-500 fill-brand-500"></i>
+                Respectem els cicles de la natura a l'Espai Vall-Roure.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Inicialitzar icones Lucide -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

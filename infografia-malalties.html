@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografia: Salut de les Plantes Hortícoles</title>
+        <link rel="icon" type="image/png" href="img/logopol (1).png">
+<script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .leaf-shape {
+            border-radius: 0 50% 0 50%;
+        }
+    </style>
+</head>
+
+<body class="text-slate-800 pb-12">
+    <!-- Botó Retorn al Menú -->
+    <a href="infografies"
+        class="fixed top-4 left-4 z-[9999] flex items-center gap-2 bg-white/90 hover:bg-white text-slate-800 font-bold px-4 py-2 rounded-full shadow-lg backdrop-blur-sm transition border border-slate-200 text-sm hover:scale-105">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        <span class="hidden sm:inline">Tornar a l'Àrea Privada</span>
+    </a>
+
+    <!-- Header / Títol -->
+    <header
+        class="bg-gradient-to-br from-emerald-600 to-teal-800 text-white py-16 px-6 shadow-lg relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 text-white/10 opacity-20 transform rotate-45 w-64 h-64">
+            <i data-lucide="leaf" class="w-full h-full"></i>
+        </div>
+        <div class="max-w-5xl mx-auto relative z-10 text-center">
+            <div class="flex justify-center mb-4">
+                <div class="bg-white/20 p-4 rounded-full backdrop-blur-sm">
+                    <i data-lucide="sprout" class="w-12 h-12 text-emerald-100"></i>
+                </div>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Guia de Salut de l'Hort</h1>
+            <p class="text-xl text-emerald-100 max-w-2xl mx-auto font-light">
+                Aprèn a identificar les deficiències nutricionals i les malalties més comunes per mantenir les teves
+                plantes fortes i productives.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 mt-12 space-y-16">
+
+        <!-- Secció 1: Deficiències Nutricionals -->
+        <section>
+            <div class="flex items-center gap-3 mb-8 border-b-2 border-emerald-100 pb-4">
+                <i data-lucide="droplet" class="w-8 h-8 text-amber-500"></i>
+                <h2 class="text-3xl font-bold text-slate-800">Deficiències Nutricionals</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Nitrogen -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 right-0 w-16 h-16 bg-yellow-100 leaf-shape -mr-4 -mt-4 transition-transform group-hover:scale-110">
+                    </div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-2xl font-bold text-slate-400">N</span>
+                        <h3 class="text-xl font-semibold">Nitrogen</h3>
+                    </div>
+                    <p class="text-sm text-slate-600 mb-4">L'element del creixement verd.</p>
+                    <ul class="text-sm space-y-2 text-slate-700">
+                        <li class="flex items-start gap-2"><i data-lucide="alert-circle"
+                                class="w-4 h-4 text-amber-500 mt-0.5 shrink-0"></i> <b>Símptoma:</b> Fulles velles es
+                            tornen grogues pàl·lides (clorosi general).</li>
+                        <li class="flex items-start gap-2"><i data-lucide="trending-down"
+                                class="w-4 h-4 text-amber-500 mt-0.5 shrink-0"></i> <b>Efecte:</b> Creixement lent i
+                            raquític.</li>
+                    </ul>
+                </div>
+
+                <!-- Fòsfor -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 right-0 w-16 h-16 bg-purple-200 leaf-shape -mr-4 -mt-4 transition-transform group-hover:scale-110">
+                    </div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-2xl font-bold text-slate-400">P</span>
+                        <h3 class="text-xl font-semibold">Fòsfor</h3>
+                    </div>
+                    <p class="text-sm text-slate-600 mb-4">Vital per a les arrels i la floració.</p>
+                    <ul class="text-sm space-y-2 text-slate-700">
+                        <li class="flex items-start gap-2"><i data-lucide="alert-circle"
+                                class="w-4 h-4 text-purple-600 mt-0.5 shrink-0"></i> <b>Símptoma:</b> Fulles de color
+                            verd fosc, sovint amb tons liles o porpra a l'envés.</li>
+                        <li class="flex items-start gap-2"><i data-lucide="trending-down"
+                                class="w-4 h-4 text-purple-600 mt-0.5 shrink-0"></i> <b>Efecte:</b> Retard en la
+                            maduració i poca producció.</li>
+                    </ul>
+                </div>
+
+                <!-- Potassi -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 right-0 w-16 h-16 bg-orange-200 leaf-shape -mr-4 -mt-4 transition-transform group-hover:scale-110">
+                    </div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-2xl font-bold text-slate-400">K</span>
+                        <h3 class="text-xl font-semibold">Potassi</h3>
+                    </div>
+                    <p class="text-sm text-slate-600 mb-4">Resistència i qualitat del fruit.</p>
+                    <ul class="text-sm space-y-2 text-slate-700">
+                        <li class="flex items-start gap-2"><i data-lucide="alert-circle"
+                                class="w-4 h-4 text-orange-500 mt-0.5 shrink-0"></i> <b>Símptoma:</b> Vores de les
+                            fulles grogues o necrosades (semblen cremades).</li>
+                        <li class="flex items-start gap-2"><i data-lucide="trending-down"
+                                class="w-4 h-4 text-orange-500 mt-0.5 shrink-0"></i> <b>Efecte:</b> Tiges febles, fruits
+                            amb mal gust o color irregular.</li>
+                    </ul>
+                </div>
+
+                <!-- Magnesi -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-yellow-300 leaf-shape -mr-4 -mt-4 transition-transform group-hover:scale-110"
+                        style="clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);"></div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-2xl font-bold text-slate-400">Mg</span>
+                        <h3 class="text-xl font-semibold">Magnesi</h3>
+                    </div>
+                    <p class="text-sm text-slate-600 mb-4">El cor de la clorofil·la.</p>
+                    <ul class="text-sm space-y-2 text-slate-700">
+                        <li class="flex items-start gap-2"><i data-lucide="alert-circle"
+                                class="w-4 h-4 text-yellow-500 mt-0.5 shrink-0"></i> <b>Símptoma:</b> Clorosi intervenal
+                            (groc entre els nervis) a les fulles <b>velles</b>. Els nervis queden verds.</li>
+                        <li class="flex items-start gap-2"><i data-lucide="trending-down"
+                                class="w-4 h-4 text-yellow-500 mt-0.5 shrink-0"></i> <b>Efecte:</b> Caiguda prematura de
+                            fulles.</li>
+                    </ul>
+                </div>
+
+                <!-- Ferro -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 right-0 w-16 h-16 bg-lime-200 leaf-shape -mr-4 -mt-4 transition-transform group-hover:scale-110">
+                    </div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-2xl font-bold text-slate-400">Fe</span>
+                        <h3 class="text-xl font-semibold">Ferro</h3>
+                    </div>
+                    <p class="text-sm text-slate-600 mb-4">Crucial per a la fotosíntesi.</p>
+                    <ul class="text-sm space-y-2 text-slate-700">
+                        <li class="flex items-start gap-2"><i data-lucide="alert-circle"
+                                class="w-4 h-4 text-lime-600 mt-0.5 shrink-0"></i> <b>Símptoma:</b> Clorosi intervenal
+                            (groc entre els nervis) a les fulles <b>noves</b>.</li>
+                        <li class="flex items-start gap-2"><i data-lucide="trending-down"
+                                class="w-4 h-4 text-lime-600 mt-0.5 shrink-0"></i> <b>Efecte:</b> Brots nous gairebé
+                            blancs en casos severs.</li>
+                    </ul>
+                </div>
+
+                <!-- Calci -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 right-0 w-16 h-16 bg-slate-200 leaf-shape -mr-4 -mt-4 transition-transform group-hover:scale-110">
+                    </div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-2xl font-bold text-slate-400">Ca</span>
+                        <h3 class="text-xl font-semibold">Calci</h3>
+                    </div>
+                    <p class="text-sm text-slate-600 mb-4">L'esquelet de la planta.</p>
+                    <ul class="text-sm space-y-2 text-slate-700">
+                        <li class="flex items-start gap-2"><i data-lucide="alert-circle"
+                                class="w-4 h-4 text-slate-500 mt-0.5 shrink-0"></i> <b>Símptoma:</b> Deformació de
+                            fulles joves, vores arrissades cap amunt.</li>
+                        <li class="flex items-start gap-2"><i data-lucide="trending-down"
+                                class="w-4 h-4 text-slate-500 mt-0.5 shrink-0"></i> <b>Efecte:</b> "Peseta" o podridura
+                            apical en tomàquets i pebrots (base negra).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secció 2: Malalties -->
+        <section>
+            <div class="flex items-center gap-3 mb-8 border-b-2 border-red-100 pb-4">
+                <i data-lucide="bug" class="w-8 h-8 text-rose-500"></i>
+                <h2 class="text-3xl font-bold text-slate-800">Malalties Comunes</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Fongs -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-semibold text-rose-600 flex items-center gap-2">
+                        <i data-lucide="microscope" class="w-5 h-5"></i> Fongs (Les més habituals)
+                    </h3>
+
+                    <div
+                        class="bg-white p-5 rounded-xl shadow-sm border-l-4 border-rose-400 flex flex-col sm:flex-row gap-4">
+                        <div
+                            class="sm:w-1/3 h-32 bg-slate-100 rounded-lg overflow-hidden flex items-center justify-center relative">
+                            <!-- Visual representation of Mildiu -->
+                            <div class="absolute inset-0 bg-green-700"></div>
+                            <div class="w-12 h-12 bg-yellow-400/60 rounded-full blur-md absolute top-2 left-2"></div>
+                            <div class="w-16 h-16 bg-yellow-500/50 rounded-full blur-md absolute bottom-2 right-4">
+                            </div>
+                            <span
+                                class="relative z-10 text-xs text-white/80 font-bold bg-black/30 px-2 py-1 rounded">Míldiu</span>
+                        </div>
+                        <div class="sm:w-2/3">
+                            <h4 class="font-bold text-lg mb-1">Míldiu</h4>
+                            <p class="text-sm text-slate-600 mb-2">Afecta especialment a tomàquets, patates i vinyes.
+                            </p>
+                            <p class="text-sm"><span class="font-semibold">Símptomes:</span> Taques groguenques a la
+                                part superior de la fulla, i un borrissol blanquinós-gris a l'envés. Asseca la fulla
+                                ràpidament.</p>
+                            <p class="text-xs text-rose-500 mt-2 font-semibold">Causa: Excés d'humitat i mala
+                                ventilació.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white p-5 rounded-xl shadow-sm border-l-4 border-rose-300 flex flex-col sm:flex-row gap-4">
+                        <div
+                            class="sm:w-1/3 h-32 bg-slate-100 rounded-lg overflow-hidden flex items-center justify-center relative">
+                            <!-- Visual representation of Oïdi -->
+                            <div class="absolute inset-0 bg-green-600"></div>
+                            <div
+                                class="w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/60 via-transparent to-transparent opacity-80 mix-blend-screen">
+                            </div>
+                            <div class="absolute w-20 h-20 bg-white/40 blur-sm rounded-full top-4 left-4"></div>
+                            <span
+                                class="relative z-10 text-xs text-white/80 font-bold bg-black/30 px-2 py-1 rounded">Oïdi</span>
+                        </div>
+                        <div class="sm:w-2/3">
+                            <h4 class="font-bold text-lg mb-1">Oïdi (Cendra)</h4>
+                            <p class="text-sm text-slate-600 mb-2">Comú en carbassoneres, cogombres i melons.</p>
+                            <p class="text-sm"><span class="font-semibold">Símptomes:</span> Pols blanca o cendra sobre
+                                la superfície de les fulles i tiges. Les fulles acaben assecant-se i caient.</p>
+                            <p class="text-xs text-rose-500 mt-2 font-semibold">Causa: Humitats contrastades i temps
+                                càlid.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Virus i Bacteris -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-semibold text-indigo-600 flex items-center gap-2">
+                        <i data-lucide="virus" class="w-5 h-5"></i> Virus i Bacteris
+                    </h3>
+
+                    <div
+                        class="bg-white p-5 rounded-xl shadow-sm border-l-4 border-indigo-400 flex flex-col sm:flex-row gap-4">
+                        <div
+                            class="sm:w-1/3 h-32 bg-slate-100 rounded-lg overflow-hidden flex items-center justify-center relative">
+                            <!-- Visual representation of Virus Mosaic -->
+                            <div class="absolute inset-0 bg-green-500"
+                                style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,0,0.3) 10px, rgba(255,255,0,0.3) 20px);">
+                            </div>
+                            <span
+                                class="relative z-10 text-xs text-white/80 font-bold bg-black/30 px-2 py-1 rounded">Mosaic</span>
+                        </div>
+                        <div class="sm:w-2/3">
+                            <h4 class="font-bold text-lg mb-1">Virus del Mosaic</h4>
+                            <p class="text-sm text-slate-600 mb-2">Incurable, cal arrencar la planta.</p>
+                            <p class="text-sm"><span class="font-semibold">Símptomes:</span> Taques clares i fosques
+                                (com un mosaic) a les fulles, deformacions i creixement atrofiat.</p>
+                            <p class="text-xs text-indigo-500 mt-2 font-semibold">Transmissió: Per insectes vectors com
+                                el pugó o eines infectades.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white p-5 rounded-xl shadow-sm border-l-4 border-indigo-300 flex flex-col sm:flex-row gap-4">
+                        <div
+                            class="sm:w-1/3 h-32 bg-slate-100 rounded-lg overflow-hidden flex items-center justify-center relative">
+                            <!-- Visual representation of Bacteriosi -->
+                            <div class="absolute inset-0 bg-green-600"></div>
+                            <div class="w-3 h-3 bg-black rounded-full absolute top-6 left-6 ring-2 ring-yellow-400">
+                            </div>
+                            <div class="w-2 h-2 bg-black rounded-full absolute bottom-8 right-8 ring-1 ring-yellow-400">
+                            </div>
+                            <div class="w-4 h-4 bg-black rounded-full absolute top-12 right-6 ring-2 ring-yellow-400">
+                            </div>
+                            <span
+                                class="relative z-10 text-xs text-white/80 font-bold bg-black/30 px-2 py-1 rounded">Bacteriosi</span>
+                        </div>
+                        <div class="sm:w-2/3">
+                            <h4 class="font-bold text-lg mb-1">Taques Bacterianes</h4>
+                            <p class="text-sm text-slate-600 mb-2">Comú en pebrots i tomàquets.</p>
+                            <p class="text-sm"><span class="font-semibold">Símptomes:</span> Petites taques negres o
+                                marrons, sovint envoltades d'un halo groc clar. Les fulles poden caure prematurament.
+                            </p>
+                            <p class="text-xs text-indigo-500 mt-2 font-semibold">Transmissió: Esquitxades d'aigua de
+                                pluja o reg.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secció 3: Prevenció -->
+        <section class="bg-emerald-50 rounded-3xl p-8 border border-emerald-100 shadow-inner">
+            <div class="text-center mb-8">
+                <i data-lucide="shield-check" class="w-12 h-12 text-emerald-600 mx-auto mb-3"></i>
+                <h2 class="text-3xl font-bold text-emerald-900">Bones Pràctiques i Prevenció</h2>
+                <p class="text-emerald-700 mt-2">La millor cura és sempre una bona prevenció.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white p-5 rounded-2xl shadow-sm text-center">
+                    <div class="bg-emerald-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i data-lucide="droplets" class="text-emerald-600"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-800 mb-2">Reg per degoteig</h4>
+                    <p class="text-xs text-slate-600">Evita mullar les fulles. L'aigua a les fulles afavoreix l'aparició
+                        de fongs (míldiu i oïdi).</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl shadow-sm text-center">
+                    <div class="bg-emerald-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i data-lucide="wind" class="text-emerald-600"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-800 mb-2">Marc de plantació</h4>
+                    <p class="text-xs text-slate-600">Respecta les distàncies entre plantes per permetre una bona
+                        circulació d'aire i llum.</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl shadow-sm text-center">
+                    <div class="bg-emerald-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i data-lucide="refresh-cw" class="text-emerald-600"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-800 mb-2">Rotació de cultius</h4>
+                    <p class="text-xs text-slate-600">No plantis les mateixes famílies al mateix lloc cada any per no
+                        esgotar el terra ni perpetuar malalties.</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl shadow-sm text-center">
+                    <div class="bg-emerald-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i data-lucide="scissors" class="text-emerald-600"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-800 mb-2">Eines netes</h4>
+                    <p class="text-xs text-slate-600">Desinfecta les tisores de podar entre plantes per no transmetre
+                        virus ni bacteris.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center mt-12 text-sm text-slate-500">
+        <p>Infografia interactiva sobre sanitat vegetal - <i data-lucide="sprout"
+                class="w-4 h-4 inline-block text-emerald-500"></i> Creat amb propòsits educatius.</p>
+    </footer>
+
+    <script>
+        // Inicialitzar les icones de Lucide
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

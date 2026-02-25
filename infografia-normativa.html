@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ca" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normativa i Convivència | Espai Vall-Roure</title>
+        <link rel="icon" type="image/png" href="img/logopol (1).png">
+<!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Nunito', 'sans-serif'], serif: ['Merriweather', 'serif'], }, colors: { brand: { 50: '#f2fbf5', 100: '#e1f6e8', 500: '#3ba36e', 700: '#246946', 900: '#1a4430', 950: '#0d2419' }, earth: { 50: '#faf8f5', 100: '#f0ebe1', 200: '#e1d5c1' } } } } }
+    </script>
+    <!-- FontAwesome setup inline per aquesta pàgina que l'usuari havia requerit -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Lucide setup com a fallback per al botó de tornar -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .card-hover:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+
+        .pattern-bg {
+            background-color: #faf8f5;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236b4c30' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+
+<body class="font-sans text-stone-800 pattern-bg antialiased min-h-screen">
+
+
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white shadow-sm border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center">
+            <a href="infografies"
+                class="flex items-center gap-2 text-green-700 hover:text-green-900 font-bold transition">
+                <i data-lucide="arrow-left" class="h-5 w-5"></i> Tornar a l'Àrea Privada
+            </a>
+        </div>
+    </nav>
+
+    <div class="pt-28 pb-16 px-4 md:px-8 max-w-5xl mx-auto">
+
+        <!-- Capçalera -->
+        <header
+            class="text-center mb-12 bg-white rounded-3xl shadow-md border-t-8 border-brand-600 relative overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="img/imatge1.jpg" alt="Fons Normativa" class="w-full h-full object-cover opacity-20">
+                <div class="absolute inset-0 bg-gradient-to-b from-white/80 to-white"></div>
+            </div>
+            <div class="absolute top-0 right-0 -mt-10 -mr-10 text-brand-100 opacity-50 z-0">
+                <i class="fa-solid fa-leaf text-9xl"></i>
+            </div>
+            <div class="relative z-10 p-8 md:p-12">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-brand-800 mb-4 font-serif">
+                    <i class="fa-solid fa-seedling mr-3 text-brand-600"></i>Espai Vall-Roure
+                </h1>
+                <p class="text-xl text-brand-600 font-semibold">Guia de Convivència, Drets i Deures</p>
+                <p class="text-stone-500 mt-2 max-w-2xl mx-auto">Un resum visual per garantir que l'hort sigui
+                    un lloc agradable, ecològic i respectuós per a tota la comunitat.</p>
+            </div>
+        </header>
+
+        <!-- Secció: Reglament de Convivència -->
+        <section class="mb-14">
+            <h2 class="text-3xl font-bold text-stone-800 mb-8 text-center flex items-center justify-center font-serif">
+                <i class="fa-solid fa-handshake-angle mr-3 text-brand-600"></i> Reglament de Convivència
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Regla 1 -->
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-sm card-hover border-l-4 border-amber-500 border-t border-r border-b border-stone-100">
+                    <div
+                        class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-600 text-xl mb-4">
+                        <i class="fa-solid fa-ban"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-stone-800 mb-2">Respecte entre parcel·les</h3>
+                    <p class="text-stone-600 text-sm">Està totalment prohibit agafar hortalisses, eines o materials
+                        d'una altra parcel·la sense el permís exprés de la persona titular.</p>
+                </div>
+                <!-- Regla 2 -->
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-sm card-hover border-l-4 border-blue-500 border-t border-r border-b border-stone-100">
+                    <div
+                        class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-xl mb-4">
+                        <i class="fa-solid fa-trowel"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-stone-800 mb-2">Ús d'eines compartides</h3>
+                    <p class="text-stone-600 text-sm">Les eines de la caseta són de totes. Un cop utilitzades, s'han de
+                        netejar de terra i retornar al seu lloc correctament.</p>
+                </div>
+                <!-- Regla 3 -->
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-sm card-hover border-l-4 border-cyan-500 border-t border-r border-b border-stone-100">
+                    <div
+                        class="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center text-cyan-600 text-xl mb-4">
+                        <i class="fa-solid fa-droplet"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-stone-800 mb-2">Gestió de l'aigua</h3>
+                    <p class="text-stone-600 text-sm">L'aigua és un bé escàs. Fes-ne un ús responsable prioritzant el
+                        reg eficient. Tanca sempre bé la font i les claus de pas.</p>
+                </div>
+                <!-- Regla 4 -->
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-sm card-hover border-l-4 border-emerald-500 border-t border-r border-b border-stone-100">
+                    <div
+                        class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xl mb-4">
+                        <i class="fa-solid fa-recycle"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-stone-800 mb-2">Residus i Neteja</h3>
+                    <p class="text-stone-600 text-sm">Mantingues la teva parcel·la i camins nets. Restes vegetals al
+                        compostatge; plàstics o brossa no orgànica, endú-t'ho a casa.</p>
+                </div>
+                <!-- Regla 5 -->
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-sm card-hover border-l-4 border-orange-500 border-t border-r border-b border-stone-100">
+                    <div
+                        class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 text-xl mb-4">
+                        <i class="fa-solid fa-dog"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-stone-800 mb-2">Mascotes i Animals</h3>
+                    <p class="text-stone-600 text-sm">Els gossos hauran d'estar lligats en tot moment per evitar
+                        malmetre els cultius veïns.</p>
+                </div>
+                <!-- Regla 6 -->
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-sm card-hover border-l-4 border-red-500 border-t border-r border-b border-stone-100">
+                    <div
+                        class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-600 text-xl mb-4">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-stone-800 mb-2">Sense acaparar</h3>
+                    <p class="text-stone-600 text-sm">No es podrà fer ús de la parcel·la per emmagatzemar o acaparar
+                        objectes innecessaris per a l'hort.</p>
+                </div>
+                <!-- Regla 7 (Silenci i Benestar) -->
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-sm card-hover border-l-4 border-violet-500 border-t border-r border-b border-stone-100">
+                    <div
+                        class="w-12 h-12 bg-violet-100 rounded-full flex items-center justify-center text-violet-600 text-xl mb-4">
+                        <i class="fa-solid fa-volume-xmark"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-stone-800 mb-2">Silenci i Benestar</h3>
+                    <p class="text-stone-600 text-sm">Els hortolans tenen el deure de mantenir el silenci i el benestar
+                        del poble. Ens agrada el cant dels ocells tants com a tu, així doncs queda prohibit posar música
+                        en alt; si es vol escoltar música, siusplau cal utilitzar auriculars.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secció: Drets i Deures -->
+        <section>
+            <h2 class="text-3xl font-bold text-stone-800 mb-8 text-center flex items-center justify-center font-serif">
+                <i class="fa-solid fa-scale-balanced mr-3 text-brand-600"></i> Drets i Deures
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                <!-- Columna Usuari -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-md border border-stone-200">
+                    <div class="bg-brand-600 text-white p-4 text-center">
+                        <h3 class="text-xl font-bold"><i class="fa-solid fa-user-astronaut mr-2"></i> L'Usuari
+                            (Arrendatari)</h3>
+                    </div>
+
+                    <div class="p-6">
+                        <h4 class="font-bold text-brand-700 mb-4 flex items-center border-b border-stone-100 pb-2">
+                            <i class="fa-solid fa-clipboard-list mr-2"></i> Els teus Deures
+                        </h4>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start"><i
+                                    class="fa-solid fa-circle-check text-brand-500 mt-1 mr-3"></i><span
+                                    class="text-sm font-medium text-stone-600">Abonar la quota d'alta inicial i les
+                                    mensualitats de forma puntual.</span></li>
+                            <li class="flex items-start"><i
+                                    class="fa-solid fa-circle-check text-brand-500 mt-1 mr-3"></i><span
+                                    class="text-sm font-medium text-stone-600">Mantenir la parcel·la en condicions
+                                    òptimes de cultiu i neteja.</span></li>
+                            <li class="flex items-start"><i
+                                    class="fa-solid fa-circle-check text-brand-500 mt-1 mr-3"></i><span
+                                    class="text-sm font-bold text-brand-800">Prohibit utilitzar productes químics de
+                                    síntesi (herbicides, pesticides).</span></li>
+                            <li class="flex items-start"><i
+                                    class="fa-solid fa-circle-check text-brand-500 mt-1 mr-3"></i><span
+                                    class="text-sm font-medium text-stone-600">Avisar a la direcció de qualsevol
+                                    desperfecte a les instal·lacions comunes.</span></li>
+                            <li class="flex items-start"><i
+                                    class="fa-solid fa-circle-check text-brand-500 mt-1 mr-3"></i><span
+                                    class="text-sm font-medium text-stone-600">Responsabilitzar-se de les eines
+                                    personals guardades a la caseta.</span></li>
+                        </ul>
+
+                        <h4 class="font-bold text-blue-700 mb-4 flex items-center border-b border-stone-100 pb-2">
+                            <i class="fa-solid fa-gift mr-2"></i> Els teus Drets
+                        </h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start"><i class="fa-solid fa-star text-yellow-500 mt-1 mr-3"></i><span
+                                    class="text-sm font-medium text-stone-600">Gaudir del ple ús de la parcel·la per a
+                                    l'autoconsum.</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-star text-yellow-500 mt-1 mr-3"></i><span
+                                    class="text-sm font-medium text-stone-600">Fer ús de les instal·lacions comunes:
+                                    aigua, font, caseta i eines bàsiques.</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-star text-yellow-500 mt-1 mr-3"></i><span
+                                    class="text-sm font-medium text-stone-600">Accés exclusiu a la biblioteca
+                                    d'<strong>infografies premium</strong> (codi de desbloqueig).</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-star text-yellow-500 mt-1 mr-3"></i><span
+                                    class="text-sm font-medium text-stone-600">Participar en grups de comunicació i
+                                    apuntar-se a serveis afegits.</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Columna Espai -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-md border border-stone-200">
+                    <div class="bg-stone-700 text-white p-4 text-center">
+                        <h3 class="text-xl font-bold"><i class="fa-solid fa-house-chimney mr-2"></i> L'Espai Vall-Roure
+                            (Arrendador)</h3>
+                    </div>
+
+                    <div class="p-6">
+                        <h4 class="font-bold text-stone-600 mb-4 flex items-center border-b border-stone-100 pb-2">
+                            <i class="fa-solid fa-clipboard-list mr-2"></i> Deures de l'Espai
+                        </h4>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start"><i
+                                    class="fa-solid fa-circle-check text-stone-400 mt-1 mr-3"></i><span
+                                    class="text-sm font-medium text-stone-600">Garantir el subministrament d'aigua per
+                                    al reg i el seu bon funcionament.</span></li>
+                            <li class="flex items-start"><i
+                                    class="fa-solid fa-circle-check text-stone-400 mt-1 mr-3"></i><span
+                                    class="text-sm font-medium text-stone-600">Mantenir infraestructures comunes en bon
+                                    estat (vallats i caseta).</span></li>
+                            <li class="flex items-start"><i
+                                    class="fa-solid fa-circle-check text-stone-400 mt-1 mr-3"></i><span
+                                    class="text-sm font-medium text-stone-600">Oferir els serveis afegits contractats de
+                                    manera eficient.</span></li>
+                        </ul>
+
+                        <h4 class="font-bold text-indigo-700 mb-4 flex items-center border-b border-stone-100 pb-2">
+                            <i class="fa-solid fa-shield-halved mr-2"></i> Drets de l'Espai
+                        </h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start"><i class="fa-solid fa-star text-indigo-400 mt-1 mr-3"></i><span
+                                    class="text-sm font-medium text-stone-600">Rebre el pagament de les quotes dins el
+                                    termini establert.</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-star text-indigo-400 mt-1 mr-3"></i><span
+                                    class="text-sm font-medium text-stone-600">Accedir a les parcel·les per
+                                    comprovacions de manteniment.</span></li>
+                            <li class="flex items-start"><i
+                                    class="fa-solid fa-triangle-exclamation text-red-500 mt-1 mr-3"></i><span
+                                    class="text-sm font-bold text-red-700">Rescindir el contracte per impagament
+                                    reiterat o incompliment greu.</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Peu de pàgina -->
+        <footer class="mt-12 text-center text-sm text-brand-700 font-bold opacity-80 pb-8">
+            <p><i class="fa-solid fa-leaf mr-1"></i> Cultivant respecte i natura a l'Espai Vall-Roure.</p>
+        </footer>
+
+    </div>
+
+    <!-- Init -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+
+</html>

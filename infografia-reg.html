@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ca" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semafor del Reg | Espai Vall-Roure</title>
+        <link rel="icon" type="image/png" href="img/logopol (1).png">
+<!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Nunito', 'sans-serif'], serif: ['Merriweather', 'serif'], }, colors: { brand: { 50: '#f2fbf5', 100: '#e1f6e8', 500: '#3ba36e', 700: '#246946', 900: '#1a4430', 950: '#0d2419' }, earth: { 50: '#faf8f5', 100: '#f0ebe1', 200: '#e1d5c1' } } } } }
+    </script>
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .smooth-transition {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .crop-btn.active {
+            box-shadow: 0 0 0 4px #3b82f6, 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-stone-800 bg-earth-50 min-h-screen p-4 md:p-8">
+
+
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white shadow-sm border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center">
+            <a href="infografies"
+                class="flex items-center gap-2 text-green-700 hover:text-green-900 font-bold transition">
+                <i data-lucide="arrow-left" class="h-5 w-5"></i> Tornar a l'Àrea Privada
+            </a>
+        </div>
+    </nav>
+
+    <div class="pt-24 max-w-5xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden mb-16 border border-stone-200">
+
+        <!-- CAPÇALERA -->
+        <div class="bg-gradient-to-r from-teal-500 to-blue-500 p-8 text-center text-white">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 font-serif">🚦 El Semàfor de Reg 💧</h1>
+            <p class="text-lg md:text-xl opacity-90 max-w-2xl mx-auto">
+                Guia interactiva per saber quant regar el teu hort segons la temperatura ambient.
+                Tria un cultiu per veure'n els detalls!
+            </p>
+        </div>
+
+        <div class="px-6 pt-8 md:px-10 md:pt-10 max-w-4xl mx-auto">
+            <div class="rounded-3xl overflow-hidden shadow-xl border border-stone-200">
+                <img src="img/imatge6.jpg" alt="Reg de l'hort" class="w-full h-48 md:h-80 object-cover">
+            </div>
+        </div>
+
+        <div class="p-6 md:p-10">
+            <!-- SECCIÓ 1: CONCEPTE GENERAL DEL SEMÀFOR -->
+            <h2 class="text-2xl font-bold mb-6 text-center text-stone-700 font-serif">Regles Generals del Semàfor</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <!-- Vermell -->
+                <div
+                    class="bg-red-50 rounded-2xl p-6 border-l-8 border-red-500 shadow-sm hover:shadow-md smooth-transition">
+                    <div class="text-4xl mb-3">🔴</div>
+                    <h3 class="text-xl font-bold text-red-700 mb-2">+ 30°C (Calor Extrema)</h3>
+                    <p class="text-stone-600 text-sm">Alt risc de deshidratació. Regar a primera hora del matí o a la
+                        nit per evitar l'evaporació. Mai mullar les fulles al sol.</p>
+                </div>
+                <!-- Groc -->
+                <div
+                    class="bg-yellow-50 rounded-2xl p-6 border-l-8 border-yellow-400 shadow-sm hover:shadow-md smooth-transition">
+                    <div class="text-4xl mb-3">🟡</div>
+                    <h3 class="text-xl font-bold text-yellow-700 mb-2">20°C - 30°C (Càlid)</h3>
+                    <p class="text-stone-600 text-sm">Creixement actiu. Reg moderat. Cal comprovar la humitat del sòl
+                        ficant el dit abans de tornar a regar.</p>
+                </div>
+                <!-- Verd -->
+                <div
+                    class="bg-green-50 rounded-2xl p-6 border-l-8 border-green-500 shadow-sm hover:shadow-md smooth-transition">
+                    <div class="text-4xl mb-3">🟢</div>
+                    <h3 class="text-xl font-bold text-green-700 mb-2">- 20°C (Fresc / Fred)</h3>
+                    <p class="text-stone-600 text-sm">Baixa evaporació. Reg espaiat. L'excés d'aigua pot podrir les
+                        arrels o generar fongs. Regar només si la terra està completament seca.</p>
+                </div>
+            </div>
+
+            <!-- SECCIÓ 2: INTERACTIVA -->
+            <div class="border-t border-stone-200 pt-10">
+                <h2 class="text-3xl font-bold mb-8 text-center text-stone-800 font-serif">Tria el teu cultiu 🌱</h2>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+                    <!-- Llista de botons de cultius -->
+                    <div class="lg:col-span-5 grid grid-cols-2 gap-3 max-h-[600px] overflow-y-auto pr-2 pb-2">
+                        <!-- Alta demanda -->
+                        <button onclick="selectCrop('tomaquera')" id="btn-tomaquera"
+                            class="crop-btn bg-blue-50 hover:bg-blue-100 border border-blue-200 p-3 rounded-xl flex flex-col items-center justify-center smooth-transition">
+                            <span class="text-4xl mb-2">🍅</span>
+                            <span class="font-bold text-blue-900">Tomaquera</span>
+                            <span class="text-xs text-blue-600 mt-1 font-semibold">Alta Demanda 💧💧💧</span>
+                        </button>
+                        <button onclick="selectCrop('enciam')" id="btn-enciam"
+                            class="crop-btn bg-blue-50 hover:bg-blue-100 border border-blue-200 p-3 rounded-xl flex flex-col items-center justify-center smooth-transition">
+                            <span class="text-4xl mb-2">🥬</span>
+                            <span class="font-bold text-blue-900">Enciam</span>
+                            <span class="text-xs text-blue-600 mt-1 font-semibold">Alta Demanda 💧💧💧</span>
+                        </button>
+                        <button onclick="selectCrop('carbassona')" id="btn-carbassona"
+                            class="crop-btn bg-blue-50 hover:bg-blue-100 border border-blue-200 p-3 rounded-xl flex flex-col items-center justify-center smooth-transition">
+                            <span class="text-4xl mb-2">🥒</span>
+                            <span class="font-bold text-blue-900">Carbassonera</span>
+                            <span class="text-xs text-blue-600 mt-1 font-semibold">Alta Demanda 💧💧💧</span>
+                        </button>
+                        <button onclick="selectCrop('alberginia')" id="btn-alberginia"
+                            class="crop-btn bg-blue-50 hover:bg-blue-100 border border-blue-200 p-3 rounded-xl flex flex-col items-center justify-center smooth-transition">
+                            <span class="text-4xl mb-2">🍆</span>
+                            <span class="font-bold text-blue-900">Albergínia</span>
+                            <span class="text-xs text-blue-600 mt-1 font-semibold">Alta Demanda 💧💧💧</span>
+                        </button>
+                        <button onclick="selectCrop('alfabrega')" id="btn-alfabrega"
+                            class="crop-btn bg-blue-50 hover:bg-blue-100 border border-blue-200 p-3 rounded-xl flex flex-col items-center justify-center smooth-transition">
+                            <span class="text-4xl mb-2">🌿</span>
+                            <span class="font-bold text-blue-900">Alfàbrega</span>
+                            <span class="text-xs text-blue-600 mt-1 font-semibold">Alta Demanda 💧💧💧</span>
+                        </button>
+
+                        <!-- Demanda moderada -->
+                        <button onclick="selectCrop('pebrotera')" id="btn-pebrotera"
+                            class="crop-btn bg-teal-50 hover:bg-teal-100 border border-teal-200 p-3 rounded-xl flex flex-col items-center justify-center smooth-transition">
+                            <span class="text-4xl mb-2">🫑</span>
+                            <span class="font-bold text-teal-900">Pebrotera</span>
+                            <span class="text-xs text-teal-600 mt-1 font-semibold">Mitjana 💧💧</span>
+                        </button>
+                        <button onclick="selectCrop('mongetera')" id="btn-mongetera"
+                            class="crop-btn bg-teal-50 hover:bg-teal-100 border border-teal-200 p-3 rounded-xl flex flex-col items-center justify-center smooth-transition">
+                            <span class="text-4xl mb-2">🫛</span>
+                            <span class="font-bold text-teal-900">Mongetera</span>
+                            <span class="text-xs text-teal-600 mt-1 font-semibold">Mitjana 💧💧</span>
+                        </button>
+                        <button onclick="selectCrop('ceba')" id="btn-ceba"
+                            class="crop-btn bg-teal-50 hover:bg-teal-100 border border-teal-200 p-3 rounded-xl flex flex-col items-center justify-center smooth-transition">
+                            <span class="text-4xl mb-2">🧅</span>
+                            <span class="font-bold text-teal-900">Ceba</span>
+                            <span class="text-xs text-teal-600 mt-1 font-semibold">Mitjana 💧💧</span>
+                        </button>
+                        <button onclick="selectCrop('pastanaga')" id="btn-pastanaga"
+                            class="crop-btn bg-teal-50 hover:bg-teal-100 border border-teal-200 p-3 rounded-xl flex flex-col items-center justify-center smooth-transition">
+                            <span class="text-4xl mb-2">🥕</span>
+                            <span class="font-bold text-teal-900">Pastanaga</span>
+                            <span class="text-xs text-teal-600 mt-1 font-semibold">Mitjana 💧💧</span>
+                        </button>
+                        <button onclick="selectCrop('rave')" id="btn-rave"
+                            class="crop-btn bg-teal-50 hover:bg-teal-100 border border-teal-200 p-3 rounded-xl flex flex-col items-center justify-center smooth-transition">
+                            <span class="text-4xl mb-2">🌱</span>
+                            <span class="font-bold text-teal-900">Rave</span>
+                            <span class="text-xs text-teal-600 mt-1 font-semibold">Mitjana 💧💧</span>
+                        </button>
+                    </div>
+
+                    <!-- Àrea de resultats dinàmics -->
+                    <div class="lg:col-span-7">
+                        <div id="result-panel"
+                            class="bg-stone-50 border-2 border-dashed border-stone-300 rounded-3xl p-8 h-full flex flex-col justify-center items-center text-center">
+                            <div class="text-6xl mb-4 opacity-50">👆</div>
+                            <h3 class="text-2xl font-semibold text-stone-500">Selecciona un cultiu</h3>
+                            <p class="text-stone-400 mt-2">Clica sobre un dels cultius de l'esquerra per veure'n les
+                                necessitats de reg segons la temperatura.</p>
+                        </div>
+
+                        <!-- Targeta oculta que es mostrarà amb dades -->
+                        <div id="data-panel"
+                            class="hidden bg-white border border-stone-200 shadow-lg rounded-3xl p-6 h-full animate-fade-in relative overflow-hidden">
+                            <!-- Decoració de fons -->
+                            <div id="panel-bg-icon"
+                                class="absolute -right-10 -top-10 text-9xl opacity-5 pointer-events-none select-none">🍅
+                            </div>
+
+                            <div class="flex items-center gap-4 mb-6 border-b border-stone-100 pb-4">
+                                <span id="display-icon" class="text-5xl">🍅</span>
+                                <div>
+                                    <h3 id="display-name" class="text-3xl font-extrabold text-stone-800">Tomàquet</h3>
+                                    <span id="display-needs"
+                                        class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mt-1">Alta
+                                        Demanda 💧💧💧</span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4 relative z-10">
+                                <!-- Info Vermell -->
+                                <div
+                                    class="flex items-start gap-4 p-4 bg-red-50 rounded-xl border border-red-100 group hover:border-red-200 transition">
+                                    <div class="text-2xl mt-1 shrink-0">🔴</div>
+                                    <div>
+                                        <h4 class="font-bold text-red-800 text-sm uppercase tracking-wider mb-1">Més de
+                                            30°C</h4>
+                                        <p id="display-red" class="text-stone-700 text-sm font-medium">Codi vermell</p>
+                                    </div>
+                                </div>
+                                <!-- Info Groc -->
+                                <div
+                                    class="flex items-start gap-4 p-4 bg-yellow-50 rounded-xl border border-yellow-100 group hover:border-yellow-200 transition">
+                                    <div class="text-2xl mt-1 shrink-0">🟡</div>
+                                    <div>
+                                        <h4 class="font-bold text-yellow-800 text-sm uppercase tracking-wider mb-1">
+                                            Entre 20°C i 30°C</h4>
+                                        <p id="display-yellow" class="text-stone-700 text-sm font-medium">Codi groc</p>
+                                    </div>
+                                </div>
+                                <!-- Info Verd -->
+                                <div
+                                    class="flex items-start gap-4 p-4 bg-green-50 rounded-xl border border-green-100 group hover:border-green-200 transition">
+                                    <div class="text-2xl mt-1 shrink-0">🟢</div>
+                                    <div>
+                                        <h4 class="font-bold text-green-800 text-sm uppercase tracking-wider mb-1">Menys
+                                            de 20°C</h4>
+                                        <p id="display-green" class="text-stone-700 text-sm font-medium">Codi verd</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- PEU DE PÀGINA -->
+        <div class="bg-stone-100 text-center p-4 text-sm text-stone-600 font-medium">
+            <i data-lucide="info" class="inline w-4 h-4 mr-1"></i> Recorda: Aquestes són dades orientatives. El tipus de
+            terra (arenosa o argilosa) també influeix molt en la retenció d'aigua.
+        </div>
+    </div>
+
+    <!-- LOGICA JAVASCRIPT -->
+    <script>
+        const cropData = {
+            tomaquera: {
+                name: "Tomaquera",
+                icon: "🍅",
+                needsLabel: "Alta Demanda 💧💧💧",
+                needsClass: "bg-blue-100 text-blue-800",
+                red: "Requereix reg diari abundant. Si està en test, potser necessita aigua matí i vespre. Mai mullis les fulles per evitar fongs.",
+                yellow: "Reg profund cada 2 o 3 dies. Assegura't que l'aigua penetri bé cap a les arrels profundes.",
+                green: "Reg 1 cop per setmana. Deixa que els primers centímetres de terra s'assequin abans de tornar a regar."
+            },
+            enciam: {
+                name: "Enciam",
+                icon: "🥬",
+                needsLabel: "Alta Demanda 💧💧💧",
+                needsClass: "bg-blue-100 text-blue-800",
+                red: "Reg diari obligatori o les fulles es tornaran amargues i la planta espigarà prematurament. Mantingues la terra sempre humida.",
+                yellow: "Reg freqüent, cada 1-2 dies. Les arrels són superficials, així que necessiten humitat constant però sense embassar.",
+                green: "Reg cada 3-4 dies. Mantingues la superfície lleugerament humida."
+            },
+            carbassona: {
+                name: "Carbassonera",
+                icon: "🥒",
+                needsLabel: "Alta Demanda 💧💧💧",
+                needsClass: "bg-blue-100 text-blue-800",
+                red: "Reg diari abundant a la base. Les seves grans fulles evaporen molta aigua i necessita hidratació per engreixar ràpidament els fruits.",
+                yellow: "Reg cada 2 dies. Intenta regar la base sense mullar les tiges principals per evitar fongs i podridures.",
+                green: "Reg cada 4-5 dies. Redueix el reg si refresca, ja que pateix molt amb excés d'aigua i fred."
+            },
+            alberginia: {
+                name: "Albergínia",
+                icon: "🍆",
+                needsLabel: "Alta Demanda 💧💧💧",
+                needsClass: "bg-blue-100 text-blue-800",
+                red: "Reg diari. És molt exigent; si passa set amb calor extrema, llençarà les flors a terra i no farà fruits.",
+                yellow: "Reg profund cada 2-3 dies. Prefereix regs espaiats però molt abundants per crear arrels fondes.",
+                green: "Reg cada 5-7 dies. Vigila el drenatge, ja que és extremadament sensible a tenir les arrels fredes i entollades."
+            },
+            alfabrega: {
+                name: "Alfàbrega",
+                icon: "🌿",
+                needsLabel: "Alta Demanda 💧💧💧",
+                needsClass: "bg-blue-100 text-blue-800",
+                red: "Reg diari. Amb sol directe i calor extrema, les fulles evaporen aigua rapidíssim i la planta es panseix amb facilitat.",
+                yellow: "Reg cada 2-3 dies. Prefereix regs freqüents i moderats en lloc de grans inundacions.",
+                green: "Reg cada 5-7 dies. Només rega quan la terra estigui visiblement seca. Amb fred, l'excés d'aigua porta fongs ràpidament."
+            },
+            pebrotera: {
+                name: "Pebrotera",
+                icon: "🫑",
+                needsLabel: "Demanda Mitjana 💧💧",
+                needsClass: "bg-teal-100 text-teal-800",
+                red: "Reg cada 1-2 dies. L'estrès hídric fa caure les flors, però odia l'embassament. Mantén terra humida però drenada.",
+                yellow: "Reg cada 3-4 dies. Deixa que la capa superficial s'assequi un dit abans de tornar a aportar aigua.",
+                green: "Reg cada 7 dies o més. A temperatures fresques atura el creixement i necessita molt poca aportació."
+            },
+            mongetera: {
+                name: "Mongetera",
+                icon: "🫛",
+                needsLabel: "Demanda Mitjana 💧💧",
+                needsClass: "bg-teal-100 text-teal-800",
+                red: "Reg cada 2 dies. És clau regar amb regularitat just quan la planta està traient les flors o formant les beines.",
+                yellow: "Reg cada 3-4 dies. Atenció: si regues massa abans que floreixi, farà molta fulla però poques flors.",
+                green: "Reg escàs (cada 7-10 dies). Si les fulles es tornen grogues sol ser símptoma d'excés d'humitat."
+            },
+            ceba: {
+                name: "Ceba",
+                icon: "🧅",
+                needsLabel: "Demanda Mitjana 💧💧",
+                needsClass: "bg-teal-100 text-teal-800",
+                red: "Reg cada 2 dies. Té arrels curtes i necessita aigua regular perquè el bulb s'infli amb les altes temperatures.",
+                yellow: "Reg cada 4-5 dies. Assegura't que l'aigua no queda retinguda al voltant del bulb.",
+                green: "Reg molt escàs (cada 7-10 dies). Atura el reg completament unes tres setmanes abans de la collita."
+            },
+            pastanaga: {
+                name: "Pastanaga",
+                icon: "🥕",
+                needsLabel: "Demanda Mitjana 💧💧",
+                needsClass: "bg-teal-100 text-teal-800",
+                red: "Reg profund cada 2-3 dies. Si rep regs irregulars (passa molta set i després molta aigua), l'arrel s'esquerdarà.",
+                yellow: "Reg regular cada 4 dies. Una humitat constant l'ajuda a créixer recta i tendra.",
+                green: "Reg 1 cop per setmana és suficient. L'entollament la podriria de seguida sota terra."
+            },
+            rave: {
+                name: "Rave",
+                icon: "🌱",
+                needsLabel: "Demanda Mitjana 💧💧",
+                needsClass: "bg-teal-100 text-teal-800",
+                red: "Reg diari clau. Si passen set a l'estiu, el rave es torna llenyós (dur), petit i extremadament picant.",
+                yellow: "Reg cada 2 dies. Són de cicle molt curt i requereixen tenir la terra constantment humida.",
+                green: "Reg cada 4-5 dies. Mantenir una lleugera humitat constant."
+            }
+        };
+
+        function selectCrop(cropId) {
+            document.querySelectorAll('.crop-btn').forEach(btn => {
+                btn.classList.remove('ring-4', 'ring-blue-500', 'scale-105', 'shadow-md');
+            });
+
+            const activeBtn = document.getElementById(`btn-${cropId}`);
+            activeBtn.classList.add('ring-4', 'ring-blue-500', 'scale-105', 'shadow-md');
+
+            const data = cropData[cropId];
+
+            const resultPanel = document.getElementById('result-panel');
+            const dataPanel = document.getElementById('data-panel');
+
+            resultPanel.classList.add('hidden');
+
+            dataPanel.classList.remove('hidden', 'animate-fade-in');
+            void dataPanel.offsetWidth;
+            dataPanel.classList.add('animate-fade-in');
+
+            document.getElementById('display-icon').innerText = data.icon;
+            document.getElementById('panel-bg-icon').innerText = data.icon;
+            document.getElementById('display-name').innerText = data.name;
+
+            const needsElement = document.getElementById('display-needs');
+            needsElement.innerText = data.needsLabel;
+            needsElement.className = `inline-block px-3 py-1 rounded-full text-sm font-semibold mt-1 ${data.needsClass}`;
+
+            document.getElementById('display-red').innerText = data.red;
+            document.getElementById('display-yellow').innerText = data.yellow;
+            document.getElementById('display-green').innerText = data.green;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunitat d'Hortolanes | Espai Vall-Roure</title>
+        <link rel="icon" type="image/png" href="img/logopol (1).png">
+<script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body class="text-slate-800 pb-12">
+    <!-- Botó Retorn al Menú -->
+    <a href="infografies"
+        class="fixed top-4 left-4 z-[9999] flex items-center gap-2 bg-white/90 hover:bg-white text-slate-800 font-bold px-4 py-2 rounded-full shadow-lg backdrop-blur-sm transition border border-slate-200 text-sm hover:scale-105">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        <span class="hidden sm:inline">Tornar a l'Àrea Privada</span>
+    </a>
+
+    <!-- Header -->
+    <header
+        class="bg-gradient-to-br from-indigo-600 to-purple-800 text-white py-16 px-6 shadow-lg relative overflow-hidden">
+        <div class="absolute -top-12 -left-12 text-white/10 opacity-20 transform -rotate-12 w-64 h-64">
+            <i data-lucide="users" class="w-full h-full"></i>
+        </div>
+        <div class="max-w-5xl mx-auto relative z-10 text-center">
+            <div class="flex justify-center mb-4">
+                <div class="bg-white/20 p-4 rounded-full backdrop-blur-sm shadow-inner">
+                    <i data-lucide="messages-square" class="w-12 h-12 text-indigo-100"></i>
+                </div>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Comunitat Vall-Roure</h1>
+            <p class="text-xl text-indigo-100 max-w-2xl mx-auto font-light">
+                Coneix qui som, comparteix el teu perfil i resol els teus dubtes d'horticultura al fòrum de la
+                comunitat.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 mt-12 space-y-12">
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <!-- Columna Esquerra: El Meu Perfil i Hortolanes -->
+            <div class="lg:col-span-1 space-y-8">
+
+                <!-- El Meu Perfil -->
+                <section class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 inset-x-0 h-2 bg-indigo-500"></div>
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                            <i data-lucide="user-circle" class="w-5 h-5 text-indigo-500"></i> El Meu Perfil
+                        </h2>
+                        <button onclick="toggleProfileEdit()" id="btn-edit-profile"
+                            class="text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-lg hover:bg-indigo-100 transition">Editar</button>
+                    </div>
+
+                    <!-- Vista Perfil Guardat -->
+                    <div id="profile-view" class="hidden">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div id="pv-avatar"
+                                class="w-16 h-16 rounded-full flex justify-center items-center text-white text-2xl font-bold shadow-inner">
+                            </div>
+                            <div>
+                                <h3 id="pv-name" class="font-bold text-lg text-slate-800 capitalize leading-tight"></h3>
+                                <span id="pv-exp"
+                                    class="inline-flex items-center gap-1 text-xs font-bold px-2 py-0.5 mt-1 rounded-full border"></span>
+                            </div>
+                        </div>
+                        <p id="pv-bio"
+                            class="text-sm text-slate-600 italic bg-slate-50 p-3 rounded-xl border border-slate-100">
+                        </p>
+                    </div>
+
+                    <!-- Formulari Editar Perfil -->
+                    <div id="profile-edit" class="space-y-4">
+                        <form id="profile-form" onsubmit="saveProfile(event)">
+                            <div class="mb-3">
+                                <label class="block text-xs font-bold text-slate-500 mb-1">El teu Nom (o
+                                    parcel·la)</label>
+                                <input type="text" id="prof-name" placeholder="Ex: Maria - Parc. 12" required
+                                    class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none transition">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="block text-xs font-bold text-slate-500 mb-1">Experiència a l'hort</label>
+                                <select id="prof-exp" required
+                                    class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none transition">
+                                    <option value="Novell (En aprenentatge)">🌱 Novell (En aprenentatge)</option>
+                                    <option value="Aficionat (Ja n'he fet)">🌿 Aficionat (Ja n'he fet algun cop)
+                                    </option>
+                                    <option value="Expert (Tota la vida)">🌳 Expert (Porto tota la vida)</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="block text-xs font-bold text-slate-500 mb-1">Sobre mi (Què m'agrada
+                                    cultivar?)</label>
+                                <textarea id="prof-bio" rows="2"
+                                    placeholder="Sóc de Barcelona i vinc els caps de setmana. M'encanten els tomàquets i provar coses noves."
+                                    class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none transition resize-none"></textarea>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full bg-indigo-600 text-white font-bold py-2 rounded-lg text-sm hover:bg-indigo-700 transition shadow-sm">
+                                Desar Perfil
+                            </button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Llista d'Hortolanes -->
+                <section class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm">
+                    <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2 mb-4">
+                        <i data-lucide="users" class="w-5 h-5 text-teal-600"></i> Membres
+                    </h2>
+
+                    <div id="members-list" class="space-y-4 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
+                        <!-- Generat dinàmicament (Dummy info + el propi) -->
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Columna Dreta: Fòrum / Preguntes i Respostes -->
+            <div class="lg:col-span-2">
+                <section class="bg-white rounded-3xl p-6 md:p-8 border border-slate-200 shadow-sm relative">
+                    <div
+                        class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 pb-4 border-b border-slate-100">
+                        <div>
+                            <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-2">
+                                <i data-lucide="message-square-plus" class="w-6 h-6 text-indigo-500"></i> Fòrum
+                                d'Hortolanes
+                            </h2>
+                            <p class="text-sm text-slate-500 mt-1">Pregunta, respon i ajuda els companys d'Espai
+                                Vall-Roure.</p>
+                        </div>
+                        <button onclick="toggleNewPost()"
+                            class="shrink-0 bg-indigo-50 text-indigo-700 font-bold px-4 py-2 rounded-xl border border-indigo-100 hover:bg-indigo-100 transition flex items-center gap-2">
+                            <i data-lucide="pen-line" class="w-4 h-4"></i> Obra un fil
+                        </button>
+                    </div>
+
+                    <!-- Formulari Nova Pregunta (Amagat per defecte) -->
+                    <div id="new-post-form"
+                        class="hidden bg-indigo-50/50 p-5 rounded-2xl border border-indigo-100 mb-8 relative">
+                        <button onclick="toggleNewPost()"
+                            class="absolute top-3 right-3 text-slate-400 hover:text-slate-600"><i data-lucide="x"
+                                class="w-5 h-5"></i></button>
+                        <h4 class="font-bold text-indigo-900 mb-3 text-sm uppercase tracking-wider">Publicar una
+                            Pregunta o Consell</h4>
+                        <form onsubmit="addPost(event)">
+                            <textarea id="post-content" rows="3" required
+                                placeholder="Ex: Algú sap quan és l'última gelada per aquí? Tinc pensat plantar tomaqueres aviat..."
+                                class="w-full px-4 py-3 bg-white border border-indigo-200 rounded-xl text-sm focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition resize-none mb-3"></textarea>
+                            <div class="flex justify-end">
+                                <button type="submit"
+                                    class="bg-indigo-600 text-white font-bold px-6 py-2 rounded-xl text-sm hover:bg-indigo-700 transition shadow-md hover:shadow-indigo-900/20">
+                                    Publicar <i data-lucide="send" class="w-3 h-3 inline-block ml-1"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Llista de Fils -->
+                    <div id="forum-list" class="space-y-6">
+                        <!-- El Fòrum es genera aquí -->
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Peu -->
+    <footer class="text-center mt-20 mb-12 text-sm text-slate-500">
+        <p>Plataforma de suport mutu - <i data-lucide="heart" class="w-4 h-4 inline-block text-rose-500"></i> Som una
+            comunitat.</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Constants i Dades Simulades
+        const defaultAvatarColors = ['bg-rose-500', 'bg-indigo-500', 'bg-teal-500', 'bg-amber-500', 'bg-purple-500', 'bg-blue-500', 'bg-emerald-500'];
+
+        const dummyMembers = [
+            { id: 'm1', name: 'Maria (Parc. 3)', exp: 'Expert (Tota la vida)', bio: "Sóc aquí des de l'inici. Especialista en tomàquets de penjar i varietats antigues de la zona. Compartim llavors!", color: 'bg-emerald-600' },
+            { id: 'm2', name: 'Joan i Llorenç', exp: "Aficionat (Ja n'he fet)", bio: "Som pare i fill que venim d'un balcó petit a Barcelona per aprendre a embrutar-nos les mans de debò.", color: 'bg-blue-600' },
+            { id: 'm3', name: 'Alba i Carles', exp: 'Novell (En aprenentatge)', bio: "Primera vegada que tenim hort. Molta il·lusió però necessitem ajuda amb tot, sobretot amb el pugó!", color: 'bg-rose-500' }
+        ];
+
+        let dummyPosts = [
+            {
+                id: 'p1', author: 'Alba i Carles', exp: 'Novell (En aprenentatge)', color: 'bg-rose-500', date: 'Fa 2 dies',
+                text: "Hola comunitat! He vist que a les nostres faves hi ha uns bitxets negres a les puntes més tendres. Què hi puc fer sense usar químics?",
+                replies: [
+                    { author: 'Maria (Parc. 3)', color: 'bg-emerald-600', text: "Això és el pugó negre. Com a remei casolà, sabó potàssic diluït amb aigua a darrera hora de la tarda. Si tens caputxines a prop també hi aniran totes allà abandonant les faves!", date: 'Fa 1 dia' }
+                ]
+            },
+            {
+                id: 'p2', author: 'Joan i Llorenç', exp: "Aficionat (Ja n'he fet)", color: 'bg-blue-600', date: 'Fa 4 dies',
+                text: "Ens sobren unes quantes plançons d'enciam de fulla de roure (uns 10). Els tenim davant de la caseta d'eines per si algú en vol agafar! Lliure disposició.",
+                replies: []
+            }
+        ];
+
+        // Inicialització Dades Locals
+        let myProfile = JSON.parse(localStorage.getItem('vallroure_profile')) || null;
+        let forumPosts = JSON.parse(localStorage.getItem('vallroure_forum')) || dummyPosts;
+
+        // ------------- Lògica del Perfil -------------
+
+        function renderProfileView() {
+            const formDiv = document.getElementById('profile-edit');
+            const viewDiv = document.getElementById('profile-view');
+            const btnEdit = document.getElementById('btn-edit-profile');
+
+            if (myProfile) {
+                // Té perfil
+                formDiv.classList.add('hidden');
+                viewDiv.classList.remove('hidden');
+                btnEdit.classList.remove('hidden');
+
+                document.getElementById('pv-name').textContent = myProfile.name;
+                document.getElementById('pv-bio').textContent = myProfile.bio || 'Sense descripció.';
+
+                const av = document.getElementById('pv-avatar');
+                av.className = `w-14 h-14 rounded-full flex justify-center items-center text-white text-xl font-bold font-serif shadow-inner ${myProfile.color}`;
+                av.textContent = myProfile.name.charAt(0).toUpperCase();
+
+                const expBadge = document.getElementById('pv-exp');
+                let expColor = 'text-slate-600 bg-slate-50 border-slate-200';
+                if (myProfile.exp.includes('Expert')) expColor = 'text-emerald-700 bg-emerald-50 border-emerald-200';
+                else if (myProfile.exp.includes('Novell')) expColor = 'text-amber-700 bg-amber-50 border-amber-200';
+                else if (myProfile.exp.includes('Aficionat')) expColor = 'text-blue-700 bg-blue-50 border-blue-200';
+
+                expBadge.className = `inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 mt-1 rounded-full border ${expColor}`;
+                expBadge.innerHTML = `<i data-lucide="award" class="w-3 h-3"></i> ${myProfile.exp}`;
+
+            } else {
+                // No té perfil creat encara
+                formDiv.classList.remove('hidden');
+                viewDiv.classList.add('hidden');
+                btnEdit.classList.add('hidden');
+            }
+            lucide.createIcons();
+            renderMembers();
+        }
+
+        function toggleProfileEdit() {
+            document.getElementById('profile-view').classList.add('hidden');
+            document.getElementById('profile-edit').classList.remove('hidden');
+            document.getElementById('btn-edit-profile').classList.add('hidden');
+
+            if (myProfile) {
+                document.getElementById('prof-name').value = myProfile.name;
+                document.getElementById('prof-exp').value = myProfile.exp;
+                document.getElementById('prof-bio').value = myProfile.bio;
+            }
+        }
+
+        window.saveProfile = function (e) {
+            e.preventDefault();
+            const name = document.getElementById('prof-name').value.trim();
+            const exp = document.getElementById('prof-exp').value;
+            const bio = document.getElementById('prof-bio').value.trim();
+
+            // Assignar un color aleatori només el primer cop
+            const color = (myProfile && myProfile.color) ? myProfile.color : defaultAvatarColors[Math.floor(Math.random() * defaultAvatarColors.length)];
+
+            myProfile = { id: 'me_local', name, exp, bio, color };
+            localStorage.setItem('vallroure_profile', JSON.stringify(myProfile));
+
+            renderProfileView();
+            renderForum(); // Update for possible new posts author names if edited
+        };
+
+
+        // ------------- Lògica de Membres -------------
+        function renderMembers() {
+            const mList = document.getElementById('members-list');
+            mList.innerHTML = '';
+
+            // Combinar membres dummy + jo (si existesc)
+            let allMembers = [...dummyMembers];
+            if (myProfile) {
+                allMembers.unshift(myProfile); // Jo primer
+            }
+
+            allMembers.forEach(m => {
+                const isMe = (m.id === 'me_local');
+                let expColor = 'text-slate-500';
+                if (m.exp.includes('Expert')) expColor = 'text-emerald-500';
+                else if (m.exp.includes('Aficionat')) expColor = 'text-blue-500';
+
+                let html = `
+                <div class="flex gap-4 p-3 rounded-xl hover:bg-slate-50 transition border border-transparent hover:border-slate-100 group">
+                    <div class="w-10 h-10 rounded-full flex-shrink-0 flex justify-center items-center text-white font-bold font-serif shadow-inner text-sm ${m.color} relative">
+                        ${m.name.charAt(0).toUpperCase()}
+                        ${isMe ? '<div class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 border-2 border-white rounded-full"></div>' : ''}
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h4 class="font-bold text-sm text-slate-800">${m.name}</h4>
+                            ${isMe ? '<span class="text-[9px] bg-indigo-100 text-indigo-700 font-bold px-1.5 rounded uppercase">Jo</span>' : ''}
+                        </div>
+                        <p class="text-[10px] font-bold uppercase tracking-wider ${expColor} mb-1 flex items-center gap-1"><i data-lucide="sprout" class="w-3 h-3"></i> ${m.exp.split(' ')[0]}</p>
+                        <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">${m.bio || ''}</p>
+                    </div>
+                </div>`;
+                mList.innerHTML += html;
+            });
+            lucide.createIcons();
+        }
+
+        // ------------- Lògica del Fòrum -------------
+        function renderForum() {
+            const list = document.getElementById('forum-list');
+            list.innerHTML = '';
+
+            if (forumPosts.length === 0) {
+                list.innerHTML = '<div class="text-center py-10 text-slate-400">Encara no hi ha cap dubte publicat. Sigues el primer!</div>';
+                return;
+            }
+
+            forumPosts.forEach(post => {
+                // If the local post author is 'me', update name just in case profile changed
+                if (post.isMine && myProfile) {
+                    post.author = myProfile.name;
+                    post.color = myProfile.color;
+                    post.exp = myProfile.exp;
+                }
+
+                let replyHtml = '';
+                post.replies.forEach(r => {
+                    replyHtml += `
+                    <div class="ml-6 sm:ml-12 mt-4 bg-slate-50 p-4 rounded-xl border border-slate-100 flex gap-3">
+                        <div class="w-8 h-8 rounded-full flex-shrink-0 flex justify-center items-center text-white font-bold text-xs ${r.color}">
+                            ${r.author.charAt(0).toUpperCase()}
+                        </div>
+                        <div class="w-full">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="font-bold text-sm text-slate-800">${r.author}</span>
+                                <span class="text-xs text-slate-400">${r.date}</span>
+                            </div>
+                            <p class="text-sm text-slate-600 whitespace-pre-wrap leading-relaxed">${r.text}</p>
+                        </div>
+                    </div>`;
+                });
+
+                let html = `
+                <div class="border border-slate-200 rounded-2xl p-5 sm:p-6 bg-white shadow-sm hover:shadow-md transition">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex gap-3">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex-shrink-0 flex justify-center items-center text-white font-bold text-lg shadow-inner ${post.color}">
+                                ${post.author.charAt(0).toUpperCase()}
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-800 leading-none">${post.author}</h3>
+                                <span class="text-[10px] text-slate-500 font-medium">${post.exp}</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-slate-400 whitespace-nowrap">${post.date}</span>
+                    </div>
+                    
+                    <p class="text-slate-700 leading-relaxed mb-4 text-sm sm:text-base">${post.text}</p>
+                    
+                    <div class="border-t border-slate-100 pt-3">
+                        ${replyHtml}
+                        
+                        <!-- Form respondre -->
+                        <div class="ml-6 sm:ml-12 mt-3 flex items-start gap-2">
+                            <i data-lucide="corner-down-right" class="w-4 h-4 text-slate-300 mt-2 shrink-0"></i>
+                            <form class="w-full relative" onsubmit="addReply(event, '${post.id}')">
+                                <input type="text" placeholder="Escriu una resposta..." required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 pr-12 text-sm focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-50 outline-none transition">
+                                <button type="submit" class="absolute right-2 top-2 text-indigo-500 hover:text-indigo-700 font-bold p-0.5"><i data-lucide="send-horizonal" class="w-4 h-4"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>`;
+
+                list.innerHTML += html;
+            });
+            lucide.createIcons();
+        }
+
+        function toggleNewPost() {
+            if (!myProfile) {
+                alert("Si us plau, crea el teu Perfil d'Hortolà per poder participar al fòrum.");
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                toggleProfileEdit();
+                return;
+            }
+            const form = document.getElementById('new-post-form');
+            form.classList.toggle('hidden');
+            if (!form.classList.contains('hidden')) {
+                document.getElementById('post-content').focus();
+            }
+        }
+
+        window.addPost = function (e) {
+            e.preventDefault();
+            const text = document.getElementById('post-content').value.trim();
+            if (!text) return;
+
+            const newPost = {
+                id: 'p' + Date.now(),
+                isMine: true,
+                author: myProfile.name,
+                exp: myProfile.exp,
+                color: myProfile.color,
+                date: "Ara mateix",
+                text: text,
+                replies: []
+            };
+
+            forumPosts.unshift(newPost);
+            localStorage.setItem('vallroure_forum', JSON.stringify(forumPosts));
+
+            document.getElementById('new-post-form').classList.add('hidden');
+            document.getElementById('post-content').value = '';
+            renderForum();
+        };
+
+        window.addReply = function (e, postId) {
+            e.preventDefault();
+            if (!myProfile) {
+                alert("Si us plau, crea el teu Perfil d'Hortolà per poder participar al fòrum.");
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+
+            const input = e.target.querySelector('input');
+            const replyText = input.value.trim();
+            if (!replyText) return;
+
+            const targetPost = forumPosts.find(p => p.id === postId);
+            if (targetPost) {
+                targetPost.replies.push({
+                    author: myProfile.name,
+                    color: myProfile.color,
+                    text: replyText,
+                    date: 'Ara mateix'
+                });
+                localStorage.setItem('vallroure_forum', JSON.stringify(forumPosts));
+                renderForum();
+            }
+        };
+
+        // Arrencada
+        renderProfileView();
+        renderForum();
+
+    </script>
+</body>
+
+</html>

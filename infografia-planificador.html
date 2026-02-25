@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planificador i Calendari a l'Hort</title>
+        <link rel="icon" type="image/png" href="img/logopol (1).png">
+<script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+
+<body class="text-slate-800 pb-12">
+    <!-- Botó Retorn al Menú -->
+    <a href="infografies"
+        class="fixed top-4 left-4 z-[9999] flex items-center gap-2 bg-white/90 hover:bg-white text-slate-800 font-bold px-4 py-2 rounded-full shadow-lg backdrop-blur-sm transition border border-slate-200 text-sm hover:scale-105">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        <span class="hidden sm:inline">Tornar a l'Àrea Privada</span>
+    </a>
+
+    <!-- Header -->
+    <header
+        class="bg-gradient-to-br from-emerald-600 to-teal-800 text-white py-16 px-6 shadow-lg relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 text-white/10 opacity-20 transform rotate-12 w-64 h-64">
+            <i data-lucide="calendar-check" class="w-full h-full"></i>
+        </div>
+        <div class="max-w-5xl mx-auto relative z-10 text-center">
+            <div class="flex justify-center mb-4">
+                <div class="bg-white/20 p-4 rounded-full backdrop-blur-sm">
+                    <i data-lucide="calendar-clock" class="w-12 h-12 text-emerald-100"></i>
+                </div>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Planificador de l'Hort</h1>
+            <p class="text-xl text-emerald-100 max-w-2xl mx-auto font-light">
+                Consulta el calendari de tasques recomanades i organitza les teves properes jornades a la parcel·la.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 mt-12 space-y-16">
+
+        <!-- Secció 1: Calendari de Feines -->
+        <section>
+            <div class="flex items-center gap-3 mb-8 border-b-2 border-emerald-100 pb-4">
+                <div class="bg-emerald-100 p-2 rounded-lg text-emerald-600">
+                    <i data-lucide="sun" class="w-6 h-6"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-800">Calendari de Sembra i Llaurat</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Primavera -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-lime-500 hover:shadow-md transition">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2 text-lime-600">
+                        <i data-lucide="flower-2" class="w-5 h-5"></i> Primavera
+                    </h3>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li><b class="text-slate-800">Llaurar:</b> Passar la motoaixada o fanga per descompactar i
+                            barrejar compost abans de les pluges.</li>
+                        <li><b class="text-slate-800">Sembra:</b> Raves, pastanagues, enciams, remolatxa, mongetes
+                            tendres i carbasses.</li>
+                        <li><b class="text-slate-800">Plantació:</b> (Un cop passat el risc de gelades) Tomaqueres,
+                            pebrots, albergínies, carbassons i cogombres.</li>
+                    </ul>
+                </div>
+
+                <!-- Estiu -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-yellow-500 hover:shadow-md transition">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2 text-yellow-600">
+                        <i data-lucide="sun-medium" class="w-5 h-5"></i> Estiu
+                    </h3>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li><b class="text-slate-800">Llaurar:</b> Només petites escarificacions (fanga) per trencar la
+                            crosta i millorar la infiltració de l'aigua. Afegeix encoixinat (palla).</li>
+                        <li><b class="text-slate-800">Sembra:</b> Cols d'hivern, bledes, pastanagues d'estiu, raves
+                            petits.</li>
+                        <li><b class="text-slate-800">Plantació:</b> Apis, porros i coliflors per preparar la tardor.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tardor -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-orange-500 hover:shadow-md transition">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2 text-orange-600">
+                        <i data-lucide="leaf" class="w-5 h-5"></i> Tardor
+                    </h3>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li><b class="text-slate-800">Llaurar:</b> Girar la terra per exposar possibles plagues latents
+                            i enterrar fems vells o adobs verds perquè es vagin integrant.</li>
+                        <li><b class="text-slate-800">Sembra:</b> Espinacs, canonges, faves, pèsols, alls tendres i
+                            faves.</li>
+                        <li><b class="text-slate-800">Plantació:</b> Calçots, escaroles, cols de brussel·les i bròcoli.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Hivern -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-blue-400 hover:shadow-md transition">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2 text-blue-500">
+                        <i data-lucide="snowflake" class="w-5 h-5"></i> Hivern
+                    </h3>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li><b class="text-slate-800">Llaurar:</b> Evitar llaurar si està molt humit. Espera dies
+                            assolellats o eixuts per afegir restes d'esporgada ben triturada.</li>
+                        <li><b class="text-slate-800">Sembra:</b> Més alls (secs), pèsols primerencs i faves
+                            endarrerides.</li>
+                        <li><b class="text-slate-800">Protecció:</b> Disposar mantes tèrmiques, preparar petits
+                            hivernacles per al planter pròxim i planificar cultius de l'any següent.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secció: Línia Temporal de la Comunitat -->
+        <section class="bg-white rounded-[2rem] p-8 border border-slate-200 shadow-sm relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-bl-full -z-10"></div>
+
+            <div class="text-center mb-10 mt-2">
+                <i data-lucide="users" class="w-12 h-12 text-teal-600 mx-auto mb-3"></i>
+                <h2 class="text-3xl font-bold text-teal-900">Línia Temporal de la Comunitat</h2>
+                <p class="text-slate-500 mt-2">Consulta què tenen planificat els teus veïns d'Espai Vall-Roure, per
+                    setmanes i mesos d'un sol cop d'ull i inspira't.</p>
+            </div>
+
+            <div class="flex overflow-x-auto gap-3 pb-4 mb-2 custom-scrollbar scroll-smooth" id="timeline-months">
+                <!-- Generat amb JS -->
+            </div>
+
+            <div class="hidden mb-6" id="timeline-calendar-wrapper">
+                <div
+                    class="grid grid-cols-7 gap-1 sm:gap-2 mb-2 text-center text-[10px] sm:text-xs font-bold text-slate-500 uppercase">
+                    <div>Dl</div>
+                    <div>Dt</div>
+                    <div>Dc</div>
+                    <div>Dj</div>
+                    <div>Dv</div>
+                    <div>Ds</div>
+                    <div>Dg</div>
+                </div>
+                <div class="grid grid-cols-7 gap-1 sm:gap-2" id="timeline-days">
+                    <!-- Generat amb JS -->
+                </div>
+                <div class="mt-4 flex justify-center">
+                    <button onclick="selectTimelineDay(null)" id="btn-day-all"
+                        class="px-6 py-2 rounded-xl text-sm font-bold transition-all border bg-slate-50 text-slate-500 border-slate-200 hover:border-teal-300 hover:bg-teal-50">
+                        Veure totes les dates del mes
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-inner min-h-[150px]">
+                <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i data-lucide="calendar" class="w-5 h-5 text-teal-500"></i> Planificacions Públiques de <span
+                        id="timeline-month-name"
+                        class="text-teal-700 uppercase tracking-widest text-sm translate-y-px">...</span>
+                </h3>
+                <div id="timeline-tasks" class="space-y-4 max-h-[350px] overflow-y-auto custom-scrollbar pr-2">
+                    <!-- generat amb js -->
+                </div>
+            </div>
+        </section>
+
+        <div class="w-full flex justify-center">
+            <div class="w-px h-12 bg-emerald-200"></div>
+        </div>
+
+        <!-- Secció 2: El teu Planificador -->
+        <section class="bg-white rounded-[2rem] p-8 border border-slate-200 shadow-sm relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -z-10"></div>
+
+            <div class="text-center mb-10 mt-2">
+                <i data-lucide="calendar-plus" class="w-12 h-12 text-emerald-600 mx-auto mb-3"></i>
+                <h2 class="text-3xl font-bold text-emerald-900">Registre de feines a l'Hort</h2>
+                <p class="text-slate-500 mt-2">Guarda el teu planning per organitzar quins dies puges a la teva
+                    parcel·la i quines tasques s'han de fer.</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-12">
+
+                <!-- Formulari Nova Visita -->
+                <div class="lg:w-1/3">
+                    <div class="bg-slate-50 p-6 rounded-3xl border border-slate-100 shadow-inner">
+                        <h3 class="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+                            <i data-lucide="clock" class="w-5 h-5 text-emerald-600"></i> Planifica Visita
+                        </h3>
+
+                        <form id="visita-form" class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-1">Cuan tens previst
+                                    anar-hi?</label>
+                                <input type="date" id="visita-data" required
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-50 outline-none transition text-slate-700">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-1">Quantes hores hi
+                                    seràs?</label>
+                                <div class="relative">
+                                    <input type="number" id="visita-hores" min="0.5" step="0.5" placeholder="p. ex. 2.5"
+                                        required
+                                        class="w-full px-4 py-3 pb-3 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-50 outline-none transition text-slate-700 pl-12">
+                                    <i data-lucide="timer" class="absolute left-4 top-3.5 text-slate-400 w-5 h-5"></i>
+                                    <span
+                                        class="absolute right-4 top-3.5 text-slate-400 text-sm font-medium pointer-events-none text-right">h</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-1">Llista de tasques
+                                    previstes</label>
+                                <textarea id="visita-tasques" rows="3"
+                                    placeholder="Treure de males herbes del bancal esquerre, plantar els plançons d'alfàbrega..."
+                                    required
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-50 outline-none transition text-slate-700 resize-none"></textarea>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full py-4 mt-2 bg-emerald-600 font-bold text-white rounded-xl hover:bg-emerald-700 transition shadow-md hover:shadow-emerald-900/10 flex justify-center items-center gap-2 focus:ring-4 focus:ring-emerald-200">
+                                <i data-lucide="save" class="w-4 h-4"></i> Desar Planificació
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Llista de Visites Programades -->
+                <div class="lg:w-2/3">
+                    <h3 class="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+                        <i data-lucide="list-todo" class="w-5 h-5 text-emerald-600"></i> Properes Jornades i Històric
+                    </h3>
+
+                    <div id="visites-list" class="space-y-4 max-h-[500px] overflow-y-auto pr-3 custom-scrollbar">
+                        <!-- El contingut es carregarà via JS -->
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center mt-20 mb-12 text-sm text-slate-500">
+        <p>Eina de planificació de la teva parcel·la - <i data-lucide="sprout"
+                class="w-4 h-4 inline-block text-emerald-500"></i> Creat exclusivament per membres d'Espai Vall-Roure.
+        </p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Lògica del Planificador via LocalStorage
+        const visitaForm = document.getElementById('visita-form');
+        const visitesList = document.getElementById('visites-list');
+        const dataInput = document.getElementById('visita-data');
+
+        // Data mínima d'avui en l'input (opcional si volem permetre històric passat no el posem minim)
+        // const todayStr = new Date().toISOString().split('T')[0];
+        // dataInput.setAttribute('min', todayStr);
+
+        let visites = JSON.parse(localStorage.getItem('vallroure_visites')) || [];
+
+        function renderVisites() {
+            visitesList.innerHTML = '';
+
+            // Ordenar de més antiga a futura
+            visites.sort((a, b) => new Date(a.data) - new Date(b.data));
+
+            const avui = new Date();
+            avui.setHours(0, 0, 0, 0);
+
+            if (visites.length === 0) {
+                visitesList.innerHTML = `
+                    <div class="text-center py-16 bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200 mt-2 flex flex-col items-center justify-center h-full">
+                        <i data-lucide="inbox" class="w-12 h-12 text-slate-300 mb-4"></i>
+                        <p class="text-slate-500 font-medium">No tens cap visita planejada.</p>
+                        <p class="text-sm text-slate-400 mt-1">Sht! Quan n'emmagatzemis una, la llistarem aquí.</p>
+                    </div>`;
+                lucide.createIcons();
+                return;
+            }
+
+            let futureHeaderShown = false;
+            let pastHeaderShown = false;
+
+            // Arrays
+            const futureVisitsArr = visites.filter(v => new Date(v.data) >= avui);
+            const pastVisitsArr = visites.filter(v => new Date(v.data) < avui);
+
+            // Si cal imprimir les futures
+            if (futureVisitsArr.length > 0) {
+                visitesList.innerHTML += `
+                    <div class="text-xs font-bold text-emerald-600 uppercase tracking-widest mt-2 mb-4 flex items-center gap-2">
+                        <div class="h-px bg-emerald-200 flex-grow"></div> VISITES ACTIVES I PROPERES <div class="h-px bg-emerald-200 flex-grow"></div>
+                    </div>`;
+                futureVisitsArr.forEach(v => appendVisitaHtml(v, false));
+            }
+
+            if (pastVisitsArr.length > 0) {
+                visitesList.innerHTML += `
+                    <div class="text-xs font-bold text-slate-400 uppercase tracking-widest mt-10 mb-4 flex items-center gap-2">
+                        <div class="h-px bg-slate-200 flex-grow"></div> HISTÒRIC EXECUTAT <div class="h-px bg-slate-200 flex-grow"></div>
+                    </div>`;
+                pastVisitsArr.forEach(v => appendVisitaHtml(v, true));
+            }
+
+            lucide.createIcons();
+        }
+
+        function appendVisitaHtml(visita, isPast) {
+            const dateObj = new Date(visita.data);
+
+            // Formatejar el dia
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dt = dateObj.toLocaleDateString('ca-ES', options);
+
+            // Determinar l'estat del color
+            const borderColor = isPast ? 'border-slate-300' : 'border-emerald-500';
+            const textColor = isPast ? 'text-slate-500' : 'text-slate-800';
+            const opacityStatus = isPast ? 'opacity-70' : 'opacity-100 bg-white/50 backdrop-blur-sm';
+
+            // Generar HTML String amb cura
+            let html = `
+            <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 ${borderColor} relative flex flex-col sm:flex-row sm:items-start justify-between gap-4 ${opacityStatus} hover:shadow-md transition group">
+                <div class="flex-grow w-full overflow-hidden">
+                    <div class="flex items-center gap-3 flex-wrap">
+                        <h4 class="font-bold text-lg capitalize ${textColor}">${dt}</h4>
+                        ${isPast
+                    ? `<span class="bg-slate-100 text-slate-500 text-[10px] font-bold px-2 py-0.5 rounded border border-slate-200">Realitzada</span>`
+                    : `<span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded animate-pulse">Pendent</span>`
+                }
+                    </div>
+                    <p class="text-sm font-semibold ${isPast ? 'text-slate-400' : 'text-emerald-700'} mt-1 mb-3 flex items-center gap-1.5">
+                        <i data-lucide="clock-9" class="w-4 h-4"></i> Temps: ${visita.hores} ${visita.hores == '1' ? ' h' : ' h'}
+                    </p>
+                    <p class="text-sm text-slate-600 mt-2 bg-slate-50 p-3 rounded-xl border border-slate-100 leading-relaxed">
+                        <strong class="font-bold text-slate-700 mb-1 block">Tasques a fer en aquesta sessió:</strong>
+                        ${visita.tasques}
+                    </p>
+                </div>
+                <button type="button" onclick="eliminarVisita('${visita.id}')" class="${isPast ? 'text-slate-400 hover:text-red-500 hover:bg-red-50' : 'text-slate-200 opacity-0 group-hover:opacity-100 hover:text-red-600 hover:bg-red-50'} p-3 rounded-xl transition self-end sm:self-center bg-white shadow-sm border border-slate-100" title="Esborrar dades">
+                    <i data-lucide="trash-2" class="w-5 h-5"></i>
+                </button>
+            </div>`;
+
+            document.getElementById('visites-list').innerHTML += html;
+        }
+
+        visitaForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const novaVisita = {
+                id: Date.now().toString(),
+                data: document.getElementById('visita-data').value,
+                hores: document.getElementById('visita-hores').value,
+                tasques: document.getElementById('visita-tasques').value
+            };
+
+            visites.push(novaVisita);
+            localStorage.setItem('vallroure_visites', JSON.stringify(visites));
+
+            visitaForm.reset();
+            renderVisites();
+        });
+
+        window.eliminarVisita = function (id) {
+            visites = visites.filter(v => v.id !== id);
+            localStorage.setItem('vallroure_visites', JSON.stringify(visites));
+            renderVisites();
+        };
+
+        renderVisites();
+
+        // --- Lògica Línia Temporal Comunitat ---
+        const monthsNames = ['Gener', 'Febrer', 'Març', 'Abril', 'Maig', 'Juny', 'Juliol', 'Agost', 'Setembre', 'Octubre', 'Novembre', 'Desembre'];
+        const daysOfWeekShort = ['Dg', 'Dl', 'Dt', 'Dc', 'Dj', 'Dv', 'Ds'];
+
+        const dummyCommunityTasks = {
+            0: [
+                { author: "Maria (Parc. 3)", text: "Poda de fruiters petits i preparació del compost.", color: "bg-emerald-600", day: 15 },
+                { author: "Joan i Llorenç", text: "Girar la terra i afegir fems vells per preparar la primavera.", color: "bg-blue-600", day: 28 }
+            ],
+            1: [
+                { author: "Alba i Carles", text: "Sembrar els primers pèsols i faves que em queden pendents.", color: "bg-rose-500", day: 5 },
+                { author: "Joan i Llorenç", text: "Netejar el bancal de males herbes que han sortit amb les pluges i canviar gomes del rec.", color: "bg-blue-600", day: 14 }
+            ],
+            2: [
+                { author: "Maria (Parc. 3)", text: "Fer planters de tomàquets i pebrots a dins l'hivernacle. Plantar pastanagues fora.", color: "bg-emerald-600", day: 10 },
+                { author: "Joan i Llorenç", text: "Plantar raves, enciams i remolatxa directament a terra.", color: "bg-blue-600", day: 25 }
+            ],
+            3: [
+                { author: "Joan i Llorenç", text: "Trasplantar albergínies si fa bon temps i no hi ha gelades.", color: "bg-blue-600", day: 22 },
+                { author: "Alba i Carles", text: "Posar el reg d'estiu a punt, revisar vàlvules.", color: "bg-rose-500", day: 12 },
+                { author: "Maria (Parc. 3)", text: "Plantar planter de tomatigueres que ja estan immensos.", color: "bg-emerald-600", day: 28 }
+            ],
+            4: [
+                { author: "Maria (Parc. 3)", text: "Entutorar tomàquets, posar canyes i treure fills.", color: "bg-emerald-600", day: 3 }
+            ]
+        };
+
+        let activeTimelineMonth = new Date().getMonth();
+        let activeTimelineDay = null; // null vol dir mostrar tot el mes
+
+        function renderTimelineMonths() {
+            const container = document.getElementById('timeline-months');
+
+            let html = '';
+            monthsNames.forEach((month, index) => {
+                const isCurrent = index === activeTimelineMonth;
+                html += `
+                <button onclick="selectTimelineMonth(${index})" id="btn-month-${index}" class="shrink-0 px-6 py-3 rounded-xl font-bold transition-all border ${isCurrent ? 'bg-teal-600 text-white border-teal-700 shadow-md' : 'bg-white text-slate-600 border-slate-200 hover:border-teal-300 hover:bg-teal-50'}">
+                    ${month}
+                </button>`;
+            });
+            container.innerHTML = html;
+
+            selectTimelineMonth(activeTimelineMonth);
+
+            // Auto scroll
+            setTimeout(() => {
+                const activeBtn = document.getElementById(`btn-month-${activeTimelineMonth}`);
+                if (activeBtn) {
+                    container.scrollLeft = activeBtn.offsetLeft - container.offsetWidth / 2 + activeBtn.offsetWidth / 2;
+                }
+            }, 100);
+        }
+
+        function selectTimelineMonth(index) {
+            activeTimelineMonth = index;
+            activeTimelineDay = null; // Reseteja el dia al canviar de mes
+
+            monthsNames.forEach((_, i) => {
+                const btn = document.getElementById(`btn-month-${i}`);
+                if (!btn) return;
+
+                if (i === index) {
+                    btn.className = "shrink-0 px-6 py-3 rounded-xl font-bold transition-all border bg-teal-600 text-white border-teal-700 shadow-md";
+                } else {
+                    btn.className = "shrink-0 px-6 py-3 rounded-xl font-bold transition-all border bg-white text-slate-600 border-slate-200 hover:border-teal-300 hover:bg-teal-50";
+                }
+            });
+
+            document.getElementById('timeline-month-name').textContent = monthsNames[index];
+            renderTimelineDays(index);
+            renderTimelineTasks();
+        }
+
+        function renderTimelineDays(monthIndex) {
+            const container = document.getElementById('timeline-days');
+            document.getElementById('timeline-calendar-wrapper').classList.remove('hidden');
+
+            const currentYear = new Date().getFullYear();
+            const daysInMonth = new Date(currentYear, monthIndex + 1, 0).getDate();
+            const firstDayIndex = new Date(currentYear, monthIndex, 1).getDay(); // Dg = 0
+
+            // Adjust to start on Monday (Dl:0, Dt:1, ..., Dg:6)
+            let startOffset = firstDayIndex - 1;
+            if (startOffset < 0) startOffset = 6;
+
+            let html = '';
+            for (let i = 0; i < startOffset; i++) {
+                html += `<div></div>`;
+            }
+
+            for (let d = 1; d <= daysInMonth; d++) {
+                // Si hi ha alguna tasca aquest dia, mostrem un puntet
+                const hasTask = (dummyCommunityTasks[monthIndex] || []).some(t => t.day === d);
+                const taskDot = hasTask ? '<div class="absolute top-1 sm:top-1.5 right-1 sm:right-1.5 w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-rose-500 shadow-sm"></div>' : '';
+
+                const isSelected = activeTimelineDay === d;
+
+                html += `
+                <button onclick="selectTimelineDay(${d})" id="btn-day-${d}" class="relative w-full aspect-square flex flex-col items-center justify-center rounded-xl border transition-all ${isSelected ? 'bg-teal-600 text-white border-teal-700 shadow-md' : 'bg-white text-slate-700 border-slate-200 hover:border-teal-300 hover:bg-teal-50 hover:scale-105 hover:z-10'}">
+                    ${taskDot}
+                    <span class="text-sm sm:text-lg font-bold leading-none">${d}</span>
+                </button>
+                `;
+            }
+            container.innerHTML = html;
+
+            // Update the "All" button
+            const btnAll = document.getElementById('btn-day-all');
+            if (activeTimelineDay === null) {
+                btnAll.className = "px-6 py-2 rounded-xl text-sm font-bold transition-all border bg-teal-600 text-white border-teal-700 shadow-md";
+            } else {
+                btnAll.className = "px-6 py-2 rounded-xl text-sm font-bold transition-all border bg-slate-50 text-slate-500 border-slate-200 hover:border-teal-300 hover:bg-teal-50";
+            }
+        }
+
+        function selectTimelineDay(day) {
+            activeTimelineDay = day;
+            renderTimelineDays(activeTimelineMonth);
+            renderTimelineTasks();
+        }
+
+        function renderTimelineTasks() {
+            const list = document.getElementById('timeline-tasks');
+            let tasks = dummyCommunityTasks[activeTimelineMonth] || [];
+
+            // Filtrar per dia si s'ha seleccionat
+            if (activeTimelineDay !== null) {
+                tasks = tasks.filter(t => t.day === activeTimelineDay);
+            }
+
+            if (tasks.length === 0) {
+                list.innerHTML = `
+                <div class="text-center py-10 flex flex-col items-center opacity-60">
+                    <i data-lucide="wind" class="w-10 h-10 text-slate-400 mb-3"></i>
+                    <p class="text-slate-500 italic font-medium">No s'han publicat planificacions ciutadanes per aquesta selecció.</p>
+                </div>`;
+                lucide.createIcons();
+                return;
+            }
+
+            let html = '';
+            // Sort de més aviat a més tard en el mes
+            tasks.sort((a, b) => a.day - b.day);
+
+            tasks.forEach(t => {
+                const initial = t.author.charAt(0).toUpperCase();
+                html += `
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row sm:items-start gap-4 hover:shadow-md transition">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex-shrink-0 flex justify-center items-center text-white font-bold text-lg shadow-inner ${t.color}">
+                        ${initial}
+                    </div>
+                    <div class="w-full">
+                        <div class="flex justify-between items-center mb-1 border-b border-slate-100 pb-2">
+                            <h4 class="font-bold text-slate-800 text-sm sm:text-base">${t.author}</h4>
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-teal-50 text-teal-700 px-2 py-1 rounded-md shrink-0 ml-2 border border-teal-100">Dia ${t.day}</span>
+                        </div>
+                        <p class="text-slate-600 text-sm mt-3 leading-relaxed flex items-start gap-2">
+                            <i data-lucide="check-square" class="w-4 h-4 text-slate-300 shrink-0 mt-0.5"></i>
+                            ${t.text}
+                        </p>
+                    </div>
+                </div>`;
+            });
+            list.innerHTML = html;
+            lucide.createIcons();
+        }
+
+        renderTimelineMonths();
+
+    </script>
+</body>
+
+</html>

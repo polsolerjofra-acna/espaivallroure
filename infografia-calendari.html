@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ca" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendari Dinàmic de Muntanya | Espai Vall-Roure</title>
+        <link rel="icon" type="image/png" href="img/logopol (1).png">
+<!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    colors: {
+                        brand: { 50: '#f2fbf5', 100: '#e1f6e8', 500: '#3ba36e', 700: '#246946', 900: '#1a4430', 950: '#0d2419' },
+                        earth: { 50: '#faf8f5', 100: '#f0ebe1', 200: '#e1d5c1', 500: '#ae8a5b', 800: '#6a4b39' }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide setup -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+    </style>
+</head>
+
+<body class="font-sans text-stone-800 bg-earth-50 antialiased min-h-screen pb-12">
+
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white shadow-sm border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center">
+            <a href="infografies"
+                class="flex items-center gap-2 text-green-700 hover:text-green-900 font-bold transition">
+                <i data-lucide="arrow-left" class="h-5 w-5"></i> Tornar a l'Àrea Privada
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content App Container -->
+    <div class="pt-28 px-4 md:px-8 max-w-6xl mx-auto">
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-stone-200">
+
+            <!-- Header -->
+            <div class="bg-brand-800 p-8 text-white relative">
+                <div class="relative z-10">
+                    <h1 class="text-3xl md:text-5xl font-bold mb-4 font-serif">Calendarització Dinàmica al Pirineu</h1>
+                    <p class="text-brand-100 max-w-2xl text-lg font-medium">
+                        L'agricultura de muntanya no és fixa. L'alçada i l'orientació canvien el cicle vital de les
+                        plantes.
+                        Ajusta l'altitud per veure com es desplaça el calendari.
+                    </p>
+                </div>
+                <div class="absolute right-0 top-0 h-full opacity-10 pointer-events-none hidden md:block">
+                    <svg viewBox="0 0 200 200" class="h-full w-auto">
+                        <path fill="currentColor" d="M0 200 L50 100 L100 150 L150 50 L200 200 Z" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="p-6 md:p-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+                <!-- Controls Column -->
+                <div class="space-y-8">
+                    <!-- Configura Altitud -->
+                    <section class="bg-stone-50 p-6 rounded-2xl border border-stone-200">
+                        <div
+                            class="flex items-center gap-2 mb-4 text-brand-800 font-bold uppercase text-xs tracking-wider">
+                            <i data-lucide="arrow-up-circle" class="w-4 h-4"></i> Configura l'Altitud
+                        </div>
+                        <input type="range" id="altitud-slider" min="400" max="1800" step="50" value="800"
+                            class="w-full h-2 bg-brand-200 rounded-lg appearance-none cursor-pointer accent-brand-600" />
+                        <div class="flex justify-between mt-4 font-mono font-bold text-xl text-brand-700">
+                            <span class="text-base text-stone-400">400m</span>
+                            <span id="altitud-display"
+                                class="bg-brand-100 px-4 py-1.5 rounded-full border border-brand-200">800m</span>
+                            <span class="text-base text-stone-400">1800m</span>
+                        </div>
+                        <p id="altitud-text" class="mt-4 text-sm text-stone-500 italic">
+                            * A aquesta alçada, la primavera arriba aproximadament <span id="retard-dies">15</span> dies
+                            més tard que al fons de la vall.
+                        </p>
+                    </section>
+
+                    <!-- Factors de Risc -->
+                    <section class="space-y-4">
+                        <div class="flex items-center gap-2 text-brand-800 font-bold uppercase text-xs tracking-wider">
+                            <i data-lucide="thermometer" class="w-4 h-4"></i> Factors de Risc al Pirineu
+                        </div>
+                        <div class="grid gap-3">
+                            <div class="flex gap-3 p-4 bg-red-50 rounded-xl border border-red-100">
+                                <i data-lucide="alert-triangle" class="text-red-500 w-6 h-6 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <h4 class="font-bold text-red-900 text-sm">Gelades Tardanes</h4>
+                                    <p class="text-sm text-red-700 mt-1">Comuns fins a finals de maig. Poden destruir
+                                        brots tendres de patata i tomàquets.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+                                <i data-lucide="cloud-snow" class="text-blue-500 w-6 h-6 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <h4 class="font-bold text-blue-900 text-sm">Finestra Tèrmica Curta</h4>
+                                    <p class="text-sm text-blue-700 mt-1">A partir de 1200m només hi ha uns 100 dies
+                                        lliures de gelades a l'any on poder cultivar.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Dynamic Calendar Column -->
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-2">
+                        <h3 class="text-2xl font-bold flex items-center gap-2 text-stone-800 font-serif">
+                            <i data-lucide="calendar" class="text-brand-600"></i> Estat de la Campanya
+                        </h3>
+                        <div class="flex gap-3 bg-stone-50 px-3 py-1.5 rounded-full border border-stone-200 shrink-0">
+                            <div class="flex items-center gap-1 text-xs font-bold uppercase text-stone-500">
+                                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>Sembra
+                            </div>
+                            <div class="flex items-center gap-1 text-xs font-bold uppercase text-stone-500">
+                                <span class="w-2.5 h-2.5 rounded-full bg-blue-400"></span>Creixement
+                            </div>
+                            <div class="flex items-center gap-1 text-xs font-bold uppercase text-stone-500">
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>Collita
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Month Selector -->
+                    <div id="month-selector" class="flex overflow-x-auto pb-4 gap-2 no-scrollbar px-1">
+                        <!-- Botons de mesos injectats via JS -->
+                    </div>
+
+                    <!-- Crop Cards Grid -->
+                    <div id="crop-cards-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Targetes injectades via JS -->
+                    </div>
+
+                    <!-- Seasonal Tips -->
+                    <div id="seasonal-tip-container"
+                        class="mt-8 bg-amber-50 rounded-2xl p-6 border border-amber-200 shadow-sm transition-all duration-300">
+                        <div
+                            class="flex items-center gap-2 mb-3 text-amber-900 font-bold border-b border-amber-200/50 pb-2">
+                            <i data-lucide="info" class="w-5 h-5"></i>
+                            <span id="seasonal-tip-title">Consell d'altitud per al mes de Gener</span>
+                        </div>
+                        <p id="seasonal-tip-desc" class="text-amber-900/80 leading-relaxed font-medium">
+                            Aturada vegetativa quasi total...
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="bg-stone-50 p-6 text-center text-sm font-medium text-stone-500 border-t border-stone-200">
+                <i data-lucide="bar-chart-2" class="inline w-4 h-4 mr-1"></i> Infografia interactiva basada en dades
+                agroclimàtiques del Pirineu.
+                Els cicles reals poden variar segons l'orientació (Solana o Obaga) i els microclimes locals pirenencs.
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN JAVASCRIPT APP LOGIC (Vanilla replacement of React) -->
+    <script>
+        // Data Configuration
+        const mesos = [
+            "Gener", "Febrer", "Març", "Abril", "Maig", "Juny",
+            "Juliol", "Agost", "Setembre", "Octubre", "Novembre", "Desembre"
+        ];
+
+        let state = {
+            altitud: 800,
+            mesSeleccionat: new Date().getMonth()
+        };
+
+        const dadesCultiusBase = [
+            { id: "patates", nom: "Patata de Muntanya", icona: "sprout", desc: "Cultiu rei del Pirineu. Necessita terres soltes i molta potassa a fons." },
+            { id: "cereals", nom: "Cereals d'Hivern (Sègol)", icona: "wheat", desc: "Molt resistents al fred gèlid. El cicle de vida s'allarga amb l'alçada." },
+            { id: "fulla", nom: "Hortalisses de Fulla", icona: "leaf", desc: "Enciams i cols. Compte, s'han de vigilar les gelades tardanes de maig." },
+            { id: "herbes", nom: "Herbes Medicinals", icona: "sun", desc: "Recollida òptima de principis actius durant el solstici d'estiu en cotes baixes." }
+        ];
+
+        // Core logic to get calculated limits based on altitude
+        function getCultiuCalculat(cultiuBase, altitud) {
+            let sembra, collita;
+
+            switch (cultiuBase.id) {
+                case "patates":
+                    sembra = altitud > 1000 ? [4, 5] : [3, 4];
+                    collita = altitud > 1000 ? [8, 9] : [7, 8];
+                    break;
+                case "cereals":
+                    sembra = [9, 10];
+                    collita = altitud > 1000 ? [7, 8] : [6, 7];
+                    break;
+                case "fulla":
+                    sembra = altitud > 1000 ? [5, 6] : [4, 5];
+                    collita = [7, 8, 9];
+                    break;
+                case "herbes":
+                    sembra = [3, 4];
+                    collita = [6, 7];
+                    break;
+            }
+
+            return { ...cultiuBase, sembra, collita };
+        }
+
+        // Determine if a crop is sowing, harvesting, growing or sleeping on a given month
+        function getEstatCultiu(cultiu, mes) {
+            if (cultiu.sembra.includes(mes)) return { estat: "Sembra", color: "bg-green-500", textClass: "text-green-500", ringClass: "ring-green-500" };
+            if (cultiu.collita.includes(mes)) return { estat: "Collita", color: "bg-amber-500", textClass: "text-amber-500", ringClass: "ring-amber-500" };
+
+            const minS = Math.min(...cultiu.sembra);
+            const maxC = Math.max(...cultiu.collita);
+
+            // Handle crops that wrap around the year (like winter cereals)
+            if (minS > maxC) {
+                if (mes > minS || mes < maxC) return { estat: "Creixement", color: "bg-blue-400", textClass: "text-blue-500", ringClass: "ring-blue-400" };
+            } else {
+                if (mes > minS && mes < maxC) return { estat: "Creixement", color: "bg-blue-400", textClass: "text-blue-500", ringClass: "ring-blue-400" };
+            }
+
+            return { estat: "Repòs", color: "bg-stone-200", textClass: "text-stone-400", ringClass: "ring-stone-200" };
+        }
+
+
+        // UI Render Functions
+        function renderAltitudInfo() {
+            document.getElementById('altitud-display').innerText = `${state.altitud}m`;
+            const retardDies = Math.max(0, (state.altitud - 500) / 100 * 5);
+            document.getElementById('retard-dies').innerText = Math.round(retardDies);
+        }
+
+        function renderMonths() {
+            const container = document.getElementById('month-selector');
+            let html = '';
+
+            mesos.forEach((mes, idx) => {
+                const isActive = state.mesSeleccionat === idx;
+                const activeClasses = isActive
+                    ? 'bg-brand-600 text-white shadow-md scale-105 ring-2 ring-brand-200 ring-offset-2'
+                    : 'bg-stone-100 text-stone-600 hover:bg-stone-200';
+
+                html += `
+                    <button onClick="selectMonth(${idx})" 
+                            class="px-5 py-2.5 rounded-full whitespace-nowrap text-sm font-bold transition-all ${activeClasses}">
+                        ${mes}
+                    </button>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function renderCropCards() {
+            const container = document.getElementById('crop-cards-grid');
+            let html = '';
+
+            dadesCultiusBase.forEach(cultiuBase => {
+                const cultiu = getCultiuCalculat(cultiuBase, state.altitud);
+                const estatCurent = getEstatCultiu(cultiu, state.mesSeleccionat);
+
+                // Build tiny timeline line
+                let timelineHtml = ``;
+                for (let mIdx = 0; mIdx < 12; mIdx++) {
+                    const mEstat = getEstatCultiu(cultiu, mIdx);
+                    // highlight if it's the current selected month
+                    const isSelectedMonth = mIdx === state.mesSeleccionat;
+                    const ring = isSelectedMonth ? "ring-2 ring-stone-900 z-10 scale-y-150 rounded" : "";
+                    const bgColor = mEstat.estat !== 'Repòs' ? mEstat.color : 'bg-transparent';
+
+                    timelineHtml += `<div class="h-full flex-1 transition-all ${bgColor} ${ring}"></div>`;
+                }
+
+                html += `
+                    <div class="bg-white border border-stone-200 rounded-3xl p-6 hover:shadow-lg hover:border-brand-300 transition-all duration-300 group flex flex-col h-full relative overflow-hidden">
+                        
+                        <!-- Estat Background Indicator -->
+                        <div class="absolute top-0 right-0 w-24 h-24 blur-3xl opacity-20 pointer-events-none rounded-bl-full ${estatCurent.color}"></div>
+
+                        <div class="flex justify-between items-start mb-4 relative z-10">
+                            <div class="p-3 bg-brand-50 text-brand-700 rounded-xl group-hover:bg-brand-600 group-hover:text-white transition-colors shadow-sm">
+                                <i data-lucide="${cultiu.icona}" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-extrabold uppercase px-3 py-1.5 rounded-full ${estatCurent.color} text-white shadow-sm tracking-wide">
+                                ${estatCurent.estat}
+                            </span>
+                        </div>
+                        
+                        <h4 class="font-bold text-lg text-stone-800 mb-2 relative z-10">${cultiu.nom}</h4>
+                        <p class="text-sm text-stone-500 leading-relaxed mb-6 font-medium relative z-10 flex-grow">${cultiu.desc}</p>
+                        
+                        <!-- Timeline -->
+                        <div class="mt-auto relative z-10">
+                            <div class="flex justify-between text-[10px] font-bold text-stone-400 uppercase mb-1.5 px-1">
+                                <span>Gen</span><span>Des</span>
+                            </div>
+                            <div class="h-2 w-full bg-stone-100/80 rounded-full flex items-center overflow-visible border border-stone-100 shadow-inner">
+                                ${timelineHtml}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            // Force Lucide to re-render injected icons
+            if (window.lucide) window.lucide.createIcons();
+        }
+
+        function renderTips() {
+            const title = document.getElementById('seasonal-tip-title');
+            const desc = document.getElementById('seasonal-tip-desc');
+            const mesName = mesos[state.mesSeleccionat];
+
+            title.innerText = `Consell de muntanya per al mes de ${mesName}`;
+
+            let tipText = "";
+            if (state.mesSeleccionat < 3 || state.mesSeleccionat > 10) {
+                tipText = "Aturada vegetativa quasi total. Bon moment per a la gestió del bosc i preparació d'eines. Aprofita per planificar la rotació de parcel·les i aplicar fems perquè s'incorporin bé durant el fred.";
+            } else if (state.altitud > 1200 && state.mesSeleccionat === 4) { // Maig en alçada
+                tipText = "Encara és massa d'hora per a la majoria de cultius d'horta d'estiu, malgrat que hi hagi hores i hores de sol. El terra encara està massa fred per a la germinació; tapa la terra amb mantes tèrmiques.";
+            } else {
+                tipText = "Optimització de reg: Aprofita les hores centrals del dia per regar. Si regues a la nit corres el risc que l'aigua es geli a la matina i faci malbé les rels o rebenti les mànegues velles.";
+            }
+
+            desc.innerText = tipText;
+        }
+
+        // Global State Modifiers
+        window.selectMonth = function (idx) {
+            state.mesSeleccionat = idx;
+            renderAll();
+        }
+
+        document.getElementById('altitud-slider').addEventListener('input', (e) => {
+            state.altitud = parseInt(e.target.value);
+            renderAll();
+        });
+
+
+        // Master Render Function
+        function renderAll() {
+            renderAltitudInfo();
+            renderMonths();
+            renderCropCards();
+            renderTips();
+        }
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            renderAll();
+            lucide.createIcons();
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espai Vall-Roure | Gestió de Parcel·les</title>
+        <link rel="icon" type="image/png" href="img/logopol (1).png">
+<script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f1f5f9;
+        }
+
+        .pipe-horizontal {
+            background-color: #3b82f6;
+            height: 6px;
+            width: 100%;
+            border-radius: 99px;
+            box-shadow: 0 1px 3px rgba(59, 130, 246, 0.4);
+        }
+
+        .pipe-vertical {
+            background-color: #3b82f6;
+            width: 6px;
+            height: 100%;
+            border-radius: 99px;
+            box-shadow: 0 1px 3px rgba(59, 130, 246, 0.4);
+        }
+
+        .pipe-active {
+            box-shadow: 0 0 8px 3px rgba(59, 130, 246, 0.6);
+            background-color: #2563eb;
+        }
+
+        .pipe-inactive {
+            background-color: #cbd5e1;
+            box-shadow: none;
+        }
+
+        /* Parcel subdivision halves */
+        .half-25m {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .half-25m:hover {
+            filter: brightness(0.95);
+        }
+
+        .rented {
+            background-color: #bef264;
+            /* lime-300 */
+        }
+
+        .free {
+            background-color: #e2e8f0;
+            /* slate-200 */
+        }
+    </style>
+</head>
+
+<body class="text-slate-800 antialiased h-screen flex flex-col">
+    <!-- Login Overlay Administrador -->
+    <div id="admin-login-overlay"
+        class="fixed inset-0 z-[9999] bg-slate-900 flex items-center justify-center p-4 transition-opacity duration-300">
+        <div class="bg-white rounded-2xl p-8 max-w-sm w-full shadow-2xl text-center transform transition-transform">
+            <div
+                class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i data-lucide="shield-check" class="w-8 h-8"></i>
+            </div>
+            <h2 class="text-2xl font-bold font-serif text-slate-800 mb-2">Portal Administrador</h2>
+            <p class="text-sm text-slate-500 mb-6">Introdueix la contrasenya de propietari per gestionar l'Espai
+                Vall-Roure.</p>
+            <form id="admin-login-form" class="space-y-4 text-left">
+                <input type="password" id="admin-password" placeholder="Contrasenya (ex: marta, admin)" required
+                    autofocus
+                    class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition">
+                <button type="submit"
+                    class="w-full bg-slate-900 text-white font-bold py-3 px-6 rounded-xl hover:bg-emerald-600 transition shadow-md">
+                    Accedir al Panell
+                </button>
+                <p id="admin-error-msg"
+                    class="text-red-500 text-sm hidden font-semibold mt-2 text-center bg-red-50 p-2 rounded-lg">Accés
+                    denegat.</p>
+            </form>
+            <div class="mt-6 text-center">
+                <a href="index" class="inline-block text-sm text-slate-400 hover:text-slate-600 underline">Tornar
+                    al Web Primari</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="bg-slate-900 text-white shadow-md p-4 flex justify-between items-center shrink-0">
+        <div class="flex items-center gap-3">
+            <i data-lucide="shield-check" class="w-6 h-6 text-emerald-400"></i>
+            <h1 class="text-xl font-bold font-serif tracking-wide">Panell de Gestió intern</h1>
+        </div>
+        <a href="index" class="flex items-center gap-2 text-sm text-slate-300 hover:text-white transition">
+            Tornar al Web Primari <i data-lucide="external-link" class="w-4 h-4"></i>
+        </a>
+    </header>
+
+    <div class="flex flex-1 overflow-hidden">
+        <!-- Sidebar KPI -->
+        <aside
+            class="w-72 bg-white border-r border-slate-200 shadow-sm p-6 overflow-y-auto shrink-0 flex flex-col gap-6">
+            <div>
+                <h2 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Resum General</h2>
+            </div>
+
+
+            <div class="space-y-4 text-sm bg-slate-50 p-4 rounded-xl border border-slate-100">
+                <div class="flex justify-between items-center">
+                    <span class="text-slate-600">Parcel·les Llogades:</span>
+                    <span class="font-bold text-slate-800" id="kpi-rented-plots">0</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-slate-600">Terreny Ocupat:</span>
+                    <span class="font-bold text-slate-800" id="kpi-surface">0 m²</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-slate-600">Sistemes de Reg:</span>
+                    <span class="font-bold text-blue-600" id="kpi-regs">0</span>
+                </div>
+            </div>
+
+            <div class="mt-auto bg-blue-50 p-4 rounded-xl border border-blue-100 text-xs text-blue-800 leading-relaxed">
+                <strong class="block mb-1">ℹ️ Llegenda de preus base:</strong>
+                - 25m² = 25€ / mes<br>
+                - 50m² (completa) = 50€ / mes<br>
+                - Sistema de reg = +15€ / mes
+            </div>
+            <button onclick="openContractForm(null, null, null)"
+                class="bg-slate-800 text-white font-bold py-3 px-4 rounded-xl hover:bg-slate-700 transition shadow-md w-full mt-4 flex items-center justify-center gap-2">
+                <i data-lucide="file-signature" class="w-4 h-4"></i> Nou Contracte Manual
+            </button>
+            <button onclick="resetData()"
+                class="text-xs text-slate-400 hover:text-red-500 underline transition text-center w-full mt-4">Netejar
+                totes les dades</button>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 overflow-auto p-4 md:p-8 relative bg-stone-100 flex flex-col h-full">
+
+            <div class="flex border-b border-stone-200 mb-6 shrink-0 gap-6">
+                <button id="tab-mapa-btn"
+                    class="py-2 border-b-2 border-emerald-600 font-bold text-emerald-700 transition"
+                    onclick="switchTab('mapa')">Plànol Interactiu</button>
+                <button id="tab-llistats-btn"
+                    class="py-2 border-b-2 border-transparent text-stone-500 hover:text-stone-700 font-bold transition flex gap-2 items-center"
+                    onclick="switchTab('llistats')">Agenda i CRM</button>
+                <button id="tab-finances-btn"
+                    class="py-2 border-b-2 border-transparent text-stone-500 hover:text-stone-700 font-bold transition flex gap-2 items-center"
+                    onclick="switchTab('finances')">Finances i Comptabilitat</button>
+            </div>
+
+            <!-- View: Mapa -->
+            <div id="view-mapa" class="flex-1 w-full relative">
+                <p class="text-stone-500 text-sm mb-8 max-w-2xl">Visualitza el croquis de la finca amb les dues fileres
+                    de
+                    parcel·les de 50m² cadascuna. Pots llogar l'espai i activar el circuit de l'aigua. El reg recórrer
+                    tota
+                    la part superior, i té preses d'aigua pels passadissos directes a la banda esquerra de la fila
+                    inferior.
+                </p>
+
+                <!-- Container for the map with a large enough min-width to prevent squishing on small screens -->
+                <div class="min-w-[1200px] pb-10">
+                    <!-- Main Header Tube at the top -->
+                    <div class="mb-4 relative w-full pr-[1%] pl-[1%]">
+                        <div class="pipe-horizontal" id="main-pipe"></div>
+                        <div
+                            class="absolute -top-6 left-0 text-[10px] font-bold text-blue-600 uppercase tracking-widest bg-blue-100 px-2 py-1 rounded">
+                            Aigua General</div>
+                    </div>
+
+                    <!-- 2 ROWS x 10 COLS grid -->
+                    <div class="flex flex-col gap-8 w-full" id="plots-container">
+                        <!-- Generat per JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- View: Llistats i CRM -->
+            <div id="view-llistats" class="flex-1 w-full hidden overflow-y-auto pb-10">
+                <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+                    <!-- Col 1: Agenda Tenants -->
+                    <div class="xl:col-span-2">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-xl font-bold text-stone-800">Llistat d'Hortolans en Actiu</h2>
+                        </div>
+                        <div
+                            class="bg-white rounded-xl shadow-sm border border-stone-200 overflow-hidden overflow-x-auto">
+                            <table class="w-full text-left text-sm text-stone-600">
+                                <thead class="bg-stone-50 text-stone-500 font-bold uppercase text-[10px]">
+                                    <tr>
+                                        <th class="px-4 py-3">Parcel·la</th>
+                                        <th class="px-4 py-3">Nom</th>
+                                        <th class="px-4 py-3">Contacte</th>
+                                        <th class="px-4 py-3">Venciment</th>
+                                        <th class="px-4 py-3 text-center">Estat Quota</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="agenda-tbody" class="divide-y divide-stone-100">
+                                    <!-- Generat per JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- View: Finances -->
+                    <div id="view-finances" class="flex-1 w-full hidden overflow-y-auto pb-10">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-2xl font-bold text-stone-800">Llibre Major i Resultats</h2>
+                            <div class="text-sm text-stone-500">Balanç actual d'aquest mes</div>
+                        </div>
+
+                        <!-- KPI Cards Top -->
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+                            <div
+                                class="bg-white rounded-xl shadow-sm border border-emerald-100 p-5 pl-6 border-l-4 border-l-emerald-500 relative overflow-hidden">
+                                <i data-lucide="leaf"
+                                    class="absolute -right-4 -bottom-4 w-24 h-24 text-emerald-50 opacity-50 transform rotate-12"></i>
+                                <span
+                                    class="text-xs font-bold text-emerald-600 uppercase tracking-widest block mb-1">Lloguers
+                                    Fixos</span>
+                                <span class="text-3xl font-black text-stone-800 relative z-10"
+                                    id="finance-fixed">0€</span>
+                            </div>
+                            <div
+                                class="bg-white rounded-xl shadow-sm border border-blue-100 p-5 pl-6 border-l-4 border-l-blue-500 relative overflow-hidden">
+                                <i data-lucide="shopping-bag"
+                                    class="absolute -right-4 -bottom-4 w-24 h-24 text-blue-50 opacity-50 transform -rotate-12"></i>
+                                <span
+                                    class="text-xs font-bold text-blue-600 uppercase tracking-widest block mb-1">Serveis
+                                    Extres</span>
+                                <span class="text-3xl font-black text-stone-800 relative z-10"
+                                    id="finance-extras">0€</span>
+                                <button onclick="addExtra()"
+                                    class="absolute top-4 right-4 text-blue-400 hover:text-blue-600 bg-blue-50 p-1.5 rounded-lg z-20 transition"
+                                    title="Afegir extra">
+                                    <i data-lucide="plus" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                            <div
+                                class="bg-white rounded-xl shadow-sm border border-red-100 p-5 pl-6 border-l-4 border-l-red-500 relative overflow-hidden">
+                                <i data-lucide="trending-down"
+                                    class="absolute -right-4 -bottom-4 w-24 h-24 text-red-50 opacity-50 transform rotate-12"></i>
+                                <span
+                                    class="text-xs font-bold text-red-600 uppercase tracking-widest block mb-1">Despeses</span>
+                                <span class="text-3xl font-black text-stone-800 relative z-10"
+                                    id="finance-expenses">0€</span>
+                                <button onclick="editExpenses()"
+                                    class="absolute top-4 right-4 text-red-400 hover:text-red-600 bg-red-50 p-1.5 rounded-lg z-20 transition"
+                                    title="Modificar despeses">
+                                    <i data-lucide="edit-3" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                            <div
+                                class="bg-slate-900 rounded-xl shadow-md border border-slate-800 p-5 pl-6 relative overflow-hidden">
+                                <i data-lucide="circle-dollar-sign"
+                                    class="absolute -right-4 -bottom-4 w-24 h-24 text-slate-800 opacity-50 transform rotate-12"></i>
+                                <span
+                                    class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-1">Benefici
+                                    Net</span>
+                                <span class="text-4xl font-black text-white relative z-10" id="finance-net">0€</span>
+                            </div>
+                        </div>
+
+                        <!-- Main Accounting List -->
+                        <div class="bg-white rounded-xl shadow-sm border border-stone-200 overflow-hidden">
+                            <div
+                                class="px-6 py-4 bg-stone-50 border-b border-stone-200 flex justify-between items-center">
+                                <h3 class="font-bold text-stone-800">Detall de Transaccions d'Aquest Mes</h3>
+                            </div>
+                            <table class="w-full text-left text-sm text-stone-600">
+                                <thead class="text-stone-400 uppercase text-[10px] bg-white border-b border-stone-100">
+                                    <tr>
+                                        <th class="px-6 py-3 font-bold">Concepte i Origen</th>
+                                        <th class="px-6 py-3 font-bold">Tipus d'Ingrés/Despesa</th>
+                                        <th class="px-6 py-3 font-bold text-right">Import</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="finance-tbody" class="divide-y divide-stone-50">
+                                    <!-- JS generate rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center mb-4 bg-stone-100 p-1">
+                        <h2 class="text-xl font-bold text-stone-800">Llista d'Espera</h2>
+                        <button onclick="addWaitlist()"
+                            class="text-emerald-700 bg-emerald-100 hover:bg-emerald-200 px-3 py-1 rounded-lg text-sm font-bold flex gap-1 items-center transition"><i
+                                data-lucide="plus" class="w-4 h-4"></i> Nou</button>
+                    </div>
+                    <div id="waitlist-container" class="space-y-3">
+                        <!-- Generat per JS -->
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- View: Finances -->
+    <div id="view-finances" class="flex-1 w-full hidden overflow-y-auto pb-10">
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+            <!-- Col 1: Ingressos -->
+            <div class="space-y-6">
+                <div class="bg-white rounded-xl shadow-sm border border-emerald-200 overflow-hidden">
+                    <div class="bg-emerald-50 px-4 py-3 border-b border-emerald-100 flex justify-between items-center">
+                        <h3 class="font-bold text-emerald-900">Ingressos Fixos (Quotes d'Hortolans)</h3>
+                        <span class="font-bold text-emerald-700 text-lg" id="finances-kpi-revenue">0€</span>
+                    </div>
+                    <div class="p-4 text-sm text-stone-600 bg-stone-50/50">
+                        Aquest import es calcula automàticament des del mapa interactiu sumant el valor base de totes
+                        les parcel·les ocupades i els sistemes de reg actius.
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-blue-200 overflow-hidden flex flex-col h-[400px]">
+                    <div
+                        class="bg-blue-50 px-4 py-3 border-b border-blue-100 flex justify-between items-center shrink-0">
+                        <h3 class="font-bold text-blue-900">Ingressos Extres (Botiga o Puntuals)</h3>
+                        <span class="font-bold text-blue-700 text-lg" id="finances-kpi-extras">0€</span>
+                    </div>
+                    <div class="p-3 border-b border-stone-100 bg-stone-50 flex gap-2 shrink-0">
+                        <input type="text" id="extra-desc" placeholder="Concepte (ex: Lloguer Motocultor)"
+                            class="flex-1 border border-stone-200 rounded px-2 py-1 text-sm outline-none focus:border-blue-500 bg-white">
+                        <input type="number" id="extra-amount" placeholder="€"
+                            class="w-20 border border-stone-200 rounded px-2 py-1 text-sm outline-none focus:border-blue-500 bg-white">
+                        <button onclick="saveExtraItem()"
+                            class="bg-blue-600 text-white px-3 py-1 rounded text-sm font-bold hover:bg-blue-700 transition">Afegir</button>
+                    </div>
+                    <ul id="extras-list" class="divide-y divide-stone-100 text-sm overflow-y-auto flex-1 p-2">
+                        <!-- Generat per JS -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Col 2: Despeses -->
+            <div>
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-red-200 overflow-hidden flex flex-col h-full min-h-[500px]">
+                    <div class="bg-red-50 px-4 py-3 border-b border-red-100 flex justify-between items-center shrink-0">
+                        <h3 class="font-bold text-red-900">Llibre de Despeses Manuals</h3>
+                        <span class="font-bold text-red-700 text-lg" id="finances-kpi-expenses">0€</span>
+                    </div>
+                    <div class="p-3 border-b border-stone-100 bg-stone-50 flex gap-2 shrink-0">
+                        <input type="text" id="expense-desc" placeholder="Concepte (ex: Aigua, Assegurança...)"
+                            class="flex-1 border border-stone-200 rounded px-2 py-1 text-sm outline-none focus:border-red-500 bg-white">
+                        <input type="number" id="expense-amount" placeholder="€"
+                            class="w-20 border border-stone-200 rounded px-2 py-1 text-sm outline-none focus:border-red-500 bg-white">
+                        <button onclick="saveExpenseItem()"
+                            class="bg-red-600 text-white px-3 py-1 rounded text-sm font-bold hover:bg-red-700 transition">Afegir</button>
+                    </div>
+                    <ul id="expenses-list" class="divide-y divide-stone-100 text-sm overflow-y-auto flex-1 p-2">
+                        <!-- Generat per JS -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // 2 Files x 10 Columnes
+        const rows = 2;
+        const columns = 10;
+
+        let plotsState = JSON.parse(localStorage.getItem('vallroure_admin_plots')) || [];
+        let waitlist = JSON.parse(localStorage.getItem('vallroure_admin_waitlist')) || [];
+
+        // Ledger arrays
+        let extraItems = JSON.parse(localStorage.getItem('vallroure_admin_extraItems')) || [];
+        let expenseItems = JSON.parse(localStorage.getItem('vallroure_admin_expenseItems')) || [];
+
+        // Import legacy floats if they exist
+        let legacyExpenses = localStorage.getItem('vallroure_admin_expenses');
+        if (legacyExpenses && expenseItems.length === 0 && !isNaN(parseFloat(legacyExpenses)) && parseFloat(legacyExpenses) > 0) {
+            expenseItems.push({ id: Date.now(), desc: 'Despesa importada', amount: parseFloat(legacyExpenses), date: new Date().toLocaleDateString('ca-ES') });
+            localStorage.setItem('vallroure_admin_expenseItems', JSON.stringify(expenseItems));
+            localStorage.removeItem('vallroure_admin_expenses');
+        }
+        let legacyExtras = localStorage.getItem('vallroure_admin_extras');
+        if (legacyExtras && extraItems.length === 0 && !isNaN(parseFloat(legacyExtras)) && parseFloat(legacyExtras) > 0) {
+            extraItems.push({ id: Date.now(), desc: 'Ingrés importat', amount: parseFloat(legacyExtras), date: new Date().toLocaleDateString('ca-ES') });
+            localStorage.setItem('vallroure_admin_extraItems', JSON.stringify(extraItems));
+            localStorage.removeItem('vallroure_admin_extras');
+        }
+
+        // Initialize state if empty
+        if (plotsState.length === 0) {
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < columns; c++) {
+                    plotsState.push({
+                        r: r,
+                        c: c,
+                        id: `p_${r}_${c}`,
+                        h1: false, // half 1 (top 25m2)
+                        h2: false, // half 2 (bottom 25m2)
+                        h1_contract: null,
+                        h2_contract: null,
+                        reg: false
+                    });
+                }
+            }
+        }
+
+        function saveState() {
+            localStorage.setItem('vallroure_admin_plots', JSON.stringify(plotsState));
+        }
+
+        function resetData() {
+            if (confirm("Segur que vols netejar tot l'estat?")) {
+                localStorage.removeItem('vallroure_admin_plots');
+                location.reload();
+            }
+        }
+
+        function toggleHalf(r, c, halfIndex) {
+            const plot = plotsState.find(p => p.r === r && p.c === c);
+            if (plot) {
+                if (halfIndex === 1) plot.h1 = !plot.h1;
+                if (halfIndex === 2) plot.h2 = !plot.h2;
+                saveState();
+                renderMap();
+            }
+        }
+
+        function toggleReg(r, c) {
+            const plot = plotsState.find(p => p.r === r && p.c === c);
+            if (plot) {
+                // Només pot demanar reg si té alguna part llogada
+                if (!plot.h1 && !plot.h2) return;
+                plot.reg = !plot.reg;
+                saveState();
+                renderMap();
+            }
+        }
+
+        function calculateKpis() {
+            let totalRevenue = 0;
+            let totalSurface = 0;
+            let totalRegs = 0;
+            let activePlots = 0;
+
+            plotsState.forEach(p => {
+                let plotRevenue = 0;
+                let active = false;
+
+                if (p.h1 && p.h2) {
+                    plotRevenue += 50; // 50m2 sencer
+                    totalSurface += 50;
+                    active = true;
+                } else if (p.h1 || p.h2) {
+                    plotRevenue += 25; // 25m2 només
+                    totalSurface += 25;
+                    active = true;
+                }
+
+                if (p.reg && active) {
+                    plotRevenue += 15;
+                    totalRegs += 1;
+                }
+
+                if (active) activePlots++;
+                totalRevenue += plotRevenue;
+
+                // Força apagar el reg si h1 i h2 són falses
+                if (!active && p.reg) {
+                    p.reg = false;
+                }
+            });
+
+            // Per l'antic (sidebar KPI invisible o eliminat depenent) intentem que funcioni igual de forma simplificada:
+            let net = totalRevenue + extrasRevenue - expenses;
+
+            // Update finances page elements
+            let netEl = document.getElementById('finance-net');
+            if (netEl) {
+                document.getElementById('finance-fixed').textContent = totalRevenue + '€';
+                document.getElementById('finance-extras').textContent = extrasRevenue + '€';
+                document.getElementById('finance-expenses').textContent = '-' + expenses + '€';
+                netEl.textContent = net + '€';
+
+                // Colorize net
+                netEl.className = `text-4xl font-black relative z-10 ${net >= 0 ? 'text-emerald-400' : 'text-red-400'}`;
+
+                // Render detailed table
+                renderFinancesTable(totalRevenue, extrasRevenue, expenses);
+            }
+
+            document.getElementById('kpi-rented-plots').textContent = activePlots;
+            document.getElementById('kpi-surface').textContent = totalSurface + ' m²';
+            document.getElementById('kpi-regs').textContent = totalRegs;
+        }
+
+        function renderFinancesTable(totRev, totExt, totExp) {
+            const fTbody = document.getElementById('finance-tbody');
+            if (!fTbody) return;
+            fTbody.innerHTML = '';
+
+            // Fixed Revenue Concept
+            fTbody.innerHTML += `
+                <tr class="hover:bg-stone-50">
+                    <td class="px-6 py-4">
+                        <div class="font-bold text-stone-800">Quotes Mensuals de Lloguer i Reg</div>
+                        <div class="text-[11px] text-stone-400">Arrendaments de 25/50m² i drets d'aigua</div>
+                    </td>
+                    <td class="px-6 py-4"><span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-1 rounded">INGRÉS SENSE ESFORÇ</span></td>
+                    <td class="px-6 py-4 text-right font-bold text-emerald-600">+${totRev}€</td>
+                </tr>
+            `;
+
+            // Extra concept
+            if (totExt > 0) {
+                fTbody.innerHTML += `
+                <tr class="hover:bg-stone-50">
+                    <td class="px-6 py-4">
+                        <div class="font-bold text-stone-800">Serveis Extra (Puntuals)</div>
+                        <div class="text-[11px] text-stone-400">Puntuals manuales (e.g. adobs, eines i motocultor)</div>
+                    </td>
+                    <td class="px-6 py-4"><span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-1 rounded">INGRÉS MANUAL PUNTUAL</span></td>
+                    <td class="px-6 py-4 text-right font-bold text-blue-600">+${totExt}€</td>
+                </tr>
+            `;
+            }
+
+            // Fixed Expenses Concept
+            fTbody.innerHTML += `
+                <tr class="hover:bg-stone-50">
+                    <td class="px-6 py-4">
+                        <div class="font-bold text-stone-800">Despeses Operatives generals</div>
+                        <div class="text-[11px] text-stone-400">Aigua, reparacions, web, impostos...</div>
+                    </td>
+                    <td class="px-6 py-4"><span class="bg-red-100 text-red-800 text-[10px] font-bold px-2 py-1 rounded">DESPESA NETA</span></td>
+                    <td class="px-6 py-4 text-right font-bold text-red-600">-${totExp}€</td>
+                </tr>
+            `;
+        }
+
+        function renderMap() {
+            const container = document.getElementById('plots-container');
+            container.innerHTML = '';
+
+            for (let r = 0; r < rows; r++) {
+                // A row container
+                const rowDiv = document.createElement('div');
+                rowDiv.className = "flex w-full items-stretch justify-between relative";
+
+                for (let c = 0; c < columns; c++) {
+                    const idx = plotsState.findIndex(p => p.r === r && p.c === c);
+                    const plot = plotsState[idx];
+
+                    // Col Wrapper includes plot + right corridor (except for the last col)
+                    const colWrapper = document.createElement('div');
+                    colWrapper.className = "flex items-stretch";
+                    // calculate width % so we fit 10 + 9 corridors
+                    colWrapper.style.width = c < 9 ? "10%" : "9%";
+
+                    // --- El Plot ---
+                    const plotEl = document.createElement('div');
+                    plotEl.className = "flex-1 flex flex-col bg-white border-2 border-slate-300 rounded-lg shadow-sm relative overflow-hidden h-32";
+
+                    const h1Color = plot.h1 ? 'rented' : 'free';
+                    const h2Color = plot.h2 ? 'rented' : 'free';
+                    const hasSomeRent = plot.h1 || plot.h2;
+
+                    plotEl.innerHTML = `
+                        <div onclick="openPlotAction(${r}, ${c}, 1)" class="h-1/2 w-full ${h1Color} half-25m border-b border-dashed border-slate-400 relative p-1 group cursor-pointer">
+                            <span class="text-[10px] font-bold font-mono text-slate-500 absolute top-1 left-2 opacity-30 group-hover:opacity-100">25m²</span>
+                            <span class="text-xs font-bold text-slate-800 absolute bottom-1 right-2 opacity-50">P${r + 1}.${c + 1}A</span>
+                            ${plot.h1_contract ? '<i data-lucide="user-check" class="absolute top-1 right-1 w-3 h-3 text-emerald-700 pointer-events-none"></i>' : ''}
+                        </div>
+                        <div onclick="openPlotAction(${r}, ${c}, 2)" class="h-1/2 w-full ${h2Color} half-25m relative p-1 group cursor-pointer">
+                            <span class="text-[10px] font-bold font-mono text-slate-500 absolute bottom-1 left-2 opacity-30 group-hover:opacity-100">25m²</span>
+                            <span class="text-xs font-bold text-slate-800 absolute top-1 right-2 opacity-50">P${r + 1}.${c + 1}B</span>
+                            ${plot.h2_contract ? '<i data-lucide="user-check" class="absolute bottom-1 right-1 w-3 h-3 text-emerald-700 pointer-events-none"></i>' : ''}
+                        </div>
+
+                        <!-- Botó Reg dins la parcel·la -->
+                        <button onclick="toggleReg(${r}, ${c})" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-1.5 rounded-full shadow-md z-10 transition border ${plot.reg ? 'bg-blue-500 text-white border-blue-600' : 'bg-white text-slate-400 border-slate-300 hover:bg-slate-50'} ${!hasSomeRent ? 'opacity-0 pointer-events-none' : ''}">
+                            <i data-lucide="droplet" class="w-4 h-4 ${plot.reg ? 'fill-blue-500' : ''}"></i>
+                        </button>
+                    `;
+
+                    colWrapper.appendChild(plotEl);
+
+                    // --- El Passadís (només si no és l'últim) ---
+                    if (c < columns - 1) {
+                        const corridor = document.createElement('div');
+                        corridor.className = "w-4 shrink-0 mx-2 relative flex justify-center";
+
+                        // Vertical Pipe in corridor 
+                        // Reg is active in the pipe if ANY of the surrounding lower-row plots has reg active?
+                        // "entre parcel·les que hi haurà passadisos d'1 metre aniran els tubs enterrats que baixaran a la fila inferior per la seva banda esquerra"
+                        // So the pipe in corridor C serves Plot C+1 in the bottom row (which means its left side).
+
+                        // We will draw vertical pipes everywhere but only color them blue if the connected plot active.
+                        if (r === 0) {
+                            // Top row corridor pipe goes from the main top header pipe down to the space between rows.
+                            // If bottom row plot at c+1 has reg, this is ON.
+                            const lowerPlot = plotsState.find(p => p.r === 1 && p.c === c + 1);
+                            const isActive = lowerPlot && lowerPlot.reg;
+                            corridor.innerHTML = `<div class="pipe-vertical ${isActive ? 'pipe-active' : 'pipe-inactive opacity-30'} h-full"></div>`;
+                        } else {
+                            // Bottom row corridor pipe goes from the space between rows down into the left side of plot c+1 (which is right here).
+                            const myRightPlot = plotsState[idx + 1];
+                            const isActive = myRightPlot && myRightPlot.reg;
+                            // Make it turn exactly to the left side of the plot 
+                            corridor.innerHTML = `
+                                <div class="pipe-vertical ${isActive ? 'pipe-active' : 'pipe-inactive opacity-30'} h-1/2 self-start rounded-b-none"></div>
+                                ${isActive ? '<div class="absolute top-[48%] left-1/2 w-full h-[6px] pipe-horizontal -translate-y-1/2 z-20"></div>' : ''}
+                            `;
+                        }
+
+                        colWrapper.appendChild(corridor);
+                    } else if (c === columns - 1 && r === 0) {
+                        // Edge case: if we want pipe for the first column's left, wait we need a pipe on the far left too for P2.1?
+                        // "baixaran a la fila inferior per la seva banda esquerra".
+                        // Wait, P2.1 has no corridor on its left unless we add an outer corridor.
+                        // I will add a special div for the far left pipe out of the loop.
+                    }
+
+                    rowDiv.appendChild(colWrapper);
+                }
+
+                // Append a special pipe for the VERY FIRST column of the bottom row (since it needs a left pipe too)
+                // Actually let's just insert it dynamically
+                const farLeftCorridor = document.createElement('div');
+                farLeftCorridor.className = "absolute -left-6 top-0 bottom-0 w-4 flex justify-center";
+
+                if (r === 0) {
+                    const p1 = plotsState.find(p => p.r === 1 && p.c === 0);
+                    const isActive = p1 && p1.reg;
+                    farLeftCorridor.innerHTML = `<div class="pipe-vertical ${isActive ? 'pipe-active' : 'pipe-inactive opacity-30'} h-full"></div>`;
+                } else {
+                    const p1 = plotsState.find(p => p.r === 1 && p.c === 0);
+                    const isActive = p1 && p1.reg;
+                    farLeftCorridor.innerHTML = `
+                        <div class="pipe-vertical ${isActive ? 'pipe-active' : 'pipe-inactive opacity-30'} h-1/2 self-start rounded-b-none"></div>
+                        ${isActive ? '<div class="absolute top-[48%] left-1/2 w-[30px] h-[6px] pipe-horizontal -translate-y-1/2 z-20"></div>' : ''}
+                    `;
+                }
+                rowDiv.appendChild(farLeftCorridor);
+
+                container.appendChild(rowDiv);
+
+                // Add horizontal space between rows
+                if (r === 0) {
+                    const gapDiv = document.createElement('div');
+                    gapDiv.className = "h-8 w-full relative";
+
+                    // Connect the vertical pipes crossing this gap to the bottom layer
+                    for (let c = 0; c < columns; c++) {
+                        const lowerPlot = plotsState.find(p => p.r === 1 && p.c === c);
+                        const isActive = lowerPlot && lowerPlot.reg;
+
+                        const connector = document.createElement('div');
+                        // position calculated approximately
+                        connector.className = `absolute top-0 w-4 h-full flex justify-center pipe-vertical ${isActive ? 'pipe-active' : 'pipe-inactive opacity-30'} rounded-none`;
+                        // the far left is at -24px roughly.
+                        // The others are inside the corridors.
+                        // For simplicity in UI, we just rely on absolute positioning.
+                        if (c === 0) {
+                            connector.style.left = '-24px';
+                        } else {
+                            connector.style.left = `calc(${c * 10}% - 4px)`; // Roughly
+                        }
+
+                        gapDiv.appendChild(connector);
+                    }
+                    // Since precise absolute positioning across a complex flex layout is tricky, 
+                    // I will not render vertical connectors in the gap in this simple version, and instead just leave it as an empty space.
+
+                    container.appendChild(gapDiv);
+                }
+            }
+
+            calculateKpis();
+            renderAgenda();
+            lucide.createIcons();
+        }
+
+        renderMap();
+
+        // Modal Logic Actions
+        let currentR = null;
+        let currentC = null;
+        let currentHalf = null;
+
+        function openPlotAction(r, c, halfIndex) {
+            currentR = r;
+            currentC = c;
+            currentHalf = halfIndex;
+
+            const plot = plotsState.find(p => p.r === r && p.c === c);
+            const isOccupied = halfIndex === 1 ? plot.h1 : plot.h2;
+            const contract = halfIndex === 1 ? plot.h1_contract : plot.h2_contract;
+            const plotName = `Parcel·la P${r + 1}.${c + 1}${halfIndex === 1 ? 'A' : 'B'} (25m²)`;
+
+            document.getElementById('action-plot-name').textContent = plotName;
+
+            const unoccupiedView = document.getElementById('unoccupied-actions');
+            const occupiedView = document.getElementById('occupied-actions');
+
+            if (isOccupied) {
+                unoccupiedView.classList.add('hidden');
+                occupiedView.classList.remove('hidden');
+
+                if (contract) {
+                    document.getElementById('action-tenant-info').innerHTML = `
+                        <div class="bg-emerald-50 text-emerald-800 p-3 rounded-lg border border-emerald-200 text-sm mb-4">
+                            <strong><i data-lucide="user" class="w-4 h-4 inline-block mr-1"></i> ${contract.name}</strong><br>
+                            <span class="opacity-80">DNI: ${contract.dni} | Tel: ${contract.tel}</span>
+                        </div>
+                    `;
+                    document.getElementById('btn-view-contract').classList.remove('hidden');
+                } else {
+                    document.getElementById('action-tenant-info').innerHTML = `
+                        <div class="bg-slate-100 text-slate-600 p-3 rounded-lg text-sm mb-4 italic">
+                            Ocupada anònimament. Sense dades de contacte.
+                        </div>
+                    `;
+                    document.getElementById('btn-view-contract').classList.add('hidden');
+                }
+            } else {
+                unoccupiedView.classList.remove('hidden');
+                occupiedView.classList.add('hidden');
+            }
+
+            document.getElementById('plot-action-modal').classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function closePlotAction() {
+            document.getElementById('plot-action-modal').classList.add('hidden');
+        }
+
+        function markPlotAnonymous() {
+            toggleHalf(currentR, currentC, currentHalf);
+            closePlotAction();
+        }
+
+        function freePlot() {
+            const plot = plotsState.find(p => p.r === currentR && p.c === currentC);
+            if (currentHalf === 1) {
+                plot.h1 = false;
+                plot.h1_contract = null;
+            } else {
+                plot.h2 = false;
+                plot.h2_contract = null;
+            }
+            saveState();
+            renderMap();
+            closePlotAction();
+        }
+
+        // Formulari Manual de Contracte
+        function openContractForm(r = null, c = null, halfIndex = null) {
+            closePlotAction();
+            const modal = document.getElementById('contract-form-modal');
+            modal.classList.remove('hidden');
+            document.getElementById('manual-contract-form').reset();
+
+            const selectEl = document.getElementById('assign-plot-select');
+            selectEl.innerHTML = '<option value="">-- Selecciona parcel·la o deixa-ho per més tard --</option>';
+
+            // Fill empty options
+            plotsState.forEach(p => {
+                if (!p.h1) selectEl.innerHTML += `<option value="${p.r}_${p.c}_1">P${p.r + 1}.${p.c + 1}A (25m²)</option>`;
+                if (!p.h2) selectEl.innerHTML += `<option value="${p.r}_${p.c}_2">P${p.r + 1}.${p.c + 1}B (25m²)</option>`;
+            });
+
+            if (r !== null && c !== null && halfIndex !== null) {
+                selectEl.value = `${r}_${c}_${halfIndex}`;
+            }
+        }
+
+        function closeContractForm() {
+            document.getElementById('contract-form-modal').classList.add('hidden');
+        }
+
+        function saveManualContract(e) {
+            e.preventDefault();
+            const name = document.getElementById('mc-name').value;
+            const dni = document.getElementById('mc-dni').value;
+            const email = document.getElementById('mc-email').value;
+            const tel = document.getElementById('mc-tel').value;
+            const selectVal = document.getElementById('assign-plot-select').value;
+
+            const nextYear = new Date();
+            nextYear.setFullYear(nextYear.getFullYear() + 1);
+
+            const contractData = {
+                name, dni, email, tel, date: new Date().toLocaleDateString('ca-ES'),
+                paid: true,
+                expires: nextYear.toLocaleDateString('ca-ES')
+            };
+
+            if (selectVal) {
+                const [r, c, h] = selectVal.split('_').map(Number);
+                const plot = plotsState.find(p => p.r === r && p.c === c);
+                if (h === 1) {
+                    plot.h1 = true;
+                    plot.h1_contract = contractData;
+                } else {
+                    plot.h2 = true;
+                    plot.h2_contract = contractData;
+                }
+                saveState();
+                renderMap();
+            } else {
+                alert("S'hauria de guardar en una llista genèrica de contractes pendents de parcel·la (fora del sistema en aquesta versió reduïda).");
+            }
+
+            closeContractForm();
+        }
+
+        function viewContract() {
+            closePlotAction();
+            const plot = plotsState.find(p => p.r === currentR && p.c === currentC);
+            const contract = currentHalf === 1 ? plot.h1_contract : plot.h2_contract;
+
+            document.getElementById('vc-date').textContent = contract.date;
+            document.getElementById('vc-plot').textContent = `P${currentR + 1}.${currentC + 1}${currentHalf === 1 ? 'A' : 'B'} (25m²)`;
+            document.getElementById('vc-name').textContent = contract.name;
+            document.getElementById('vc-dni').textContent = contract.dni;
+            document.getElementById('vc-tel').textContent = contract.tel;
+            document.getElementById('vc-email').textContent = contract.email;
+
+            document.getElementById('view-contract-modal').classList.remove('hidden');
+        }
+
+        function closeContractView() {
+            document.getElementById('view-contract-modal').classList.add('hidden');
+        }
+
+        // --- Noves Funcions Financers i CRM ---
+        function addExtra() {
+            switchTab('finances');
+            setTimeout(() => { document.getElementById('extra-desc').focus(); }, 100);
+        }
+
+        function editExpenses() {
+            switchTab('finances');
+            setTimeout(() => { document.getElementById('expense-desc').focus(); }, 100);
+        }
+
+        function addWaitlist() {
+            let name = prompt("Nom del contacte (Parella o família interesada):", "");
+            if (name) {
+                let tel = prompt("Telèfon de contacte:", "");
+                waitlist.push({ id: Date.now(), name, tel, date: new Date().toLocaleDateString('ca-ES') });
+                localStorage.setItem('vallroure_admin_waitlist', JSON.stringify(waitlist));
+                renderAgenda();
+            }
+        }
+
+        function removeWaitlist(id) {
+            if (confirm("Vols eliminar aquesta persona de la llista d'espera?")) {
+                waitlist = waitlist.filter(w => w.id !== id);
+                localStorage.setItem('vallroure_admin_waitlist', JSON.stringify(waitlist));
+                renderAgenda();
+            }
+        }
+
+        function togglePaid(r, c, halfIndex) {
+            const plot = plotsState.find(p => p.r === r && p.c === c);
+            const contract = halfIndex === 1 ? plot.h1_contract : plot.h2_contract;
+            if (contract) {
+                contract.paid = !contract.paid;
+                saveState();
+                renderAgenda();
+            }
+        }
+
+        function renderAgenda() {
+            // Llista d'espera
+            const wContainer = document.getElementById('waitlist-container');
+            if (!wContainer) return;
+            wContainer.innerHTML = '';
+            if (waitlist.length === 0) {
+                wContainer.innerHTML = '<div class="text-sm text-stone-500 italic p-4 bg-stone-50 rounded-xl border border-stone-200">Llista buida. Cap persona esperant.</div>';
+            } else {
+                waitlist.forEach(w => {
+                    wContainer.innerHTML += `
+                        <div class="bg-white p-3 rounded-xl border border-stone-200 shadow-sm flex justify-between items-center group">
+                            <div>
+                                <div class="font-bold text-sm text-stone-800">${w.name}</div>
+                                <div class="text-[11px] text-stone-500"><i data-lucide="phone" class="w-3 h-3 inline"></i> ${w.tel || 'Cap telèfon'} · <span class="text-stone-400">Des del ${w.date}</span></div>
+                            </div>
+                            <button onclick="removeWaitlist(${w.id})" title="Esborrar" class="text-red-400 hover:text-red-600 opacity-0 group-hover:opacity-100 transition p-2 bg-red-50 rounded-lg"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                        </div>
+                    `;
+                });
+            }
+
+            // Agenda / Contractes
+            const aTbody = document.getElementById('agenda-tbody');
+            aTbody.innerHTML = '';
+
+            let hasTenants = false;
+
+            plotsState.forEach(p => {
+                [{ isOccupied: p.h1, contract: p.h1_contract, half: 1, name: `P${p.r + 1}.${p.c + 1}A` },
+                { isOccupied: p.h2, contract: p.h2_contract, half: 2, name: `P${p.r + 1}.${p.c + 1}B` }
+                ].forEach(half => {
+                    if (half.isOccupied) {
+                        hasTenants = true;
+                        if (half.contract) {
+                            if (typeof half.contract.paid === 'undefined') half.contract.paid = true;
+                            if (!half.contract.expires) {
+                                const d = new Date(); d.setFullYear(d.getFullYear() + 1);
+                                half.contract.expires = d.toLocaleDateString('ca-ES');
+                            }
+
+                            const paidClass = half.contract.paid ? 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200' : 'bg-red-100 text-red-700 hover:bg-red-200';
+                            const paidText = half.contract.paid ? 'Pagat' : 'Deute';
+
+                            aTbody.innerHTML += `
+                                <tr class="hover:bg-stone-50 transition border-b border-stone-50 last:border-0">
+                                    <td class="px-4 py-3 font-bold text-stone-800">${half.name}</td>
+                                    <td class="px-4 py-3 font-semibold">${half.contract.name}</td>
+                                    <td class="px-4 py-3 text-xs text-stone-500">${half.contract.tel}<br><span class="opacity-70">${half.contract.email || ''}</span></td>
+                                    <td class="px-4 py-3 text-xs ${half.contract.expires < new Date().toLocaleDateString('ca-ES') ? 'text-red-500 font-bold' : ''}">${half.contract.expires}</td>
+                                    <td class="px-4 py-3 text-center">
+                                        <button onclick="togglePaid(${p.r}, ${p.c}, ${half.half})" class="${paidClass} px-3 py-1 rounded-full text-xs font-bold w-20 transition shadow-sm">
+                                            ${paidText}
+                                        </button>
+                                    </td>
+                                </tr>
+                            `;
+                        } else {
+                            aTbody.innerHTML += `
+                                <tr class="hover:bg-stone-50 transition border-b border-stone-50 last:border-0">
+                                    <td class="px-4 py-3 font-bold text-stone-800">${half.name}</td>
+                                    <td class="px-4 py-3 text-stone-400 italic">Ocupació anònima</td>
+                                    <td class="px-4 py-3 text-xs text-stone-400">-</td>
+                                    <td class="px-4 py-3 text-xs text-stone-400">-</td>
+                                    <td class="px-4 py-3 text-center">
+                                        <span class="bg-stone-100 text-stone-400 px-3 py-1 rounded-full text-xs font-bold w-20 inline-block">N/A</span>
+                                    </td>
+                                </tr>
+                            `;
+                        }
+                    }
+                });
+            });
+
+            if (!hasTenants) {
+                aTbody.innerHTML = `<tr><td colspan="5" class="px-4 py-8 text-center text-stone-500 italic bg-stone-50">Totes les parcel·les estan buides.</td></tr>`;
+            }
+            lucide.createIcons();
+        }
+
+        function switchTab(tab) {
+            ['mapa', 'llistats', 'finances'].forEach(t => {
+                const isCurrent = t === tab;
+                document.getElementById(`view-${t}`).classList.toggle('hidden', !isCurrent);
+
+                const btn = document.getElementById(`tab-${t}-btn`);
+                if (btn) {
+                    if (isCurrent) {
+                        btn.classList.add('border-emerald-600', 'text-emerald-700');
+                        btn.classList.remove('border-transparent', 'text-stone-500');
+                    } else {
+                        btn.classList.add('border-transparent', 'text-stone-500');
+                        btn.classList.remove('border-emerald-600', 'text-emerald-700');
+                    }
+                }
+            });
+
+            if (tab === 'llistats') renderAgenda();
+            if (tab === 'finances') calculateKpis(); // Will trigger finance table refresh
+        }
+        renderLedgers(); // Crida inicial per printar les taules blaves i vermelles del tercer menú
+    </script>
+
+    <!-- Modals -->
+    <!-- 1. Plot Action Modal -->
+    <div id="plot-action-modal"
+        class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-[9999] hidden flex justify-center items-center">
+        <div class="bg-white rounded-2xl p-6 w-full max-w-sm shadow-xl m-4 relative">
+            <button onclick="closePlotAction()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600"><i
+                    data-lucide="x" class="w-5 h-5"></i></button>
+            <h3 class="font-bold text-xl text-slate-800 mb-1" id="action-plot-name">Parcel·la</h3>
+            <div class="border-b border-slate-100 mb-4 pb-2">Gestió de l'espai i dades</div>
+
+            <!-- Formulari No Ocupat -->
+            <div id="unoccupied-actions" class="flex flex-col gap-3">
+                <button onclick="openContractForm(currentR, currentC, currentHalf)"
+                    class="bg-emerald-600 text-white font-bold py-3 px-4 rounded-xl hover:bg-emerald-700 transition flex justify-center items-center gap-2">
+                    <i data-lucide="file-plus" class="w-5 h-5"></i> Crear Contracte i Assignar
+                </button>
+                <div class="text-xs text-center text-slate-400">o alternativament</div>
+                <button onclick="markPlotAnonymous()"
+                    class="bg-slate-100 text-slate-700 font-bold py-2 px-4 rounded-xl hover:bg-slate-200 transition text-sm">
+                    Només marcar com Ocupada
+                </button>
+            </div>
+
+            <!-- Ocupat -->
+            <div id="occupied-actions" class="hidden flex flex-col gap-3">
+                <div id="action-tenant-info"></div>
+                <button id="btn-view-contract" onclick="viewContract()"
+                    class="bg-slate-800 text-white font-bold py-3 px-4 rounded-xl hover:bg-slate-700 transition flex justify-center items-center gap-2">
+                    <i data-lucide="file-text" class="w-5 h-5"></i> Veure Contracte Signat
+                </button>
+                <button onclick="freePlot()"
+                    class="border-2 border-red-100 text-red-600 font-bold py-2 px-4 rounded-xl hover:bg-red-50 hover:border-red-200 transition text-sm mt-2">
+                    Alliberar Espai i Esborrar Dades
+                </button>
+            </div>
+
+            <button onclick="closePlotAction()"
+                class="mt-4 w-full text-center text-sm font-bold text-slate-400 hover:text-slate-600">Tancar</button>
+        </div>
+    </div>
+
+    <!-- 2. Manual Contract Form -->
+    <div id="contract-form-modal"
+        class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden flex justify-center items-center overflow-y-auto pt-10 pb-10">
+        <div class="bg-white rounded-2xl p-6 md:p-8 w-full max-w-lg shadow-xl m-4 relative">
+            <button onclick="closeContractForm()" class="absolute right-6 top-6 text-slate-400 hover:text-slate-600"><i
+                    data-lucide="x" class="w-5 h-5"></i></button>
+            <h3 class="font-bold text-2xl text-slate-800 mb-1 font-serif">Abonament Fora de Web</h3>
+            <p class="text-sm text-slate-500 mb-6">Emplena les dades per a un pagament físic en metàl·lic o ingrés
+                previ.</p>
+
+            <form id="manual-contract-form" onsubmit="saveManualContract(event)" class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="col-span-2">
+                        <label class="block text-xs font-bold text-slate-600 mb-1">Nom i Cognoms</label>
+                        <input type="text" id="mc-name" required
+                            class="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:border-emerald-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-600 mb-1">DNI / NIE</label>
+                        <input type="text" id="mc-dni" required
+                            class="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:border-emerald-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-600 mb-1">Telèfon</label>
+                        <input type="tel" id="mc-tel" required
+                            class="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:border-emerald-500 outline-none">
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block text-xs font-bold text-slate-600 mb-1">Correu electrònic (Opcional)</label>
+                        <input type="email" id="mc-email"
+                            class="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:border-emerald-500 outline-none">
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block text-xs font-bold text-slate-600 mb-1 mt-2 border-t pt-4">Assignar
+                            Parcel·la</label>
+                        <select id="assign-plot-select"
+                            class="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:border-emerald-500 outline-none">
+                            <!-- Generat per JS -->
+                        </select>
+                        <p class="text-[10px] text-slate-400 mt-1">Si tries una parcel·la quedarà bloquejada per aquesta
+                            persona immediatament.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 mt-8">
+                    <button type="button" onclick="closeContractForm()"
+                        class="flex-1 text-slate-500 font-bold hover:bg-slate-50 rounded-lg py-3">Cancel·lar</button>
+                    <button type="submit"
+                        class="flex-1 bg-emerald-600 text-white font-bold rounded-lg py-3 hover:bg-emerald-700 shadow-md">Emetre
+                        Contracte</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 3. View Contract Form -->
+    <div id="view-contract-modal"
+        class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden flex justify-center items-center overflow-y-auto py-10">
+        <div class="bg-white rounded-xl p-8 w-full max-w-2xl shadow-xl border-t-8 border-emerald-600 m-4 relative">
+            <button onclick="closeContractView()"
+                class="absolute right-6 top-6 text-slate-400 hover:text-slate-600 bg-slate-100 p-2 rounded-full"><i
+                    data-lucide="x" class="w-5 h-5"></i></button>
+
+            <div class="text-center border-b pb-6 mb-6">
+                <i data-lucide="leaf" class="w-8 h-8 text-emerald-500 mx-auto mb-2"></i>
+                <h3 class="font-serif text-2xl font-bold text-slate-800">Espai Vall-Roure</h3>
+                <p class="text-slate-500 tracking-widest uppercase text-xs">Còpia de l'Arrendador</p>
+            </div>
+
+            <div
+                class="space-y-4 text-sm text-slate-700 leading-relaxed font-mono bg-slate-50 p-6 rounded border border-slate-200">
+                <p>Aquest document legitima l'alta signada a data <strong id="vc-date"></strong> per a l'ús dels horts i
+                    condicions de l'Espai Vall-Roure, havent l'interessat pagat les quotes i la matrícula d'alta
+                    pertinents.</p>
+
+                <h4 class="font-bold underline mt-4">Parcel·la assignada:</h4>
+                <p class="text-xl font-bold text-emerald-800" id="vc-plot"></p>
+
+                <h4 class="font-bold underline mt-4">Dades de l'Arrendatari:</h4>
+                <ul class="list-disc pl-5">
+                    <li>Nom i cognoms: <span id="vc-name" class="font-semibold"></span></li>
+                    <li>Identificació: <span id="vc-dni" class="font-semibold"></span></li>
+                    <li>Telèfon: <span id="vc-tel"></span></li>
+                    <li>Correu electrònic: <span id="vc-email"></span></li>
+                </ul>
+
+                <p class="mt-6 text-xs text-slate-500 pt-4 border-t border-slate-200">El client ha acceptat el reglament
+                    intern i els deures respecte al rec i cura de les parcel·les, donant permís l'Arrendador d'excloure
+                    el seu lloguer en qualsevol incompliment greu.</p>
+            </div>
+
+            <div class="flex justify-center mt-6">
+                <button onclick="window.print()"
+                    class="bg-slate-200 text-slate-700 font-bold py-2 px-6 rounded hover:bg-slate-300 transition flex gap-2 items-center">
+                    <i data-lucide="printer" class="w-4 h-4"></i> Imprimir Fitxa
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Lògica de Login Administrador
+        const adminOverlay = document.getElementById('admin-login-overlay');
+        const adminForm = document.getElementById('admin-login-form');
+        const adminError = document.getElementById('admin-error-msg');
+
+        // Comprovar si ja està autenticat
+        if (sessionStorage.getItem('admin_logged') === 'true') {
+            adminOverlay.style.display = 'none';
+        }
+
+        adminForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const pass = document.getElementById('admin-password').value.trim().toLowerCase();
+            // Demostració: Acceptem 'admin' i 'marta' (propietària actual a la web)
+            if (pass === 'admin' || pass === 'marta') {
+                sessionStorage.setItem('admin_logged', 'true');
+                adminOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    adminOverlay.style.display = 'none';
+                }, 300);
+            } else {
+                adminError.classList.remove('hidden');
+                document.getElementById('admin-password').value = '';
+            }
+        });
+    </script>
+</body>
+
+</html>

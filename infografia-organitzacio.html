@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ca" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organització de l'Espai | Espai Vall-Roure</title>
+        <link rel="icon" type="image/png" href="img/logopol (1).png">
+<!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Nunito', 'sans-serif'], serif: ['Merriweather', 'serif'], }, colors: { brand: { 50: '#f2fbf5', 100: '#e1f6e8', 500: '#3ba36e', 700: '#246946', 900: '#1a4430', 950: '#0d2419' }, earth: { 50: '#faf8f5', 100: '#f0ebe1', 200: '#e1d5c1' } } } } }
+    </script>
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="font-sans text-stone-800 bg-stone-50 min-h-screen p-4 md:p-8">
+
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white shadow-sm border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center">
+            <a href="infografies"
+                class="flex items-center gap-2 text-green-700 hover:text-green-900 font-bold transition">
+                <i data-lucide="arrow-left" class="h-5 w-5"></i> Tornar a l'Àrea Privada
+            </a>
+        </div>
+    </nav>
+
+    <div class="pt-24 min-h-screen bg-stone-50 text-stone-800 font-sans">
+        <!-- Header -->
+        <header class="max-w-6xl mx-auto mb-8 text-center print:mb-4">
+            <div class="flex items-center justify-center gap-3 mb-2">
+                <i data-lucide="leaf" class="w-8 h-8 text-green-600"></i>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-green-800 uppercase tracking-tight">
+                    Espai Vall-Roure
+                </h1>
+            </div>
+            <h2 class="text-xl md:text-2xl font-medium text-stone-600">
+                Com organitzo el meu espai?
+            </h2>
+            <p class="mt-2 text-stone-500 max-w-2xl mx-auto print:hidden">
+                Una guia visual per planificar els bancals amb <strong>cultius mixts</strong>. Barrejar plantes
+                (policultiu) aprofita millor l'espai, prevé plagues i millora la terra.
+            </p>
+
+            <div
+                class="mt-8 max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-xl border border-stone-200 print:hidden">
+                <img src="img/imatge2.jpg" alt="Organització de l'hort" class="w-full h-48 md:h-80 object-cover">
+            </div>
+
+            <!-- Controls (Hidden in Print) -->
+            <div class="mt-8 flex flex-wrap justify-center gap-4 print:hidden">
+                <button id="btn-25"
+                    class="px-6 py-2 rounded-full font-bold transition-all bg-green-600 text-white shadow-md">
+                    Parcel·la 25m² (5x5m)
+                </button>
+                <button id="btn-50"
+                    class="px-6 py-2 rounded-full font-bold transition-all bg-stone-200 text-stone-600 hover:bg-stone-300">
+                    Parcel·la 50m² (10x5m)
+                </button>
+                <button onclick="window.print()"
+                    class="px-4 py-2 flex items-center gap-2 rounded-full font-bold bg-stone-800 text-white hover:bg-black transition-all ml-auto md:ml-0 lg:ml-auto">
+                    <i data-lucide="printer" class="w-4 h-4"></i>
+                    Imprimir Guia
+                </button>
+            </div>
+        </header>
+
+        <main class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8 items-start pb-16">
+
+            <!-- Left Column: The Map -->
+            <div
+                class="w-full lg:w-2/3 bg-white p-4 md:p-8 rounded-2xl shadow-xl border border-stone-200 print:shadow-none print:border-none print:p-0">
+
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold text-stone-800 flex items-center gap-2">
+                        <i data-lucide="grid-3X3" class="w-6 h-6 text-green-600"></i>
+                        <span id="title-size">Plànol Vista d'Ocell (25m²)</span>
+                    </h3>
+                    <span
+                        class="flex items-center gap-1 text-sm font-semibold text-stone-500 bg-stone-100 px-3 py-1 rounded-full">
+                        <i data-lucide="ruler" class="w-4 h-4"></i>
+                        Cada bancal fa 2x2m (4m²)
+                    </span>
+                </div>
+
+                <!-- The Plot Container -->
+                <div
+                    class="relative bg-stone-300 p-2 md:p-4 rounded-xl border-2 border-stone-400 aspect-square md:aspect-auto">
+                    <!-- Dimensions Labels -->
+                    <div id="dim-top"
+                        class="absolute -top-7 left-1/2 -translate-x-1/2 font-bold text-stone-500 whitespace-nowrap">
+                        5 metres
+                    </div>
+                    <div
+                        class="absolute top-1/2 -left-12 -translate-y-1/2 flex items-center justify-center -rotate-90 font-bold text-stone-500 whitespace-nowrap">
+                        5 metres
+                    </div>
+
+                    <!-- Plot Grid -->
+                    <div id="plot-grid"
+                        class="w-full h-full grid gap-2 md:gap-4 grid-cols-2 grid-rows-2 aspect-square max-w-2xl mx-auto">
+                        <!-- Beds injected via JS -->
+                    </div>
+
+                    <!-- Pathways Overlay / Label -->
+                    <div class="absolute inset-0 pointer-events-none flex items-center justify-center">
+                        <div
+                            class="bg-stone-200/90 backdrop-blur-sm px-4 py-1.5 rounded-full text-stone-600 font-bold text-sm shadow-sm border border-stone-300">
+                            Passadissos (1m d'amplada)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Legend and Data -->
+            <div class="w-full lg:w-1/3 space-y-4">
+                <div
+                    class="bg-green-50 p-6 rounded-2xl shadow-sm border border-green-100 print:border-none print:bg-transparent print:p-0">
+                    <h3 class="text-xl font-bold text-green-900 mb-4 flex items-center gap-2">
+                        <i data-lucide="info" class="w-5 h-5"></i>
+                        Bancals Mixts (Policultiu)
+                    </h3>
+                    <p class="text-sm text-green-800 mb-6 print:hidden">
+                        Aquesta proposta organitza les plantes per <strong>línies</strong> dins de cada bancal de 4m².
+                        Fomentem la varietat per mantenir un hort sencer i lliure de plagues!
+                    </p>
+
+                    <div id="legend-list"
+                        class="space-y-4 max-h-[600px] overflow-y-auto pr-2 print:overflow-visible print:max-h-none print:grid print:grid-cols-2 print:gap-4 print:space-y-0 text-left">
+                        <!-- Legends injected via JS -->
+                    </div>
+                </div>
+
+                <div
+                    class="bg-stone-100 p-5 rounded-2xl text-sm text-stone-600 border border-stone-200 print:hidden text-left">
+                    <strong>💡 Consell d'Hortolà:</strong> Tota la terra que trepitgem es compacta. Fes servir els
+                    passadissos i evita trepitjar mai la terra de dins dels bancals perquè les arrels respirin bé.
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Nova Secció: Distàncies de Plantació -->
+        <section
+            class="max-w-6xl mx-auto mt-8 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-stone-200 break-inside-avoid">
+            <div class="flex items-center gap-3 mb-6">
+                <i data-lucide="move-horizontal" class="w-7 h-7 text-green-600"></i>
+                <h3 class="text-2xl font-bold text-stone-800">Guia Ràpida: Distàncies de Plantació</h3>
+            </div>
+            <p class="text-stone-600 mb-8 max-w-3xl">
+                El <strong>marc de plantació</strong> és l'espai vital que necessita cada planta. Respectar aquestes
+                distàncies (entre plantes i entre línies) evita que competeixin per l'aigua i els nutrients, i assegura
+                una bona ventilació per prevenir fongs.
+            </p>
+
+            <div id="spacing-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <!-- Data injected via JS -->
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const PLANT_TYPES = {
+            tomatoes: { id: 'tomatoes', name: 'Tomaqueres', color: 'bg-red-500', borderColor: 'border-red-700', spacing: '40x80 cm' },
+            peppers: { id: 'peppers', name: 'Pebrots i Albergínies', color: 'bg-emerald-600', borderColor: 'border-emerald-800', spacing: '40-50x80 cm' },
+            lettuce: { id: 'lettuce', name: 'Enciams i Raves', color: 'bg-green-400', borderColor: 'border-green-600', spacing: '25x30 cm' },
+            aromatics: { id: 'aromatics', name: 'Aromàtiques i Flors', color: 'bg-purple-400', borderColor: 'border-purple-600', spacing: 'Mixt' },
+            zucchini: { id: 'zucchini', name: 'Carbassons / Carabasses', color: 'bg-yellow-400', borderColor: 'border-yellow-600', spacing: '100x100 cm' },
+            onions: { id: 'onions', name: 'Cebes i Alls', color: 'bg-slate-200', borderColor: 'border-slate-400', spacing: '15x20 cm' },
+            beans: { id: 'beans', name: 'Mongetes (Enfiladisses)', color: 'bg-lime-500', borderColor: 'border-lime-700', spacing: '15x70 cm' },
+            carrots: { id: 'carrots', name: 'Pastanagues / Arrels', color: 'bg-orange-500', borderColor: 'border-orange-700', spacing: '10x20 cm' },
+        };
+
+        const MIXED_BEDS_25 = [
+            {
+                name: "Bancal 1: El Rei de l'Estiu", desc: "Tomaqueres al fons amb tutor. Al davant, enciams aprofitant l'ombra i cebes per repel·lir plagues.",
+                lines: [{ type: PLANT_TYPES.tomatoes, count: 4 }, { type: PLANT_TYPES.lettuce, count: 6 }, { type: PLANT_TYPES.onions, count: 12 }]
+            },
+            {
+                name: "Bancal 2: Sofregit i Arrels", desc: "Línies intercalades de pebrots i albergínies. A la base, pastanagues que aprofiten l'espai profund.",
+                lines: [{ type: PLANT_TYPES.peppers, count: 4 }, { type: PLANT_TYPES.carrots, count: 14 }, { type: PLANT_TYPES.peppers, count: 4 }]
+            },
+            {
+                name: "Bancal 3: Les Germanes Vigoroses", desc: "Carbassons al centre (necessiten molt espai). Mongetes s'enfilen al fons i fixen nitrogen.",
+                lines: [{ type: PLANT_TYPES.beans, count: 8 }, { type: PLANT_TYPES.zucchini, count: 2 }]
+            },
+            {
+                name: "Bancal 4: Amanida i Aromàtiques", desc: "Mix de fulla verda (enciams, raves) i un racó d'aromàtiques per atreure pol·linitzadors a tot l'hort.",
+                lines: [{ type: PLANT_TYPES.onions, count: 10 }, { type: PLANT_TYPES.lettuce, count: 8 }, { type: PLANT_TYPES.aromatics, count: 3 }]
+            }
+        ];
+
+        const MIXED_BEDS_50 = [
+            ...MIXED_BEDS_25,
+            {
+                name: "Bancal 5: Producció de Conserva", desc: "Tomaqueres extres per fer salsa a l'estiu, acompanyades d'alfàbrega.",
+                lines: [{ type: PLANT_TYPES.tomatoes, count: 4 }, { type: PLANT_TYPES.aromatics, count: 4 }, { type: PLANT_TYPES.tomatoes, count: 4 }]
+            },
+            {
+                name: "Bancal 6: Tardor/Hivern", desc: "Cebes, porros i pastanagues. Es poden deixar a la terra quan comença a fer fred.",
+                lines: [{ type: PLANT_TYPES.onions, count: 14 }, { type: PLANT_TYPES.carrots, count: 14 }, { type: PLANT_TYPES.onions, count: 14 }]
+            },
+            {
+                name: "Bancal 7: El Mur Verd", desc: "Més mongetes enfiladisses creant un mur, amb enciams a la seva base fresca.",
+                lines: [{ type: PLANT_TYPES.beans, count: 8 }, { type: PLANT_TYPES.lettuce, count: 8 }, { type: PLANT_TYPES.lettuce, count: 8 }]
+            },
+            {
+                name: "Bancal 8: Rotació Lliure", desc: "Carbassons extres o espai per experimentar amb nous cultius, amb flors als extrems.",
+                lines: [{ type: PLANT_TYPES.aromatics, count: 3 }, { type: PLANT_TYPES.zucchini, count: 2 }, { type: PLANT_TYPES.aromatics, count: 3 }]
+            }
+        ];
+
+        let currentPlotSize = 25;
+
+        function renderPlot() {
+            const grid = document.getElementById('plot-grid');
+            const dimTop = document.getElementById('dim-top');
+            const titleSize = document.getElementById('title-size');
+            const legendList = document.getElementById('legend-list');
+
+            const activeBeds = currentPlotSize === 25 ? MIXED_BEDS_25 : MIXED_BEDS_50;
+
+            // Update labels
+            dimTop.textContent = currentPlotSize === 25 ? '5 metres' : '10 metres';
+            titleSize.textContent = `Plànol Vista d'Ocell (${currentPlotSize}m²)`;
+
+            // Update grid layout classes
+            if (currentPlotSize === 25) {
+                grid.className = "w-full h-full grid gap-2 md:gap-4 grid-cols-2 grid-rows-2 aspect-square max-w-2xl mx-auto";
+            } else {
+                grid.className = "w-full h-full grid gap-2 md:gap-4 grid-cols-2 md:grid-cols-4 grid-rows-4 md:grid-rows-2 aspect-[1/2] md:aspect-[2/1]";
+            }
+
+            // Render beds
+            let bedsHtml = '';
+            let legendHtml = '';
+
+            activeBeds.forEach((bed, bedIdx) => {
+                // Render Map Beds
+                const totalPlants = bed.lines.reduce((acc, l) => acc + l.count, 0);
+
+                let linesHtml = '';
+                bed.lines.forEach(line => {
+                    let sizeClass = "w-4 h-4 md:w-5 md:h-5";
+                    if (['tomatoes', 'peppers', 'beans'].includes(line.type.id)) sizeClass = "w-5 h-5 md:w-7 md:h-7";
+                    if (['zucchini'].includes(line.type.id)) sizeClass = "w-8 h-8 md:w-12 md:h-12";
+                    if (['lettuce', 'aromatics'].includes(line.type.id)) sizeClass = "w-4 h-4 md:w-6 md:h-6";
+
+                    let lineHtml = `<div class="flex w-full justify-evenly items-center flex-1 py-1 md:py-1.5">`;
+                    for (let i = 0; i < line.count; i++) {
+                        lineHtml += `<div class="rounded-full border-2 shadow-sm ${line.type.color} ${line.type.borderColor} ${sizeClass}" title="${line.type.name}"></div>`;
+                    }
+                    lineHtml += `</div>`;
+                    linesHtml += lineHtml;
+                });
+
+                bedsHtml += `
+            <div class="relative bg-[#6b4c30] border-4 border-[#4a331e] rounded-md shadow-inner flex flex-col p-1 md:p-2 overflow-hidden group">
+              <div class="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_center,_white,_transparent)] pointer-events-none mix-blend-overlay"></div>
+              <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:25%_25%] pointer-events-none"></div>
+              <div class="relative z-10 w-full h-full flex flex-col justify-evenly">
+                ${linesHtml}
+              </div>
+              <div class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity print:opacity-100 print:bg-white/90 z-20 p-2 text-center pointer-events-none">
+                <span class="text-white print:text-black font-bold text-sm md:text-base leading-tight mb-1">${bed.name}</span>
+                <span class="text-stone-200 print:text-stone-700 text-xs hidden md:block">${totalPlants} plantes en total</span>
+              </div>
+            </div>`;
+
+                // Render Legends
+
+                let legendLinesHtml = '';
+                bed.lines.forEach(line => {
+                    legendLinesHtml += `
+              <div class="flex items-center gap-2">
+                <div class="w-3.5 h-3.5 rounded-full border shadow-sm shrink-0 ${line.type.color} ${line.type.borderColor}"></div>
+                <span class="text-sm font-semibold text-stone-700">${line.count}x ${line.type.name}</span>
+              </div>`;
+                });
+
+                legendHtml += `
+            <div class="bg-white p-4 rounded-xl border border-green-200 shadow-sm transition-all hover:shadow-md h-full">
+              <h4 class="font-bold text-stone-800 leading-tight mb-1">${bed.name}</h4>
+              <p class="text-xs text-stone-500 mb-3">${bed.desc}</p>
+              <div class="space-y-1.5 bg-stone-50 p-2.5 rounded-lg border border-stone-100">
+                ${legendLinesHtml}
+              </div>
+            </div>`;
+            });
+
+            grid.innerHTML = bedsHtml;
+            legendList.innerHTML = legendHtml;
+        }
+
+        function renderSpacing() {
+            const spacingGrid = document.getElementById('spacing-grid');
+            let spacingHtml = '';
+
+            Object.values(PLANT_TYPES).forEach(type => {
+                spacingHtml += `
+                    <div class="bg-stone-50 p-5 rounded-xl border border-stone-200 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-10 h-10 rounded-full border-2 shadow-sm mb-3 flex items-center justify-center ${type.color} ${type.borderColor}">
+                            <div class="w-1.5 h-1.5 bg-black/30 rounded-full"></div>
+                        </div>
+                        <h4 class="font-bold text-stone-800 text-sm mb-3 h-10 flex items-center justify-center">${type.name}</h4>
+                        <div class="flex items-center justify-center gap-2 text-green-800 bg-green-100 border border-green-200 px-3 py-1.5 rounded-full text-sm font-bold w-full">
+                            <i data-lucide="move-horizontal" class="w-4 h-4 opacity-70"></i>
+                            ${type.spacing}
+                        </div>
+                    </div>
+                `;
+            });
+
+            spacingGrid.innerHTML = spacingHtml;
+        }
+
+        function updateButtons() {
+            const btn25 = document.getElementById('btn-25');
+            const btn50 = document.getElementById('btn-50');
+
+            if (currentPlotSize === 25) {
+                btn25.className = 'px-6 py-2 rounded-full font-bold transition-all bg-green-600 text-white shadow-md';
+                btn50.className = 'px-6 py-2 rounded-full font-bold transition-all bg-stone-200 text-stone-600 hover:bg-stone-300';
+            } else {
+                btn50.className = 'px-6 py-2 rounded-full font-bold transition-all bg-green-600 text-white shadow-md';
+                btn25.className = 'px-6 py-2 rounded-full font-bold transition-all bg-stone-200 text-stone-600 hover:bg-stone-300';
+            }
+        }
+
+        document.getElementById('btn-25').addEventListener('click', () => {
+            currentPlotSize = 25;
+            updateButtons();
+            renderPlot();
+        });
+
+        document.getElementById('btn-50').addEventListener('click', () => {
+            currentPlotSize = 50;
+            updateButtons();
+            renderPlot();
+        });
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPlot();
+            renderSpacing();
+            lucide.createIcons();
+        });
+
+    </script>
+</body>
+
+</html>

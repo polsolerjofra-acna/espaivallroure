@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="ca" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espai Vall-Roure | Lloguer de Parcel·les d'Hort Ecològic</title>
+
+        <link rel="icon" type="image/png" href="img/logopol (1).png">
+<!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f2fbf5',
+                            100: '#e1f6e8',
+                            200: '#c4ebd4',
+                            300: '#96d9b4',
+                            400: '#60bf8d',
+                            500: '#3ba36e',
+                            600: '#2b8356',
+                            700: '#246946',
+                            800: '#1f5339',
+                            900: '#1a4430',
+                            950: '#0d2419',
+                        },
+                        earth: {
+                            50: '#faf8f5',
+                            100: '#f0ebe1',
+                            200: '#e1d5c1',
+                            300: '#cfbc9c',
+                            400: '#bca176',
+                            500: '#ae8a5b',
+                            600: '#9d734e',
+                            700: '#835c43',
+                            800: '#6a4b39',
+                            900: '#563e31',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Memberstack -->
+    <script data-memberstack-app="pk_d1b0e2fbad33c7d0e02b"
+        src="https://static.memberstack.com/scripts/v1/memberstack.js" type="text/javascript"></script>
+
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(13, 36, 25, 0.75), rgba(13, 36, 25, 0.65)), url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .blob-shape {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-stone-800 bg-earth-50 antialiased selection:bg-brand-200 selection:text-brand-900">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm border-b border-earth-100"
+        id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex items-center h-full group cursor-pointer py-1" onclick="window.scrollTo(0,0)">
+                    <img src="img/logopol (1).png" alt="Espai Vall-Roure"
+                        class="h-full w-auto mix-blend-multiply object-contain transition-transform duration-300 group-hover:scale-110">
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-8 items-center">
+                    <a href="infografies" class="text-stone-600 hover:text-brand-600 font-semibold transition">Àrea
+                        Privada</a>
+                    <a href="#aprenentatges"
+                        class="text-stone-600 hover:text-brand-600 font-semibold transition">Aprenentatges</a>
+                    <a href="#beneficis"
+                        class="text-stone-600 hover:text-brand-600 font-semibold transition">Instal·lacions</a>
+                    <a href="#preus" class="text-stone-600 hover:text-brand-600 font-semibold transition">Preus</a>
+                    <a href="#serveis" class="text-stone-600 hover:text-brand-600 font-semibold transition">Serveis
+                        Extres</a>
+                    <a href="#normes" class="text-stone-600 hover:text-brand-600 font-semibold transition">Comunitat</a>
+                </div>
+                <div class="hidden lg:block">
+                    <a href="#contacte"
+                        class="bg-brand-700 text-white px-7 py-2.5 rounded-xl font-bold hover:bg-brand-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center gap-2">
+                        Reserva ara <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn"
+                        class="text-stone-600 hover:text-brand-600 focus:outline-none p-2 rounded-lg bg-earth-100">
+                        <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="lg:hidden hidden bg-white border-b border-earth-100 absolute w-full left-0 shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="infografies"
+                    class="block px-4 py-3 rounded-lg text-stone-600 hover:bg-brand-50 hover:text-brand-700 font-semibold transition">Àrea
+                    Privada</a>
+                <a href="#aprenentatges"
+                    class="block px-4 py-3 rounded-lg text-stone-600 hover:bg-brand-50 hover:text-brand-700 font-semibold transition">Aprenentatges</a>
+                <a href="#beneficis"
+                    class="block px-4 py-3 rounded-lg text-stone-600 hover:bg-brand-50 hover:text-brand-700 font-semibold transition">Instal·lacions</a>
+                <a href="#preus"
+                    class="block px-4 py-3 rounded-lg text-stone-600 hover:bg-brand-50 hover:text-brand-700 font-semibold transition">Preus</a>
+                <a href="#serveis"
+                    class="block px-4 py-3 rounded-lg text-stone-600 hover:bg-brand-50 hover:text-brand-700 font-semibold transition">Serveis
+                    Extres</a>
+                <a href="#normes"
+                    class="block px-4 py-3 rounded-lg text-stone-600 hover:bg-brand-50 hover:text-brand-700 font-semibold transition">Comunitat</a>
+                <a href="#contacte"
+                    class="block w-full text-center mt-4 bg-brand-700 text-white px-6 py-3 rounded-xl font-bold hover:bg-brand-800 transition shadow-md">
+                    Reserva ara
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center pt-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white mb-8">
+                <span class="flex h-2 w-2 rounded-full bg-green-400"></span>
+                <span class="text-sm font-semibold tracking-wide uppercase">Noves parcel·les disponibles</span>
+            </div>
+            <h1
+                class="font-serif text-5xl md:text-7xl lg:text-8xl text-white font-bold leading-tight mb-6 drop-shadow-2xl">
+                Torna a les arrels.
+            </h1>
+            <p
+                class="text-xl md:text-2xl text-earth-100 mb-10 max-w-3xl mx-auto font-light drop-shadow-lg leading-relaxed">
+                Lloguer de parcel·les d'hort ecològic de <span class="font-bold text-white">25m² i 50m²</span>.
+                Gaudeix de la teva pròpia terra, totalment equipada i segura, en una comunitat que respecta l'entorn.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-5">
+                <a href="#preus"
+                    class="bg-brand-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-brand-600 transition shadow-xl flex items-center justify-center gap-2 border border-brand-400">
+                    Veure tarifes
+                </a>
+                <a href="#aprenentatges"
+                    class="bg-white text-brand-950 px-8 py-4 rounded-xl font-bold text-lg hover:bg-earth-50 transition shadow-xl flex items-center justify-center gap-2">
+                    Començar de zero <i data-lucide="seedling" class="w-5 h-5 text-brand-600"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Decoració inferior Hero -->
+        <div class="absolute bottom-0 w-full">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120"
+                class="w-full h-auto text-earth-50 fill-current">
+                <path
+                    d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z">
+                </path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Aprenentatges (Lead Magnet) -->
+    <section id="aprenentatges" class="py-20 bg-earth-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 text-center pt-8">
+                <span class="text-brand-600 font-bold tracking-wide uppercase text-sm">Formació Contínua</span>
+                <h2 class="font-serif text-3xl md:text-5xl font-bold text-brand-950 mt-2 mb-4">Tallers i Aprenentatges
+                </h2>
+                <p class="text-lg text-stone-600 max-w-2xl mx-auto">Tant si acabes d'arribar com si vols perfeccionar la
+                    teva tècnica, apunta't a les nostres sessions pràctiques a l'hort.</p>
+            </div>
+
+            <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 px-4 -mx-4 items-stretch"
+                style="scrollbar-width: none;">
+                <!-- Taller 1: Principiants -->
+                <div
+                    class="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-[400px] bg-white rounded-3xl shadow-xl border border-earth-100 flex flex-col overflow-hidden relative">
+                    <div
+                        class="absolute top-4 right-4 bg-earth-200 text-earth-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest z-10">
+                        Bàsic</div>
+                    <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&q=80&w=800"
+                        alt="Mans plantant un enciam" class="w-full h-52 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-bold text-xl text-stone-800 mb-2 font-serif">Comença el teu hort des de zero
+                        </h3>
+                        <p class="text-stone-500 text-sm mb-4 flex-grow">Taller pràctic a la teva pròpia parcel·la.
+                            Planificació de l'espai, preparació de la terra, sistema de reg i com fer la primera
+                            plantada.</p>
+
+                        <div class="bg-earth-50 rounded-xl p-4 mb-5 border border-earth-100">
+                            <div class="flex items-center gap-2 text-sm text-stone-700 font-medium mb-2">
+                                <i data-lucide="clock" class="w-4 h-4 text-brand-500"></i> Durada: 2-4 hores
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-emerald-700 font-bold mb-1">
+                                <i data-lucide="leaf" class="w-4 h-4 text-emerald-500"></i> Gratuït per a hortolanes
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-stone-600">
+                                <i data-lucide="coins" class="w-4 h-4"></i> 15€ per a la resta
+                            </div>
+                        </div>
+
+                        <button onclick="window.location.href='#contacte'"
+                            class="mt-auto w-full bg-brand-600 text-white font-bold py-3 px-4 rounded-xl hover:bg-brand-700 transition flex items-center justify-center gap-2">
+                            Inscriure's <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Taller 2: Fitosanitaris -->
+                <div
+                    class="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-[400px] bg-white rounded-3xl shadow-xl border border-earth-100 flex flex-col overflow-hidden relative">
+                    <div
+                        class="absolute top-4 right-4 bg-emerald-100 text-emerald-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest z-10">
+                        Específic</div>
+                    <img src="img/imatge3.jpg" alt="Fitosanitaris i adobs" class="w-full h-52 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-bold text-xl text-stone-800 mb-2 font-serif">Tractaments i Adobs Naturals</h3>
+                        <p class="text-stone-500 text-sm mb-4 flex-grow">Aprèn a elaborar els teus propis fitosanitaris
+                            ecològics i adobs naturals de fems per tractar plagues sense químics de síntesi.</p>
+
+                        <div class="bg-earth-50 rounded-xl p-4 mb-5 border border-earth-100">
+                            <div class="flex items-center gap-2 text-sm text-stone-700 font-medium mb-2">
+                                <i data-lucide="clock" class="w-4 h-4 text-brand-500"></i> Durada: 2-4 hores
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-emerald-700 font-bold mb-1">
+                                <i data-lucide="leaf" class="w-4 h-4 text-emerald-500"></i> 15€ per a hortolanes
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-stone-600">
+                                <i data-lucide="coins" class="w-4 h-4"></i> 25€ per a la resta
+                            </div>
+                        </div>
+
+                        <button onclick="window.location.href='#contacte'"
+                            class="mt-auto w-full bg-brand-600 text-white font-bold py-3 px-4 rounded-xl hover:bg-brand-700 transition flex items-center justify-center gap-2">
+                            Inscriure's <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Taller 3: Associació de cultius -->
+                <div
+                    class="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-[400px] bg-white rounded-3xl shadow-xl border border-earth-100 flex flex-col overflow-hidden relative">
+                    <div
+                        class="absolute top-4 right-4 bg-emerald-100 text-emerald-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest z-10">
+                        Específic</div>
+                    <img src="img/imatge4.jpg" alt="Associació de cultius" class="w-full h-52 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-bold text-xl text-stone-800 mb-2 font-serif">Bons veïns i Insectes Aliats</h3>
+                        <p class="text-stone-500 text-sm mb-4 flex-grow">Com associar els cultius perquè s'ajudin entre
+                            ells i usar plantes aromàtiques per atreure marietes i protegir-te de les plagues invasores.
+                        </p>
+
+                        <div class="bg-earth-50 rounded-xl p-4 mb-5 border border-earth-100">
+                            <div class="flex items-center gap-2 text-sm text-stone-700 font-medium mb-2">
+                                <i data-lucide="clock" class="w-4 h-4 text-brand-500"></i> Durada: 2-4 hores
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-emerald-700 font-bold mb-1">
+                                <i data-lucide="leaf" class="w-4 h-4 text-emerald-500"></i> 15€ per a hortolanes
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-stone-600">
+                                <i data-lucide="coins" class="w-4 h-4"></i> 25€ per a la resta
+                            </div>
+                        </div>
+
+                        <button onclick="window.location.href='#contacte'"
+                            class="mt-auto w-full bg-brand-600 text-white font-bold py-3 px-4 rounded-xl hover:bg-brand-700 transition flex items-center justify-center gap-2">
+                            Inscriure's <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Taller 4: Malalties i Reg Eficient -->
+                <div
+                    class="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-[400px] bg-white rounded-3xl shadow-xl border border-earth-100 flex flex-col overflow-hidden relative">
+                    <div
+                        class="absolute top-4 right-4 bg-emerald-100 text-emerald-800 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest z-10">
+                        Avançat</div>
+                    <img src="img/Imatge1.jpg" alt="Dues persones collint" class="w-full h-52 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-bold text-xl text-stone-800 mb-2 font-serif">Salut Vegetal i Reg Eficient</h3>
+                        <p class="text-stone-500 text-sm mb-4 flex-grow">Identifica mancances de nutrients i malalties a
+                            les fulles. Aprèn a ajustar els temps de reg i optimitzar l'aigua en èpoques de calor.</p>
+
+                        <div class="bg-earth-50 rounded-xl p-4 mb-5 border border-earth-100">
+                            <div class="flex items-center gap-2 text-sm text-stone-700 font-medium mb-2">
+                                <i data-lucide="clock" class="w-4 h-4 text-brand-500"></i> Durada: 2-4 hores
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-emerald-700 font-bold mb-1">
+                                <i data-lucide="leaf" class="w-4 h-4 text-emerald-500"></i> 15€ per a hortolanes
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-stone-600">
+                                <i data-lucide="coins" class="w-4 h-4"></i> 25€ per a la resta
+                            </div>
+                        </div>
+
+                        <button onclick="window.location.href='#contacte'"
+                            class="mt-auto w-full bg-brand-600 text-white font-bold py-3 px-4 rounded-xl hover:bg-brand-700 transition flex items-center justify-center gap-2">
+                            Inscriure's <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .snap-x::-webkit-scrollbar {
+                    display: none;
+                }
+            </style>
+        </div>
+    </section>
+
+    <!-- Instal·lacions i Beneficis -->
+    <section id="beneficis" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-3xl md:text-5xl font-bold text-brand-950 mb-6">Instal·lacions llestes per
+                    cultivar</h2>
+                <p class="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">La teva quota d'alta és una inversió
+                    en tranquil·litat. Nosaltres posem tota la infraestructura perquè tu només posis la llavor.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div
+                    class="bg-earth-50 rounded-3xl p-8 border border-earth-100 hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="w-14 h-14 bg-brand-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-brand-200">
+                        <i data-lucide="shield" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl mb-3 text-stone-800">Doble Seguretat</h3>
+                    <p class="text-stone-600 leading-relaxed">Tot el recinte disposa de vallat elèctric i vallat
+                        galvanitzat per protegir els teus cultius de la fauna salvatge.</p>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="bg-earth-50 rounded-3xl p-8 border border-earth-100 hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="w-14 h-14 bg-brand-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-brand-200">
+                        <i data-lucide="droplets" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl mb-3 text-stone-800">Aigua a la parcel·la</h3>
+                    <p class="text-stone-600 leading-relaxed">Xarxa de tubs instal·lada amb font propera perquè no hagis
+                        de carregar pes. Aigua garantida pel teu cultiu.</p>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="bg-earth-50 rounded-3xl p-8 border border-earth-100 hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="w-14 h-14 bg-brand-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-brand-200">
+                        <i data-lucide="wrench" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl mb-3 text-stone-800">Caseta i Eines</h3>
+                    <p class="text-stone-600 leading-relaxed">No cal que compris material. Disposem d'una caseta amb
+                        regadores, aixades, rasclets i tot allò necessari, d'ús compartit.</p>
+                </div>
+                <!-- Card 4 (Comunitat) -->
+                <div
+                    class="bg-earth-50 rounded-3xl p-8 border border-earth-100 lg:col-span-3 flex flex-col md:flex-row items-center gap-8 justify-between">
+                    <div class="md:w-2/3">
+                        <h3 class="font-bold text-2xl mb-3 text-stone-800 flex items-center gap-2">
+                            <i data-lucide="tent-tree" class="text-brand-600"></i> Projecte de Futur
+                        </h3>
+                        <p class="text-stone-600 leading-relaxed">
+                            L'Espai Vall-Roure és un espai en constant evolució. Amb el temps anirem implementant nous
+                            espais i serveis per fer-ho el lloc perfecte per a tota la família, com ara zona infantil i
+                            de pícnic.
+                        </p>
+                    </div>
+                    <div class="md:w-1/3 w-full">
+                        <a href="#contacte"
+                            class="w-full block text-center bg-white border-2 border-brand-200 text-brand-700 font-bold py-4 rounded-xl hover:bg-brand-50 transition">
+                            Vull venir a veure-ho
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans i Preus -->
+    <section id="preus" class="py-24 bg-brand-950 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-3xl md:text-5xl font-bold mb-6">Tria el teu espai de terra</h2>
+                <p class="text-lg text-brand-100 max-w-2xl mx-auto">Tots els contractes tenen una durada inicial d'1 any
+                    prorrogable. La quota d'alta és un pagament únic que cobreix l'adequació del terreny i les
+                    infraestructures.</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-center gap-8 max-w-5xl mx-auto">
+
+                <!-- Plan 25m2 -->
+                <div class="flex-1 bg-white/5 backdrop-blur-lg rounded-[2rem] border border-white/10 p-1 lg:p-2">
+                    <div class="bg-stone-900 rounded-[1.8rem] p-8 h-full flex flex-col">
+                        <h3 class="font-serif text-2xl font-bold text-white mb-2">Hort Petit</h3>
+                        <p class="text-brand-200 mb-6 pb-6 border-b border-stone-700">Parcel·la de 25m², ideal per
+                            començar i autoconsum de 1-2 persones.</p>
+
+                        <!-- Opcions de pagament 25m2 -->
+                        <div class="space-y-3 mb-8 flex-grow">
+                            <button type="button" onclick="openRentModal('Hort Petit 25m²', 'Mes a mes', 25, 50)"
+                                class="w-full text-left bg-stone-800/80 p-4 rounded-xl border border-stone-700 flex justify-between items-center hover:bg-stone-700 transition">
+                                <div>
+                                    <div class="font-bold text-white">Mes a mes</div>
+                                    <div class="text-stone-400 text-xs">+ 50€ matrícula</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-xl font-bold text-white">25€<span
+                                            class="text-sm text-stone-400 font-normal">/mes</span></div>
+                                </div>
+                            </button>
+
+                            <button type="button" onclick="openRentModal('Hort Petit 25m²', 'Semestral', 160, 25)"
+                                class="w-full text-left bg-stone-800/80 p-4 rounded-xl border border-stone-700 flex justify-between items-center hover:bg-stone-700 transition">
+                                <div>
+                                    <div class="font-bold text-white">Semestral</div>
+                                    <div class="text-stone-400 text-xs">+ 25€ matrícula</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-xl font-bold text-white">160€<span
+                                            class="text-sm text-stone-400 font-normal">/sem.</span></div>
+                                </div>
+                            </button>
+
+                            <button type="button" onclick="openRentModal('Hort Petit 25m²', 'Anual', 300, 0)"
+                                class="w-full text-left bg-brand-900/40 p-4 rounded-xl border border-brand-500/50 hover:bg-brand-900/60 transition relative overflow-hidden">
+                                <div
+                                    class="absolute top-0 right-0 bg-brand-500 text-[10px] font-bold px-2 py-1 rounded-bl-lg text-white uppercase tracking-wider">
+                                    Millor opció</div>
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <div class="font-bold text-white">Anual</div>
+                                        <div class="text-stone-400 text-xs mt-1">Únic pagament
+                                        </div>
+                                        <div class="text-brand-400 text-xs font-semibold mt-1">Sense matrícula d'alta!
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-xl font-bold text-brand-400">300€<span
+                                                class="text-sm text-brand-200/50 font-normal">/any</span></div>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
+                                <span class="text-stone-300">Ús exclusiu de 25m² de terra</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
+                                <span class="text-stone-300">Dret a ús de la caseta i eines</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
+                                <span class="text-stone-300">Aigua a peu de parcel·la</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
+                                <span class="text-stone-300">Formar part d'un projecte en creixement</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Plan 50m2 -->
+                <div
+                    class="flex-1 bg-gradient-to-b from-brand-400 to-brand-600 rounded-[2rem] p-1 shadow-2xl shadow-brand-900/50 transform md:-translate-y-4 relative mt-8 md:mt-0">
+                    <div
+                        class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-white text-brand-800 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg whitespace-nowrap">
+                        Més Popular
+                    </div>
+                    <div class="bg-brand-800 rounded-[1.8rem] p-8 h-full flex flex-col">
+                        <h3 class="font-serif text-2xl font-bold text-white mb-2">Hort Familiar</h3>
+                        <p class="text-brand-100 mb-6 pb-6 border-b border-brand-700">Parcel·la de 50m², l'espai
+                            perfecte per alimentar tota la família.</p>
+
+                        <!-- Opcions de pagament 50m2 -->
+                        <div class="space-y-3 mb-8 flex-grow">
+                            <button type="button" onclick="openRentModal('Hort Familiar 50m²', 'Mes a mes', 50, 100)"
+                                class="w-full text-left bg-brand-900/40 p-4 rounded-xl border border-brand-700/50 flex justify-between items-center hover:bg-brand-900/60 transition">
+                                <div>
+                                    <div class="font-bold text-white">Mes a mes</div>
+                                    <div class="text-brand-200 text-xs">+ 100€ matrícula</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-xl font-bold text-white">50€<span
+                                            class="text-sm text-brand-200 font-normal">/mes</span></div>
+                                </div>
+                            </button>
+
+                            <button type="button" onclick="openRentModal('Hort Familiar 50m²', 'Semestral', 320, 50)"
+                                class="w-full text-left bg-brand-900/40 p-4 rounded-xl border border-brand-700/50 flex justify-between items-center hover:bg-brand-900/60 transition">
+                                <div>
+                                    <div class="font-bold text-white">Semestral</div>
+                                    <div class="text-brand-200 text-xs">+ 50€ matrícula</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-xl font-bold text-white">320€<span
+                                            class="text-sm text-brand-200 font-normal">/sem.</span></div>
+                                </div>
+                            </button>
+
+                            <button type="button" onclick="openRentModal('Hort Familiar 50m²', 'Anual', 600, 0)"
+                                class="w-full text-left bg-white/10 p-4 rounded-xl border border-white/30 hover:bg-white/20 transition relative overflow-hidden">
+                                <div
+                                    class="absolute top-0 right-0 bg-white text-[10px] font-bold px-2 py-1 rounded-bl-lg text-brand-900 uppercase tracking-wider">
+                                    Millor opció</div>
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <div class="font-bold text-white">Anual</div>
+                                        <div class="text-brand-100 text-xs mt-1">Únic pagament
+                                        </div>
+                                        <div class="text-white text-xs font-semibold mt-1">Sense matrícula d'alta!</div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-xl font-bold text-white">600€<span
+                                                class="text-sm text-white/70 font-normal">/any</span></div>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-400 shrink-0 mt-0.5"></i>
+                                <span class="text-white font-medium">Doble d'espai per a màxima producció</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-400 shrink-0 mt-0.5"></i>
+                                <span class="text-brand-50">Dret a ús de la caseta i eines</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-400 shrink-0 mt-0.5"></i>
+                                <span class="text-brand-50">Aigua a peu de parcel·la</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-400 shrink-0 mt-0.5"></i>
+                                <span class="text-brand-50">Formar part d'un projecte en creixement</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Serveis Extres -->
+    <section id="serveis" class="py-24 bg-earth-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-brand-600 font-bold uppercase tracking-wider text-sm">Opcional</span>
+                <h2 class="font-serif text-3xl md:text-5xl font-bold text-brand-950 mt-2 mb-4">Serveis a mida</h2>
+                <p class="text-lg text-stone-600 max-w-2xl mx-auto">Personalitza la teva experiència. Oferim serveis
+                    addicionals per fer-te la vida més fàcil quan tinguis pics de feina o necessitis suport extra.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Servei 1 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm border border-earth-100 flex flex-col items-center text-center">
+                    <div class="text-5xl mb-4">🚜</div>
+                    <h4 class="font-bold text-stone-800 text-xl mb-2">Motocultor</h4>
+                    <p class="text-stone-500 text-sm">Manteniment i preparació mecànica de la terra.</p>
+                </div>
+
+                <!-- Servei 2 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm border border-earth-100 flex flex-col items-center text-center">
+                    <div class="text-5xl mb-4">💧</div>
+                    <h4 class="font-bold text-stone-800 text-xl mb-2">Reg automatitzat</h4>
+                    <p class="text-stone-500 text-sm">Instal·lació de reg per goteig/exudació i temporitzador.</p>
+                </div>
+
+                <!-- Servei 3 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm border border-earth-100 flex flex-col items-center text-center">
+                    <div class="text-5xl mb-4">🆘</div>
+                    <h4 class="font-bold text-stone-800 text-xl mb-2">Reg d'emergència</h4>
+                    <p class="text-stone-500 text-sm">Has de marxar? Et reguem la parcel·la de forma manual.</p>
+                </div>
+
+                <!-- Servei 4 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm border border-earth-100 flex flex-col items-center text-center">
+                    <div class="text-5xl mb-4">💩</div>
+                    <h4 class="font-bold text-stone-800 text-xl mb-2">Aportació de Fems</h4>
+                    <p class="text-stone-500 text-sm">Adob natural per nodrir i preparar la terra abans de plantar.</p>
+                </div>
+
+                <!-- Servei 5 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm border border-earth-100 flex flex-col items-center text-center relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 bg-brand-100 text-xs font-bold px-3 py-1 rounded-bl-lg text-brand-800">
+                        Novetat</div>
+                    <div class="text-5xl mb-4">🌱</div>
+                    <h4 class="font-bold text-stone-800 text-xl mb-2">Venda de planter</h4>
+                    <p class="text-stone-500 text-sm">Ecològic i de qualitat. Ens encarreguem de dur-lo directament a
+                        l'hort.</p>
+                </div>
+
+                <!-- Servei 6 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm border border-earth-100 flex flex-col items-center text-center relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 bg-brand-100 text-xs font-bold px-3 py-1 rounded-bl-lg text-brand-800">
+                        Novetat</div>
+                    <div class="text-5xl mb-4">📦</div>
+                    <h4 class="font-bold text-stone-800 text-xl mb-2">Kit de planter</h4>
+                    <p class="text-stone-500 text-sm">Terra amb adob ecològic, llavors i safata si ho vols preparar tu
+                        matiex.</p>
+                </div>
+
+                <!-- Servei 7 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm border border-earth-100 flex flex-col items-center text-center relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 bg-green-100 text-xs font-bold px-3 py-1 rounded-bl-lg text-green-800">
+                        Especial</div>
+                    <div class="text-5xl mb-4">🌳</div>
+                    <h4 class="font-bold text-stone-800 text-xl mb-2">Apadrina un arbre</h4>
+                    <p class="text-stone-500 text-sm">Ajuda'ns a plantar-lo i emporta't la seva collita quan produeixi.
+                    </p>
+                </div>
+
+                <!-- Servei 8 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-sm border border-earth-100 flex flex-col items-center text-center">
+                    <div class="text-5xl mb-4">🍎</div>
+                    <h4 class="font-bold text-stone-800 text-xl mb-2">Altres Serveis</h4>
+                    <p class="text-stone-500 text-sm">Tutors per a plantes, tallers avançants, palla, llenya i molt més.
+                    </p>
+                </div>
+            </div>
+    </section>
+
+    <!-- Reglament i Ideari -->
+    <section id="normes" class="py-24 bg-white border-t border-earth-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-16 items-start">
+
+                <div class="lg:w-1/3 lg:sticky lg:top-32">
+                    <i data-lucide="book-open-check" class="w-12 h-12 text-brand-600 mb-6"></i>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-950 mb-6">Reglament de Convivència
+                    </h2>
+                    <p class="text-stone-600 mb-6 leading-relaxed">
+                        Per garantir que l'Espai Vall-Roure sigui un lloc agradable, net i sostenible per a tothom, el
+                        nostre contracte inclou l'acceptació d'unes normes bàsiques d'agricultura 100% ecològica.
+                    </p>
+                    <a href="#contacte" class="text-brand-700 font-bold hover:text-brand-900 flex items-center gap-2">
+                        Accepto el repte <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <div class="lg:w-2/3 grid sm:grid-cols-2 gap-6">
+                    <div class="bg-earth-50 p-6 rounded-2xl border border-earth-100">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="users" class="text-brand-600"></i>
+                            <h4 class="font-bold text-stone-800 text-lg">Respecte Veïnal</h4>
+                        </div>
+                        <p class="text-stone-600 text-sm leading-relaxed">Està totalment prohibit agafar hortalisses,
+                            eines o materials d'una altra parcel·la sense el permís exprés de la persona titular.</p>
+                    </div>
+
+                    <div class="bg-earth-50 p-6 rounded-2xl border border-earth-100">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="shovel" class="text-brand-600"></i>
+                            <h4 class="font-bold text-stone-800 text-lg">Eines compartides</h4>
+                        </div>
+                        <p class="text-stone-600 text-sm leading-relaxed">Les eines de la caseta són de totes. Un cop
+                            utilitzades, és obligatori netejar-les de terra i retornar-les al seu lloc adequat.</p>
+                    </div>
+
+                    <div class="bg-earth-50 p-6 rounded-2xl border border-earth-100">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="droplet" class="text-brand-600"></i>
+                            <h4 class="font-bold text-stone-800 text-lg">Gestió de l'aigua</h4>
+                        </div>
+                        <p class="text-stone-600 text-sm leading-relaxed">L'aigua és un bé escàs. Cal fer-ne un ús
+                            responsable, prioritzant el reg eficient i assegurant-se de tancar sempre bé la font i les
+                            claus de pas.</p>
+                    </div>
+
+                    <div class="bg-earth-50 p-6 rounded-2xl border border-earth-100">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="trash-2" class="text-brand-600"></i>
+                            <h4 class="font-bold text-stone-800 text-lg">Residus i Neteja</h4>
+                        </div>
+                        <p class="text-stone-600 text-sm leading-relaxed">Les restes vegetals van al compostatge.
+                            Qualsevol plàstic o brossa no orgànica se l'ha d'endur cadascú a casa. Prohibit acaparar
+                            objectes a la parcel·la.</p>
+                    </div>
+
+                    <div class="bg-earth-50 p-6 rounded-2xl border border-earth-100 sm:col-span-2">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="dog" class="text-brand-600"></i>
+                            <h4 class="font-bold text-stone-800 text-lg">Mascotes i Animals</h4>
+                        </div>
+                        <p class="text-stone-600 text-sm leading-relaxed">Totes les mascotes que accedeixin al recinte
+                            hauran d'anar lligades en tot moment per respecte a la resta d'hortolans i per no fer malbé
+                            ni els propis cultius ni els de les altres parcel·les.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulari de Contacte -->
+    <section id="contacte" class="py-24 bg-brand-900 relative">
+        <div class="absolute inset-0 opacity-10"
+            style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white rounded-[2.5rem] shadow-2xl p-6 sm:p-8 md:p-14">
+                <div class="text-center mb-10">
+                    <span
+                        class="bg-brand-100 text-brand-700 px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wide">Sol·licita
+                        la teva parcel·la</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-950 mt-4 mb-3">T'esperem a
+                        Vall-Roure</h2>
+                    <p class="text-stone-500">Omple el formulari indicant què necessites. Ens posarem en contacte amb tu
+                        ràpidament per formalitzar el contracte i donar-te la benvinguda.</p>
+                </div>
+
+                <form action="https://formspree.io/f/mpqjylya" method="POST" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="nom" class="block text-sm font-bold text-stone-700 mb-2">Nom i Cognoms</label>
+                            <input type="text" id="nom" name="nom"
+                                class="w-full px-5 py-4 rounded-xl border border-earth-200 focus:ring-4 focus:ring-brand-100 focus:border-brand-500 outline-none transition bg-earth-50"
+                                placeholder="El teu nom" required>
+                        </div>
+                        <div>
+                            <label for="telefon" class="block text-sm font-bold text-stone-700 mb-2">Telèfon de
+                                contacte</label>
+                            <input type="tel" id="telefon" name="telefon"
+                                class="w-full px-5 py-4 rounded-xl border border-earth-200 focus:ring-4 focus:ring-brand-100 focus:border-brand-500 outline-none transition bg-earth-50"
+                                placeholder="Ex: 600 000 000" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-bold text-stone-700 mb-2">Correu electrònic</label>
+                        <input type="email" id="email" name="email"
+                            class="w-full px-5 py-4 rounded-xl border border-earth-200 focus:ring-4 focus:ring-brand-100 focus:border-brand-500 outline-none transition bg-earth-50"
+                            placeholder="el.teu@email.com" required>
+                    </div>
+
+                    <div>
+                        <label for="interes" class="block text-sm font-bold text-stone-700 mb-2">Què t'interessa
+                            contractar?</label>
+                        <select id="interes" name="interes"
+                            class="w-full px-5 py-4 rounded-xl border border-earth-200 focus:ring-4 focus:ring-brand-100 focus:border-brand-500 outline-none transition bg-earth-50 text-stone-700 font-medium appearance-none">
+                            <option value="info">Només vull més informació</option>
+                            <option value="25m2">Vull llogar Hort Petit (25m²)</option>
+                            <option value="50m2">Vull llogar Hort Familiar (50m²)</option>
+                            <option value="aprenentatges">M'interessen els Aprenentatges</option>
+                            <option value="extres">Informació sobre planter o altres extres</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="missatge" class="block text-sm font-bold text-stone-700 mb-2">Comentaris
+                            (opcional)</label>
+                        <textarea id="missatge" name="missatge" rows="3"
+                            class="w-full px-5 py-4 rounded-xl border border-earth-200 focus:ring-4 focus:ring-brand-100 focus:border-brand-500 outline-none transition bg-earth-50"
+                            placeholder="Tens algun dubte específic sobre l'alta, l'aigua, eines... ?"></textarea>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-4 bg-earth-50 rounded-xl border border-earth-100">
+                        <div class="pt-0.5">
+                            <input type="checkbox" id="privacitat" required
+                                class="w-5 h-5 text-brand-600 border-earth-300 rounded focus:ring-brand-500">
+                        </div>
+                        <label for="privacitat" class="text-sm text-stone-600 leading-relaxed">
+                            He llegit les bases i entenc que el contracte de lloguer implica el compliment estricte del
+                            <strong class="text-stone-800">Reglament de Convivència</strong> (agricultura ecològica, ús
+                            d'eines i gestió de residus) de l'Espai Vall-Roure.
+                        </label>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-4 bg-brand-50 rounded-xl border border-brand-100">
+                        <div class="pt-0.5">
+                            <input type="checkbox" id="newsletter" name="newsletter" value="yes"
+                                class="w-5 h-5 text-brand-600 border-brand-300 rounded focus:ring-brand-500">
+                        </div>
+                        <label for="newsletter" class="text-sm text-brand-800 leading-relaxed">
+                            Vull apuntar-me a la <strong>Newsletter</strong> i rebre la <strong>Guia
+                                d'Iniciació</strong> gratuïta de l'Hortolà al meu correu.
+                        </label>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-brand-700 text-white font-bold text-lg py-5 rounded-xl shadow-xl shadow-brand-200 hover:bg-brand-800 transition transform hover:-translate-y-1">
+                        Enviar Sol·licitud
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-950 text-brand-100 py-16 border-t border-brand-900">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 text-center md:text-left">
+            <div class="md:col-span-2">
+                <div class="flex items-center justify-center md:justify-start gap-2 mb-6 cursor-pointer"
+                    onclick="window.scrollTo(0,0)">
+                    <div class="bg-brand-800 p-2 rounded-lg">
+                        <i data-lucide="sprout" class="text-brand-300 h-6 w-6"></i>
+                    </div>
+                    <span class="font-serif font-bold text-2xl text-white tracking-tight">Vall-Roure</span>
+                </div>
+                <p class="text-sm text-brand-200 max-w-sm mx-auto md:mx-0 leading-relaxed">Lloguer de parcel·les d'hort
+                    ecològic de 25m² i 50m². Tornem a les arrels amb una agricultura neta, respectuosa i en comunitat.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-6 tracking-wide">Navegació</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="infografies"
+                            class="hover:text-white transition flex items-center gap-2 justify-center md:justify-start"><i
+                                data-lucide="chevron-right" class="w-3 h-3"></i> Àrea Privada</a></li>
+                    <li><a href="#aprenentatges"
+                            class="hover:text-white transition flex items-center gap-2 justify-center md:justify-start"><i
+                                data-lucide="chevron-right" class="w-3 h-3"></i> Aprenentatges</a></li>
+                    <li><a href="#beneficis"
+                            class="hover:text-white transition flex items-center gap-2 justify-center md:justify-start"><i
+                                data-lucide="chevron-right" class="w-3 h-3"></i> Instal·lacions</a></li>
+                    <li><a href="#preus"
+                            class="hover:text-white transition flex items-center gap-2 justify-center md:justify-start"><i
+                                data-lucide="chevron-right" class="w-3 h-3"></i> Plans i Preus</a></li>
+                    <li><a href="#normes"
+                            class="hover:text-white transition flex items-center gap-2 justify-center md:justify-start"><i
+                                data-lucide="chevron-right" class="w-3 h-3"></i> Normativa</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-6 tracking-wide">Contacte</h4>
+                <ul class="space-y-4 text-sm">
+                    <li class="flex items-center justify-center md:justify-start gap-3">
+                        <i data-lucide="mail" class="w-4 h-4 text-brand-400"></i>
+                        <span>espaivallroure@gmail.com</span>
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start gap-3">
+                        <i data-lucide="phone" class="w-4 h-4 text-brand-400"></i>
+                        <span>+34 690807385</span>
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start gap-3">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-brand-400"></i>
+                        <span>Balestui, Baix Pallars, Espai Vall-Roure</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-brand-800 text-sm text-center flex flex-col md:flex-row justify-between items-center gap-4 text-brand-300">
+            <div>&copy; 2026 Espai Vall-Roure. Tots els drets reservats.</div>
+            <div class="flex gap-4">
+                <a href="#" class="hover:text-white transition">Avís Legal</a>
+                <a href="#" class="hover:text-white transition">Política de Privacitat</a>
+                <a href="gestio" class="hover:text-white transition flex items-center gap-1"
+                    title="Accés Administrador"><i data-lucide="shield-check" class="w-4 h-4"></i> Portal Gestió</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons & Interactivity -->
+    <script>
+        // Inicialitzar icones
+        lucide.createIcons();
+
+        // Efecte Navbar en fer scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-md', 'bg-white/95');
+                nav.classList.remove('bg-white/80', 'border-transparent');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.add('border-earth-100');
+            }
+        });
+
+        // Lògica del menú per a mòbils
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.setAttribute('data-lucide', 'menu');
+            } else {
+                menuIcon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons(); // Re-renderitzar icona (de hamburguesa a creu i viceversa)
+        });
+
+        // Tancar el menú mòbil en fer clic a un enllaç
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+    </script>
+    <!-- Private Service Modal Logic -->
+    <div id="private-service-modal" class="fixed inset-0 z-[100] hidden bg-black/50 backdrop-blur-sm px-4"
+        style="display: none; align-items: center; justify-content: center;">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-sm w-full p-8 text-center" onclick="event.stopPropagation()">
+            <div
+                class="w-16 h-16 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i data-lucide="lock" class="w-8 h-8"></i>
+            </div>
+            <h3 class="font-bold text-stone-800 text-xl font-serif mb-2">Exclusiu per a Hortolans</h3>
+            <p class="text-stone-600 text-sm mb-6">La contractació de serveis extres només està disponible per a les
+                persones que ja lloguen una parcel·la mitjançant la seva àrea privada.</p>
+            <div class="flex flex-col gap-3">
+                <a href="infografies"
+                    class="bg-brand-700 text-white font-bold py-3 px-4 rounded-xl hover:bg-brand-800 transition">Entrar
+                    a Zona Privada</a>
+                <button onclick="closePrivateServiceAlert()"
+                    class="text-stone-500 font-bold hover:text-stone-800 transition text-sm">Tancar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rent Plot Modal -->
+    <div id="rent-plot-modal" class="fixed inset-0 z-[100] hidden bg-black/60 backdrop-blur-sm px-4"
+        style="display: none; align-items: center; justify-content: center;">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all max-h-[95vh] flex flex-col"
+            onclick="event.stopPropagation()">
+
+            <div class="bg-brand-50 p-6 flex justify-between items-start border-b border-brand-100 relative shrink-0">
+                <div>
+                    <h3 class="font-bold text-stone-800 text-xl md:text-2xl font-serif">Abonar Nova Parcel·la</h3>
+                    <p class="text-sm text-brand-700 font-semibold mt-1" id="rent-modal-subtitle">Hort 25m² - Quota
+                        Anual</p>
+                </div>
+                <button onclick="closeRentModal()"
+                    class="text-stone-400 hover:text-stone-600 bg-white rounded-full p-2 shadow-sm border border-stone-100 transition absolute right-6 top-6">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <div class="p-6 overflow-y-auto grow">
+                <form id="rent-form" data-ms-form="signup" class="space-y-5" onsubmit="processRentPayment(event)">
+
+                    <!-- Resum -->
+                    <div class="bg-stone-50 p-4 rounded-xl border border-stone-200">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-stone-600 text-sm font-bold">Import Recurrent:</span>
+                            <span class="font-bold text-stone-800" id="rent-modal-subtotal">300€</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-2" id="rent-modal-matricula-container">
+                            <span class="text-stone-600 text-sm font-bold">Matrícula d'alta:</span>
+                            <span class="font-bold text-stone-800" id="rent-modal-matricula">0€</span>
+                        </div>
+                        <div
+                            class="pt-3 flex justify-between items-center text-lg border-t border-stone-200 border-dashed mt-2">
+                            <span class="text-brand-800 font-bold">Total a Pagar Avui:</span>
+                            <span class="font-bold text-brand-800 text-2xl" id="rent-modal-total">300€</span>
+                        </div>
+                    </div>
+
+                    <!-- Dades de l'Arrendatari (Usuari) -->
+                    <div>
+                        <label class="block text-sm font-bold text-stone-700 mb-2">Les Teves Dades (Arrendatari)</label>
+                        <div class="space-y-3">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <input type="text" data-ms-member="name" placeholder="Nom i cognoms" required
+                                    class="w-full px-4 py-3 text-sm rounded-xl border border-stone-200 focus:border-brand-500 outline-none transition">
+                                <input type="text" data-ms-custom="dni" placeholder="DNI / NIE" required
+                                    class="w-full px-4 py-3 text-sm rounded-xl border border-stone-200 focus:border-brand-500 outline-none transition">
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <input type="email" id="book-email" data-ms-member="email"
+                                    placeholder="Correu electrònic" required
+                                    class="w-full px-4 py-3 text-sm rounded-xl border border-stone-200 focus:border-brand-500 outline-none transition">
+                                <input type="tel" id="book-tel" data-ms-custom="phone" placeholder="Telèfon de contacte"
+                                    required
+                                    class="w-full px-4 py-3 text-sm rounded-xl border border-stone-200 focus:border-brand-500 outline-none transition">
+                            </div>
+                            <div class="mt-3">
+                                <label class="block text-sm font-bold text-stone-700 mb-1">Crea les teves Claus
+                                    d'Accés</label>
+                                <input type="password" id="book-password" data-ms-member="password"
+                                    placeholder="Tria una contrasenya segura" required
+                                    class="w-full px-4 py-3 text-sm rounded-xl border border-stone-200 focus:border-brand-500 outline-none transition">
+                                <p class="text-xs text-stone-500 mt-1 ml-1">Amb el teu correu i aquesta contrasenya
+                                    podràs entrar per sempre al teu espai privat.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dades de l'Arrendador -->
+                    <div>
+                        <label class="block text-sm font-bold text-stone-700 mb-2">Dades de l'Arrendador (No
+                            Editables)</label>
+                        <div class="space-y-3">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <input type="text" value="Marta Ferrando Ortega" readonly
+                                    class="w-full px-4 py-3 text-sm rounded-xl border border-stone-300 bg-stone-100 text-stone-500 outline-none cursor-not-allowed">
+                                <input type="text" value="DNI: 79274910M" readonly
+                                    class="w-full px-4 py-3 text-sm rounded-xl border border-stone-300 bg-stone-100 text-stone-500 outline-none cursor-not-allowed">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contracte -->
+                    <div class="border border-stone-200 rounded-xl overflow-hidden mt-2 border-l-4 border-l-brand-500">
+                        <div class="bg-stone-50 p-3 border-b border-stone-200 flex items-center gap-2">
+                            <i data-lucide="file-check-2" class="w-4 h-4 text-brand-600"></i>
+                            <h4 class="text-sm font-bold text-stone-800">Contracte i Ideari Espai Vall-Roure</h4>
+                        </div>
+                        <div
+                            class="p-4 h-56 overflow-y-auto text-xs text-stone-600 space-y-4 bg-white custom-scrollbar">
+                            <div>
+                                <h5 class="font-bold text-stone-800 text-[13px] mb-1">2. Reglament de Convivència i
+                                    Respecte</h5>
+                                <p class="mb-2">Per garantir que l'Espai Vall-Roure sigui un lloc agradable per a
+                                    tothom, establim unes normes bàsiques:</p>
+                                <ul class="list-disc pl-5 space-y-1 text-stone-500">
+                                    <li><strong class="text-stone-700">Respecte per les parcel·les veïnes:</strong> Està
+                                        totalment prohibit agafar hortalisses, eines o materials d'una altra parcel·la
+                                        sense el permís exprés de la persona titular.</li>
+                                    <li><strong class="text-stone-700">Ús de les eines compartides:</strong> Les eines
+                                        (regadores, aixades, rasclets) que es guarden a la caseta són de totes. Un cop
+                                        utilitzades, s'han de netejar de terra i retornar al seu lloc.</li>
+                                    <li><strong class="text-stone-700">Gestió de l'aigua:</strong> L'aigua és un bé
+                                        escàs. Cal fer-ne un ús responsable, prioritzant el reg eficient i tancant
+                                        sempre bé la font i les claus de pas.</li>
+                                    <li><strong class="text-stone-700">Residus i Neteja:</strong> Cadascú és responsable
+                                        de mantenir neta la seva parcel·la i els camins adjacents. Les restes vegetals
+                                        aniran a la zona de compostatge designada (si n'hi ha), i qualsevol plàstic o
+                                        brossa no orgànica se l'ha d'endur cadascú a casa.</li>
+                                    <li><strong class="text-stone-700">Mascotes i Animals:</strong> De moment, si es
+                                        porten gossos, hauran d'estar lligats o controlats per no fer malbé els cultius
+                                        de les altres parcel·les (fins que tinguem la residència canina o espais
+                                        delimitats).</li>
+                                    <li><strong class="text-stone-700">Emmagatzematge:</strong> No es podrà fer ús de la
+                                        parcel·la per emmagatzemar o acaparar objectes.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h5 class="font-bold text-stone-800 text-[13px] mb-2">3. Drets i Deures</h5>
+                                <strong class="block text-stone-700 mt-2 mb-1">Deures de l'Arrendatari (Usuari de
+                                    l'hort):</strong>
+                                <ul class="list-disc pl-5 space-y-1 text-stone-500">
+                                    <li>Abonar la quota d'alta inicial i les mensualitats de forma puntual.</li>
+                                    <li>Mantenir la parcel·la en condicions òptimes de cultiu i neteja.</li>
+                                    <li>Respectar la prohibició d'utilitzar productes químics de síntesi (herbicides,
+                                        pesticides) que puguin danyar la terra i les parcel·les veïnes.</li>
+                                    <li>Avisar a la direcció del projecte de qualsevol desperfecte a les instal·lacions
+                                        comunes.</li>
+                                    <li>Responsabilitzar-se de les eines personals que es guardin dins la caseta.</li>
+                                </ul>
+
+                                <strong class="block text-stone-700 mt-3 mb-1">Drets de l'Arrendatari:</strong>
+                                <ul class="list-disc pl-5 space-y-1 text-stone-500">
+                                    <li>Gaudir del ple ús de la seva parcel·la per a l'autoconsum durant la vigència del
+                                        contracte.</li>
+                                    <li>Fer ús de les instal·lacions comunes: aigua, font, caseta i eines bàsiques.</li>
+                                    <li>Participar en els grups de comunicació del col·lectiu i apuntar-se als serveis
+                                        afegits (motocultor, reg automatitzat, fems, etc.).</li>
+                                </ul>
+
+                                <strong class="block text-stone-700 mt-3 mb-1">Deures de l'Arrendador (Espai
+                                    Vall-Roure):</strong>
+                                <ul class="list-disc pl-5 space-y-1 text-stone-500">
+                                    <li>Garantir el subministrament d'aigua per al reg i el bon funcionament del
+                                        sistema.</li>
+                                    <li>Mantenir les infraestructures comunes en bon estat (vallat elèctric, vallat
+                                        galvanitzat, caseta).</li>
+                                    <li>Oferir els serveis afegits contractats de manera eficient.</li>
+                                </ul>
+
+                                <strong class="block text-stone-700 mt-3 mb-1">Drets de l'Arrendador:</strong>
+                                <ul class="list-disc pl-5 space-y-1 text-stone-500">
+                                    <li>Rebre el pagament de les quotes acordades dins el termini establert.</li>
+                                    <li>Accedir a les parcel·les per fer comprovacions de manteniment general o si se
+                                        sospita un incompliment greu del reglament.</li>
+                                    <li>Rescindir el contracte si hi ha un impagament reiterat o un incompliment greu i
+                                        constant de les normes de convivència.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h5 class="font-bold text-stone-800 text-[13px] mb-2">4. Contracte Simple de Cessió de
+                                    Parcel·la</h5>
+                                <div class="bg-stone-50 p-3 rounded border border-stone-200 space-y-2">
+                                    <p><strong>D'UNA BANDA (L'Arrendador):</strong> Marta Ferrando Ortega, amb DNI
+                                        79274910M, actuant en representació de l'Espai Vall-Roure.</p>
+                                    <p><strong>D'ALTRA BANDA (L'Arrendatari):</strong> La persona que formalitza les
+                                        dades en el present formulari i el llegeix.</p>
+                                    <p><strong>ACORDEN:</strong></p>
+                                    <p><strong>Primer. Objecte:</strong> L'Espai Vall-Roure cedeix a l'arrendatari l'ús
+                                        de la parcel·la seleccionada destinada exclusivament al cultiu d'hortalisses per
+                                        a l'autoconsum i usos recreatius propis de l'agricultura ecològica.</p>
+                                    <p><strong>Segon. Durada:</strong> El present contracte té una durada inicial d'UN
+                                        (1) ANY a partir de la data de signatura (moment del pagament), prorrogable
+                                        automàticament si cap de les parts indica el contrari amb un mes d'antelació.
+                                    </p>
+                                    <p><strong>Tercer. Condicions Econòmiques:</strong> L'arrendatari abona en el moment
+                                        de procedir el recapte indicat en el rebut anterior per establir les quotes.
+                                        L'impagament d'una mensualitat donarà dret a rescindir el contracte.</p>
+                                    <p><strong>Quart. Normativa i Resolució:</strong> L'arrendatari declara haver
+                                        llegit, comprès i acceptat el Reglament adjunt. L'incompliment d'aquestes
+                                        condicions donarà dret a donar per finalitzat el contracte.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <label
+                        class="flex items-start gap-3 cursor-pointer p-2 bg-brand-50 rounded-xl border border-brand-100 hover:bg-brand-100/50 transition">
+                        <input type="checkbox" required
+                            class="mt-1 w-5 h-5 text-brand-600 rounded border-stone-300 focus:ring-brand-500 cursor-pointer">
+                        <span class="text-xs text-stone-700 leading-relaxed">He llegit detalladament i <strong
+                                class="text-stone-900 border-b border-stone-800">ACCEPTO</strong> íntegrament totes i
+                            cadascuna de les condicions, deures i drets aquí llistats. Entenc que aquest tràmit funciona
+                            com a <strong>Signatura Digital de conformitat</strong>.</span>
+                    </label>
+
+                    <!-- Pagament -->
+                    <div class="bg-white" id="payment-fields">
+                        <label class="block text-sm font-bold text-stone-700 mb-3 flex justify-between items-center">
+                            Targeta de crèdit
+                            <div class="flex gap-1 border border-stone-200 px-2 py-1 rounded">
+                                <span
+                                    class="bg-blue-100 text-blue-800 text-[10px] px-1.5 py-0.5 rounded font-bold">VISA</span>
+                                <span
+                                    class="bg-orange-100 text-orange-800 text-[10px] px-1.5 py-0.5 rounded font-bold">MC</span>
+                            </div>
+                        </label>
+                        <div class="relative mb-3">
+                            <i data-lucide="credit-card" class="w-5 h-5 absolute left-3 top-3.5 text-stone-400"></i>
+                            <input type="text" placeholder="Número de targeta" required pattern="[0-9\s]{13,19}"
+                                class="w-full pl-10 pr-4 py-3 text-sm rounded-xl border border-stone-200 focus:border-brand-500 outline-none transition bg-stone-50">
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <input type="text" placeholder="MM/AA" required pattern="[0-9]{2}/[0-9]{2}"
+                                class="w-full px-4 py-3 text-sm rounded-xl border border-stone-200 outline-none transition uppercase bg-stone-50">
+                            <input type="text" placeholder="CVC" required pattern="[0-9]{3,4}"
+                                class="w-full px-4 py-3 text-sm rounded-xl border border-stone-200 outline-none transition bg-stone-50">
+                        </div>
+                    </div>
+
+
+
+                    <button type="submit" id="btn-pagar-rent"
+                        class="w-full bg-brand-700 text-white font-bold py-4 rounded-xl hover:bg-brand-800 transition shadow-lg flex justify-center items-center gap-2 mt-4">
+                        <i data-lucide="lock" class="w-5 h-5"></i> Contractar de Forma Segura
+                    </button>
+
+                    <!-- Success Message -->
+                    <div id="rent-payment-success"
+                        class="hidden bg-emerald-50 text-emerald-900 p-6 rounded-xl border border-emerald-200 text-center font-semibold mt-4 animate-fadeIn">
+                        <i data-lucide="check-circle-2" class="w-16 h-16 mx-auto mb-4 text-emerald-500"></i>
+                        <p class="text-xl mb-2 text-emerald-800">Pagament acceptat!</p>
+                        <p class="text-sm text-emerald-700 font-normal leading-relaxed">Benvingut a l'Espai Vall-Roure.
+                            T'hem enviat un email amb el contracte i les teves credencials d'accés per veure tot el
+                            contingut privat del panell.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const privModal = document.getElementById('private-service-modal');
+        function showPrivateServiceAlert() {
+            privModal.style.display = 'flex';
+            privModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+        function closePrivateServiceAlert() {
+            privModal.style.display = 'none';
+            privModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Logic For Renting Plots Modal
+        const rentModal = document.getElementById('rent-plot-modal');
+        function openRentModal(sizeName, planName, basisPrice, matriculaFee) {
+            document.getElementById('rent-modal-subtitle').textContent = sizeName + ' - Quota ' + planName;
+            document.getElementById('rent-modal-subtotal').textContent = basisPrice + '€';
+
+            const matriculaEl = document.getElementById('rent-modal-matricula-container');
+            if (matriculaFee > 0) {
+                matriculaEl.style.display = 'flex';
+                document.getElementById('rent-modal-matricula').textContent = matriculaFee + '€';
+            } else {
+                matriculaEl.style.display = 'none';
+            }
+
+            document.getElementById('rent-modal-total').textContent = (basisPrice + matriculaFee) + '€';
+
+            rentModal.style.display = 'flex';
+            rentModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+
+        function closeRentModal() {
+            rentModal.style.display = 'none';
+            rentModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            document.getElementById('rent-payment-success').classList.add('hidden');
+            document.getElementById('btn-pagar-rent').classList.remove('hidden');
+        }
+
+        rentModal.addEventListener('click', closeRentModal);
+
+        function processRentPayment(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-pagar-rent');
+            const originalContent = btn.innerHTML;
+
+            btn.innerHTML = 'Processant Pagament... <i class="animate-spin w-5 h-5 border-2 border-white rounded-full border-t-transparent ml-2 inline-block"></i>';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.style.display = 'none';
+                document.getElementById('rent-payment-success').classList.remove('hidden');
+
+                // Redirigir cap a àrea infografies despés de 4 segons
+                setTimeout(() => {
+                    closeRentModal();
+                    btn.innerHTML = originalContent;
+                    btn.disabled = false;
+                    btn.style.display = 'flex';
+
+                    // Desa i inicia sessió local
+                    const newEmail = document.getElementById('book-email').value.toLowerCase().trim();
+                    const newPwd = document.getElementById('book-password').value;
+                    if (newEmail && newPwd) {
+                        localStorage.setItem('hort_auth_reg_email', newEmail);
+                        localStorage.setItem('hort_auth_reg_pwd', newPwd);
+
+                        // Marca-ho com logged in
+                        sessionStorage.setItem('hort_auth_logged', 'true');
+                    }
+
+                    window.location.href = 'infografies';
+                }, 4000);
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Completa: El Teu Hort al Camp de Gerri</title>
+        <link rel="icon" type="image/png" href="img/logopol (1).png">
+<script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap');
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f4f1ea;
+            /* Color terra molt suau */
+            color: #334155;
+        }
+
+        .bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d1d5db' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .section-card {
+            background-color: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            overflow: hidden;
+            margin-bottom: 2rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .header-bg {
+            background: linear-gradient(135deg, #166534 0%, #15803d 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-pattern min-h-screen py-10 px-4 sm:px-6 lg:px-8 flex justify-center relative">
+
+    <!-- Tornar a l'inici botó absolut -->
+    <a href="index"
+        class="absolute top-6 left-6 text-green-800 hover:text-green-600 flex items-center gap-2 font-semibold transition bg-white/80 py-2 px-4 rounded-full backdrop-blur-sm shadow-sm border border-green-100 z-50">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6" />
+        </svg>
+        Tornar a l'inici
+    </a>
+
+    <div class="max-w-3xl w-full space-y-8 mt-12 md:mt-0">
+
+        <!-- Capçalera Principal -->
+        <header class="section-card header-bg text-white text-center py-16 px-6 relative overflow-hidden">
+            <div
+                class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTAgMGg0MHY0MEgwem0yMCAyMGMtNS41IDAtMTAtNC41LTEwLTEwUzE0LjUgMCAyMCAwczEwIDQuNSAxMCAxMC00LjUgMTAtMTAgMTB6IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9Ii4xIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=')]">
+            </div>
+            <div class="relative z-10">
+                <span
+                    class="inline-block py-1 px-3 rounded-full bg-green-800 text-green-100 text-sm font-semibold tracking-wider mb-4 border border-green-600">GUIA
+                    D'INICIACIÓ</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
+                    Comença el teu Hort<br><span class="text-green-200">al Camp de Gerri</span>
+                </h1>
+                <p class="text-xl font-light text-green-50 max-w-2xl mx-auto">
+                    Tot el que necessites saber per tenir una parcel·la productiva, sana i gaudir de la teva pròpia
+                    collita.
+                </p>
+            </div>
+        </header>
+
+        <!-- Secció 1: La Terra -->
+        <section class="section-card">
+            <div class="bg-amber-100/50 py-4 px-6 border-b border-amber-200 flex items-center gap-3">
+                <span class="text-3xl">🪨</span>
+                <h2 class="text-2xl font-bold text-amber-900">1. Coneix la Teva Terra</h2>
+            </div>
+            <div class="p-6 md:p-8">
+                <p class="text-gray-600 mb-6">El secret d'un bon hort és el sòl. Al Camp de Gerri, treballem per tenir
+                    una terra fèrtil i equilibrada.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-amber-50 p-5 rounded-xl border border-amber-100">
+                        <h3 class="font-bold text-amber-800 flex items-center gap-2 mb-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            La preparació inicial
+                        </h3>
+                        <p class="text-sm text-gray-700">Abans de plantar, la terra s'ha de <strong>llaurar</strong> per
+                            descompactar-la (permet que les arrels creixin) i <strong>adobar</strong> (preferiblement
+                            amb fems curats o compost orgànic) per donar-li nutrients.</p>
+                    </div>
+                    <div class="bg-amber-50 p-5 rounded-xl border border-amber-100">
+                        <h3 class="font-bold text-amber-800 flex items-center gap-2 mb-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                                </path>
+                            </svg>
+                            El cicle de rotació
+                        </h3>
+                        <p class="text-sm text-gray-700">No plantis sempre el mateix al mateix lloc. Les tomaqueres
+                            consumeixen molt; l'any següent, posa-hi llegums (mongetes, faves) al seu lloc perquè
+                            retornen nitrogen a la terra.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secció 2: El Calendari de Sembra -->
+        <section class="section-card">
+            <div class="bg-green-100/50 py-4 px-6 border-b border-green-200 flex items-center gap-3">
+                <span class="text-3xl">📅</span>
+                <h2 class="text-2xl font-bold text-green-900">2. Què plantar i quan?</h2>
+            </div>
+            <div class="p-6 md:p-8">
+                <p class="text-gray-600 mb-6">Un resum ràpid del que funciona millor a cada temporada per planificar la
+                    teva parcel·la.</p>
+
+                <div class="space-y-4">
+                    <!-- Primavera/Estiu -->
+                    <div class="border border-green-200 rounded-xl overflow-hidden">
+                        <div class="bg-green-50 px-4 py-3 font-bold text-green-800 flex justify-between items-center">
+                            <span>☀️ Primavera i Estiu (Març - Agost)</span>
+                            <span class="text-sm font-normal bg-green-200 text-green-800 py-1 px-2 rounded-md">Els
+                                clàssics</span>
+                        </div>
+                        <div class="p-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                            <div class="p-3 bg-white rounded shadow-sm border border-gray-100">
+                                <div class="text-3xl mb-1">🍅</div>
+                                <div class="font-semibold text-sm text-gray-800">Tomàquets</div>
+                                <div class="text-xs text-gray-500 mt-1">Sol directe i tutor</div>
+                            </div>
+                            <div class="p-3 bg-white rounded shadow-sm border border-gray-100">
+                                <div class="text-3xl mb-1">🥒</div>
+                                <div class="font-semibold text-sm text-gray-800">Carbassons</div>
+                                <div class="text-xs text-gray-500 mt-1">Necessiten espai</div>
+                            </div>
+                            <div class="p-3 bg-white rounded shadow-sm border border-gray-100">
+                                <div class="text-3xl mb-1">🫑</div>
+                                <div class="font-semibold text-sm text-gray-800">Pebrots</div>
+                                <div class="text-xs text-gray-500 mt-1">Molta calor</div>
+                            </div>
+                            <div class="p-3 bg-white rounded shadow-sm border border-gray-100">
+                                <div class="text-3xl mb-1">🍆</div>
+                                <div class="font-semibold text-sm text-gray-800">Albergínies</div>
+                                <div class="text-xs text-gray-500 mt-1">Reg regular</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tardor/Hivern -->
+                    <div class="border border-blue-200 rounded-xl overflow-hidden">
+                        <div class="bg-blue-50 px-4 py-3 font-bold text-blue-800 flex justify-between items-center">
+                            <span>❄️ Tardor i Hivern (Setembre - Febrer)</span>
+                            <span class="text-sm font-normal bg-blue-200 text-blue-800 py-1 px-2 rounded-md">Resistents
+                                al fred</span>
+                        </div>
+                        <div class="p-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                            <div class="p-3 bg-white rounded shadow-sm border border-gray-100">
+                                <div class="text-3xl mb-1">🥬</div>
+                                <div class="font-semibold text-sm text-gray-800">Bledes / Espinacs</div>
+                                <div class="text-xs text-gray-500 mt-1">Creixement ràpid</div>
+                            </div>
+                            <div class="p-3 bg-white rounded shadow-sm border border-gray-100">
+                                <div class="text-3xl mb-1">🥦</div>
+                                <div class="font-semibold text-sm text-gray-800">Cols / Bròquil</div>
+                                <div class="text-xs text-gray-500 mt-1">Agraeixen el fred</div>
+                            </div>
+                            <div class="p-3 bg-white rounded shadow-sm border border-gray-100">
+                                <div class="text-3xl mb-1">🧅</div>
+                                <div class="font-semibold text-sm text-gray-800">Alls i Cebes</div>
+                                <div class="text-xs text-gray-500 mt-1">Poc manteniment</div>
+                            </div>
+                            <div class="p-3 bg-white rounded shadow-sm border border-gray-100">
+                                <div class="text-3xl mb-1">🫛</div>
+                                <div class="font-semibold text-sm text-gray-800">Faves i Pèsols</div>
+                                <div class="text-xs text-gray-500 mt-1">Necessiten tutor</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tot l'any -->
+                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 flex items-start gap-3">
+                        <span class="text-2xl">🌱</span>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm">Tot l'any: Enciams i Raves</h4>
+                            <p class="text-xs text-gray-600 mt-1">Són el "fons d'armari" de l'hort. Els pots anar
+                                plantant escalonadament (una mica cada 15 dies) per tenir-ne sempre de frescos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secció 3: L'Art de Regar -->
+        <section class="section-card">
+            <div class="bg-blue-100/50 py-4 px-6 border-b border-blue-200 flex items-center gap-3">
+                <span class="text-3xl">💧</span>
+                <h2 class="text-2xl font-bold text-blue-900">3. L'Art de Regar Bé</h2>
+            </div>
+            <div class="p-6 md:p-8">
+                <p class="text-gray-600 mb-6">Al Camp de Gerri hem arreglat el reg i la bassa per optimitzar l'aigua.
+                    Aquí tens les regles d'or segons la calor:</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Primavera -->
+                    <div
+                        class="p-5 rounded-xl border-2 border-green-100 bg-white shadow-sm relative overflow-hidden group hover:border-green-300 transition">
+                        <div
+                            class="absolute top-0 right-0 w-16 h-16 bg-green-50 rounded-bl-full -z-10 group-hover:bg-green-100 transition">
+                        </div>
+                        <h3 class="font-bold text-gray-800 text-lg mb-2">Primavera / Tardor</h3>
+                        <p class="text-sm text-gray-600 mb-3">La terra aguanta més la humitat.</p>
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li class="flex items-center gap-2"><span class="text-blue-500 font-bold">•</span>
+                                Freqüència: 2-3 cops per setmana.</li>
+                            <li class="flex items-center gap-2"><span class="text-blue-500 font-bold">•</span> Moment:
+                                Al matí és ideal.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Estiu -->
+                    <div
+                        class="p-5 rounded-xl border-2 border-red-100 bg-white shadow-sm relative overflow-hidden group hover:border-red-300 transition">
+                        <div
+                            class="absolute top-0 right-0 w-16 h-16 bg-red-50 rounded-bl-full -z-10 group-hover:bg-red-100 transition">
+                        </div>
+                        <h3 class="font-bold text-gray-800 text-lg mb-2">Plen Estiu (Calor)</h3>
+                        <p class="text-sm text-gray-600 mb-3">L'evaporació és molt alta.</p>
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li class="flex items-center gap-2"><span class="text-red-500 font-bold">•</span>
+                                Freqüència: Diari o dies alterns.</li>
+                            <li class="flex items-center gap-2"><span class="text-red-500 font-bold">•</span> Moment:
+                                <strong>Sempre al vespre!</strong> Si regues de dia, l'aigua fa efecte lupa i crema les
+                                fulles, i la meitat s'evapora.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Hivern -->
+                    <div
+                        class="p-5 rounded-xl border-2 border-blue-100 bg-white shadow-sm relative overflow-hidden group hover:border-blue-300 transition">
+                        <div
+                            class="absolute top-0 right-0 w-16 h-16 bg-blue-50 rounded-bl-full -z-10 group-hover:bg-blue-100 transition">
+                        </div>
+                        <h3 class="font-bold text-gray-800 text-lg mb-2">Hivern (Fred)</h3>
+                        <p class="text-sm text-gray-600 mb-3">Les plantes creixen lentament.</p>
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li class="flex items-center gap-2"><span class="text-blue-300 font-bold">•</span>
+                                Freqüència: 1 cop per setmana o menys si plou.</li>
+                            <li class="flex items-center gap-2"><span class="text-blue-300 font-bold">•</span> Moment:
+                                Al migdia (per evitar gelar les arrels si regues de nit).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200 flex gap-3">
+                    <span class="text-xl">⚠️</span>
+                    <p class="text-sm text-blue-900"><strong>La Regla del Dit:</strong> Abans de regar per inèrcia,
+                        clava el dit uns 3-5 cm a la terra. Si la notes humida, NO reguis. L'excés d'aigua podreix les
+                        arrels i porta fongs més ràpid que la falta d'aigua.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secció 4: Tips PRO -->
+        <section class="section-card">
+            <div class="bg-purple-100/50 py-4 px-6 border-b border-purple-200 flex items-center gap-3">
+                <span class="text-3xl">💡</span>
+                <h2 class="text-2xl font-bold text-purple-900">4. Consells de Pagès Expert</h2>
+            </div>
+            <div class="p-6 md:p-8">
+                <ul class="space-y-4">
+                    <li class="flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                        <div
+                            class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold shrink-0">
+                            1</div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">El Mulching (Encoixinat)</h4>
+                            <p class="text-sm text-gray-600 mt-1">Cobreix la terra lliure al voltant de les plantes amb
+                                palla o restes d'herba seca. Això manté la humitat de la terra a l'estiu (estalviaràs
+                                aigua!) i evita que surtin tantes males herbes.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                        <div
+                            class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold shrink-0">
+                            2</div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Associa Cultius Amics</h4>
+                            <p class="text-sm text-gray-600 mt-1">No plantis sol! Posa <strong>alfàbrega</strong> prop
+                                dels tomàquets per espantar insectes i millorar-ne el sabor. Planta <strong>calèndules o
+                                    clavells de moro</strong> als extrems de la parcel·la: atreuen les abelles
+                                pol·linitzadores i allunyen els pugons.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-4 items-start bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                        <div
+                            class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold shrink-0">
+                            3</div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Respecta l'Espai</h4>
+                            <p class="text-sm text-gray-600 mt-1">L'error de principiant més comú és plantar massa junt.
+                                Si poses els enciams enganxats, competiran per l'aigua i els nutrients i no creixeran
+                                bé. Deixa "respirar" cada planta.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <div
+            class="bg-green-800 text-white rounded-3xl p-8 md:p-12 text-center shadow-2xl relative overflow-hidden mb-10">
+            <div class="absolute -top-24 -right-24 w-64 h-64 bg-green-700 rounded-full opacity-50 blur-3xl"></div>
+            <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-green-600 rounded-full opacity-50 blur-3xl"></div>
+
+            <div class="relative z-10">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Vols portar aquesta guia a la pràctica?</h2>
+                <p class="mb-8 text-green-100 text-lg max-w-xl mx-auto">
+                    Tenim l'espai, l'aigua i la terra a punt al <strong>Camp de Gerri</strong>. Només faltes tu per
+                    començar a cultivar els teus propis aliments.
+                </p>
+                <a href="index#contacte"
+                    class="inline-block bg-amber-400 text-amber-900 font-extrabold text-xl py-4 px-10 rounded-full hover:bg-amber-300 transition transform hover:-translate-y-1 shadow-xl">
+                    Vull Informació per Llogar una Parcel·la 🚜
+                </a>
+                <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm text-green-200">
+                    <span class="flex items-center gap-1">✓ Pàrquing inclòs</span>
+                    <span class="flex items-center gap-1">✓ Aigua preparada</span>
+                    <span class="flex items-center gap-1">✓ Bon ambient</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
