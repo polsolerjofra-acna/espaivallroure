@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografia: Arbres Fruiters a Balestui</title>
+
+    <link rel="icon" type="image/png" href="img/logopol (1).png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8f6f0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232c5234' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="text-gray-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Botó Retorn al Menú -->
+    <a href="infografies"
+        class="fixed top-4 left-4 z-[9999] flex items-center gap-2 bg-white/90 hover:bg-white text-gray-800 font-bold px-4 py-2 rounded-full shadow-lg backdrop-blur-sm transition border border-gray-200 text-sm hover:scale-105">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
+            </path>
+        </svg>
+        <span class="hidden sm:inline">Tornar a l'Àrea Privada</span>
+    </a>
+
+    <!-- Header / Títol -->
+    <header class="bg-[#1a472a] text-white pt-24 pb-20 px-6 relative overflow-hidden shadow-xl">
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"
+                preserveAspectRatio="none">
+                <path d="M0,100 C30,60 70,60 100,100 Z" fill="currentColor" />
+                <path d="M0,100 C20,80 80,40 100,100 Z" fill="currentColor" opacity="0.5" />
+            </svg>
+        </div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <span class="uppercase tracking-widest text-green-200 text-sm font-semibold mb-3 block">Guia de Cultiu
+                Pirinenc</span>
+            <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">Arbres Fruiters per
+                al<br><span class="text-green-300">Clima de Balestui</span></h1>
+            <p class="text-lg md:text-xl text-green-50 max-w-2xl mx-auto font-light leading-relaxed">
+                Situat a <b>858 metres d'altitud</b> a la Vall d'Ancs (Pallars Sobirà), Balestui té un clima de muntanya
+                amb hiverns rigorosos i risc de gelades tardanes. Aquests són els fruiters que millor s'hi adapten.
+            </p>
+        </div>
+    </header>
+
+    <!-- Contingut Principal -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20 pb-16 flex-grow">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- 1. POMER -->
+            <article
+                class="bg-white rounded-2xl shadow-lg border-t-8 border-red-500 overflow-hidden card-hover transition-all duration-300">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h2 class="font-serif text-3xl font-bold text-gray-900">Pomer</h2>
+                            <p class="text-sm italic text-gray-500 font-serif">Malus domestica</p>
+                        </div>
+                        <div class="text-4xl bg-red-50 p-3 rounded-full">🍎</div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <span class="text-red-500 mr-3 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg></span>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Característiques</h3>
+                                <p class="text-sm text-gray-600">Molt rústic i resistent al fred hivernal extrem.
+                                    S'adapta perfectament a l'altitud del Pallars. Convé triar varietats de floració
+                                    tardana per esquivar gelades primaverals.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <span class="text-red-500 mr-3 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14.121 15.536c-1.171-1.952-3.07-1.567-4.242-.396L3.333 21.688m17.334-17.334l-5.657 5.657m0 0l-5.657 5.657m5.657-5.657l5.657 5.657M10.586 10.586L4.929 4.929m0 0L3.515 3.515m1.414 1.414l-1.414 1.414">
+                                    </path>
+                                </svg></span>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Esporga</h3>
+                                <p class="text-sm text-gray-600">Ple hivern <b>(Gener - Febrer)</b>, durant l'aturada
+                                    vegetativa i evitant dies de moltíssim fred per afavorir la cicatrització.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <span class="text-red-500 mr-3 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                    </path>
+                                </svg></span>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Collita</h3>
+                                <p class="text-sm text-gray-600">Finals d'estiu a meitat de tardor <b>(Setembre -
+                                        Novembre)</b> segons la varietat.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-red-50 p-3 rounded-lg mt-4 text-sm text-red-800 border border-red-100">
+                            <b>💡 Consell:</b> Les varietats antigues locals o tipus "Verdoncella" i "Esperiega" són les
+                            més resilients.
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 2. PERERA -->
+            <article
+                class="bg-white rounded-2xl shadow-lg border-t-8 border-lime-500 overflow-hidden card-hover transition-all duration-300">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h2 class="font-serif text-3xl font-bold text-gray-900">Perera</h2>
+                            <p class="text-sm italic text-gray-500 font-serif">Pyrus communis</p>
+                        </div>
+                        <div class="text-4xl bg-lime-50 p-3 rounded-full">🍐</div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <span class="text-lime-600 mr-3 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg></span>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Característiques</h3>
+                                <p class="text-sm text-gray-600">Arbre de gran longevitat i vigorós. Molt rústic enfront
+                                    de climes freds. Tolera sòls una mica més pesants i profunds de la vall.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <span class="text-lime-600 mr-3 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14.121 15.536c-1.171-1.952-3.07-1.567-4.242-.396L3.333 21.688m17.334-17.334l-5.657 5.657m0 0l-5.657 5.657m5.657-5.657l5.657 5.657M10.586 10.586L4.929 4.929m0 0L3.515 3.515m1.414 1.414l-1.414 1.414">
+                                    </path>
+                                </svg></span>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Esporga</h3>
+                                <p class="text-sm text-gray-600">Hivern pur <b>(Gener - Febrer)</b>. Tendeix a créixer
+                                    recte cap amunt; l'esporga ajuda a obrir-ne la capçada.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <span class="text-lime-600 mr-3 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                    </path>
+                                </svg></span>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Collita</h3>
+                                <p class="text-sm text-gray-600">Finals d'estiu fins a principis de tardor <b>(Agost -
+                                        Octubre)</b>.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-lime-50 p-3 rounded-lg mt-4 text-sm text-lime-800 border border-lime-100">
+                            <b>💡 Consell:</b> És menys sensible a les gelades tardanes que els fruiters de pinyol
+                            (prunes/cireres).
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 3. CIRERER -->
+            <article
+                class="bg-white rounded-2xl shadow-lg border-t-8 border-rose-500 overflow-hidden card-hover transition-all duration-300">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h2 class="font-serif text-3xl font-bold text-gray-900">Cirerer</h2>
+                            <p class="text-sm italic text-gray-500 font-serif">Prunus avium</p>
+                        </div>
+                        <div class="text-4xl bg-rose-50 p-3 rounded-full">🍒</div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <span class="text-rose-500 mr-3 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg></span>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Característiques</h3>
+                                <p class="text-sm text-gray-600">L'arbre resisteix el fred hivernal, però <b>les flors
+                                        són delicades</b> enfront les gelades primaverals de Balestui. Evitar llocs
+                                    humits.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <span class="text-rose-500 mr-3 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14.121 15.536c-1.171-1.952-3.07-1.567-4.242-.396L3.333 21.688m17.334-17.334l-5.657 5.657m0 0l-5.657 5.657m5.657-5.657l5.657 5.657M10.586 10.586L4.929 4.929m0 0L3.515 3.515m1.414 1.414l-1.414 1.414">
+                                    </path>
+                                </svg></span>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Esporga</h3>
+                                <p class="text-sm text-gray-600">A la <b>tardor</b> en caure la fulla o a l'<b>estiu</b>
+                                    (en verd). <i>Mai a ple hivern</i>, per evitar la gomosi i malalties fúngiques.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <span class="text-rose-500 mr-3 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                    </path>
+                                </svg></span>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Collita</h3>
+                                <p class="text-sm text-gray-600">Finals de primavera i principis d'estiu <b>(Maig -
+                                        Juliol)</b>.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-rose-50 p-3 rounded-lg mt-4 text-sm text-rose-800 border border-rose-100">
+                            <b>💡 Consell:</b> Planta'l a recer de vents freds i en terrenys ben drenats per evitar que
+                            se li podreixin les arrels.
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 4. PRUNERA -->
+            <article
+                class="bg-white rounded-2xl shadow-lg border-t-8 border-fuchsia-500 overflow-hidden card-hover transition-all duration-300">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h2 class="font-serif text-3xl font-bold text-gray-900">Prunera</h2>
+                            <p class="text-sm italic text-gray-500 font-serif">Prunus domestica</p>
+                        </div>
+                        <div class="text-4xl bg-fuchsia-50 p-3 rounded-full">🫐</div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <span class="text-fuchsia-500 mr-3 mt-1"><svg class="w-5 h-5" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg></span>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Característiques</h3>
+                                <p class="text-sm text-gray-600">Dels fruiters de pinyol, és el més rústic. S'adapta
+                                    fàcilment a tota mena de sòls i aguanta molt bé les inclemències del Prepirineu.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <span class="text-fuchsia-500 mr-3 mt-1"><svg class="w-5 h-5" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14.121 15.536c-1.171-1.952-3.07-1.567-4.242-.396L3.333 21.688m17.334-17.334l-5.657 5.657m0 0l-5.657 5.657m5.657-5.657l5.657 5.657M10.586 10.586L4.929 4.929m0 0L3.515 3.515m1.414 1.414l-1.414 1.414">
+                                    </path>
+                                </svg></span>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Esporga</h3>
+                                <p class="text-sm text-gray-600">Hivern <b>(Gener - Febrer)</b> en aturada vegetativa.
+                                    És poc exigent, només cal aclarir el centre per deixar entrar la llum.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <span class="text-fuchsia-500 mr-3 mt-1"><svg class="w-5 h-5" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                    </path>
+                                </svg></span>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Collita</h3>
+                                <p class="text-sm text-gray-600">Mig i final de l'estiu <b>(Juliol - Setembre)</b>.</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-fuchsia-50 p-3 rounded-lg mt-4 text-sm text-fuchsia-800 border border-fuchsia-100">
+                            <b>💡 Consell:</b> Molt resistent a la sequera estival moderada, requereix molt menys reg
+                            que la pomera.
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 5. NOGUERA -->
+            <article
+                class="bg-white rounded-2xl shadow-lg border-t-8 border-amber-600 overflow-hidden card-hover transition-all duration-300">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h2 class="font-serif text-3xl font-bold text-gray-900">Noguera</h2>
+                            <p class="text-sm italic text-gray-500 font-serif">Juglans regia</p>
+                        </div>
+                        <div class="text-4xl bg-amber-50 p-3 rounded-full">🥜</div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <span class="text-amber-600 mr-3 mt-1"><svg class="w-5 h-5" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg></span>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Característiques</h3>
+                                <p class="text-sm text-gray-600">Arbre emblemàtic de la muntanya mitjana i pre-pirineu.
+                                    Aguantarà perfectament el fred de Balestui, tot i que necessita força espai.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <span class="text-amber-600 mr-3 mt-1"><svg class="w-5 h-5" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14.121 15.536c-1.171-1.952-3.07-1.567-4.242-.396L3.333 21.688m17.334-17.334l-5.657 5.657m0 0l-5.657 5.657m5.657-5.657l5.657 5.657M10.586 10.586L4.929 4.929m0 0L3.515 3.515m1.414 1.414l-1.414 1.414">
+                                    </path>
+                                </svg></span>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Esporga</h3>
+                                <p class="text-sm text-gray-600">Finals d'estiu o principis de tardor. <b>Mai a ple
+                                        hivern ni primavera</b>, perquè la noguera "sagna" (perd molta saba) i es
+                                    debilita.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <span class="text-amber-600 mr-3 mt-1"><svg class="w-5 h-5" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                    </path>
+                                </svg></span>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Collita</h3>
+                                <p class="text-sm text-gray-600">Tardor <b>(Octubre - Novembre)</b> quan esbadella el
+                                    palló.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-amber-50 p-3 rounded-lg mt-4 text-sm text-amber-800 border border-amber-100">
+                            <b>💡 Consell:</b> Les gelades molt tardanes poden cremar els brots nous i tendres, però
+                            l'arbre té capacitat per rebrotar ràpidament.
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 6. AVELLANER -->
+            <article
+                class="bg-white rounded-2xl shadow-lg border-t-8 border-orange-400 overflow-hidden card-hover transition-all duration-300">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h2 class="font-serif text-3xl font-bold text-gray-900">Avellaner</h2>
+                            <p class="text-sm italic text-gray-500 font-serif">Corylus avellana</p>
+                        </div>
+                        <div class="text-4xl bg-orange-50 p-3 rounded-full">🌰</div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <span class="text-orange-500 mr-3 mt-1"><svg class="w-5 h-5" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg></span>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Característiques</h3>
+                                <p class="text-sm text-gray-600">Arbust autòcton que s'adapta a zones obagues i més
+                                    humides. És increïblement resistent al fred extrem de la muntanya.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <span class="text-orange-500 mr-3 mt-1"><svg class="w-5 h-5" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14.121 15.536c-1.171-1.952-3.07-1.567-4.242-.396L3.333 21.688m17.334-17.334l-5.657 5.657m0 0l-5.657 5.657m5.657-5.657l5.657 5.657M10.586 10.586L4.929 4.929m0 0L3.515 3.515m1.414 1.414l-1.414 1.414">
+                                    </path>
+                                </svg></span>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Esporga</h3>
+                                <p class="text-sm text-gray-600">Hivern <b>(Desembre - Febrer)</b>. Principalment cal
+                                    tallar els rebrots des de la base ("pollises") i aclarir l'interior per formar la
+                                    capçada.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <span class="text-orange-500 mr-3 mt-1"><svg class="w-5 h-5" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                    </path>
+                                </svg></span>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Collita</h3>
+                                <p class="text-sm text-gray-600">Finals d'estiu a principis de tardor <b>(Agost -
+                                        Setembre)</b>.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-orange-50 p-3 rounded-lg mt-4 text-sm text-orange-800 border border-orange-100">
+                            <b>💡 Consell:</b> Té una floració molt peculiar; floreix a ple hivern (gener-febrer) i es
+                            pol·linitza exclusivament gràcies al vent.
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Footer - Consells Generals -->
+    <footer class="bg-white border-t border-gray-200 py-12 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-serif text-2xl font-bold text-center text-green-900 mb-8">Consells Clau per a l'Èxit a
+                Balestui</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div
+                        class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-green-700">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-2">Varietats Locals</h3>
+                    <p class="text-sm text-gray-600">Sempre que puguis, aposta per varietats antigues del Pallars. Estan
+                        genèticament adaptades al cicle de gelades de la zona.</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-700">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-2">Evitar Fons de Vall</h3>
+                    <p class="text-sm text-gray-600">Planta, si pots, en zones una mica enlairades o amb lleuger
+                        pendent. Als fons de vall s'hi fan "pous" d'aire fred (gelades negres).</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-amber-700">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-2">Protecció Jove</h3>
+                    <p class="text-sm text-gray-600">A l'hivern, protegeix els troncs dels arbres joves de la fauna
+                        salvatge (cabirols) i de les cremades pel fort contrast de sol de dia i fred intens de nit.</p>
+                </div>
+            </div>
+            <p class="text-center text-xs text-gray-400 mt-12 border-t pt-6">Infografia optimitzada per al clima del
+                Pallars Sobirà (Baix Pallars)</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
