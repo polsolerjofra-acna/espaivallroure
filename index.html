@@ -1162,45 +1162,48 @@
                             com a <strong>Signatura Digital de conformitat</strong>.</span>
                     </label>
 
-                    <!-- Pagament -->
-                    <div class="bg-white" id="payment-fields">
-                        <label class="block text-sm font-bold text-stone-700 mb-3 flex justify-between items-center">
-                            Targeta de crèdit
-                            <div class="flex gap-1 border border-stone-200 px-2 py-1 rounded">
-                                <span
-                                    class="bg-blue-100 text-blue-800 text-[10px] px-1.5 py-0.5 rounded font-bold">VISA</span>
-                                <span
-                                    class="bg-orange-100 text-orange-800 text-[10px] px-1.5 py-0.5 rounded font-bold">MC</span>
-                            </div>
+                    <!-- Mètode de Pagament -->
+                    <div class="bg-blue-50 border border-blue-100 rounded-xl p-5 mb-4" id="payment-fields">
+                        <label class="block text-sm font-bold text-brand-900 mb-2 flex items-center gap-2">
+                            <i data-lucide="landmark" class="w-4 h-4 text-brand-700"></i> Transferència Bancària
                         </label>
-                        <div class="relative mb-3">
-                            <i data-lucide="credit-card" class="w-5 h-5 absolute left-3 top-3.5 text-stone-400"></i>
-                            <input type="text" placeholder="Número de targeta" required pattern="[0-9\s]{13,19}"
-                                class="w-full pl-10 pr-4 py-3 text-sm rounded-xl border border-stone-200 focus:border-brand-500 outline-none transition bg-stone-50">
+                        <p class="text-xs text-brand-800 mb-3 leading-relaxed">
+                            A l'Espai Vall-Roure gestionem les altes manualment per evitar abusives comissions
+                            bancàries. Un cop confirmis la teva sol·licitud aquí, hauràs de realitzar una transferència
+                            de l'import inicial a aquest compte:
+                        </p>
+                        <div
+                            class="bg-white p-3 rounded-lg border border-brand-200 select-all font-mono text-center font-bold text-brand-900 tracking-wide mb-3">
+                            ES55 1563 2626 3232 6941 6254
                         </div>
-                        <div class="grid grid-cols-2 gap-3">
-                            <input type="text" placeholder="MM/AA" required pattern="[0-9]{2}/[0-9]{2}"
-                                class="w-full px-4 py-3 text-sm rounded-xl border border-stone-200 outline-none transition uppercase bg-stone-50">
-                            <input type="text" placeholder="CVC" required pattern="[0-9]{3,4}"
-                                class="w-full px-4 py-3 text-sm rounded-xl border border-stone-200 outline-none transition bg-stone-50">
-                        </div>
+                        <p class="text-[11px] text-brand-700">
+                            <strong>Concepte:</strong> El teu DNI o Nom.<br>L'accés a l'espai i el compte web
+                            s'activaran de seguida quan un propietari validi el rebut o l'ingrés.
+                        </p>
                     </div>
-
-
 
                     <button type="submit" id="btn-pagar-rent"
                         class="w-full bg-brand-700 text-white font-bold py-4 rounded-xl hover:bg-brand-800 transition shadow-lg flex justify-center items-center gap-2 mt-4">
-                        <i data-lucide="lock" class="w-5 h-5"></i> Contractar de Forma Segura
+                        <i data-lucide="send" class="w-5 h-5"></i> Enviar Sol·licitud d'Alta
                     </button>
 
                     <!-- Success Message -->
                     <div id="rent-payment-success"
                         class="hidden bg-emerald-50 text-emerald-900 p-6 rounded-xl border border-emerald-200 text-center font-semibold mt-4 animate-fadeIn">
-                        <i data-lucide="check-circle-2" class="w-16 h-16 mx-auto mb-4 text-emerald-500"></i>
-                        <p class="text-xl mb-2 text-emerald-800">Pagament acceptat!</p>
-                        <p class="text-sm text-emerald-700 font-normal leading-relaxed">Benvingut a l'Espai Vall-Roure.
-                            T'hem enviat un email amb el contracte i les teves credencials d'accés per veure tot el
-                            contingut privat del panell.</p>
+                        <i data-lucide="clock-4" class="w-16 h-16 mx-auto mb-4 text-emerald-500"></i>
+                        <p class="text-xl font-bold mb-2 text-emerald-800">Sol·licitud rebuda!</p>
+                        <p class="text-sm text-emerald-700 font-normal leading-relaxed mb-4">La teva petició està en
+                            "standby". Recorda fer l'ingrés o transferència a:</p>
+                        <div
+                            class="bg-white p-3 rounded border border-emerald-200 font-mono text-sm font-bold text-emerald-900 mb-4 select-all">
+                            ES55 1563 2626 3232 6941 6254
+                        </div>
+                        <p class="text-sm text-emerald-700 font-normal leading-relaxed mb-5">Tan bon punt rebem el
+                            justificant o ho validem, activarem les claus que has escollit per entrar a l'àrea privada o
+                            començar a usar l'hort.</p>
+                        <button type="button" onclick="closeRentModal()"
+                            class="w-full bg-emerald-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-emerald-700 transition">Entès
+                            i Tancar</button>
                     </div>
                 </form>
             </div>
@@ -1249,6 +1252,7 @@
             document.body.style.overflow = 'auto';
             document.getElementById('rent-payment-success').classList.add('hidden');
             document.getElementById('btn-pagar-rent').classList.remove('hidden');
+            document.getElementById('rent-form').reset();
         }
 
         rentModal.addEventListener('click', closeRentModal);
@@ -1258,34 +1262,28 @@
             const btn = document.getElementById('btn-pagar-rent');
             const originalContent = btn.innerHTML;
 
-            btn.innerHTML = 'Processant Pagament... <i class="animate-spin w-5 h-5 border-2 border-white rounded-full border-t-transparent ml-2 inline-block"></i>';
+            btn.innerHTML = 'Enviant dades... <i class="animate-spin w-5 h-5 border-2 border-white rounded-full border-t-transparent ml-2 inline-block"></i>';
             btn.disabled = true;
 
             setTimeout(() => {
                 btn.style.display = 'none';
                 document.getElementById('rent-payment-success').classList.remove('hidden');
 
-                // Redirigir cap a àrea infografies despés de 4 segons
+                // Desa credencials locals preparades per a quan l'admin l'accepti manualment
+                const newEmail = document.getElementById('book-email').value.toLowerCase().trim();
+                const newPwd = document.getElementById('book-password').value;
+                if (newEmail && newPwd) {
+                    localStorage.setItem('hort_auth_reg_email', newEmail);
+                    localStorage.setItem('hort_auth_reg_pwd', newPwd);
+                    // NO fem auto-login auto-redirecció (sessió) per retenir-los en standby
+                }
+
                 setTimeout(() => {
-                    closeRentModal();
                     btn.innerHTML = originalContent;
                     btn.disabled = false;
                     btn.style.display = 'flex';
-
-                    // Desa i inicia sessió local
-                    const newEmail = document.getElementById('book-email').value.toLowerCase().trim();
-                    const newPwd = document.getElementById('book-password').value;
-                    if (newEmail && newPwd) {
-                        localStorage.setItem('hort_auth_reg_email', newEmail);
-                        localStorage.setItem('hort_auth_reg_pwd', newPwd);
-
-                        // Marca-ho com logged in
-                        sessionStorage.setItem('hort_auth_logged', 'true');
-                    }
-
-                    window.location.href = 'infografies';
-                }, 4000);
-            }, 2000);
+                }, 100);
+            }, 1500);
         }
     </script>
 </body>
