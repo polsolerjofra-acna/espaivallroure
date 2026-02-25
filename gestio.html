@@ -513,6 +513,16 @@
                 renderFinancesTable(totalRevenue, extrasRevenue, expenses);
             }
 
+            // Update new finance view KPIs
+            const revKpi = document.getElementById('finances-kpi-revenue');
+            if (revKpi) revKpi.textContent = totalRevenue + '€';
+
+            const extKpi = document.getElementById('finances-kpi-extras');
+            if (extKpi) extKpi.textContent = extrasRevenue + '€';
+
+            const expKpi = document.getElementById('finances-kpi-expenses');
+            if (expKpi) expKpi.textContent = expenses + '€';
+
             document.getElementById('kpi-rented-plots').textContent = activePlots;
             document.getElementById('kpi-surface').textContent = totalSurface + ' m²';
             document.getElementById('kpi-regs').textContent = totalRegs;
