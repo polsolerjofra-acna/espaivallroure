@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografia: Què poden menjar les gallines?</title>
+
+    <link rel="icon" type="image/png" href="img/logopol (1).png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #fdfbf7;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e6e0d4' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-title {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .card-hover {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="text-gray-800 min-h-screen p-4 md:p-8">
+
+    <!-- Botó Retorn al Menú -->
+    <a href="infografies"
+        class="fixed top-4 left-4 z-[9999] flex items-center gap-2 bg-white/90 hover:bg-white text-gray-800 font-bold px-4 py-2 rounded-full shadow-lg backdrop-blur-sm transition border border-gray-200 text-sm hover:scale-105">
+        <i class="fas fa-arrow-left"></i>
+        <span class="hidden sm:inline">Tornar a l'Àrea Privada</span>
+    </a>
+
+    <div
+        class="max-w-5xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border-4 border-amber-800/10 mt-12 md:mt-8">
+
+        <!-- Header -->
+        <header
+            class="bg-gradient-to-r from-amber-600 to-orange-500 text-white p-8 text-center relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+                <i class="fas fa-wheat-awn text-9xl absolute -bottom-4 -left-4 transform -rotate-12"></i>
+                <i class="fas fa-egg text-8xl absolute top-4 right-10 transform rotate-45"></i>
+            </div>
+
+            <div class="relative z-10">
+                <div
+                    class="bg-white text-amber-600 rounded-full w-24 h-24 mx-auto flex items-center justify-center text-5xl mb-4 shadow-lg border-4 border-amber-200">
+                    🐔
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-3 drop-shadow-md">Menú per a Gallines</h1>
+                <p class="text-lg md:text-xl font-medium text-amber-50 max-w-2xl mx-auto">
+                    Guia ràpida de restes de menjar: Què és un festí segur i què s'ha d'evitar a tota costa per mantenir
+                    les teves gallines sanes i felices.
+                </p>
+            </div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+
+            <!-- Column YES -->
+            <div class="bg-green-50 p-6 md:p-8 border-r-0 md:border-r-2 border-dashed border-gray-200">
+                <div class="flex items-center gap-3 mb-6 border-b-2 border-green-200 pb-4">
+                    <div
+                        class="bg-green-500 text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl shadow-md">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-green-700">SÍ PODEN MENJAR</h2>
+                </div>
+                <p class="text-green-800 mb-6 italic">Restes delicioses i nutritives per complementar la seva dieta.</p>
+
+                <div class="space-y-4">
+                    <!-- Item -->
+                    <div
+                        class="bg-white p-4 rounded-xl shadow-sm border border-green-100 card-hover flex gap-4 items-start">
+                        <div class="text-3xl">🥬</div>
+                        <div>
+                            <h3 class="font-bold text-green-800 text-lg">Verdures i Hortalisses</h3>
+                            <p class="text-sm text-gray-600">Enciam, bledes, espinacs, pastanaga, carbassa, cogombre,
+                                bròquil. Són excel·lents per a elles.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item -->
+                    <div
+                        class="bg-white p-4 rounded-xl shadow-sm border border-green-100 card-hover flex gap-4 items-start">
+                        <div class="text-3xl">🍉</div>
+                        <div>
+                            <h3 class="font-bold text-green-800 text-lg">Fruites (sense llavors tòxiques)</h3>
+                            <p class="text-sm text-gray-600">Síndria, meló, plàtan, maduixes, pomes i peres (sense el
+                                cor ni les llavors).</p>
+                        </div>
+                    </div>
+
+                    <!-- Item -->
+                    <div
+                        class="bg-white p-4 rounded-xl shadow-sm border border-green-100 card-hover flex gap-4 items-start">
+                        <div class="text-3xl">🍚</div>
+                        <div>
+                            <h3 class="font-bold text-green-800 text-lg">Cereals i Carbohidrats</h3>
+                            <p class="text-sm text-gray-600">Arròs i pasta (sempre cuits), civada, i pa (amb moderació i
+                                millor si és integral, mullat amb aigua).</p>
+                        </div>
+                    </div>
+
+                    <!-- Item -->
+                    <div
+                        class="bg-white p-4 rounded-xl shadow-sm border border-green-100 card-hover flex gap-4 items-start">
+                        <div class="text-3xl">🥚</div>
+                        <div>
+                            <h3 class="font-bold text-green-800 text-lg">Proteïnes extra</h3>
+                            <p class="text-sm text-gray-600">Restes de carn o peix (cuits i SENSE ossos/espines).
+                                Closques d'ou triturades (molt importants per aportar calci).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column NO -->
+            <div class="bg-red-50 p-6 md:p-8">
+                <div class="flex items-center gap-3 mb-6 border-b-2 border-red-200 pb-4">
+                    <div
+                        class="bg-red-500 text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl shadow-md">
+                        <i class="fas fa-xmark"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-red-700">NO ELS DONIS MAI</h2>
+                </div>
+                <p class="text-red-800 mb-6 italic">Aliments tòxics o perjudicials que poden causar malalties greus.</p>
+
+                <div class="space-y-4">
+                    <!-- Item -->
+                    <div
+                        class="bg-white p-4 rounded-xl shadow-sm border border-red-100 card-hover flex gap-4 items-start">
+                        <div class="text-3xl">🥑</div>
+                        <div>
+                            <h3 class="font-bold text-red-800 text-lg">Alvocat</h3>
+                            <p class="text-sm text-gray-600">Sobretot la pell i el pinyol contenen <em>persina</em>, una
+                                toxina que pot ser mortal per a les aus.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item -->
+                    <div
+                        class="bg-white p-4 rounded-xl shadow-sm border border-red-100 card-hover flex gap-4 items-start">
+                        <div class="text-3xl">🥔</div>
+                        <div>
+                            <h3 class="font-bold text-red-800 text-lg">Patata crua i parts verdes</h3>
+                            <p class="text-sm text-gray-600">Contenen solanina. (La patata pelada i ben cuita sí que la
+                                poden menjar).</p>
+                        </div>
+                    </div>
+
+                    <!-- Item -->
+                    <div
+                        class="bg-white p-4 rounded-xl shadow-sm border border-red-100 card-hover flex gap-4 items-start">
+                        <div class="text-3xl">🍋</div>
+                        <div>
+                            <h3 class="font-bold text-red-800 text-lg">Cítrics, Ceba i All</h3>
+                            <p class="text-sm text-gray-600">Llimones/taronges bloquegen l'absorció de calci. L'excés de
+                                ceba i all causa anèmia i dóna mal gust als ous.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item -->
+                    <div
+                        class="bg-white p-4 rounded-xl shadow-sm border border-red-100 card-hover flex gap-4 items-start">
+                        <div class="text-3xl">🍫</div>
+                        <div>
+                            <h3 class="font-bold text-red-800 text-lg">Dolços, Sal i Menjar Florit</h3>
+                            <p class="text-sm text-gray-600">La xocolata i el sucre són tòxics. Excessiva sal les
+                                deshidrata. Mai els donis res podrit o florit.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item -->
+                    <div
+                        class="bg-white p-4 rounded-xl shadow-sm border border-red-100 card-hover flex gap-4 items-start">
+                        <div class="text-3xl">🫘</div>
+                        <div>
+                            <h3 class="font-bold text-red-800 text-lg">Llegums secs crus</h3>
+                            <p class="text-sm text-gray-600">Especialment les mongetes crues, contenen una toxina letal.
+                                Han d'estar molt ben cuites.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer / Tips -->
+        <div class="bg-amber-100 p-6 md:p-8 border-t-4 border-amber-300">
+            <h2 class="text-2xl font-bold text-amber-800 mb-4 flex items-center gap-2">
+                <i class="fas fa-lightbulb text-amber-500"></i> Consells d'Or
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-amber-500">
+                    <h4 class="font-bold text-gray-800 mb-1">La regla del 10%</h4>
+                    <p class="text-sm text-gray-600">Les restes no haurien de superar el 10% de la seva dieta. La base
+                        ha de ser sempre pinso específic per a gallines.</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-amber-500">
+                    <h4 class="font-bold text-gray-800 mb-1">Talla-ho petit</h4>
+                    <p class="text-sm text-gray-600">Les gallines no tenen dents! Talla les verdures dures i les restes
+                        grans a trossets per facilitar-los la feina i evitar ofegaments.</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-amber-500">
+                    <h4 class="font-bold text-gray-800 mb-1">Treu el que sobri</h4>
+                    <p class="text-sm text-gray-600">Si no s'han menjat les restes al cap d'unes hores (especialment a
+                        l'estiu), retira-les per evitar que atreguin rosegadors o es floreixin.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Small footer tag -->
+    <div class="text-center text-gray-500 text-sm mt-6">
+        <p>Infografia creada per ajudar en la cura i el benestar de les aus de corral. 🌿</p>
+    </div>
+
+</body>
+
+</html>

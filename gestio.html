@@ -65,6 +65,10 @@
             background-color: #e2e8f0;
             /* slate-200 */
         }
+
+        .bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2322c55e' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
     </style>
 </head>
 
@@ -165,6 +169,9 @@
                 <button id="tab-tasques-btn"
                     class="py-2 border-b-2 border-transparent text-stone-500 hover:text-stone-700 font-bold transition flex gap-2 items-center"
                     onclick="switchTab('tasques')">Incidències i Tasques</button>
+                <button id="tab-guia-btn"
+                    class="py-2 border-b-2 border-transparent text-stone-500 hover:text-stone-700 font-bold transition flex gap-2 items-center"
+                    onclick="switchTab('guia')">Guia Visual d'Ús</button>
             </div>
 
             <!-- View: Mapa -->
@@ -363,6 +370,166 @@
                         <ul id="incidencies-log" class="divide-y divide-stone-50 overflow-y-auto flex-1 max-h-[480px]">
                             <!-- Generat per JS -->
                         </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View: Guia -->
+            <div id="view-guia" class="flex-1 w-full hidden overflow-y-auto pb-10 bg-pattern rounded-2xl">
+                <div
+                    class="max-w-5xl mx-auto bg-white rounded-3xl shadow-lg border border-green-100 overflow-hidden mt-4">
+                    <!-- Header -->
+                    <header
+                        class="bg-gradient-to-r from-green-600 to-emerald-500 text-white p-8 text-center relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none"
+                            style="background-image: radial-gradient(circle, #fff 10%, transparent 10%); background-size: 20px 20px;">
+                        </div>
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4 relative z-10">🌿 Espai Vall-Roure</h1>
+                        <p class="text-lg md:text-xl font-light relative z-10">Guia Visual i d'Ús: Arquitectura,
+                            Funcions i Gestió</p>
+                    </header>
+
+                    <div class="p-6 md:p-10 space-y-12">
+                        <!-- 1. Mapa de Navegació -->
+                        <section>
+                            <h2
+                                class="text-3xl font-bold text-gray-800 border-b-4 border-green-400 pb-2 mb-8 flex items-center gap-3">
+                                <span>🗺️</span> 1. Mapa de Navegació
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <!-- Públic -->
+                                <div
+                                    class="bg-green-50 border-2 border-green-200 rounded-2xl p-6 shadow-sm relative overflow-hidden">
+                                    <div
+                                        class="absolute top-0 right-0 bg-green-200 text-green-800 text-xs font-bold px-3 py-1 rounded-bl-lg">
+                                        Públic</div>
+                                    <h3 class="text-xl font-bold text-green-700 mb-3">Pàgina Principal</h3>
+                                    <p class="font-mono text-xs bg-white p-2 rounded text-gray-600 mb-4 inline-block">
+                                        index.html</p>
+                                    <ul class="space-y-2 text-sm text-gray-700">
+                                        <li class="flex items-center gap-2"><span>🎯</span> Vendre i atreure</li>
+                                        <li class="flex items-center gap-2"><span>📊</span> Infografia / Preus</li>
+                                        <li class="flex items-center gap-2"><span>📞</span> Contacte i Xarxes</li>
+                                        <li class="flex items-center gap-2"><span>🔐</span> Accés Àrea Privada</li>
+                                    </ul>
+                                </div>
+                                <!-- Privat -->
+                                <div
+                                    class="bg-yellow-50 border-2 border-yellow-200 rounded-2xl p-6 shadow-sm relative overflow-hidden">
+                                    <div
+                                        class="absolute top-0 right-0 bg-yellow-200 text-yellow-800 text-xs font-bold px-3 py-1 rounded-bl-lg">
+                                        Clients</div>
+                                    <h3 class="text-xl font-bold text-yellow-700 mb-3">Àrea Privada</h3>
+                                    <p class="font-mono text-xs bg-white p-2 rounded text-gray-600 mb-4 inline-block">
+                                        Capat amb Email</p>
+                                    <ul class="space-y-2 text-sm text-gray-700">
+                                        <li class="flex items-center gap-2"><span>🛒</span> <code
+                                                class="text-xs">serveis-privat.html</code></li>
+                                        <li class="flex items-center gap-2"><span>👥</span> <code
+                                                class="text-xs">comunitat.html</code></li>
+                                        <li class="flex items-center gap-2"><span>📖</span> <code
+                                                class="text-xs">guia-iniciacio.html</code></li>
+                                        <li class="flex items-center gap-2"><span>📚</span> Biblioteca Infografies</li>
+                                    </ul>
+                                </div>
+                                <!-- Admin -->
+                                <div
+                                    class="bg-red-50 border-2 border-red-200 rounded-2xl p-6 shadow-sm relative overflow-hidden">
+                                    <div
+                                        class="absolute top-0 right-0 bg-red-200 text-red-800 text-xs font-bold px-3 py-1 rounded-bl-lg">
+                                        Staff</div>
+                                    <h3 class="text-xl font-bold text-red-700 mb-3">Panell Admin</h3>
+                                    <p class="font-mono text-xs bg-white p-2 rounded text-gray-600 mb-4 inline-block">
+                                        gestio.html</p>
+                                    <ul class="space-y-2 text-sm text-gray-700">
+                                        <li class="flex items-center gap-2"><span>🔑</span> <span
+                                                class="bg-red-100 px-1 rounded">Espaivallroure-4</span></li>
+                                        <li class="flex items-center gap-2"><span>🗺️</span> Mapa de parcel·les</li>
+                                        <li class="flex items-center gap-2"><span>💰</span> Finances automàtiques</li>
+                                        <li class="flex items-center gap-2"><span>📈</span> Alertes i Llistats</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- 2. Funcionalitats -->
+                        <section>
+                            <h2
+                                class="text-3xl font-bold text-gray-800 border-b-4 border-yellow-400 pb-2 mb-8 flex items-center gap-3">
+                                <span>🌟</span> 2. Funcionalitats Premium
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-stone-50 p-4 rounded-xl border border-stone-200 flex items-start gap-4">
+                                    <div class="bg-blue-100 p-3 rounded-full text-2xl">🌱</div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Infografia d'Estalvi</h4>
+                                        <p class="text-sm text-gray-600 mt-1">A index.html. Convence els indecisos
+                                            mostrant quants diners s'estalvien vs supermercat.</p>
+                                    </div>
+                                </div>
+                                <div class="bg-stone-50 p-4 rounded-xl border border-stone-200 flex items-start gap-4">
+                                    <div class="bg-purple-100 p-3 rounded-full text-2xl">🛡️</div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Accés Antispam</h4>
+                                        <p class="text-sm text-gray-600 mt-1">Exigeix correu pre-registrat. Dóna imatge
+                                            de prestigi als llogaters.</p>
+                                    </div>
+                                </div>
+                                <div class="bg-stone-50 p-4 rounded-xl border border-stone-200 flex items-start gap-4">
+                                    <div class="bg-orange-100 p-3 rounded-full text-2xl">🐞</div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Biblioteca Visual</h4>
+                                        <p class="text-sm text-gray-600 mt-1">El client diagnostica el seu hort sense
+                                            molestar l'administrador amb targetes visuals.</p>
+                                    </div>
+                                </div>
+                                <div class="bg-stone-50 p-4 rounded-xl border border-stone-200 flex items-start gap-4">
+                                    <div class="bg-emerald-100 p-3 rounded-full text-2xl">📡</div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Webhook cap a l'Excel</h4>
+                                        <p class="text-sm text-gray-600 mt-1">Anotar una fuita a gestio.html envia
+                                            màgicament la data al Google Sheets i un email a l'admin.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- 3. Edició -->
+                        <section class="bg-slate-800 text-white rounded-3xl p-6 md:p-8 shadow-inner">
+                            <h2
+                                class="text-3xl font-bold text-white border-b-4 border-blue-400 pb-2 mb-8 flex items-center gap-3">
+                                <span>🛠️</span> 3. Edició i Manteniment
+                            </h2>
+                            <p class="text-slate-300 mb-6 font-sm">Això ha estat escrit manualment en <strong>HTML
+                                    Directe</strong> i <strong>Tailwind CSS</strong>. Res de wix o programari extern.
+                            </p>
+
+                            <div class="space-y-6">
+                                <div class="bg-slate-700/50 p-5 rounded-xl border border-slate-600">
+                                    <h3 class="text-xl font-bold text-blue-300 mb-2">Com Canviar Preus i Textos</h3>
+                                    <ol class="list-decimal list-inside text-slate-300 text-sm space-y-2">
+                                        <li>Obre els arxius <code
+                                                class="bg-slate-800 px-1 rounded text-stone-300">.html</code> amb un
+                                            editor (Cursor o inclús bloc de notes).</li>
+                                        <li>Busca amb <code>Ctrl+F</code> la quantitat vella ("ex: 25€").</li>
+                                        <li>Substitueix el número garantint que no toques els corxets especials
+                                            <code>&lt; &gt;</code> del voltant.</li>
+                                    </ol>
+                                </div>
+
+                                <div class="bg-slate-700/50 p-5 rounded-xl border border-slate-600">
+                                    <h3 class="text-xl font-bold text-blue-300 mb-2">Com Afegir Més Fotos Mves</h3>
+                                    <ol class="list-decimal list-inside text-slate-300 text-sm space-y-2">
+                                        <li>Arrossega la teva foto a dins la carpeta <code>/img</code> de color blau al
+                                            llistat de fitxers.</li>
+                                        <li>Al codi html busca la targeta i canvia el nom final: <code
+                                                class="bg-slate-800 text-emerald-400 p-1 rounded">src="img/nova-foto.jpg"</code>.
+                                        </li>
+                                        <li>Guarda els canvis (Ctrl+S).</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
@@ -987,7 +1154,7 @@
         }
 
         function switchTab(tab) {
-            ['mapa', 'llistats', 'finances', 'tasques'].forEach(t => {
+            ['mapa', 'llistats', 'finances', 'tasques', 'guia'].forEach(t => {
                 const isCurrent = t === tab;
                 document.getElementById(`view-${t}`).classList.toggle('hidden', !isCurrent);
 
