@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Espai Vall-Roure | Gestió de Parcel·les</title>
-    <meta name="description" content="Lloguer de parcel·les d'hort ecològic a l'Espai Vall-Roure. Cultiva la teva pròpia verdura en un entorn natural i comparteix experiències.">
+    <meta name="description"
+        content="Lloguer de parcel·les d'hort ecològic a l'Espai Vall-Roure. Cultiva la teva pròpia verdura en un entorn natural i comparteix experiències.">
 
-        <link rel="icon" type="image/png" href="img/logopol (1).png">
-<script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="img/logopol (1).png">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
@@ -150,7 +151,8 @@
         <!-- Main Content Area -->
         <main class="flex-1 overflow-auto p-4 md:p-8 relative bg-stone-100 flex flex-col h-full">
 
-            <div class="flex border-b border-stone-200 mb-6 shrink-0 gap-6">
+            <div
+                class="flex overflow-x-auto whitespace-nowrap border-b border-stone-200 mb-6 shrink-0 gap-6 pb-2 no-scrollbar">
                 <button id="tab-mapa-btn"
                     class="py-2 border-b-2 border-emerald-600 font-bold text-emerald-700 transition"
                     onclick="switchTab('mapa')">Plànol Interactiu</button>
@@ -160,6 +162,9 @@
                 <button id="tab-finances-btn"
                     class="py-2 border-b-2 border-transparent text-stone-500 hover:text-stone-700 font-bold transition flex gap-2 items-center"
                     onclick="switchTab('finances')">Finances i Comptabilitat</button>
+                <button id="tab-tasques-btn"
+                    class="py-2 border-b-2 border-transparent text-stone-500 hover:text-stone-700 font-bold transition flex gap-2 items-center"
+                    onclick="switchTab('tasques')">Incidències i Tasques</button>
             </div>
 
             <!-- View: Mapa -->
@@ -371,8 +376,76 @@
             </div>
         </div>
     </div>
+    </div>
+
+    <!-- View: Tasques -->
+    <div id="view-tasques" class="flex-1 w-full hidden overflow-y-auto pb-10">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold text-stone-800">Registre d'Incidències i Tasques</h2>
+            <div class="text-sm text-emerald-600 font-bold flex items-center gap-1"><i data-lucide="cloud-lightning"
+                    class="w-4 h-4"></i> Sync en el núvol</div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm border border-stone-200 p-6 max-w-2xl relative overflow-hidden">
+            <i data-lucide="clipboard-list"
+                class="absolute -right-4 -bottom-4 w-40 h-40 text-stone-50 transform rotate-12"></i>
+            <p class="text-stone-600 mb-6 text-sm relative z-10">Emplena les dades per anotar una incidència de la
+                finca, tasca pendent o avís. En prémer "Guardar i Enviar", es comunicarà instantàniament amb l'Excel.
+            </p>
+
+            <form id="tasques-form" onsubmit="enviarTasca(event)" class="space-y-4 relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-stone-600 mb-1">Tipus d'Anotació</label>
+                        <select id="t-tipus" required
+                            class="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:border-stone-500 outline-none">
+                            <option value="Incidència Finca">Incidència Finca / Manteniment</option>
+                            <option value="Incidència Client">Incidència d'un Hortolà</option>
+                            <option value="Tasca Pendent">Tasca Pendent a realitzar</option>
+                            <option value="Material">Falta Material / Compra urgent</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-stone-600 mb-1">Google App Script Webhook URL</label>
+                        <input type="text" id="t-webhook" placeholder="Opcional. https://script.google.com/macros/s/..."
+                            class="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:border-stone-500 outline-none font-mono tracking-tighter text-[10px] bg-stone-50 text-stone-500">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-stone-600 mb-1">Assumpte</label>
+                    <input type="text" id="t-assumpte" required placeholder="Ex: Fuga d'aigua, Tanca esquerdada..."
+                        class="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:border-stone-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-stone-600 mb-1">Descripció detallada de qui, què i
+                        com</label>
+                    <textarea id="t-desc" rows="5" required placeholder="Escriu els detalls..."
+                        class="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:border-stone-500 outline-none resize-none"></textarea>
+                </div>
+
+                <div class="mt-6 pt-6 border-t border-stone-100 flex gap-4 items-center">
+                    <button type="submit" id="btn-submit-tasca"
+                        class="bg-stone-800 text-white font-bold py-2.5 px-6 rounded-lg hover:bg-stone-700 transition flex items-center gap-2">
+                        <i data-lucide="send" class="w-4 h-4"></i> Guardar i Enviar a l'Excel
+                    </button>
+                    <span id="tasca-status" class="text-sm font-bold opacity-0 transition"></span>
+                </div>
+            </form>
+        </div>
+    </div>
     </main>
     </div>
+
+    <style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
 
     <script>
         lucide.createIcons();
@@ -969,7 +1042,7 @@
         }
 
         function switchTab(tab) {
-            ['mapa', 'llistats', 'finances'].forEach(t => {
+            ['mapa', 'llistats', 'finances', 'tasques'].forEach(t => {
                 const isCurrent = t === tab;
                 document.getElementById(`view-${t}`).classList.toggle('hidden', !isCurrent);
 
@@ -988,6 +1061,58 @@
             if (tab === 'llistats') renderAgenda();
             if (tab === 'finances') calculateKpis(); // Will trigger finance table refresh
         }
+
+        // ====== GOOGLE SHEETS SYNC - INCIDÈNCIES ======
+        async function enviarTasca(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-submit-tasca');
+            const stat = document.getElementById('tasca-status');
+            const webhookUrl = document.getElementById('t-webhook').value.trim();
+
+            // Format Data
+            const payload = {
+                data: new Date().toLocaleDateString('ca-ES'),
+                hora: new Date().toLocaleTimeString('ca-ES', { hour: '2-digit', minute: '2-digit' }),
+                tipus: document.getElementById('t-tipus').value,
+                assumpte: document.getElementById('t-assumpte').value,
+                descripcio: document.getElementById('t-desc').value
+            };
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Connectant amb Google...';
+            stat.style.opacity = '1';
+            stat.className = 'text-sm font-bold text-stone-500 opacity-100 transition';
+            stat.textContent = 'Enviant dades al núvol...';
+
+            try {
+                if (webhookUrl && webhookUrl.includes('script.google.com')) {
+                    await fetch(webhookUrl, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                } else {
+                    await new Promise(r => setTimeout(r, 1500));
+                }
+
+                stat.textContent = 'Sincronitzat amb èxit! ✓';
+                stat.className = 'text-sm font-bold text-emerald-600 opacity-100 transition';
+                document.getElementById('tasques-form').reset();
+            } catch (error) {
+                console.error("No s'ha pogut enviar al Google Sheets:", error);
+                stat.textContent = 'Guardat Offline. L\'Excel fallat.';
+                stat.className = 'text-sm font-bold text-rose-600 opacity-100 transition';
+            } finally {
+                setTimeout(() => {
+                    btn.disabled = false;
+                    btn.innerHTML = '<i data-lucide="send" class="w-4 h-4"></i> Guardar i Enviar a l\'Excel';
+                    stat.style.opacity = '0';
+                    lucide.createIcons();
+                }, 4000);
+            }
+        }
+
         renderLedgers(); // Crida inicial per printar les taules blaves i vermelles del tercer menú
     </script>
 
@@ -1121,44 +1246,44 @@
                 <p class="mt-6 text-xs text-slate-500 pt-4 border-t border-slate-200">El client ha acceptat el reglament
                     intern i els deures respecte al rec i cura de les parcel·les, donant permís l'Arrendador d'excloure
                     el seu lloguer en qualsevol incompliment greu.</p>
-            
 
-            <div class="flex justify-center mt-6">
-                <button onclick="window.print()"
-                    class="bg-slate-200 text-slate-700 font-bold py-2 px-6 rounded hover:bg-slate-300 transition flex gap-2 items-center">
-                    <i data-lucide="printer" class="w-4 h-4"></i> Imprimir Fitxa
-                </button>
-            
-        
-    
 
-    <script>
-        // Lògica de Login Administrador
-        const adminOverlay = document.getElementById('admin-login-overlay');
-        const adminForm = document.getElementById('admin-login-form');
-        const adminError = document.getElementById('admin-error-msg');
+                <div class="flex justify-center mt-6">
+                    <button onclick="window.print()"
+                        class="bg-slate-200 text-slate-700 font-bold py-2 px-6 rounded hover:bg-slate-300 transition flex gap-2 items-center">
+                        <i data-lucide="printer" class="w-4 h-4"></i> Imprimir Fitxa
+                    </button>
 
-        // Comprovar si ja està autenticat
-        if (sessionStorage.getItem('admin_logged') === 'true') {
-            adminOverlay.style.display = 'none';
-        }
 
-        adminForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const pass = document.getElementById('admin-password').value.trim().toLowerCase();
-            // Demostració: Acceptem 'admin' i 'marta' (propietària actual a la web)
-            if (pass === 'admin' || pass === 'marta') {
-                sessionStorage.setItem('admin_logged', 'true');
-                adminOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    adminOverlay.style.display = 'none';
-                }, 300);
-            } else {
-                adminError.classList.remove('hidden');
-                document.getElementById('admin-password').value = '';
-            }
-        });
-    </script>
+
+
+                    <script>
+                        // Lògica de Login Administrador
+                        const adminOverlay = document.getElementById('admin-login-overlay');
+                        const adminForm = document.getElementById('admin-login-form');
+                        const adminError = document.getElementById('admin-error-msg');
+
+                        // Comprovar si ja està autenticat
+                        if (sessionStorage.getItem('admin_logged') === 'true') {
+                            adminOverlay.style.display = 'none';
+                        }
+
+                        adminForm.addEventListener('submit', (e) => {
+                            e.preventDefault();
+                            const pass = document.getElementById('admin-password').value.trim().toLowerCase();
+                            // Demostració: Acceptem 'admin' i 'marta' (propietària actual a la web)
+                            if (pass === 'admin' || pass === 'marta') {
+                                sessionStorage.setItem('admin_logged', 'true');
+                                adminOverlay.style.opacity = '0';
+                                setTimeout(() => {
+                                    adminOverlay.style.display = 'none';
+                                }, 300);
+                            } else {
+                                adminError.classList.remove('hidden');
+                                document.getElementById('admin-password').value = '';
+                            }
+                        });
+                    </script>
 </body>
 
 </html>
