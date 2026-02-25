@@ -1,0 +1,365 @@
+Line 87:         <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10">
+Line 88:             <div class="flex justify-between h-20 items-center">
+Line 90:                 <div class="flex items-center h-full group cursor-pointer py-1" onclick="window.scrollTo(0,0)">
+Line 93:                 </div>
+Line 96:                 <div class="hidden lg:flex space-x-8 items-center">
+Line 107:                 </div>
+Line 108:                 <div class="hidden lg:block">
+Line 113:                 </div>
+Line 116:                 <div class="lg:hidden flex items-center">
+Line 121:                 </div>
+Line 122:             </div>
+Line 123:         </div>
+Line 126:         <div id="mobile-menu"
+Line 128:             <div class="px-4 pt-2 pb-6 space-y-2">
+Line 147:             </div>
+Line 148:         </div>
+Line 153:         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+Line 154:             <div
+Line 158:             </div>
+Line 168:             <div class="flex flex-col sm:flex-row justify-center gap-5">
+Line 177:             </div>
+Line 178:         </div>
+Line 181:         <div class="absolute bottom-0 w-full">
+Line 188:         </div>
+Line 193:         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+Line 194:             <div class="mb-12 text-center pt-8">
+Line 200:             </div>
+Line 202:             <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 px-4 -mx-4 items-stretch"
+Line 205:                 <div
+Line 207:                     <div
+Line 209:                         Bàsic</div>
+Line 212:                     <div class="p-6 flex flex-col flex-grow">
+Line 219:                         <div class="bg-earth-50 rounded-xl p-4 mb-5 border border-earth-100">
+Line 220:                             <div class="flex items-center gap-2 text-sm text-stone-700 font-medium mb-2">
+Line 222:                             </div>
+Line 223:                             <div class="flex items-center gap-2 text-sm text-emerald-700 font-bold mb-1">
+Line 225:                             </div>
+Line 226:                             <div class="flex items-center gap-2 text-sm text-stone-600">
+Line 228:                             </div>
+Line 229:                         </div>
+Line 235:                     </div>
+Line 236:                 </div>
+Line 239:                 <div
+Line 241:                     <div
+Line 243:                         Específic</div>
+Line 245:                     <div class="p-6 flex flex-col flex-grow">
+Line 250:                         <div class="bg-earth-50 rounded-xl p-4 mb-5 border border-earth-100">
+Line 251:                             <div class="flex items-center gap-2 text-sm text-stone-700 font-medium mb-2">
+Line 253:                             </div>
+Line 254:                             <div class="flex items-center gap-2 text-sm text-emerald-700 font-bold mb-1">
+Line 256:                             </div>
+Line 257:                             <div class="flex items-center gap-2 text-sm text-stone-600">
+Line 259:                             </div>
+Line 260:                         </div>
+Line 266:                     </div>
+Line 267:                 </div>
+Line 270:                 <div
+Line 272:                     <div
+Line 274:                         Específic</div>
+Line 276:                     <div class="p-6 flex flex-col flex-grow">
+Line 282:                         <div class="bg-earth-50 rounded-xl p-4 mb-5 border border-earth-100">
+Line 283:                             <div class="flex items-center gap-2 text-sm text-stone-700 font-medium mb-2">
+Line 285:                             </div>
+Line 286:                             <div class="flex items-center gap-2 text-sm text-emerald-700 font-bold mb-1">
+Line 288:                             </div>
+Line 289:                             <div class="flex items-center gap-2 text-sm text-stone-600">
+Line 291:                             </div>
+Line 292:                         </div>
+Line 298:                     </div>
+Line 299:                 </div>
+Line 302:                 <div
+Line 304:                     <div
+Line 306:                         Avançat</div>
+Line 308:                     <div class="p-6 flex flex-col flex-grow">
+Line 313:                         <div class="bg-earth-50 rounded-xl p-4 mb-5 border border-earth-100">
+Line 314:                             <div class="flex items-center gap-2 text-sm text-stone-700 font-medium mb-2">
+Line 316:                             </div>
+Line 317:                             <div class="flex items-center gap-2 text-sm text-emerald-700 font-bold mb-1">
+Line 319:                             </div>
+Line 320:                             <div class="flex items-center gap-2 text-sm text-stone-600">
+Line 322:                             </div>
+Line 323:                         </div>
+Line 329:                     </div>
+Line 330:                 </div>
+Line 331:             </div>
+Line 338:         </div>
+Line 343:         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+Line 344:             <div class="text-center mb-16">
+Line 349:             </div>
+Line 351:             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+Line 353:                 <div
+Line 355:                     <div
+Line 358:                     </div>
+Line 362:                 </div>
+Line 364:                 <div
+Line 366:                     <div
+Line 369:                     </div>
+Line 373:                 </div>
+Line 375:                 <div
+Line 377:                     <div
+Line 380:                     </div>
+Line 384:                 </div>
+Line 386:                 <div
+Line 388:                     <div class="md:w-2/3">
+Line 397:                     </div>
+Line 398:                     <div class="md:w-1/3 w-full">
+Line 403:                     </div>
+Line 404:                 </div>
+Line 405:             </div>
+Line 406:         </div>
+Line 411:         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+Line 412:             <div class="text-center mb-16">
+Line 417:             </div>
+Line 419:             <div class="flex flex-col md:flex-row justify-center gap-8 max-w-5xl mx-auto">
+Line 422:                 <div class="flex-1 bg-white/5 backdrop-blur-lg rounded-[2rem] border border-white/10 p-1 lg:p-2">
+Line 423:                     <div class="bg-stone-900 rounded-[1.8rem] p-8 h-full flex flex-col">
+Line 429:                         <div class="space-y-3 mb-8 flex-grow">
+Line 432:                                 <div>
+Line 433:                                     <div class="font-bold text-white">Mes a mes</div>
+Line 434:                                     <div class="text-stone-400 text-xs">+ 50€ matrícula</div>
+Line 435:                                 </div>
+Line 436:                                 <div class="text-right">
+Line 437:                                     <div class="text-xl font-bold text-white">25€<span
+Line 438:                                             class="text-sm text-stone-400 font-normal">/mes</span></div>
+Line 439:                                 </div>
+Line 444:                                 <div>
+Line 445:                                     <div class="font-bold text-white">Semestral</div>
+Line 446:                                     <div class="text-stone-400 text-xs">+ 25€ matrícula</div>
+Line 447:                                 </div>
+Line 448:                                 <div class="text-right">
+Line 449:                                     <div class="text-xl font-bold text-white">160€<span
+Line 450:                                             class="text-sm text-stone-400 font-normal">/sem.</span></div>
+Line 451:                                 </div>
+Line 456:                                 <div
+Line 458:                                     Millor opció</div>
+Line 459:                                 <div class="flex justify-between items-center">
+Line 460:                                     <div>
+Line 461:                                         <div class="font-bold text-white">Anual</div>
+Line 462:                                         <div class="text-stone-400 text-xs mt-1">Únic pagament
+Line 463:                                         </div>
+Line 464:                                         <div class="text-brand-400 text-xs font-semibold mt-1">Sense matrícula d'alta!
+Line 465:                                         </div>
+Line 466:                                     </div>
+Line 467:                                     <div class="text-right">
+Line 468:                                         <div class="text-xl font-bold text-brand-400">300€<span
+Line 469:                                                 class="text-sm text-brand-200/50 font-normal">/any</span></div>
+Line 470:                                     </div>
+Line 471:                                 </div>
+Line 473:                         </div>
+Line 493:                     </div>
+Line 494:                 </div>
+Line 497:                 <div
+Line 499:                     <div
+Line 502:                     </div>
+Line 503:                     <div class="bg-brand-800 rounded-[1.8rem] p-8 h-full flex flex-col">
+Line 509:                         <div class="space-y-3 mb-8 flex-grow">
+Line 512:                                 <div>
+Line 513:                                     <div class="font-bold text-white">Mes a mes</div>
+Line 514:                                     <div class="text-brand-200 text-xs">+ 100€ matrícula</div>
+Line 515:                                 </div>
+Line 516:                                 <div class="text-right">
+Line 517:                                     <div class="text-xl font-bold text-white">50€<span
+Line 518:                                             class="text-sm text-brand-200 font-normal">/mes</span></div>
+Line 519:                                 </div>
+Line 524:                                 <div>
+Line 525:                                     <div class="font-bold text-white">Semestral</div>
+Line 526:                                     <div class="text-brand-200 text-xs">+ 50€ matrícula</div>
+Line 527:                                 </div>
+Line 528:                                 <div class="text-right">
+Line 529:                                     <div class="text-xl font-bold text-white">320€<span
+Line 530:                                             class="text-sm text-brand-200 font-normal">/sem.</span></div>
+Line 531:                                 </div>
+Line 536:                                 <div
+Line 538:                                     Millor opció</div>
+Line 539:                                 <div class="flex justify-between items-center">
+Line 540:                                     <div>
+Line 541:                                         <div class="font-bold text-white">Anual</div>
+Line 542:                                         <div class="text-brand-100 text-xs mt-1">Únic pagament
+Line 543:                                         </div>
+Line 544:                                         <div class="text-white text-xs font-semibold mt-1">Sense matrícula d'alta!</div>
+Line 545:                                     </div>
+Line 546:                                     <div class="text-right">
+Line 547:                                         <div class="text-xl font-bold text-white">600€<span
+Line 548:                                                 class="text-sm text-white/70 font-normal">/any</span></div>
+Line 549:                                     </div>
+Line 550:                                 </div>
+Line 552:                         </div>
+Line 572:                     </div>
+Line 573:                 </div>
+Line 575:             </div>
+Line 576:         </div>
+Line 581:         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+Line 582:             <div class="text-center mb-16">
+Line 587:             </div>
+Line 589:             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+Line 591:                 <div
+Line 593:                     <div class="text-5xl mb-4">🚜</div>
+Line 596:                 </div>
+Line 599:                 <div
+Line 601:                     <div class="text-5xl mb-4">💧</div>
+Line 604:                 </div>
+Line 607:                 <div
+Line 609:                     <div class="text-5xl mb-4">🆘</div>
+Line 612:                 </div>
+Line 615:                 <div
+Line 617:                     <div class="text-5xl mb-4">💩</div>
+Line 620:                 </div>
+Line 623:                 <div
+Line 625:                     <div
+Line 627:                         Novetat</div>
+Line 628:                     <div class="text-5xl mb-4">🌱</div>
+Line 632:                 </div>
+Line 635:                 <div
+Line 637:                     <div
+Line 639:                         Novetat</div>
+Line 640:                     <div class="text-5xl mb-4">📦</div>
+Line 644:                 </div>
+Line 647:                 <div
+Line 649:                     <div
+Line 651:                         Especial</div>
+Line 652:                     <div class="text-5xl mb-4">🌳</div>
+Line 656:                 </div>
+Line 659:                 <div
+Line 661:                     <div class="text-5xl mb-4">🍎</div>
+Line 665:                 </div>
+Line 666:             </div>
+Line 671:         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+Line 672:             <div class="flex flex-col lg:flex-row gap-16 items-start">
+Line 674:                 <div class="lg:w-1/3 lg:sticky lg:top-32">
+Line 685:                 </div>
+Line 687:                 <div class="lg:w-2/3 grid sm:grid-cols-2 gap-6">
+Line 688:                     <div class="bg-earth-50 p-6 rounded-2xl border border-earth-100">
+Line 689:                         <div class="flex items-center gap-3 mb-3">
+Line 692:                         </div>
+Line 695:                     </div>
+Line 697:                     <div class="bg-earth-50 p-6 rounded-2xl border border-earth-100">
+Line 698:                         <div class="flex items-center gap-3 mb-3">
+Line 701:                         </div>
+Line 704:                     </div>
+Line 706:                     <div class="bg-earth-50 p-6 rounded-2xl border border-earth-100">
+Line 707:                         <div class="flex items-center gap-3 mb-3">
+Line 710:                         </div>
+Line 714:                     </div>
+Line 716:                     <div class="bg-earth-50 p-6 rounded-2xl border border-earth-100">
+Line 717:                         <div class="flex items-center gap-3 mb-3">
+Line 720:                         </div>
+Line 724:                     </div>
+Line 726:                     <div class="bg-earth-50 p-6 rounded-2xl border border-earth-100 sm:col-span-2">
+Line 727:                         <div class="flex items-center gap-3 mb-3">
+Line 730:                         </div>
+Line 734:                     </div>
+Line 735:                 </div>
+Line 737:             </div>
+Line 738:         </div>
+Line 743:         <div class="absolute inset-0 opacity-10"
+Line 744:             style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
+Line 745:         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+Line 746:             <div class="bg-white rounded-[2.5rem] shadow-2xl p-6 sm:p-8 md:p-14">
+Line 747:                 <div class="text-center mb-10">
+Line 755:                 </div>
+Line 758:                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+Line 759:                         <div>
+Line 764:                         </div>
+Line 765:                         <div>
+Line 771:                         </div>
+Line 772:                     </div>
+Line 774:                     <div>
+Line 779:                     </div>
+Line 781:                     <div>
+Line 792:                     </div>
+Line 794:                     <div>
+Line 800:                     </div>
+Line 802:                     <div class="flex items-start gap-4 p-4 bg-earth-50 rounded-xl border border-earth-100">
+Line 803:                         <div class="pt-0.5">
+Line 806:                         </div>
+Line 812:                     </div>
+Line 814:                     <div class="flex items-start gap-4 p-4 bg-brand-50 rounded-xl border border-brand-100">
+Line 815:                         <div class="pt-0.5">
+Line 818:                         </div>
+Line 823:                     </div>
+Line 830:             </div>
+Line 831:         </div>
+Line 836:         <div
+Line 838:             <div class="md:col-span-2">
+Line 839:                 <div class="flex items-center justify-center md:justify-start gap-2 mb-6 cursor-pointer"
+Line 841:                     <div class="bg-brand-800 p-2 rounded-lg">
+Line 843:                     </div>
+Line 845:                 </div>
+Line 849:             </div>
+Line 851:             <div>
+Line 870:             </div>
+Line 872:             <div>
+Line 888:             </div>
+Line 889:         </div>
+Line 890:         <div
+Line 892:             <div>&copy; 2026 Espai Vall-Roure. Tots els drets reservats.</div>
+Line 893:             <div class="flex gap-4">
+Line 898:             </div>
+Line 899:         </div>
+Line 944:     <div id="private-service-modal" class="fixed inset-0 z-[100] hidden bg-black/50 backdrop-blur-sm px-4"
+Line 946:         <div class="bg-white rounded-3xl shadow-2xl max-w-sm w-full p-8 text-center" onclick="event.stopPropagation()">
+Line 947:             <div
+Line 950:             </div>
+Line 954:             <div class="flex flex-col gap-3">
+Line 960:             </div>
+Line 961:         </div>
+Line 962:     </div>
+Line 965:     <div id="rent-plot-modal" class="fixed inset-0 z-[100] hidden bg-black/60 backdrop-blur-sm px-4"
+Line 967:         <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all max-h-[95vh] flex flex-col"
+Line 970:             <div class="bg-brand-50 p-6 flex justify-between items-start border-b border-brand-100 relative shrink-0">
+Line 971:                 <div>
+Line 975:                 </div>
+Line 980:             </div>
+Line 982:             <div class="p-6 overflow-y-auto grow">
+Line 986:                     <div class="bg-stone-50 p-4 rounded-xl border border-stone-200">
+Line 987:                         <div class="flex justify-between items-center mb-2">
+Line 990:                         </div>
+Line 991:                         <div class="flex justify-between items-center mb-2" id="rent-modal-matricula-container">
+Line 994:                         </div>
+Line 995:                         <div
+Line 999:                         </div>
+Line 1000:                     </div>
+Line 1003:                     <div>
+Line 1005:                         <div class="space-y-3">
+Line 1006:                             <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+Line 1011:                             </div>
+Line 1012:                             <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+Line 1019:                             </div>
+Line 1020:                             <div class="mt-3">
+Line 1028:                             </div>
+Line 1029:                         </div>
+Line 1030:                     </div>
+Line 1033:                     <div>
+Line 1036:                         <div class="space-y-3">
+Line 1037:                             <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+Line 1042:                             </div>
+Line 1043:                         </div>
+Line 1044:                     </div>
+Line 1047:                     <div class="border border-stone-200 rounded-xl overflow-hidden mt-2 border-l-4 border-l-brand-500">
+Line 1048:                         <div class="bg-stone-50 p-3 border-b border-stone-200 flex items-center gap-2">
+Line 1051:                         </div>
+Line 1052:                         <div
+Line 1054:                             <div>
+Line 1080:                             </div>
+Line 1082:                             <div>
+Line 1123:                             </div>
+Line 1125:                             <div>
+Line 1128:                                 <div class="bg-stone-50 p-3 rounded border border-stone-200 space-y-2">
+Line 1147:                                 </div>
+Line 1148:                             </div>
+Line 1149:                         </div>
+Line 1150:                     </div>
+Line 1163:                     <div class="bg-white" id="payment-fields">
+Line 1166:                             <div class="flex gap-1 border border-stone-200 px-2 py-1 rounded">
+Line 1171:                             </div>
+Line 1173:                         <div class="relative mb-3">
+Line 1177:                         </div>
+Line 1178:                         <div class="grid grid-cols-2 gap-3">
+Line 1183:                         </div>
+Line 1184:                     </div>
+Line 1194:                     <div id="rent-payment-success"
+Line 1201:                     </div>
+Line 1203:             </div>
+Line 1204:         </div>
+Line 1205:     </div>
