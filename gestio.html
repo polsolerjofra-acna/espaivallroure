@@ -654,20 +654,20 @@
                     const hasSomeRent = plot.h1 || plot.h2;
 
                     plotEl.innerHTML = `
-                        <div onclick="openPlotAction(${r}, ${c}, 1)" class="h-1/2 w-full ${h1Color} half-25m border-b border-dashed border-slate-400 relative p-1 group cursor-pointer">
-                            <span class="text-[10px] font-bold font-mono text-slate-500 absolute top-1 left-2 opacity-30 group-hover:opacity-100">25m²</span>
-                            <span class="text-xs font-bold text-slate-800 absolute bottom-1 right-2 opacity-50">P${r + 1}.${c + 1}A</span>
+                        <div onclick="openPlotAction(${r}, ${c}, 1)" class="h-1/2 w-full ${h1Color} half-25m border-b border-dashed border-slate-400 relative p-1 group cursor-pointer z-0">
+                            <span class="text-[10px] font-bold font-mono text-slate-500 absolute top-1 left-2 opacity-30 group-hover:opacity-100 pointer-events-none">25m²</span>
+                            <span class="text-xs font-bold text-slate-800 absolute bottom-1 right-2 opacity-50 pointer-events-none">P${r + 1}.${c + 1}A</span>
                             ${plot.h1_contract ? '<i data-lucide="user-check" class="absolute top-1 right-1 w-3 h-3 text-emerald-700 pointer-events-none"></i>' : ''}
                         </div>
-                        <div onclick="openPlotAction(${r}, ${c}, 2)" class="h-1/2 w-full ${h2Color} half-25m relative p-1 group cursor-pointer">
-                            <span class="text-[10px] font-bold font-mono text-slate-500 absolute bottom-1 left-2 opacity-30 group-hover:opacity-100">25m²</span>
-                            <span class="text-xs font-bold text-slate-800 absolute top-1 right-2 opacity-50">P${r + 1}.${c + 1}B</span>
+                        <div onclick="openPlotAction(${r}, ${c}, 2)" class="h-1/2 w-full ${h2Color} half-25m relative p-1 group cursor-pointer z-0">
+                            <span class="text-[10px] font-bold font-mono text-slate-500 absolute bottom-1 left-2 opacity-30 group-hover:opacity-100 pointer-events-none">25m²</span>
+                            <span class="text-xs font-bold text-slate-800 absolute top-1 right-2 opacity-50 pointer-events-none">P${r + 1}.${c + 1}B</span>
                             ${plot.h2_contract ? '<i data-lucide="user-check" class="absolute bottom-1 right-1 w-3 h-3 text-emerald-700 pointer-events-none"></i>' : ''}
                         </div>
 
                         <!-- Botó Reg dins la parcel·la -->
                         <button onclick="toggleReg(${r}, ${c})" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-1.5 rounded-full shadow-md z-10 transition border ${plot.reg ? 'bg-blue-500 text-white border-blue-600' : 'bg-white text-slate-400 border-slate-300 hover:bg-slate-50'} ${!hasSomeRent ? 'opacity-0 pointer-events-none' : ''}">
-                            <i data-lucide="droplet" class="w-4 h-4 ${plot.reg ? 'fill-blue-500' : ''}"></i>
+                            <i data-lucide="droplet" class="w-4 h-4 ${plot.reg ? 'fill-blue-500 pointer-events-none' : 'pointer-events-none'}"></i>
                         </button>
                     `;
 
