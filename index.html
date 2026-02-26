@@ -162,9 +162,10 @@
     <section class="hero-bg min-h-screen flex items-center pt-20 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <div
-                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white mb-8">
-                <span class="flex h-2 w-2 rounded-full bg-green-400"></span>
-                <span class="text-sm font-semibold tracking-wide uppercase">Noves parcel·les disponibles</span>
+                class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 backdrop-blur-md border border-amber-300 text-white mb-8 shadow-xl transform hover:scale-105 transition cursor-default">
+                <span class="text-xl">🎁</span>
+                <span class="text-sm md:text-base font-bold tracking-wide uppercase drop-shadow-md">Promoció
+                    Pre-Llançament: -20% dte. fins al 15 d'abril</span>
             </div>
             <h1
                 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white font-bold leading-tight mb-6 drop-shadow-2xl">
@@ -420,8 +421,13 @@
     <section id="preus" class="py-24 bg-brand-950 text-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16">
-                <h2 class="font-serif text-3xl md:text-5xl font-bold mb-6">Tria el teu espai de terra</h2>
-                <p class="text-lg text-brand-100 max-w-2xl mx-auto">Tots els contractes tenen una durada inicial d'1 any
+                <h2 class="font-serif text-3xl md:text-5xl font-bold mb-4">Tria el teu espai de terra</h2>
+                <div
+                    class="bg-amber-500/20 border border-amber-500/40 text-amber-200 inline-block px-4 py-2 rounded-lg font-bold mb-6">
+                    🚀 El projecte arranca el 15 d'abril! Aprofita el 20% de descompte en la cuota inscrivint-te ara.
+                </div>
+                <p class="text-lg text-brand-100 max-w-2xl mx-auto mt-2">Tots els contractes tenen una durada inicial
+                    d'1 any
                     prorrogable. La quota d'alta és un pagament únic que cobreix l'adequació del terreny i les
                     infraestructures.</p>
             </div>
@@ -437,45 +443,51 @@
 
                         <!-- Opcions de pagament 25m2 -->
                         <div class="space-y-3 mb-8 flex-grow">
-                            <button type="button" onclick="openRentModal('Hort Petit 25m²', 'Mes a mes', 25, 50)"
-                                class="w-full text-left bg-stone-800/80 p-4 rounded-xl border border-stone-700 flex justify-between items-center hover:bg-stone-700 transition">
-                                <div>
+                            <button type="button" onclick="openRentModal('Hort Petit 25m²', 'Mes a mes', 20, 50)"
+                                class="w-full text-left bg-stone-800/80 p-4 rounded-xl border border-stone-700 flex justify-between items-center hover:bg-stone-700 transition relative overflow-hidden">
+                                <div class="absolute inset-y-0 left-0 w-1 bg-amber-500"></div>
+                                <div class="pl-2">
                                     <div class="font-bold text-white">Mes a mes</div>
                                     <div class="text-stone-400 text-xs">+ 50€ matrícula</div>
                                 </div>
                                 <div class="text-right">
-                                    <div class="text-xl font-bold text-white">25€<span
+                                    <div class="text-xl font-bold text-white"><span
+                                            class="line-through text-stone-500 text-sm mr-2 font-normal">25€</span>20€<span
                                             class="text-sm text-stone-400 font-normal">/mes</span></div>
                                 </div>
                             </button>
 
-                            <button type="button" onclick="openRentModal('Hort Petit 25m²', 'Semestral', 160, 25)"
-                                class="w-full text-left bg-stone-800/80 p-4 rounded-xl border border-stone-700 flex justify-between items-center hover:bg-stone-700 transition">
-                                <div>
+                            <button type="button" onclick="openRentModal('Hort Petit 25m²', 'Semestral', 128, 25)"
+                                class="w-full text-left bg-stone-800/80 p-4 rounded-xl border border-stone-700 flex justify-between items-center hover:bg-stone-700 transition relative overflow-hidden">
+                                <div class="absolute inset-y-0 left-0 w-1 bg-amber-500"></div>
+                                <div class="pl-2">
                                     <div class="font-bold text-white">Semestral</div>
                                     <div class="text-stone-400 text-xs">+ 25€ matrícula</div>
                                 </div>
                                 <div class="text-right">
-                                    <div class="text-xl font-bold text-white">160€<span
+                                    <div class="text-xl font-bold text-white"><span
+                                            class="line-through text-stone-500 text-sm mr-2 font-normal">160€</span>128€<span
                                             class="text-sm text-stone-400 font-normal">/sem.</span></div>
                                 </div>
                             </button>
 
-                            <button type="button" onclick="openRentModal('Hort Petit 25m²', 'Anual', 300, 0)"
-                                class="w-full text-left bg-brand-900/40 p-4 rounded-xl border border-brand-500/50 hover:bg-brand-900/60 transition relative overflow-hidden">
+                            <button type="button" onclick="openRentModal('Hort Petit 25m²', 'Anual', 240, 0)"
+                                class="w-full text-left bg-brand-900/40 p-4 rounded-xl border border-amber-500/50 hover:bg-brand-900/60 transition relative overflow-hidden">
+                                <div class="absolute inset-y-0 left-0 w-1 bg-amber-500"></div>
                                 <div
                                     class="absolute top-0 right-0 bg-brand-500 text-[10px] font-bold px-2 py-1 rounded-bl-lg text-white uppercase tracking-wider">
                                     Millor opció</div>
-                                <div class="flex justify-between items-center">
+                                <div class="flex justify-between items-center pl-2">
                                     <div>
                                         <div class="font-bold text-white">Anual</div>
                                         <div class="text-stone-400 text-xs mt-1">Únic pagament
                                         </div>
-                                        <div class="text-brand-400 text-xs font-semibold mt-1">Sense matrícula d'alta!
+                                        <div class="text-amber-400 text-xs font-bold mt-1">Sense matrícula + -20% dte!
                                         </div>
                                     </div>
                                     <div class="text-right">
-                                        <div class="text-xl font-bold text-brand-400">300€<span
+                                        <div class="text-xl font-bold text-brand-400"><span
+                                                class="line-through text-stone-600 text-sm mr-2 font-normal">300€</span>240€<span
                                                 class="text-sm text-brand-200/50 font-normal">/any</span></div>
                                     </div>
                                 </div>
@@ -517,44 +529,51 @@
 
                         <!-- Opcions de pagament 50m2 -->
                         <div class="space-y-3 mb-8 flex-grow">
-                            <button type="button" onclick="openRentModal('Hort Familiar 50m²', 'Mes a mes', 50, 100)"
-                                class="w-full text-left bg-brand-900/40 p-4 rounded-xl border border-brand-700/50 flex justify-between items-center hover:bg-brand-900/60 transition">
-                                <div>
+                            <button type="button" onclick="openRentModal('Hort Familiar 50m²', 'Mes a mes', 40, 100)"
+                                class="w-full text-left bg-brand-900/40 p-4 rounded-xl border border-brand-700/50 flex justify-between items-center hover:bg-brand-900/60 transition relative overflow-hidden">
+                                <div class="absolute inset-y-0 left-0 w-1 bg-amber-400"></div>
+                                <div class="pl-2">
                                     <div class="font-bold text-white">Mes a mes</div>
                                     <div class="text-brand-200 text-xs">+ 100€ matrícula</div>
                                 </div>
                                 <div class="text-right">
-                                    <div class="text-xl font-bold text-white">50€<span
+                                    <div class="text-xl font-bold text-white"><span
+                                            class="line-through text-brand-400 text-sm mr-2 font-normal">50€</span>40€<span
                                             class="text-sm text-brand-200 font-normal">/mes</span></div>
                                 </div>
                             </button>
 
-                            <button type="button" onclick="openRentModal('Hort Familiar 50m²', 'Semestral', 320, 50)"
-                                class="w-full text-left bg-brand-900/40 p-4 rounded-xl border border-brand-700/50 flex justify-between items-center hover:bg-brand-900/60 transition">
-                                <div>
+                            <button type="button" onclick="openRentModal('Hort Familiar 50m²', 'Semestral', 256, 50)"
+                                class="w-full text-left bg-brand-900/40 p-4 rounded-xl border border-brand-700/50 flex justify-between items-center hover:bg-brand-900/60 transition relative overflow-hidden">
+                                <div class="absolute inset-y-0 left-0 w-1 bg-amber-400"></div>
+                                <div class="pl-2">
                                     <div class="font-bold text-white">Semestral</div>
                                     <div class="text-brand-200 text-xs">+ 50€ matrícula</div>
                                 </div>
                                 <div class="text-right">
-                                    <div class="text-xl font-bold text-white">320€<span
+                                    <div class="text-xl font-bold text-white"><span
+                                            class="line-through text-brand-400 text-sm mr-2 font-normal">320€</span>256€<span
                                             class="text-sm text-brand-200 font-normal">/sem.</span></div>
                                 </div>
                             </button>
 
-                            <button type="button" onclick="openRentModal('Hort Familiar 50m²', 'Anual', 600, 0)"
-                                class="w-full text-left bg-white/10 p-4 rounded-xl border border-white/30 hover:bg-white/20 transition relative overflow-hidden">
+                            <button type="button" onclick="openRentModal('Hort Familiar 50m²', 'Anual', 480, 0)"
+                                class="w-full text-left bg-white/10 p-4 rounded-xl border border-amber-300 hover:bg-white/20 transition relative overflow-hidden">
+                                <div class="absolute inset-y-0 left-0 w-1 bg-amber-300"></div>
                                 <div
                                     class="absolute top-0 right-0 bg-white text-[10px] font-bold px-2 py-1 rounded-bl-lg text-brand-900 uppercase tracking-wider">
                                     Millor opció</div>
-                                <div class="flex justify-between items-center">
+                                <div class="flex justify-between items-center pl-2">
                                     <div>
                                         <div class="font-bold text-white">Anual</div>
                                         <div class="text-brand-100 text-xs mt-1">Únic pagament
                                         </div>
-                                        <div class="text-white text-xs font-semibold mt-1">Sense matrícula d'alta!</div>
+                                        <div class="text-amber-200 text-xs font-bold mt-1">Sense matrícula + -20% dte!
+                                        </div>
                                     </div>
                                     <div class="text-right">
-                                        <div class="text-xl font-bold text-white">600€<span
+                                        <div class="text-xl font-bold text-white"><span
+                                                class="line-through text-brand-400/50 text-sm mr-2 font-normal">600€</span>480€<span
                                                 class="text-sm text-white/70 font-normal">/any</span></div>
                                     </div>
                                 </div>
