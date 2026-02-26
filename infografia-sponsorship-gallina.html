@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografia: Apadrina una Gallina</title>
+
+    <link rel="icon" type="image/png" href="img/logopol (1).png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #fffbfa;
+        }
+
+        .bg-pattern {
+            background-color: #fffbfa;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ea580c' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+
+<body class="bg-pattern text-stone-800 antialiased min-h-screen flex flex-col items-center justify-center p-4 py-12">
+
+    <!-- Botó Retorn al Menú -->
+    <a href="infografies"
+        class="fixed top-4 left-4 z-[9999] flex items-center gap-2 bg-white/90 hover:bg-white text-gray-800 font-bold px-4 py-2 rounded-full shadow-lg backdrop-blur-sm transition border border-gray-200 text-sm hover:scale-105">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
+            </path>
+        </svg>
+        <span class="hidden sm:inline">Tornar a l'Àrea Privada</span>
+    </a>
+
+    <div class="max-w-4xl w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-orange-100">
+
+        <!-- HEADER -->
+        <header
+            class="bg-gradient-to-br from-orange-500 to-amber-600 text-white p-10 text-center relative overflow-hidden">
+            <!-- Cercles decoratius -->
+            <div class="absolute top-[-50px] right-[-50px] w-48 h-48 bg-white opacity-10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-[-50px] left-[-50px] w-56 h-56 bg-white opacity-10 rounded-full blur-3xl"></div>
+
+            <div
+                class="inline-flex items-center justify-center w-20 h-20 bg-white/20 rounded-full backdrop-blur-sm mb-6 shadow-inner text-4xl">
+                🐔</div>
+
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight drop-shadow-md">Apadrina una Gallina</h1>
+            <p class="text-xl md:text-2xl text-orange-50 font-light max-w-2xl mx-auto leading-relaxed">Ous frescos,
+                feliços i ecològics cada dia. Una experiència única per a tu i per la natura.</p>
+        </header>
+
+        <!-- CONTINGUT -->
+        <div class="p-8 md:p-12 space-y-12">
+
+            <!-- Intro i Experiència -->
+            <section class="text-center px-4">
+                <p class="text-xl text-stone-600 font-light leading-relaxed">
+                    Apadrinar no és només tenir ous cada dia; és <strong class="text-orange-600 font-bold">connectar amb
+                        la terra</strong>. Totes les gallines de Vall-Roure viuen en llibertat, s'alimenten de pastes
+                    ecològiques i teves restes de l'hort. Tu pots venir a veure-la la, recollir els seus ous amb les
+                    teves pròpies mans i ensenyar als més petits d'on ve realment el menjar.
+                </p>
+            </section>
+
+            <!-- La Matemàtica de l'Estalvi -->
+            <section>
+                <div class="flex items-center justify-center gap-4 mb-10">
+                    <div class="h-1 w-16 bg-orange-200 rounded-full"></div>
+                    <h2 class="text-3xl font-extrabold text-stone-800 text-center tracking-tight">Menys Diners. Més
+                        Sabor.</h2>
+                    <div class="h-1 w-16 bg-orange-200 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                    <!-- Costos d'Apadrinar -->
+                    <div class="bg-stone-50 rounded-3xl p-8 border border-stone-100 relative shadow-sm">
+                        <div
+                            class="absolute -top-5 left-8 bg-stone-800 text-white font-bold px-4 py-2 rounded-xl shadow-lg flex items-center gap-2">
+                            <span class="text-lg">💰</span> Cost Real
+                        </div>
+                        <ul class="mt-4 space-y-6">
+                            <li class="flex justify-between items-center border-b border-stone-200 pb-4">
+                                <div>
+                                    <span class="font-bold text-stone-800 text-lg block">Compra de la gallina</span>
+                                    <span class="text-sm text-stone-500">Un pagament únic (aprox)</span>
+                                </div>
+                                <span class="text-2xl font-bold text-stone-400">12€</span>
+                            </li>
+                            <li class="flex justify-between items-center border-b border-stone-200 pb-4">
+                                <div>
+                                    <span class="font-bold text-stone-800 text-lg block">Manteniment Mensual</span>
+                                    <span class="text-sm text-stone-500">Pinso Eco, palla, aigua i atenció</span>
+                                </div>
+                                <span class="text-2xl font-extrabold text-orange-600">15€</span>
+                            </li>
+                            <li class="flex justify-between items-center font-bold text-xl pt-2">
+                                <span class="text-stone-700">Cost Total / Mes</span>
+                                <span class="text-stone-800">15€</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Rendiment Supermercat -->
+                    <div class="bg-orange-50 rounded-3xl p-8 border-2 border-orange-200 relative shadow-md">
+                        <div
+                            class="absolute -top-5 left-8 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold px-4 py-2 rounded-xl shadow-lg flex items-center gap-2">
+                            <span class="text-lg">🥚</span> El teu Retorn
+                        </div>
+                        <ul class="mt-4 space-y-6">
+                            <li class="flex justify-between items-center border-b border-orange-200/50 pb-4">
+                                <div>
+                                    <span class="font-bold text-orange-900 text-lg block">Producció Mitjana</span>
+                                    <span class="text-sm text-orange-700">Fresco de camp, codi 0 (Ecològics)</span>
+                                </div>
+                                <span class="text-2xl font-bold text-orange-800">22 ous <span
+                                        class="text-base text-orange-600/70 font-normal">/mes</span></span>
+                            </li>
+                            <li class="flex justify-between items-center border-b border-orange-200/50 pb-4">
+                                <div>
+                                    <span class="font-bold text-orange-900 text-lg block">Preu Supermercat</span>
+                                    <span class="text-sm text-orange-700">Mitjana Ou Ecològic L/XL (0.45€ x u.)</span>
+                                </div>
+                                <span class="text-2xl font-bold text-orange-800/60">~10€</span>
+                            </li>
+                            <div class="bg-white rounded-xl p-4 border border-orange-100 mt-2 shadow-sm text-center">
+                                <span
+                                    class="block text-sm text-stone-500 font-bold uppercase tracking-wider mb-1">Qualitat
+                                    Bio-Premium per</span>
+                                <span class="text-3xl font-black text-orange-600">Només +5€ / mes</span>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- El Gran Benefici (Conclusions) -->
+            <section class="bg-stone-900 text-white rounded-3xl p-8 md:p-10 relative overflow-hidden shadow-2xl">
+                <div
+                    class="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                </div>
+                <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-3xl font-extrabold mb-4">Molt més que ous</h3>
+                        <p class="text-stone-300 text-lg font-light leading-relaxed mb-6">
+                            Estàs pagant la diferència d'un cafè al mes, però a canvi obtens ous més sans (rics en
+                            Omega-3 i vitamines) on tu mateix veus el benestar de l'animal.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-lg">
+                                    ✓</div>
+                                <span class="font-medium text-stone-200">Visites familiars al galliner</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-lg">
+                                    ✓</div>
+                                <span class="font-medium text-stone-200">Garantia absoluta de sense gàbies</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-lg">
+                                    ✓</div>
+                                <span class="font-medium text-stone-200">Tu decideixes quin nom li poses</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 text-center">
+                        <div class="text-5xl mb-4">🚜</div>
+                        <h4 class="text-xl font-bold text-white mb-2">Completament atès</h4>
+                        <p class="text-stone-400 text-sm">Nosaltres netegem el galliner, posem els abeuradors
+                            automàtics, fem la rotació mèdica i les tanquem a la nit a prova de guineus. Tu només
+                            gaudeixes de la millor part.</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</body>
+
+</html>
