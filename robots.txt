@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /gestio.html
+Disallow: /infografies.html
+Disallow: /infografia-*.html
+Disallow: /comunitat.html
+Disallow: /guia-iniciacio.html
+Disallow: /serveis-privat.html
+Disallow: /pdfs/
+Disallow: /img/
+
+Sitemap: https://espaivallroure.com/sitemap.xml
