@@ -512,12 +512,6 @@
                                 </div>
                             </button>
                         </div>
-                        <div class="mt-8 mb-8">
-                            <a href="#" onclick="event.preventDefault(); openRentModalDynamic('25m')"
-                                class="block w-full text-center bg-brand-600 text-white font-bold py-3 px-4 rounded-xl hover:bg-brand-700 transition shadow-lg shadow-brand-200">
-                                Reserva aquí
-                            </a>
-                        </div>
 
                         <ul class="space-y-4 mb-8 flex-grow">
                             <li class="flex items-start gap-3">
@@ -603,47 +597,42 @@
                                     </div>
                                 </div>
                             </button>
-                            <div class="mt-8 mb-8">
-                                <a href="#" onclick="event.preventDefault(); openRentModalDynamic('50m')"
-                                    class="block w-full text-center bg-amber-400 text-brand-900 font-bold py-4 px-4 rounded-xl hover:bg-amber-300 transition shadow-lg shadow-brand-900/50 transform hover:-translate-y-0.5">
-                                    Reserva aquí
-                                </a>
-                            </div>
-
-                            <ul class="space-y-4 mb-4 flex-grow">
-                                <li class="flex items-start gap-3">
-                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-400 shrink-0 mt-0.5"></i>
-                                    <span class="text-white font-medium">Doble d'espai per a màxima producció</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-400 shrink-0 mt-0.5"></i>
-                                    <span class="text-brand-50">Dret a ús de la caseta i eines</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-400 shrink-0 mt-0.5"></i>
-                                    <span class="text-brand-50">Aigua a peu de parcel·la</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-400 shrink-0 mt-0.5"></i>
-                                    <span class="text-brand-50">Formar part d'un projecte en creixement</span>
-                                </li>
-                            </ul>
                         </div>
+
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-400 shrink-0 mt-0.5"></i>
+                                <span class="text-white font-medium">Doble d'espai per a màxima producció</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-400 shrink-0 mt-0.5"></i>
+                                <span class="text-brand-50">Dret a ús de la caseta i eines</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-400 shrink-0 mt-0.5"></i>
+                                <span class="text-brand-50">Aigua a peu de parcel·la</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-400 shrink-0 mt-0.5"></i>
+                                <span class="text-brand-50">Formar part d'un projecte en creixement</span>
+                            </li>
+                        </ul>
                     </div>
-
                 </div>
 
-                <!-- Botó Infografia -->
-                <div class="mt-16 text-center">
-                    <button onclick="openInfographicModal()"
-                        class="inline-flex items-center justify-center gap-3 bg-white text-brand-900 font-bold px-8 py-4 rounded-full shadow-xl hover:-translate-y-1 hover:shadow-2xl hover:bg-brand-50 transition-all border border-brand-200 group w-full md:w-auto">
-                        <span class="text-2xl group-hover:scale-110 transition-transform">🍅</span>
-                        <span>Què hi puc plantar en aquest espai?</span>
-                        <i data-lucide="arrow-right"
-                            class="w-5 h-5 text-brand-500 group-hover:translate-x-1 transition-transform"></i>
-                    </button>
-                </div>
             </div>
+
+            <!-- Botó Infografia -->
+            <div class="mt-16 text-center">
+                <button onclick="openInfographicModal()"
+                    class="inline-flex items-center justify-center gap-3 bg-white text-brand-900 font-bold px-8 py-4 rounded-full shadow-xl hover:-translate-y-1 hover:shadow-2xl hover:bg-brand-50 transition-all border border-brand-200 group w-full md:w-auto">
+                    <span class="text-2xl group-hover:scale-110 transition-transform">🍅</span>
+                    <span>Què hi puc plantar en aquest espai?</span>
+                    <i data-lucide="arrow-right"
+                        class="w-5 h-5 text-brand-500 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+        </div>
     </section>
 
     <!-- Serveis Extres -->
@@ -1059,7 +1048,7 @@
 
             <div class="p-6 overflow-y-auto grow">
                 <form id="rent-form" class="space-y-5" onsubmit="processRentPayment(event)">
-                    <div id="rent-form-step-1" class="space-y-5 animate-fadeIn">
+                    <div id="rent-form-wrapper" class="space-y-5 animate-fadeIn">
 
                         <!-- Dynamic Selector for "Reserva Ara" -->
                         <div id="dynamic-plan-selector"
@@ -1141,34 +1130,13 @@
                             </div>
                         </div>
 
-                        <button type="button" id="btn-previsualitzar-contracte" onclick="showContractPreview()"
-                            class="w-full bg-stone-800 text-white font-bold py-4 rounded-xl hover:bg-stone-900 transition shadow-lg flex justify-center items-center gap-2 mt-4">
-                            <i data-lucide="eye" class="w-5 h-5"></i> Previsualitzar Contracte
-                        </button>
-
                         <!-- Dades d'alerta si falten camps -->
-                        <p id="rent-form-error" class="text-red-500 text-xs text-center hidden mt-2 font-bold">Si us
+                        <p id="rent-form-error" class="text-red-500 text-xs text-center hidden mt-2 mb-4 font-bold">Si
+                            us
                             plau, omple totes les teves dades abans de continuar.</p>
-                    </div> <!-- End #rent-form-step-1 -->
-
-                    <!-- Pas 2: Previsualització del contracte i enviament -->
-                    <div id="rent-form-step-2" class="hidden space-y-5 animate-fadeIn">
-                        <button type="button" onclick="backToRentForm()"
-                            class="text-sm text-stone-500 hover:text-stone-800 font-bold flex items-center gap-1 mb-4">
-                            <i data-lucide="arrow-left" class="w-4 h-4"></i> Tornar a les dades
-                        </button>
-
-                        <div class="bg-brand-50 border border-brand-200 p-4 rounded-xl text-brand-900 mb-4">
-                            <p class="font-bold flex items-center gap-2 mb-2"><i data-lucide="file-check"
-                                    class="w-5 h-5 text-brand-600"></i> Contracte Generat</p>
-                            <p class="text-sm">El contracte oficial s'ha obert en una pestanya nova en format PDF perquè
-                                puguis llegir-lo amb atenció, descarregar-lo i conèixer l'avís legal (LOPD).<br><br>Si
-                                estàs d'acord amb les condicions generals exposades en el document, marca la casella
-                                inferior per signar digitalment l'alta.</p>
-                        </div>
 
                         <label
-                            class="flex items-start gap-3 cursor-pointer p-2 bg-brand-50 rounded-xl border border-brand-100 hover:bg-brand-100/50 transition">
+                            class="flex items-start gap-3 cursor-pointer p-2 bg-brand-50 rounded-xl border border-brand-100 hover:bg-brand-100/50 transition mt-4 mb-4">
                             <input type="checkbox" required
                                 class="mt-1 w-5 h-5 text-brand-600 rounded border-stone-300 focus:ring-brand-500 cursor-pointer">
                             <span class="text-xs text-stone-700 leading-relaxed">He llegit detalladament i <strong
@@ -1202,28 +1170,28 @@
 
                         <button type="submit" id="btn-pagar-rent"
                             class="w-full bg-brand-700 text-white font-bold py-4 rounded-xl hover:bg-brand-800 transition shadow-lg flex justify-center items-center gap-2 mt-4">
-                            <i data-lucide="send" class="w-5 h-5"></i> Enviar Sol·licitud d'Alta
+                            <i data-lucide="send" class="w-5 h-5"></i> Inscriure'm i Pagar
                         </button>
+                    </div> <!-- End #rent-form-wrapper -->
 
-                        <!-- Success Message -->
-                        <div id="rent-payment-success"
-                            class="hidden bg-emerald-50 text-emerald-900 p-6 rounded-xl border border-emerald-200 text-center font-semibold mt-4 animate-fadeIn">
-                            <i data-lucide="clock-4" class="w-16 h-16 mx-auto mb-4 text-emerald-500"></i>
-                            <p class="text-xl font-bold mb-2 text-emerald-800">Sol·licitud rebuda!</p>
-                            <p class="text-sm text-emerald-700 font-normal leading-relaxed mb-4">La teva petició està en
-                                "standby". Recorda fer l'ingrés o transferència a:</p>
-                            <div
-                                class="bg-white p-3 rounded border border-emerald-200 font-mono text-sm font-bold text-emerald-900 mb-4 select-all">
-                                ES55 1563 2626 3232 6941 6254
-                            </div>
-                            <p class="text-sm text-emerald-700 font-normal leading-relaxed mb-5">Tan bon punt rebem el
-                                justificant o ho validem, activarem les claus que has escollit per entrar a l'àrea
-                                privada o
-                                començar a usar l'hort.</p>
-                            <button type="button" onclick="closeRentModal()"
-                                class="w-full bg-emerald-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-emerald-700 transition">Entès
-                                i Tancar</button>
+                    <!-- Success Message -->
+                    <div id="rent-payment-success"
+                        class="hidden bg-emerald-50 text-emerald-900 p-6 rounded-xl border border-emerald-200 text-center font-semibold mt-4 animate-fadeIn">
+                        <i data-lucide="clock-4" class="w-16 h-16 mx-auto mb-4 text-emerald-500"></i>
+                        <p class="text-xl font-bold mb-2 text-emerald-800">Sol·licitud rebuda!</p>
+                        <p class="text-sm text-emerald-700 font-normal leading-relaxed mb-4">Rebràs un correu amb els
+                            propers passos i el teu contracte. Mentrestant, recorda fer l'ingrés o transferència a:</p>
+                        <div
+                            class="bg-white p-3 rounded border border-emerald-200 font-mono text-sm font-bold text-emerald-900 mb-4 select-all">
+                            ES55 1563 2626 3232 6941 6254
                         </div>
+                        <p class="text-sm text-emerald-700 font-normal leading-relaxed mb-5">Tan bon punt rebem el
+                            justificant o ho validem, activarem les claus que has escollit per entrar a l'àrea
+                            privada o començar a usar l'hort.</p>
+                        <button type="button" onclick="closeRentModal()"
+                            class="w-full bg-emerald-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-emerald-700 transition">Entès
+                            i Tancar</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -1271,10 +1239,9 @@
             lucide.createIcons();
 
             // Reset views
-            document.getElementById('rent-form-step-1').classList.remove('hidden');
-            document.getElementById('rent-form-step-2').classList.add('hidden');
-            document.getElementById('rent-payment-success').classList.add('hidden');
             document.getElementById('rent-form-error').classList.add('hidden');
+            document.getElementById('rent-payment-success').classList.add('hidden');
+            document.getElementById('rent-form-wrapper').classList.remove('hidden');
         }
 
         // New Dynamic Modal Logic for "Reserva Ara"
@@ -1293,10 +1260,9 @@
             lucide.createIcons();
 
             // Reset views
-            document.getElementById('rent-form-step-1').classList.remove('hidden');
-            document.getElementById('rent-form-step-2').classList.add('hidden');
-            document.getElementById('rent-payment-success').classList.add('hidden');
             document.getElementById('rent-form-error').classList.add('hidden');
+            document.getElementById('rent-payment-success').classList.add('hidden');
+            document.getElementById('rent-form-wrapper').classList.remove('hidden');
         }
 
         function updateDynamicPrice() {
@@ -1355,74 +1321,6 @@
             }
             document.getElementById('rent-modal-total').textContent = (basisPrice + matriculaFee) + '€';
             rentModal.dataset.planType = size;
-        }
-
-        function showContractPreview() {
-            const name = document.getElementById('book-name').value.trim();
-            const dni = document.getElementById('book-dni').value.trim();
-            const email = document.getElementById('book-email').value.trim();
-            const tel = document.getElementById('book-tel').value.trim();
-            const pwd = document.getElementById('book-password').value;
-
-            if (!name || !dni || !email || !tel || !pwd) {
-                document.getElementById('rent-form-error').classList.remove('hidden');
-                return;
-            }
-
-            document.getElementById('rent-form-error').classList.add('hidden');
-
-            const btn = document.getElementById('btn-previsualitzar-contracte');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = 'Generant PDF... <i class="animate-spin w-5 h-5 border-2 border-white rounded-full border-t-transparent ml-2 inline-block"></i>';
-            btn.disabled = true;
-
-            // Inject data into hidden PDF template
-            const today = new Date().toLocaleDateString('ca-ES');
-            document.getElementById('pdf-contract-date').textContent = today;
-            document.getElementById('pdf-contract-name').textContent = name;
-            document.getElementById('pdf-contract-dni').textContent = dni;
-            document.getElementById('pdf-contract-email').textContent = email;
-            document.getElementById('pdf-contract-tel').textContent = tel;
-            document.getElementById('pdf-contract-plan').textContent = document.getElementById('rent-modal-subtitle').textContent;
-            document.getElementById('pdf-contract-total').textContent = document.getElementById('rent-modal-total').textContent;
-
-            const element = document.getElementById('pdf-contract-template');
-            element.style.display = 'block'; // Make visible momentarily for html2pdf
-
-            const opt = {
-                margin: 15,
-                filename: `Contracte_VallRoure_${name.replace(/\s+/g, '_')}.pdf`,
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-
-            // Generate PDF and open in new window
-            html2pdf().set(opt).from(element).outputPdf('bloburl').then(function (pdfUrl) {
-                window.open(pdfUrl, '_blank');
-                element.style.display = 'none'; // Hide template again
-
-                // Advance modal to Step 2
-                document.getElementById('rent-form-step-1').classList.add('hidden');
-                document.getElementById('rent-form-step-2').classList.remove('hidden');
-
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-
-                // Scroll to top of modal content
-                document.querySelector('#rent-plot-modal .overflow-y-auto').scrollTop = 0;
-            }).catch(err => {
-                console.error('Error generating PDF:', err);
-                alert("Hi ha hagut un error generant el PDF. Si us plau, torna-ho a intentar.");
-                element.style.display = 'none';
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-            });
-        }
-
-        function backToRentForm() {
-            document.getElementById('rent-form-step-2').classList.add('hidden');
-            document.getElementById('rent-form-step-1').classList.remove('hidden');
         }
 
         function closeRentModal() {
