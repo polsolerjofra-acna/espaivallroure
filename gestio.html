@@ -1199,35 +1199,38 @@
             document.getElementById('pdf-contract-total').textContent = totalText;
 
             const element = document.getElementById('pdf-contract-template');
-            element.classList.remove('hidden');
 
-            const opt = {
-                margin: 15,
-                filename: `Contracte_Actiu_${contract.name.replace(/\s+/g, '_')}.pdf`,
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
+            // Native Browser Print Fallback
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(`
+                <html>
+                    <head>
+                        <title>Contracte_${contract.name.replace(/\s+/g, '_')}</title>
+                        <script src="https://cdn.tailwindcss.com"><` + `/script>
+                        <style>
+                            @media print {
+                                body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+                                .page-break-after-always { page-break-after: always; }
+                            }
+                        </style>
+                    </head>
+                    <body class="bg-white text-black p-8 font-sans text-sm">
+                        ${element.innerHTML}
+                        <script>
+                            setTimeout(() => {
+                                window.print();
+                            }, 500);
+                        <` + `/script>
+                    </body>
+                </html>
+            `);
+            printWindow.document.close();
 
-            html2pdf().set(opt).from(element).save().then(function () {
-                element.classList.add('hidden');
-
-                if (btn) {
-                    btn.innerHTML = '<i data-lucide="download" class="w-3 h-3"></i> PDF';
-                    btn.disabled = false;
-                    lucide.createIcons();
-                }
-            }).catch(err => {
-                console.error(err);
-                alert("Error generant el document PDF.");
-                element.classList.add('hidden');
-
-                if (btn) {
-                    btn.innerHTML = '<i data-lucide="download" class="w-3 h-3"></i> PDF';
-                    btn.disabled = false;
-                    lucide.createIcons();
-                }
-            });
+            if (btn) {
+                btn.innerHTML = '<i data-lucide="download" class="w-3 h-3"></i> PDF';
+                btn.disabled = false;
+                lucide.createIcons();
+            }
         }
 
         function renderAgenda() {
@@ -1487,28 +1490,35 @@
             document.getElementById('pdf-contract-total').textContent = totalText;
 
             const element = document.getElementById('pdf-contract-template');
-            element.classList.remove('hidden');
 
-            const opt = {
-                margin: 15,
-                filename: `Contracte_${user.name.replace(/\s+/g, '_')}.pdf`,
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
+            // Native Browser Print Fallback
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(`
+                <html>
+                    <head>
+                        <title>Contracte_${user.name.replace(/\s+/g, '_')}</title>
+                        <script src="https://cdn.tailwindcss.com"><` + `/script>
+                        <style>
+                            @media print {
+                                body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+                                .page-break-after-always { page-break-after: always; }
+                            }
+                        </style>
+                    </head>
+                    <body class="bg-white text-black p-8 font-sans text-sm">
+                        ${element.innerHTML}
+                        <script>
+                            setTimeout(() => {
+                                window.print();
+                            }, 500);
+                        <` + `/script>
+                    </body>
+                </html>
+            `);
+            printWindow.document.close();
 
-            html2pdf().set(opt).from(element).save().then(function () {
-                element.classList.add('hidden');
-
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-            }).catch(err => {
-                console.error(err);
-                alert("Error generant el document PDF.");
-                element.classList.add('hidden');
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-            });
+            btn.innerHTML = originalText;
+            btn.disabled = false;
         }
 
         function switchTab(tab) {
