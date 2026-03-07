@@ -1847,80 +1847,134 @@
     </div>
 
     <!-- Hidden PDF Template for Admin Regen -->
-    <div id="pdf-contract-template"
-        class="hidden font-sans text-sm leading-relaxed text-black bg-white p-8 max-w-3xl absolute top-0 left-0 z-50 h-auto"
-        style="width: 800px;">
-        <div class="text-center mb-8 border-b-2 border-black pb-4">
-            <h1 class="text-2xl font-bold uppercase tracking-wider">Contracte de Cessió i Ús de Parcel·la</h1>
-            <p class="text-lg mt-2">Espai Vall-Roure</p>
-            <p class="text-gray-500 mt-1">Girona, a <span id="pdf-contract-date" class="font-bold"></span></p>
-        </div>
+    <div id="pdf-contract-template" class="hidden font-sans text-sm leading-relaxed text-slate-800 bg-white"
+        style="width: 100%; max-width: 800px; margin: 0 auto;">
 
-        <div class="mb-6">
-            <h2 class="text-lg font-bold border-b border-gray-300 mb-2 uppercase text-gray-800">1. Reunió de les parts
-            </h2>
-            <div class="pl-4 space-y-3">
-                <p><strong>D'UNA BANDA (L'Arrendador):</strong> Marta Ferrando Ortega, amb DNI/NIE 79274910M, actuant en
-                    representació jurídica i gestió de l'Espai Vall-Roure (d'ara endavant, "L'Arrendador").</p>
-                <p><strong>D'ALTRA BANDA (L'Arrendatari):</strong> <span id="pdf-contract-name"
-                        class="font-bold"></span>, major d'edat, amb DNI/NIE <span id="pdf-contract-dni"
-                        class="font-bold"></span>, correu electrònic <span id="pdf-contract-email"
-                        class="italic"></span> i telèfon <span id="pdf-contract-tel"></span> (d'ara endavant,
-                    "L'Arrendatari").</p>
+        <!-- Header -->
+        <div class="mb-8 border-b-4 border-emerald-700 pb-6 flex justify-between items-end">
+            <div>
+                <h1 class="text-3xl font-extrabold text-emerald-800 tracking-tight">Contracte de Cessió i Ús</h1>
+                <p class="text-lg text-emerald-600 font-medium mt-1">Parcel·les d'Hort Ecològic</p>
+            </div>
+            <div class="text-right">
+                <p class="font-bold text-slate-800 text-xl tracking-widest uppercase">Espai Vall-Roure</p>
+                <p class="text-slate-500 mt-1">Girona, a <span id="pdf-contract-date"
+                        class="font-bold text-slate-700"></span></p>
             </div>
         </div>
 
-        <div class="mb-6">
-            <h2 class="text-lg font-bold border-b border-gray-300 mb-2 uppercase text-gray-800">2. Objecte i Condicions
-            </h2>
-            <div class="pl-4 space-y-2">
-                <p><strong>Primer. L'Objecte:</strong> L'Arrendador cedeix a L'Arrendatari l'ús de la parcel·la
-                    seleccionada de tipus <strong id="pdf-contract-plan"></strong>. L'ús està destinat exclusivament al
-                    cultiu d'hortalisses per a l'autoconsum familiar, l'esbarjo i la pràctica de l'agricultura
-                    ecològica.</p>
-                <p><strong>Segon. La Durada:</strong> El present contracte té una durada inicial vinculada a la quota
-                    escollida a partir de la signatura i pagament. És prorrogable automàticament excepte avís previ
-                    ordinari de trenta (30) dies per qualsevol de les parts.</p>
-                <p><strong>Tercer. Econòmic:</strong> L'Arrendatari abona la quantitat de <strong
-                        id="pdf-contract-total" class="text-lg underline underline-offset-2"></strong> per a l'alta i
-                    pagament del període inicial seleccionat. L'impagament de la subscripció recurrent donarà dret a
-                    L'Arrendador a la resolució unilateral i immediata de l'acord.</p>
-                <p><strong>Quart. Les Normes de l'Espai:</strong> Queda terminantment prohibit l'ús de productes
-                    agroquímics de síntesi o herbicides com el glifosat. S'exigeix mantenir la parcel·la en condicions
-                    decents de neteja, respectar el descans veïnal, no fer foc lliure i complir el Reglament de Règim
-                    Intern públic a www.espaivallroure.com.</p>
+        <div class="mb-8">
+            <h2
+                class="text-xs font-bold text-emerald-700 uppercase tracking-widest mb-3 border-b border-emerald-100 pb-1">
+                1. Reunió de les parts</h2>
+            <div class="grid grid-cols-2 gap-6">
+                <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 box-border">
+                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-2">L'Arrendador / Gestor
+                    </p>
+                    <p class="font-bold text-slate-800">Espai Vall-Roure</p>
+                    <p class="text-slate-600 mt-1">Rep.: Marta Ferrando Ortega</p>
+                    <p class="text-slate-600">DNI/NIE: 79274910M</p>
+                </div>
+                <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-100 box-border">
+                    <p class="text-[10px] text-emerald-600 font-bold uppercase tracking-wider mb-2">L'Arrendatari /
+                        Hortolà</p>
+                    <p class="font-bold text-slate-800 text-base" id="pdf-contract-name"></p>
+                    <p class="text-slate-700 mt-1">DNI/NIE: <span id="pdf-contract-dni" class="font-medium"></span></p>
+                    <p class="text-slate-600 text-xs mt-2"><span id="pdf-contract-tel"></span> • <span
+                            id="pdf-contract-email"></span></p>
+                </div>
             </div>
         </div>
 
-        <div class="mb-6 page-break-after-always">
-            <h2 class="text-lg font-bold border-b border-gray-300 mb-2 uppercase text-gray-800">3. Avís Legal i
-                Protecció de Dades (LOPDGDD i RGPD)</h2>
-            <div class="pl-4 text-xs text-justify space-y-2 text-gray-700">
-                <p>D'acord amb el que estableix el Reglament General de Protecció de Dades (Reglament UE 2016/679) i la
-                    Llei Orgànica 3/2018, de 5 de desembre, de Protecció de Dades Personals i garantia dels drets
-                    digitals (LOPDGDD), us informem que les dades personals facilitades en aquest document seran
-                    tractades per Marta Ferrando Ortega com a Responsable del Tractament.</p>
-                <p><strong>Finalitat i Legitimació:</strong> La finalitat principal del tractament és la gestió
-                    administrativa, comptable i jurídica derivada de l'execució d'aquest contracte de lloguer de
-                    parcel·la. La base legitimadora és l'execució del present acord contractual (Art. 6.1.b RGPD).</p>
-                <p><strong>Conservació:</strong> Les dades es conservaran durant el temps necessari per a complir amb la
-                    finalitat per a la qual es van recaptar i per determinar les possibles responsabilitats que es
-                    poguessin derivar de l'esmentada finalitat i del tractament de les dades.</p>
-                <p><strong>Comunicació:</strong> Les dades no seran cedides a tercers, excepte obligació legal. En el
-                    cas del correu electrònic i telèfon, podran ser utilitzats per l'Arrendador exclusivament per enviar
-                    comunicacions directament relacionades amb el funcionament i gestió de l'Espai Vall-Roure.</p>
-                <p><strong>Drets dels interessats:</strong> Vostè pot exercir, en qualsevol moment, els drets d'accés,
-                    rectificació, supressió, limitació, oposició i portabilitat dirigint-se mitjançant escrit al correu
-                    de contacte de l'Espai Vall-Roure establert a la web, adjuntant una còpia d'un document acreditatiu
-                    de la seva identitat.</p>
+        <div class="mb-8">
+            <h2
+                class="text-xs font-bold text-emerald-700 uppercase tracking-widest mb-3 border-b border-emerald-100 pb-1">
+                2. Objecte i Condicions</h2>
+            <div class="space-y-4 text-justify">
+                <div class="flex gap-4">
+                    <div
+                        class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 font-bold shrink-0">
+                        1</div>
+                    <div>
+                        <p><strong>L'Objecte:</strong> L'Arrendador cedeix a L'Arrendatari l'ús de la parcel·la
+                            seleccionada de tipus <span id="pdf-contract-plan"
+                                class="font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded"></span>. L'ús està
+                            destinat exclusivament al cultiu d'hortalisses per a l'autoconsum familiar, l'esbarjo i la
+                            pràctica de l'agricultura ecològica.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div
+                        class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 font-bold shrink-0">
+                        2</div>
+                    <div>
+                        <p><strong>La Durada:</strong> El present contracte té una durada inicial vinculada a la quota
+                            escollida a partir de la signatura i pagament. És prorrogable automàticament excepte avís
+                            previ ordinari de trenta (30) dies per qualsevol de les parts.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div
+                        class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 font-bold shrink-0">
+                        3</div>
+                    <div>
+                        <p><strong>Econòmic:</strong> L'Arrendatari abona la quantitat de <span id="pdf-contract-total"
+                                class="font-bold text-slate-800"></span> per a l'alta i pagament del període inicial
+                            seleccionat. L'impagament de la subscripció recurrent donarà dret a L'Arrendador a la
+                            resolució unilateral i immediata de l'acord.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div
+                        class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 font-bold shrink-0">
+                        4</div>
+                    <div>
+                        <p><strong>Normes de l'Espai:</strong> Queda terminantment prohibit l'ús de productes
+                            agroquímics de síntesi o herbicides com el glifosat. S'exigeix mantenir la parcel·la en
+                            condicions decents de neteja, respectar el descans veïnal, no fer foc lliure i complir el
+                            Reglament de Règim Intern públic a www.espaivallroure.com.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="mt-12 text-center text-sm italic text-gray-500">
-            <p>La validació i enviament mitjançant la plataforma web suposa l'acceptació contractual i signatura digital
-                del present document pel qual s'incorpora la present data d'alta de la sol·licitud per part de la gestió
-                de l'Espai Vall-Roure.</p>
-            <p class="mt-4 font-bold text-black uppercase">Espai Vall-Roure</p>
+        <div class="mb-4">
+            <h2
+                class="text-xs font-bold text-emerald-700 uppercase tracking-widest mb-3 border-b border-emerald-100 pb-1">
+                3. Protecció de Dades (RGPD)</h2>
+            <div
+                class="bg-slate-50 p-5 rounded-lg border border-slate-200 text-[11px] text-justify space-y-2 text-slate-600 leading-snug box-border">
+                <p>D'acord amb el Reglament General de Protecció de Dades (Reglament UE 2016/679) i la LOPDGDD 3/2018,
+                    les dades personals facilitades seran tractades per Marta Ferrando Ortega com a Responsable del
+                    Tractament.</p>
+                <p><strong>Finalitat i Legitimació:</strong> Gestió administrativa, comptable i jurídica derivada
+                    d'aquest contracte (Art. 6.1.b RGPD). <strong>Conservació:</strong> Durant el temps necessari per a
+                    complir la finalitat i determinar responsabilitats. <strong>Comunicació:</strong> No seran cedides a
+                    tercers excepte obligació legal. Utilitzades exclusivament per enviar comunicacions relacionades amb
+                    l'Espai Vall-Roure. <strong>Drets:</strong> Pot exercir els drets d'accés, rectificació, supressió,
+                    limitació i oposició mitjançant el correu de contacte de la web.</p>
+            </div>
+        </div>
+
+        <div class="mt-8 pt-8 border-t border-slate-200 page-break-after-always">
+            <p class="text-center text-xs text-slate-500 italic mb-12">La validació i enviament mitjançant la plataforma
+                web suposa l'acceptació contractual i signatura digital del present document pel qual s'incorpora la
+                present data d'alta de la sol·licitud.</p>
+
+            <div class="flex justify-between px-12">
+                <div class="text-center w-64">
+                    <div class="h-16 border-b border-slate-300 mb-2 flex items-end justify-center pb-2">
+                        <span class="text-emerald-700 font-bold italic text-xl opacity-70">Espai Vall-Roure</span>
+                    </div>
+                    <p class="font-bold text-slate-800 text-xs uppercase tracking-wider">L'Arrendador</p>
+                </div>
+                <div class="text-center w-64">
+                    <div class="h-16 border-b border-slate-300 mb-2 flex items-end justify-center pb-2">
+                        <span class="text-slate-400 italic text-sm">Signatura digital acceptada</span>
+                    </div>
+                    <p class="font-bold text-slate-800 text-xs uppercase tracking-wider">L'Arrendatari</p>
+                </div>
+            </div>
         </div>
     </div>
 
