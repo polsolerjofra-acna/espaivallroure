@@ -1107,11 +1107,59 @@
             }
         }
 
+        function extendExpiration(currentExpiresStr, planStr) {
+            let d;
+            if (currentExpiresStr) {
+                const parts = currentExpiresStr.split('/');
+                if (parts.length === 3) {
+                    d = new Date(parts[2], parts[1] - 1, parts[0]);
+                } else {
+                    d = new Date();
+                }
+            } else {
+                d = new Date();
+            }
+
+            // Si ja estava caducat en el passat, comencem des d'avui
+            if (d < new Date(new Date().setHours(0, 0, 0, 0))) d = new Date();
+
+            if (planStr && planStr.includes('Mes a mes')) {
+                d.setMonth(d.getMonth() + 1);
+            } else if (planStr && planStr.includes('Semestral')) {
+                d.setMonth(d.getMonth() + 6);
+            } else {
+                d.setFullYear(d.getFullYear() + 1);
+            }
+            return d.toLocaleDateString('ca-ES');
+        }
+
+        function deleteActiveContract(r, c, halfIndex) {
+            if (confirm("Estàs segur que vols esborrar aquest hortolà i alliberar la parcel·la? Aquesta acció no es pot desfer.")) {
+                const plot = plotsState.find(p => p.r === r && p.c === c);
+                if (halfIndex === 1) {
+                    plot.h1 = false;
+                    plot.h1_contract = null;
+                } else {
+                    plot.h2 = false;
+                    plot.h2_contract = null;
+                }
+                saveState();
+                renderMap();
+                renderAgenda();
+            }
+        }
+
         function togglePaid(r, c, halfIndex) {
             const plot = plotsState.find(p => p.r === r && p.c === c);
             const contract = halfIndex === 1 ? plot.h1_contract : plot.h2_contract;
             if (contract) {
                 contract.paid = !contract.paid;
+
+                // Si marquem com a pagat, estenem la data de caducitat segons el pla
+                if (contract.paid && contract.plan) {
+                    contract.expires = extendExpiration(contract.expires, contract.plan);
+                }
+
                 saveState();
                 renderAgenda();
             }
@@ -1155,6 +1203,7 @@
             element.style.position = 'absolute';
             element.style.left = '-9999px';
             element.style.top = '0';
+            element.style.width = '800px';
 
             const opt = {
                 margin: 15,
@@ -1255,6 +1304,9 @@
                                         </button>
                                         <button id="btn-download-pdf-${p.r}-${p.c}-${half.half}" onclick="downloadActiveContractPDF(${p.r}, ${p.c}, ${half.half})" class="bg-stone-100 hover:bg-stone-200 text-stone-700 px-2 py-1 rounded-lg text-[10px] font-bold transition flex items-center gap-1 shadow-sm border border-stone-200" title="Descarregar Contracte PDF">
                                             <i data-lucide="download" class="w-3 h-3"></i> PDF
+                                        </button>
+                                        <button onclick="deleteActiveContract(${p.r}, ${p.c}, ${half.half})" class="bg-red-50 hover:bg-red-100 text-red-600 p-1.5 rounded-lg transition shadow-sm ml-1 border border-red-100" title="Esborrar Hortolà i Alliberar Parcel·la">
+                                            <i data-lucide="trash-2" class="w-4 h-4"></i>
                                         </button>
                                     </td>
                                 </tr>
@@ -1388,17 +1440,15 @@
             const c = Number(cStr);
             const plot = plotsState.find(p => p.r === r && p.c === c);
 
-            const nextYear = new Date();
-            nextYear.setFullYear(nextYear.getFullYear() + 1);
-
             const contractData = {
                 name: pendingUserToApprove.name,
                 dni: pendingUserToApprove.dni,
                 email: pendingUserToApprove.email,
                 tel: pendingUserToApprove.tel,
+                plan: pendingUserToApprove.plan,
                 date: new Date().toLocaleDateString('ca-ES'),
                 paid: true,
-                expires: nextYear.toLocaleDateString('ca-ES')
+                expires: extendExpiration(null, pendingUserToApprove.plan)
             };
 
             if (hStr === 'FULL') {
@@ -1451,6 +1501,7 @@
             element.style.position = 'absolute';
             element.style.left = '-9999px';
             element.style.top = '0';
+            element.style.width = '800px';
 
             const opt = {
                 margin: 15,
